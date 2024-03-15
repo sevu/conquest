@@ -1,0 +1,171 @@
+[region]
+	name=Caldoran
+	bonus=11
+	village_list=Soniel,33,23,Iachos,29,22,Kobal,27,25,Verdanna,29,28,Tyra,34,28,Vidose,38,25,Erinmund,40,21,Kitsune,35,20
+[/region]
+[region]
+	name=Darran
+	bonus=9
+	village_list=Armand,9,25,Grizel,11,28,Axwell,9,31,Bothmore,13,24,Lehara,18,26,Beval,21,23
+[/region]
+[region]
+	name=Santino
+	bonus=9
+	village_list=Fala,16,34,Fesha,23,33,Gleann,15,38,Keir,22,41,Silva,28,36,Renata,29,40
+[/region]
+[region]
+	name=Ragnar
+	bonus=8
+	village_list=Ragnfast,22,51,Otrygg,24,47,Rangda,26,44,Orokia,29,46,Throg,34,49,Unlith,28,51
+[/region]
+[region]
+	name=Armessidiess
+	bonus=8
+	village_list=Dersmock,38,34,Adhassick,48,30,Seghath,46,27,Deswell,42,28,Ermyss,41,32,Messwikk,44,33
+[/region]
+[region]
+	name=Phenex
+	bonus=7
+	village_list=Purson,35,42,Celang,39,45,Oriax,46,43,Saebbi,44,47,Sigurd,50,45
+[/region]
+[region]
+	name=Gabus
+	bonus=7
+	village_list=Amed,39,8,Sebrim,39,13,Newen,46,10,Brann,44,13,Jugor,49,13
+[/region]
+[region]
+	name=Amil-Garith
+	bonus=7
+	village_list=Sriand,62,17,Glithiel,66,16,Nithraniel,69,14,Uruthien,65,13,Niothien,68,19
+[/region]
+[region]
+	name=Thruthien
+	bonus=7
+	village_list=Throlith,1,47,Cellindra,5,48,Eowaran,9,47,Limiriand,9,52,Thurlith,13,49,Fadrielia,15,52
+[/region]
+[region]
+	name=Caldor
+	bonus=7
+	village_list=Bryant,22,11,Capussa,19,13,Caldor,18,16,Berg,21,18,Rwyn,26,15
+[/region]
+[region]
+	name=Caladrielas
+	bonus=6
+	village_list=Iachos,49,51,Cildore,57,51,Kapaneus,55,48,Leruje,61,48,Raiju,65,52
+[/region]
+[region]
+	name=Renwarg Mountains
+	bonus=6
+	village_list=Solange,2,26,Yseult,2,29,Lambert,1,33,Vitnor,4,34,Fusatha,6,38
+[/region]
+[region]
+	name=Ahriman
+	bonus=6
+	village_list=Kimos,28,2,Naxagors,31,5,Ballo,27,7,Naqwen,31,10
+[/region]
+[region]
+	name=Issmort
+	bonus=6
+	village_list=Missreal,54,29,Glithmars,53,33,Gliass,51,36,Ssrimwell,57,35,Kwasmiss,59,31
+[/region]
+[region]
+	name=Limaria
+	bonus=5
+	village_list=Saturnill,11,15,Anselma,8,17,Ashling,12,18,Aurelio,6,21
+[/region]
+[region]
+	name=Giowen
+	bonus=5
+	village_list=Eradrien,50,1,Amadriewen,40,1,Gioviel,45,2,Ranaywen,48,5
+[/region]
+[region]
+	name=Morgoth
+	bonus=5
+	village_list=Fithmorg,63,1,Morkauth,63,4,Kauthrag,59,5,Tagrath,56,1
+[/region]
+[region]
+	name=Barden
+	bonus=4
+	village_list=Dewain,53,19,Kibus,58,20,Taral,56,23
+[/region]
+[region]
+	name=Anacleto
+	bonus=4
+	village_list=Amandor,7,1,Anselna,11,1,Renato,13,3
+[/region]
+[region]
+	name=Actaeon
+	bonus=4
+	village_list=Dastramos,18,2,Gidio,22,2,Kakios,18,5
+[/region]
+[region]
+	name=Boldek
+	bonus=4
+	village_list=Guado,64,25,Jugurtha,69,26,Dagny,65,29
+[/region]
+[region]
+	name=Koshmork
+	bonus=3
+	village_list=Quinick,2,40,Leckondra,4,43,Raknar,9,44
+[/region]
+[region]
+	name=Nawen
+	bonus=2
+	village_list=Amthien,45,19,Sebiral,48,22
+[/region]
+[region]
+	name=Renviel
+	bonus=2
+	village_list=Rildur,56,9,Gil-landrian,58,12
+[/region]
+
+[region]
+	name=Horgmauth
+	bonus=2
+	village_list=Drauthmor,65,9,Mikthorg,69,7
+[/region]
+[region]
+	name=Amithraniel
+	bonus=2
+	village_list=Urilmadia,64,34,Nowen,61,37
+[/region]
+[region]
+	name=Unuveil
+	bonus=2
+	village_list=Giowellin,10,9,Sadrielas,14,7
+[/region]
+[region]
+	name=Ssreckmil
+	bonus=2
+	village_list=Sereck,40,38,Esruck,43,40
+[/region]
+[region]
+	name=Taradien
+	bonus=2
+	village_list=Legadien,60,41,Syniel,56,41
+[/region]
+[region]
+	name=Drackwith
+	bonus=2
+	village_list=Krassmor,68,39,Cladock,69,43
+[/region]
+[region]
+	name=Roquen
+	bonus=2
+	village_list=Valcaro,2,4,Rocknil,2,8
+[/region]
+[region]
+	name=Artha
+	bonus=2
+	village_list=Rotha,4,13,Lurod,2,17
+[/region]
+[region]
+	name=Nilmadia
+	bonus=2
+	village_list=Gilthrane,31,17,Rorfindial,37,18
+[/region]
+[region]
+	name=Bolvark
+	bonus=1
+	village_list=Bolvark,45,24
+[/region]
