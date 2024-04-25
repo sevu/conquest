@@ -7,7 +7,9 @@ local res = {}
 function res.turns_over_advantage()
 	local winning_sides, side_results = res.calc_turns_over_advantage(1)
 	wml.variables['won'] = table.concat(winning_sides, ',')
-	res.show_turns_over_advantage(winning_sides, side_results, 'End of Game')
+	local _ = wesnoth.textdomain "wesnoth-Conquest"
+	-- po: Turn limit reached (if one was used)
+	res.show_turns_over_advantage(winning_sides, side_results, _'End of Game')
 end
 
 ---@class side_result
@@ -85,35 +87,31 @@ function res.show_turns_over_advantage(winning_sides, side_results, title)
 		local outcome = side_results[side]
 		local side_color = wesnoth.colors[wesnoth.sides[side].color].pango_color
 		if outcome == false then
-			-- po: In the end-of-match summary, a side which has no units left and therefore lost. In English the loss is shown by displaying it with the text struck through.
 			local side_text = _ "<span strikethrough='true' foreground='$side_color'>Side $side_number</span>:  Has lost all units"
 			side_comparison = side_comparison .. side_text:vformat{side_color = side_color, side_number = side} .. "\n"
 		elseif outcome ~= nil then
-			-- po: In the end-of-match summary, any side that still has units left
+			_ = wesnoth.textdomain "wesnoth-Conquest"
+			-- po: This is a shortened string from the mainline textdomain wesnoth-multiplayer. You can copy the text from there and delete a part of it: https://gettext.wesnoth.org/?package=wesnoth-multiplayer
 			local side_text = _ "<span foreground='$side_color'>Side $side_number</span>:  Income = $income"
 			side_comparison = side_comparison .. side_text:vformat{side_color = side_color, side_number = side, income = outcome.income, units = outcome.num_units, gold = outcome.gold, total = outcome.total} .. "\n"
 		end
 	end
 
+	_ = wesnoth.textdomain "wesnoth-multiplayer"
 	if #winning_sides == 1 then
 		local side = winning_sides[1]
 		local side_color = wesnoth.colors[wesnoth.sides[side].color].pango_color
-		-- po: In the end-of-match summary, there's a single side that's won.
 		local comparison_text = _ "<span foreground='$side_color'>Side $side_number</span> has the advantage."
 		side_comparison = side_comparison .. "\n" .. comparison_text:vformat{side_number = winning_sides[1], side_color = side_color}
 	elseif #winning_sides == 2 then
-		-- po: In the end-of-match summary, there's a two-way tie (this is only used for exactly two winning teams)
-		-- Separated from the three-or-more text in case a language differentiates "two sides" vs "three sides".
 		local comparison_text = _ "Sides $side_number and $other_side_number are tied."
 		side_comparison = side_comparison .. "\n" .. comparison_text:vformat{side_number = winning_sides[1], other_side_number = winning_sides[2]}
 	elseif #winning_sides ~= 0 then
 		local winners = stringx.format_conjunct_list("", winning_sides)
-		-- po: In the end-of-match summary, three or more teams have all tied for the best score. $winners contains the result of formatting the conjunct list.
 		local comparison_text = _ "Sides $winners are tied."
 		side_comparison = side_comparison .. "\n" .. comparison_text:vformat{winners = winners}
 	end
 	-- if #winning_sides==0, then every side either has no units or has a negative score
-	-- po: "Turns Over", meaning "turn limit reached" is the title of the end-of-match summary dialog
 	title = title or _ "dialog^Turns Over"
 	gui.show_popup(title, side_comparison)
 end
