@@ -1,0 +1,140 @@
+[region]
+	name=Thysea
+	bonus=13
+	village_list=Mesarna,6,18,Aeoki,11,20,Gallis,6,22,Antian,10,23,Gimnete,2,26,Duerlo,7,26,Deitan,9,29,Nivea,13,26
+[/region]
+[region]
+	name=Torath
+	bonus=10
+	village_list=Anorla,36,28,Olcade,45,31,Trin,41,28,Turm,47,33,Lusit,41,32,Jeramaa,37,32
+[/region]
+[region]
+	name=Barca
+	bonus=7
+	village_list=Larica,3,34,Brac,7,35,Mosran,2,36,Begh,6,38,Kalufa,3,40
+[/region]
+[region]
+	name=Etruria
+	bonus=7
+	village_list=Lussen,34,2,Uluria,36,5,Cantabre,39,7,Sebar,36,10,Spenar,41,11
+[/region]
+[region]
+	name=Lathur
+	bonus=7
+	village_list=Jacetan,31,40,Jath,34,42,Illerge,37,45,Sardoth,42,43,Sargordis,45,41
+[/region]
+[region]
+	name=Soltane
+	bonus=7
+	village_list=Veto,14,37,Tajaran,18,35,Astur,23,37,Turdin,18,40,Sumana,24,40
+[/region]
+[region]
+	name=Segesta
+	bonus=7
+	village_list=Desardia,18,4,Bastei,24,3,Oretino,30,3,Layel,21,8,Loffa,26,8
+[/region]
+[region]
+	name=Sicca
+	bonus=6
+	village_list=Emard,48,45,Agarlatium,49,51,Refren,45,48,Thurn,46,54
+[/region]
+[region]
+	name=Rusaddi
+	bonus=5
+	village_list=Icorna,24,13,Calor,30,17,Glab,28,14,Kokane,25,18
+[/region]
+[region]
+	name=Behaima
+	bonus=6
+	village_list=Tiafiflis,18,21,Lualdi,26,22,Hano,22,20,Ivar,23,26
+[/region]
+[region]
+	name=Zama
+	bonus=4
+	village_list=Marali,37,20,Locri,40,22,Drepanei,42,20
+[/region]
+[region]
+	name=Eryx
+	bonus=4
+	village_list=Eryx,37,35,Gysko,41,36,Petalita,46,36
+[/region]
+[region]
+	name=Abydos
+	bonus=4
+	village_list=Redd,23,51,Attalani,23,54,Famura,29,53
+[/region]
+[region]
+	name=Hamilcar
+	bonus=4
+	village_list=Tibana,25,46,Hanlu,30,43,Ponyal,30,47
+[/region]
+[region]
+	name=Willow Wood
+	bonus=3
+	village_list=Freyar,1,11,Fatamanate,6,9,Kaltuna,5,12
+[/region]
+[region]
+	name=Slevor
+	bonus=2
+	village_list=Rapaax,41,16,Seyal,46,15
+[/region]
+[region]
+	name=Morton Swamp
+	bonus=2
+	village_list=Mortu,49,25,Sidrar,49,20
+[/region]
+[region]
+	name=Faria
+	bonus=2
+	village_list=Chacer,37,50,Motana,39,53
+[/region]
+[region]
+	name=Himera
+	bonus=2
+	village_list=Himera,26,31,Chold,29,34
+[/region]
+[region]
+	name=Tyndaris
+	bonus=2
+	village_list=Tylon,29,27,Seccar,31,24
+[/region]
+[region]
+	name=Drepana
+	bonus=2
+	village_list=Chailu,15,12,Xinanago,16,15
+[/region]
+[region]
+	name=Thalia
+	bonus=2
+	village_list=Quepia,19,32,Hatrarlo,16,33
+[/region]
+[region]
+	name=Yetrab
+	bonus=2
+	village_list=Quetal,14,44,Sinanal,16,46
+[/region]
+[region]
+	name=Castra
+	bonus=2
+	village_list=Castra,5,46,Waar,7,48
+[/region]
+[region]
+	name=Darp
+	bonus=2
+	village_list=Deglatia,4,52,Tramtium,9,54
+[/region]
+[region]
+	name=New Calron
+	bonus=1
+	village_list=New,2,19
+[/region]
+[region]
+	name=Yarghford Mountains
+	bonus=2
+	village_list=Baslan,5,2,Dhaharmb,3,5
+[/region]
+[region]
+	name=Jo
+	bonus=1
+	village_list=Jo,12,4
+[/region]
