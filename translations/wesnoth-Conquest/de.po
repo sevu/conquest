@@ -1,0 +1,1791 @@
+# SPDX-FileCopyrightText: 2024 Severin Glöckner <severin.gloeckner@stud.htwk-leipzig.de>
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.wesnoth.org/\n"
+"POT-Creation-Date: 2024-05-07 11:58 UTC\n"
+"PO-Revision-Date: 2024-05-07 03:19+0200\n"
+"Last-Translator: Severin Glöckner <severin.gloeckner@stud.htwk-leipzig.de>\n"
+"Language-Team: German <irc://irc.libera.chat/#wesnoth-de>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. [lua]: res.turns_over_advantage
+#. Turn limit reached (if one was used)
+#: Conquest_Asterisk/lua/turns_over.lua:12
+msgid "End of Game"
+msgstr "Spielende"
+
+#. [lua]: res.show_turns_over_advantage
+#. This is a shortened string from the mainline textdomain wesnoth-multiplayer. You can copy the text from there and delete a part of it: https://gettext.wesnoth.org/?package=wesnoth-multiplayer
+#: Conquest_Asterisk/lua/turns_over.lua:95
+msgid ""
+"<span foreground='$side_color'>Side $side_number</span>:  Income = $income"
+msgstr ""
+"<span foreground='$side_color'>Partei $side_number</span>:  Einkommen = "
+"$income"
+
+#. [damage]: id=cassassin
+#. weapon special
+#: Conquest_Asterisk/macros/enclave_abilities.cfg:7
+msgid "assassin"
+msgstr "Attentäter"
+
+#. [damage]: id=cassassin
+#. weapon special, text for mouse-over
+#: Conquest_Asterisk/macros/enclave_abilities.cfg:9
+msgid "Deals 90 damage per strike versus 25 gold units like Warships."
+msgstr ""
+"Verursacht je Treffer 90 Schaden gegen 25 Gold Einheiten wie z.B. "
+"Kriegsschiffe."
+
+#. [general]: id=ce_general
+#. ability/trait which shows the player a weakness of his most expensive unit.
+#. It is an assassination target. Translate freely, "worthy target" works fine too.
+#: Conquest_Asterisk/macros/enclave_abilities.cfg:27
+msgid "assassination target"
+msgstr "Lohnenswertes Ziel"
+
+#. [general]: id=ce_general
+#. From Assassain, Pirate Galleon, Mermaid Siren
+#: Conquest_Asterisk/macros/enclave_abilities.cfg:29
+msgid "Receives 90 damage per hit from units like Assassins."
+msgstr ""
+"Bekommt von Attentätern und ähnlichen Einheiten 90 Schaden pro Treffer ab."
+
+#. [trait]: id=mechanical
+#. Transport Ship
+#. this is a trait/ability, it will be displayed in the sidebar. The purpose is to let the player know about this possibility.
+#: Conquest_Asterisk/macros/enclave_abilities.cfg:41
+msgid "Transport"
+msgstr "Transportschiff"
+
+#. [trait]: id=mechanical
+#. this text is displayed when moving the mouse over the name.
+#: Conquest_Asterisk/macros/enclave_abilities.cfg:43
+msgid "Can load and unload units between villages excluding mechanical units."
+msgstr ""
+"Kann Einheiten zwischen Städten transportieren (Kriegsgerät ausgenommen)."
+
+#: Conquest_Asterisk/macros/enclave_core_capitol_spawn.cfg:20
+msgid "Distance $d"
+msgstr "Distanz $d"
+
+#: Conquest_Asterisk/macros/enclave_core_capitol_spawn.cfg:25
+msgid "Attempt $number out of $max"
+msgstr "Versuch $number von $max"
+
+#: Conquest_Asterisk/macros/enclave_core_capitol_spawn.cfg:109
+msgid "All sides placed successfully"
+msgstr "Alle Parteien platziert"
+
+#: Conquest_Asterisk/macros/enclave_core_capitol_spawn.cfg:113
+msgid "Retrying side $n placement"
+msgstr "Versuche es bei Partei $n erneut"
+
+#: Conquest_Asterisk/macros/enclave_core_capitol_spawn.cfg:133
+msgid "Placing side $n failed"
+msgstr "Platzierung von Partei $n fehlgeschlagen"
+
+#. [print]
+#: Conquest_Asterisk/macros/enclave_core_capitol_spawn.cfg:168
+msgid ""
+"         Neutral units (White)\n"
+"spawn on empty Cities at Turn 2.\n"
+"         They can’t attack you."
+msgstr ""
+"         Neutrale Einheiten (Weiß)\n"
+"spawnen in freien Städten in Runde 2.\n"
+"         Sie greifen Euch nicht an."
+
+#. [message]: speaker=narrator
+#: Conquest_Asterisk/macros/enclave_core_game_menu.cfg:29
+msgid "Please select GAME MODE"
+msgstr "Wählt den Spielmodus"
+
+#. [option]
+#. ideally title in one line and 2 more lines for the text.
+#: Conquest_Asterisk/macros/enclave_core_game_menu.cfg:46
+msgid ""
+" REALM MODE\n"
+"Each player can select a region to start with.\n"
+"Remaining cities are guarded by AI units from turn 2 on."
+msgstr ""
+" Herrscher-Modus\n"
+"Jeder Spieler wählt zu Beginn eine Region. In den\n"
+"verbleibende Städten spawnen neutrale Einheiten."
+
+#. [option]
+#. ideally title in one line and 2 more lines for the text.
+#: Conquest_Asterisk/macros/enclave_core_game_menu.cfg:72
+msgid ""
+" CAPITOL MODE\n"
+"Each player starts distant to other players with 3 nearby\n"
+"assigned cities. Free cities are guarded by Neutrals."
+msgstr ""
+" Basis-Modus\n"
+"Jeder Spieler fängt mit 3 Städten an, entfernt von\n"
+"anderen. In freien Städten sind neutrale Einheiten."
+
+#. [option]
+#. ideally title in one line and 1-2 more lines for the text.
+#: Conquest_Asterisk/macros/enclave_core_game_menu.cfg:99
+msgid ""
+" ALL VILLAGE MODE\n"
+"All villages are randomly distributed among the players."
+msgstr ""
+" Alle Städte Modus\n"
+"Alle Städte werden zufällig unter den Spieler aufgeteilt."
+
+#. Next 5 strings are for realm mode.
+#: Conquest_Asterisk/macros/enclave_core_game_menu.cfg:147
+msgid "Choose a Region"
+msgstr "Wählt eine Region"
+
+#: Conquest_Asterisk/macros/enclave_core_game_menu.cfg:148
+msgid "Free cities will be filled with neutral units on turn 2."
+msgstr "In freien Städten werden in Runde 2 neutrale Einheiten platziert."
+
+#: Conquest_Asterisk/macros/enclave_core_game_menu.cfg:159
+#: Conquest_Asterisk/macros/enclave_core_game_menu.cfg:170
+msgid "Cities"
+msgstr "Städte"
+
+#: Conquest_Asterisk/macros/enclave_core_game_menu.cfg:159
+#: Conquest_Asterisk/macros/enclave_core_game_menu.cfg:170
+msgid "Income Bonus"
+msgstr "Zusatz-Einkommen"
+
+#: Conquest_Asterisk/macros/enclave_core_game_menu.cfg:159
+#: Conquest_Asterisk/macros/enclave_core_game_menu.cfg:170
+msgid "starting Gold"
+msgstr "Anfangsgold"
+
+#. this is the first thing new players will see
+#: Conquest_Asterisk/macros/enclave_core_intro.cfg:6
+msgid ""
+"How to play Conquest*\n"
+"\n"
+"\n"
+"Conquest has NO LEADER unit and NO KEEP.\n"
+"TO RECRUIT RIGHT CLICK YOUR VILAS (make sure there’s no unit on the vila "
+"when recruiting).\n"
+"Units can move 1 hex on their first turn, later they can move fully.\n"
+"\n"
+"If you capture all vilas in a REGION you get BONUS gold.\n"
+"3 modes: REALM (start with a region), CAPITOL (3 start vilas), ALL VILLAGES "
+"(scattered).\n"
+"On turn 2 empty vilas are filled with AI guardians (cannot move or "
+"recruit).\n"
+"\n"
+"To use boat transports, recruit a transport next to a vila, then make a unit "
+"on the vila.\n"
+"Right-click the transport to board. You can move a transport to another vila "
+"and right-click to unload."
+msgstr ""
+"Wie man Conquest spielt: \n"
+"\n"
+"\n"
+"In Conquest gibt es KEINEN ANFÜHRER und KEINE BURGEN.\n"
+"ZUM REKRUTIEREN, RECHTS-KLICKT AUF EINE STADT (dort darf noch keine Einheit "
+"stehen).\n"
+"Einheiten können sich direkt 1 Feld bewegen.\n"
+"\n"
+"Wenn ihr alle Städte einer REGION kontrolliert, erhaltet ihr ZUSÄTZLICHES "
+"GOLD.\n"
+"3 Modi: HERRSCHER (Ihr erhaltet eine Region), BASIS (3 Anfangsstädte), ALLE "
+"STÄDTE (quer verteilt).\n"
+"Ab Runde 2 werden freie Städte von neutralen Einheiten bewacht (greifen "
+"nicht an).\n"
+"\n"
+"Um Transportboote zu verwenden, rekrutiert erst ein Boot in einer Stadt, "
+"danach eine Einheit.\n"
+"Rechts-klickt auf das Boot zum betreten. Ihr könnt zu einer anderen Stadt "
+"segeln und mittels Rechts-klick es entladen."
+
+#. [objectives]
+#. The next 10-20 strings are similar to the intro text, but use different formatting. The game is explained to the new player here.
+#. These strings have to fit on the objectives screen without a line break!
+#: Conquest_Asterisk/macros/enclave_core_objectives.cfg:65
+msgid "How to play Conquest"
+msgstr "Wie man Conquest spielt"
+
+#. [objectives]
+#: Conquest_Asterisk/macros/enclave_core_objectives.cfg:66
+msgid "Conquest is played with different units and has no leader nor keep."
+msgstr ""
+"Conquest wird mit anderen Einheiten gespielt und ohne Anführer und Burgen."
+
+#. [objectives]
+#: Conquest_Asterisk/macros/enclave_core_objectives.cfg:67
+msgid ""
+"<b>To recruit, right click your vilas</b> (make sure there is no unit on the "
+"vila when recruiting)"
+msgstr ""
+"<b>Rechts-klickt auf eine Stadt zum Rekrutieren</b> (es darf dort noch keine "
+"Einheit stehen)"
+
+#. [objectives]
+#: Conquest_Asterisk/macros/enclave_core_objectives.cfg:68
+msgid "Units can move 1 hex on their first turn, later they can move fully."
+msgstr "Einheiten können direkt nach dem Rekrutieren 1 Feld bewegt werden."
+
+#. [objectives]
+#: Conquest_Asterisk/macros/enclave_core_objectives.cfg:69
+msgid ""
+"If you capture all vilas in a <b>region</b> you get <b>bonus</b> income."
+msgstr ""
+"Wenn Ihr alle Städte einer <b>Region</b> kontrolliert, erhaltet Ihr "
+"<b>zusätzliches</b> Einkommen."
+
+#. [objectives]
+#: Conquest_Asterisk/macros/enclave_core_objectives.cfg:70
+msgid ""
+"On turn 2 empty vilas are filled with AI guardians (cannot move or recruit)."
+msgstr ""
+"In Runde 2 werden neutrale Einheiten in freien Städten platziert (greifen "
+"Euch nicht an)."
+
+#. [objectives]
+#: Conquest_Asterisk/macros/enclave_core_objectives.cfg:71
+msgid "Placing <b>workers</b> on villages will provide another +1 income."
+msgstr "<b>Arbeiter</b> in Städten zu platzieren gibt Euch +1 Einkommen."
+
+#. [objectives]
+#: Conquest_Asterisk/macros/enclave_core_objectives.cfg:72
+msgid ""
+"Use boat transports by recruiting a transport next to a vila, then make a "
+"unit on the vila."
+msgstr ""
+"Rekrutiert ein Transportboot neben einer Stadt und positioniert eine Einheit "
+"in der Stadt."
+
+#. [objectives]
+#: Conquest_Asterisk/macros/enclave_core_objectives.cfg:72
+msgid "Using boats"
+msgstr "Boote verwenden"
+
+#. [objectives]
+#: Conquest_Asterisk/macros/enclave_core_objectives.cfg:73
+msgid ""
+"Right-click the transport to board. You can move a transport to another vila "
+"and right-click to unload."
+msgstr ""
+"Rechts-klickt auf das Boot zum Betreten. Selbes neben einer anderen Stadt "
+"zum Entladen."
+
+#. [objectives]
+#: Conquest_Asterisk/macros/enclave_core_objectives.cfg:74
+msgid "Strategy"
+msgstr "Strategie"
+
+#. [objectives]
+#: Conquest_Asterisk/macros/enclave_core_objectives.cfg:75
+msgid ""
+"You can have NAP (Non Agression Pact) with other players, use the Chat to "
+"discuss NAPs."
+msgstr ""
+"Ihr könnt ein NAP (Nichtangriffspakt) mit anderen Spielern schließen, "
+"diskutiert über den Chat!"
+
+#. [objectives]
+#: Conquest_Asterisk/macros/enclave_core_objectives.cfg:76
+msgid ""
+"Combat is simplified. No Resistances, units are neutral and use berserk."
+msgstr "Keine Resistenzen, Einheiten sind neutral und immer im Kampfrausch."
+
+#. [objectives]
+#: Conquest_Asterisk/macros/enclave_core_objectives.cfg:77
+msgid "About Conquest*"
+msgstr "Über Conquest*"
+
+#. [objectives]
+#: Conquest_Asterisk/macros/enclave_core_objectives.cfg:79
+msgid "You can join the Discord-Chat. Invite-Code: TUDEHgfE"
+msgstr "Es gibt einen Discord-Chat, der Einlade-Code lautet: TUDEHgfE"
+
+#. [objectives]
+#: Conquest_Asterisk/macros/enclave_core_objectives.cfg:80
+msgid "It would be great if you give feedback at r.wesnoth.org/t57848"
+msgstr "Gebt uns Feedback im Forum unter r.wesnoth.org/t57848"
+
+#. visible when you move the mouse over the flag icon in the top bar of the game
+#: Conquest_Asterisk/macros/enclave_map_bonus_macros_and_events.cfg:9
+msgid "Total Bonus:"
+msgstr "Gesamtbonus:"
+
+#: Conquest_Asterisk/macros/enclave_map_bonus_macros_and_events.cfg:14
+msgid "Base income:"
+msgstr "Grundeinkommen:"
+
+#: Conquest_Asterisk/macros/enclave_neutrals_growth.cfg:22
+msgid "Option enabled: Neutrals grow stronger after every $no turns."
+msgstr "Option aktiviert: Neutrale Einheiten werden alle $no Runden stärker."
+
+#: Conquest_Asterisk/macros/enclave_neutrals_growth.cfg:25
+msgid "Option enabled: Neutrals grow stronger every turn and will be healed."
+msgstr ""
+"Option aktiviert: Neutrale Einheiten werden jede Runde stärker und dabei "
+"geheilt."
+
+#: Conquest_Asterisk/macros/enclave_neutrals_growth.cfg:92
+msgid "Neutrals got stronger this turn."
+msgstr "Neutrale Einheiten sind diese Runde stärker geworden."
+
+#. [entry]: id=CE_SYSTEM.host_name
+#. a setting which can be changed when creating the game
+#: Conquest_Asterisk/macros/enclave_options.cfg:31
+msgid "Host Nickname:"
+msgstr "Spielername:"
+
+#. [entry]: id=CE_SYSTEM.host_name
+#. Will allow droid/undroid commands on right-click onto your leader, such as :droid 3 full
+#: Conquest_Asterisk/macros/enclave_options.cfg:34
+msgid ""
+"When right-clicking onto your leader, it will allow the same as by using the "
+"command :droid &lt;sidenumber&gt; full"
+msgstr ""
+"Per Rechts-klick auf Euren Anführer könnt Ihr ähnliches tun wie mit dem "
+"Kommando :droid &lt;Parteinummer&gt; full"
+
+#. [choice]: id=CE_SYSTEM.spawns_theme
+#. a setting which can be changed when creating the game
+#: Conquest_Asterisk/macros/enclave_options.cfg:40
+msgid "Neutral Spawns Theme"
+msgstr "Spawn-Muster von neutralen Einheiten"
+
+#. [choice]: id=CE_SYSTEM.spawns_theme
+#: Conquest_Asterisk/macros/enclave_options.cfg:41
+msgid ""
+"Applicable only when you have neutrals obviously – so capitol and realms."
+msgstr "Nur relevant wenn es neutrale Einheiten gibt."
+
+#. [item]
+#. ratio 1:1:1:1:1 average level 3
+#: Conquest_Asterisk/macros/enclave_options.cfg:44
+msgid "C- Random (1g,2g,3g,4g,5g)"
+msgstr "C- Zufällig (1g,2g,3g,4g,5g)"
+
+#. [item]
+#. ratio 3:4:3:1:1 average level 2.4
+#: Conquest_Asterisk/macros/enclave_options.cfg:49
+msgid "C- Easy (1g,2g,3g,4g,5g)"
+msgstr "C- Einfach (1g,2g,3g,4g,5g)"
+
+#. [item]
+#. ratio 1:2:4:2:1 average level 3
+#: Conquest_Asterisk/macros/enclave_options.cfg:54
+msgid "C- Medium (1g,2g,3g,4g,5g)"
+msgstr "C- Mittel (1g,2g,3g,4g,5g)"
+
+#. [item]
+#. ratio 1:1:2:3:3 average level 3.6
+#: Conquest_Asterisk/macros/enclave_options.cfg:59
+msgid "C- Hard (1g,2g,3g,4g,5g)"
+msgstr "C- Schwer (1g,2g,3g,4g,5g)"
+
+#. [item]
+#. ratio 1:0:0:0:0 average level 1
+#: Conquest_Asterisk/macros/enclave_options.cfg:64
+msgid "C Original (1g everywhere)"
+msgstr "C Original (1g überall)"
+
+#. [item]
+#. created by player enclave
+#: Conquest_Asterisk/macros/enclave_options.cfg:69
+msgid "Enclave Hard Balanced (1-15g spawns)"
+msgstr "Enclave Schwer Balanciert (1-15g Spawns)"
+
+#. [item]
+#. different version, created by player enclave
+#: Conquest_Asterisk/macros/enclave_options.cfg:83
+msgid "Enclave Hard Initial (1-15g spawns)"
+msgstr "Enclave Schwer Ursprünglich (1-15g Spawns)"
+
+#. [item]
+#. ratio 1:0:1:0:1 average level 3
+#: Conquest_Asterisk/macros/enclave_options.cfg:88
+msgid "Random (1g,3g,5g)"
+msgstr "Zufällig (1g,3g,5g)"
+
+#. [slider]: id=CE_SYSTEM.neutrals_grow_speed
+#. a setting which can be changed when creating the game
+#: Conquest_Asterisk/macros/enclave_options.cfg:99
+msgid "Allow neutrals to grow stronger at speed of turns:"
+msgstr "Neutrale Einheiten werden stärker:"
+
+#. [slider]: id=CE_SYSTEM.neutrals_grow_speed
+#. if value 5 is choosen it happens every 5 turns.
+#: Conquest_Asterisk/macros/enclave_options.cfg:101
+msgid ""
+"0 – Forbid. Allowing will make neutrals have stronger units in villages at "
+"speed of x turns per increment. They will also heal fully by that."
+msgstr ""
+"0 – Deaktiviert. Wenn aktiviert, werden neutrale Einheiten alle X Runden "
+"stärker. Dadurch werden sie auch geheilt."
+
+#. [slider]: id=CE_SYSTEM.max_distance
+#. a setting which can be changed when creating the game
+#: Conquest_Asterisk/macros/enclave_options.cfg:110
+msgid "Maximal starting distance between friendly villages:"
+msgstr "Maximaler Abstand zwischen eigenen Städten:"
+
+#. [slider]: id=CE_SYSTEM.max_distance
+#: Conquest_Asterisk/macros/enclave_options.cfg:111
+msgid "8 – Default C Classic"
+msgstr "8 – Standardwert C Classic"
+
+#. [slider]: id=CE_SYSTEM.min_distance
+#. a setting which can be changed when creating the game
+#: Conquest_Asterisk/macros/enclave_options.cfg:120
+msgid "Minimal starting distance between enemy villages:"
+msgstr "Minimaler Abstand zu gegnerischen Städten:"
+
+#. [slider]: id=CE_SYSTEM.min_distance
+#: Conquest_Asterisk/macros/enclave_options.cfg:121
+msgid "10 – Default C Classic"
+msgstr "10 – Standardwert C Classic"
+
+#. [slider]: id=CE_SYSTEM.number_of_attempts
+#. a setting which can be changed when creating the game
+#: Conquest_Asterisk/macros/enclave_options.cfg:130
+msgid "Number of attempts to try with starting distance:"
+msgstr "Anzahl Versuche mit der Startdistanz:"
+
+#. [slider]: id=CE_SYSTEM.number_of_attempts
+#: Conquest_Asterisk/macros/enclave_options.cfg:131
+msgid "If unsuccessful, then distance will be decreased."
+msgstr "Wenn es nicht klappt, wird die Distanz verringert."
+
+#. [checkbox]: id=CE_SYSTEM.show_village_labels_in_fog
+#. a setting which can be changed when creating the game
+#: Conquest_Asterisk/macros/enclave_options.cfg:137
+msgid "Show village labels in fog"
+msgstr "Städtenamen auch bei Nebel anzeigen"
+
+#. [checkbox]: id=CE_SYSTEM.show_village_labels_in_fog
+#: Conquest_Asterisk/macros/enclave_options.cfg:138
+msgid "If you disable this, then villages will not show labels in fog."
+msgstr ""
+"Wenn man es deaktiviert, sieht man die Städtenamen hinter dem Nebel des "
+"Krieges nicht."
+
+#. [checkbox]: id=CE_SYSTEM.Experimental_AI_Enabled
+#. a setting which can be changed when creating the game
+#: Conquest_Asterisk/macros/enclave_options.cfg:147
+msgid "Experimental AI enabled (Europe, Crusades, Wales, Random Maps only)"
+msgstr ""
+"Experimentelle KI aktiviert (Nur für Europa, Crusades, Wales, Zufallskarten)"
+
+#. [checkbox]: id=CE_SYSTEM.Experimental_AI_Enabled
+#: Conquest_Asterisk/macros/enclave_options.cfg:149
+msgid ""
+"The fully working and OOS free, but bugged and experimental version of AI is "
+"enabled by default (This is NOT for neutrals). Can be fine-tuned with the "
+"next two options."
+msgstr ""
+"Voll funktionsfähig und frei von OOS-Fehlern, aber enthält unentdeckte Bugs. "
+"Kann mit den nächsten beiden Optionen verbessert werden."
+
+#. [slider]: id=CE_SYSTEM.Experimental_AI_Extra_Gold_perturn
+#. a setting which can be changed when creating the game
+#: Conquest_Asterisk/macros/enclave_options.cfg:158
+msgid "AI side gets extra gold per turn"
+msgstr "KI Parteien erhalten jede Runde zusätzliches Gold"
+
+#. [slider]: id=CE_SYSTEM.Experimental_AI_Extra_Gold_perturn
+#: Conquest_Asterisk/macros/enclave_options.cfg:159
+msgid "Giving AI more gold per turn will create stronger AI."
+msgstr ""
+"Der KI mehr Gold pro Runde zur Verfügung zu stellen wird einen stärkeren "
+"Gegner erschaffen."
+
+#. [slider]: id=CE_SYSTEM.Experimental_AI_Extra_Gold_start
+#. a setting which can be changed when creating the game
+#: Conquest_Asterisk/macros/enclave_options.cfg:168
+msgid "AI side gets extra gold only on turn 1"
+msgstr "KI Parteien erhalten zum Spielbeginn zusätzliches Gold"
+
+#. [slider]: id=CE_SYSTEM.Experimental_AI_Extra_Gold_start
+#: Conquest_Asterisk/macros/enclave_options.cfg:169
+msgid ""
+"Giving AI more starting gold can create more competitive AI in mid game."
+msgstr "Mit mehr Anfangsgold kann die KI im Midgame besser konkurrieren."
+
+#. [choice]: id=CE_SYSTEM.random_map_region_names
+#. a setting which can be changed when creating the game
+#: Conquest_Asterisk/macros/enclave_options.cfg:178
+msgid "Random Maps Region Names"
+msgstr "Namen für Region auf Zufallskarten"
+
+#. [choice]: id=CE_SYSTEM.random_map_region_names
+#. applicable only when you chose to play specially designed C* random maps from Random Maps" section.
+#: Conquest_Asterisk/macros/enclave_options.cfg:180
+msgid ""
+"Should randomly generated maps use names of real world countries for region "
+"naming or fantasy ones?"
+msgstr ""
+"Sollen bei Zufallskarten für die Benennung von Regionen ausgedachte Namen "
+"verwendet werden oder die Namen echter Länder?"
+
+#. [item]
+#. randomly chooses one of the next two options
+#: Conquest_Asterisk/macros/enclave_options.cfg:183
+msgid "Any"
+msgstr "Egal"
+
+#. [item]
+#. uses fantasy names for region naming
+#: Conquest_Asterisk/macros/enclave_options.cfg:188
+msgid "Fairy"
+msgstr "Fantasie"
+
+#. [item]
+#. uses real world countries
+#: Conquest_Asterisk/macros/enclave_options.cfg:193
+msgid "Real"
+msgstr "Echt"
+
+#. [checkbox]: id=teleports
+#. a setting which can be changed when creating the game
+#: Conquest_Asterisk/macros/enclave_options.cfg:204
+msgid "Teleports"
+msgstr "Teleportationstunnel"
+
+#. [checkbox]: id=teleports
+#. The WML tag used for that is called [tunnel].
+#. Will be easier for translation to leave out the reference to the WML tag name.
+#. Explaining it as tunnel or teleportation.
+#: Conquest_Asterisk/macros/enclave_options.cfg:209
+msgid "Adds [tunnel]s between some places on the map."
+msgstr "Auf der Karte werden zwischen manchen Stellen [tunnel] hinzugefügt."
+
+#. [checkbox]: id=desert
+#. a setting which can be changed when creating the game
+#: Conquest_Asterisk/macros/enclave_options.cfg:218
+msgid "Kalifa units"
+msgstr "Kalifa-Einheiten"
+
+#. [checkbox]: id=desert
+#: Conquest_Asterisk/macros/enclave_options.cfg:219
+msgid ""
+"Playing with units which have a bonus on sand instead of the human units."
+msgstr ""
+"Ersetzt die normalen Einheiten durch welche mit besseren Fähigkeiten auf "
+"sandigem Terrain."
+
+#. [checkbox]: id=winter
+#. a setting which can be changed when creating the game
+#: Conquest_Asterisk/macros/enclave_options.cfg:228
+msgid "Winter map"
+msgstr "Winterkarte"
+
+#. [checkbox]: id=winter
+#: Conquest_Asterisk/macros/enclave_options.cfg:229
+msgid "Play this map with snow."
+msgstr "Diese Karte mit Schnee spielen."
+
+#. [checkbox]: id=palandir
+#. a setting which can be changed when creating the game
+#: Conquest_Asterisk/macros/enclave_options.cfg:238
+msgid "Play Palandir map"
+msgstr "Palandir Karte spielen"
+
+#. [checkbox]: id=palandir
+#: Conquest_Asterisk/macros/enclave_options.cfg:240
+msgid "Play on a modified map."
+msgstr "Verwendet eine Variation der Karte."
+
+#. [side]: type=Master at Arms
+#: Conquest_Asterisk/macros/enclave_sides.cfg:14
+#: Conquest_Asterisk/scenarios/AI_TEST_EUROPE.cfg:30
+msgid "Team 1"
+msgstr "Team 1"
+
+#. [side]: type=Master at Arms
+#: Conquest_Asterisk/macros/enclave_sides.cfg:32
+#: Conquest_Asterisk/scenarios/AI_TEST_EUROPE.cfg:50
+msgid "Team 2"
+msgstr "Team 2"
+
+#. [side]: type=Master at Arms
+#: Conquest_Asterisk/macros/enclave_sides.cfg:50
+#: Conquest_Asterisk/scenarios/AI_TEST_EUROPE.cfg:70
+msgid "Team 3"
+msgstr "Team 3"
+
+#. [side]: type=Master at Arms
+#: Conquest_Asterisk/macros/enclave_sides.cfg:68
+#: Conquest_Asterisk/scenarios/AI_TEST_EUROPE.cfg:90
+msgid "Team 4"
+msgstr "Team 4"
+
+#. [side]: type=Master at Arms
+#: Conquest_Asterisk/macros/enclave_sides.cfg:86
+#: Conquest_Asterisk/scenarios/AI_TEST_EUROPE.cfg:110
+msgid "Team 5"
+msgstr "Team 5"
+
+#. [side]: type=Master at Arms
+#: Conquest_Asterisk/macros/enclave_sides.cfg:104
+#: Conquest_Asterisk/scenarios/AI_TEST_EUROPE.cfg:130
+msgid "Team 6"
+msgstr "Team 6"
+
+#. [side]
+#: Conquest_Asterisk/macros/enclave_sides.cfg:125
+#: Conquest_Asterisk/scenarios/AI_TEST_EUROPE.cfg:153
+msgid "Neutral"
+msgstr "Neutral"
+
+#. [set_menu_item]: id=boardc
+#. let a unit enter the ship
+#: Conquest_Asterisk/macros/enclave_transport_load_boats.cfg:14
+msgid "Board"
+msgstr "Schiff betreten"
+
+#. [set_menu_item]: id=disembarkc
+#. let a unit leave the ship
+#: Conquest_Asterisk/macros/enclave_transport_load_boats.cfg:110
+msgid "Disembark"
+msgstr "Schiff verlassen"
+
+#: Conquest_Asterisk/macros/unit_boats.cfg:45
+#: Conquest_Asterisk/macros/unit_stats.cfg:27
+#: Conquest_Asterisk/macros/unit_stats.cfg:111
+msgid "Gold"
+msgstr "Gold"
+
+#: Conquest_Asterisk/macros/unit_boats.cfg:46
+#: Conquest_Asterisk/macros/unit_stats.cfg:29
+#: Conquest_Asterisk/macros/unit_stats.cfg:113
+msgid "HP"
+msgstr "LP"
+
+#: Conquest_Asterisk/macros/unit_boats.cfg:47
+msgid "Transport: Can transport a land unit"
+msgstr "Transportschiff: Kann Einheiten transportieren"
+
+#: Conquest_Asterisk/macros/unit_boats.cfg:48
+#: Conquest_Asterisk/macros/unit_stats.cfg:30
+#: Conquest_Asterisk/macros/unit_stats.cfg:114
+msgid "Damage"
+msgstr "Schaden"
+
+#: Conquest_Asterisk/macros/unit_boats.cfg:49
+#: Conquest_Asterisk/macros/unit_stats.cfg:31
+#: Conquest_Asterisk/macros/unit_stats.cfg:115
+msgid "Movement"
+msgstr "BP"
+
+#. [message]: speaker=narrator
+#: Conquest_Asterisk/macros/unit_boats.cfg:89
+#: Conquest_Asterisk/macros/unit_stats.cfg:61
+#: Conquest_Asterisk/macros/unit_stats.cfg:200
+msgid "Insufficient Funds…"
+msgstr "Zu wenige Gold…"
+
+#. [set_menu_item]: id=w_recruitboats
+#: Conquest_Asterisk/macros/unit_boats.cfg:103
+msgid "Recruit Boats"
+msgstr "Boot bauen"
+
+#. [message]: speaker=narrator
+#: Conquest_Asterisk/macros/unit_boats.cfg:124
+msgid ""
+"You have $gold gold.\n"
+"Select a unit to recruit:"
+msgstr ""
+"Ihr habt $gold Gold.\n"
+"Wählt eine Einheit:"
+
+#. [option]: description= 
+#. [option]
+#. buy no unit
+#: Conquest_Asterisk/macros/unit_boats.cfg:127
+#: Conquest_Asterisk/macros/unit_stats.cfg:228
+#: Conquest_Asterisk/macros/unit_stats.cfg:308
+#: Conquest_Asterisk/macros/unit_stats.cfg:362
+#: Conquest_Asterisk/macros/unit_stats.cfg:420
+#: Conquest_Asterisk/macros/unit_stats.cfg:488
+#: Conquest_Asterisk/macros/unit_stats.cfg:585
+#: Conquest_Asterisk/macros/unit_stats.cfg:647
+#: Conquest_Asterisk/macros/unit_stats.cfg:718
+msgid "Cancel"
+msgstr "Zurück"
+
+#. [option]
+#. [unit]: type=Boat
+#. 3 gold boat
+#: Conquest_Asterisk/macros/unit_boats.cfg:132
+#: Conquest_Asterisk/macros/unit_events.cfg:18
+msgid "Boat"
+msgstr "Boot"
+
+#. [option]
+#. [unit]: type=Boat
+#. 5 gold boat
+#: Conquest_Asterisk/macros/unit_boats.cfg:138
+#: Conquest_Asterisk/macros/unit_events.cfg:124
+msgid "Outrigger"
+msgstr "Ausleger"
+
+#. [option]
+#. [unit]: type=Boat
+#. 10 gold boat
+#: Conquest_Asterisk/macros/unit_boats.cfg:144
+#: Conquest_Asterisk/macros/unit_events.cfg:229
+msgid "Caravel"
+msgstr "Karavelle"
+
+#. [option]
+#. [unit]: type=Transport Galleon
+#. 15 gold boat
+#: Conquest_Asterisk/macros/unit_boats.cfg:150
+#: Conquest_Asterisk/macros/unit_events.cfg:334
+msgid "Galleon"
+msgstr "Galeone"
+
+#. [option]
+#. [unit]: type=Pirate Galleon
+#. 15 gold assassination boat
+#: Conquest_Asterisk/macros/unit_boats.cfg:156
+#: Conquest_Asterisk/macros/unit_events.cfg:439
+msgid "Pirate Galleon"
+msgstr "Piratengaleone"
+
+#. [option]
+#: Conquest_Asterisk/macros/unit_boats.cfg:157
+#: Conquest_Asterisk/macros/unit_stats.cfg:680
+#: Conquest_Asterisk/macros/unit_stats.cfg:210
+msgid "(90x6 versus 25 gold units, Firststrike)"
+msgstr "(90x6 vs 25 Gold Einheiten, Erstschlag)"
+
+#. [option]
+#. [unit]: type=Galleon
+#. 25 gold boat
+#: Conquest_Asterisk/macros/unit_boats.cfg:163
+#: Conquest_Asterisk/macros/unit_events.cfg:546
+msgid "Warship"
+msgstr "Kriegsschiff"
+
+#. [unit]: type=Spearman
+#. [unit]: type=Dwarvish Guardsman
+#. [option]
+#. 1 gold unit
+#: Conquest_Asterisk/macros/unit_events.cfg:649
+#: Conquest_Asterisk/macros/unit_events.cfg:1404
+#: Conquest_Asterisk/macros/unit_stats.cfg:232
+#: Conquest_Asterisk/macros/unit_stats.cfg:311
+#: Conquest_Asterisk/macros/unit_stats.cfg:365
+#: Conquest_Asterisk/macros/unit_stats.cfg:423
+#: Conquest_Asterisk/macros/unit_stats.cfg:491
+#: Conquest_Asterisk/macros/unit_stats.cfg:650
+#: Conquest_Asterisk/macros/unit_stats.cfg:721
+#: Conquest_Asterisk/macros/unit_stats.cfg:535
+msgid "Militia"
+msgstr "Miliz"
+
+#. [unit]: type=Sergeant
+#. [unit]: type=Dwarvish Stalwart
+#. [option]
+#. 3 gold unit
+#: Conquest_Asterisk/macros/unit_events.cfg:716
+#: Conquest_Asterisk/macros/unit_events.cfg:1475
+#: Conquest_Asterisk/macros/unit_stats.cfg:237
+#: Conquest_Asterisk/macros/unit_stats.cfg:315
+#: Conquest_Asterisk/macros/unit_stats.cfg:369
+#: Conquest_Asterisk/macros/unit_stats.cfg:495
+#: Conquest_Asterisk/macros/unit_stats.cfg:654
+msgid "Infantry"
+msgstr "Infanterie"
+
+#. [unit]: type=Dragoon
+#. [unit]: type=Gryphon Master
+#. [option]
+#. 5 gold unit
+#: Conquest_Asterisk/macros/unit_events.cfg:786
+#: Conquest_Asterisk/macros/unit_events.cfg:1547
+#: Conquest_Asterisk/macros/unit_stats.cfg:242
+#: Conquest_Asterisk/macros/unit_stats.cfg:319
+#: Conquest_Asterisk/macros/unit_stats.cfg:373
+#: Conquest_Asterisk/macros/unit_stats.cfg:432
+#: Conquest_Asterisk/macros/unit_stats.cfg:499
+#: Conquest_Asterisk/macros/unit_stats.cfg:745
+#: Conquest_Asterisk/macros/unit_stats.cfg:543
+msgid "Cavalry"
+msgstr "Kavallerie"
+
+#. [unit]: type=Pikeman
+#. [option]
+#. 5 gold unit
+#: Conquest_Asterisk/macros/unit_events.cfg:856
+#: Conquest_Asterisk/macros/unit_stats.cfg:247
+msgid "Pikeman"
+msgstr "Pikenier"
+
+#. [unit]: type=Lieutenant
+#. [unit]: type=Dwarvish Sentinel
+#. [option]
+#. 8 gold unit
+#: Conquest_Asterisk/macros/unit_events.cfg:921
+#: Conquest_Asterisk/macros/unit_events.cfg:1606
+#: Conquest_Asterisk/macros/unit_stats.cfg:252
+#: Conquest_Asterisk/macros/unit_stats.cfg:323
+#: Conquest_Asterisk/macros/unit_stats.cfg:382
+#: Conquest_Asterisk/macros/unit_stats.cfg:436
+#: Conquest_Asterisk/macros/unit_stats.cfg:757
+#: Conquest_Asterisk/macros/unit_stats.cfg:547
+msgid "Elite Infantry"
+msgstr "Elite-Infanterie"
+
+#. [unit]: type=Paladin
+#. [option]
+#. 10 gold unit
+#: Conquest_Asterisk/macros/unit_events.cfg:991
+#: Conquest_Asterisk/macros/unit_stats.cfg:257
+msgid "Lancer"
+msgstr "Lanzenreiter"
+
+#. [unit]: type=General
+#. [unit]: type=Dwarvish Lord
+#. [option]
+#. 15 gold unit
+#: Conquest_Asterisk/macros/unit_events.cfg:1067
+#: Conquest_Asterisk/macros/unit_events.cfg:1678
+#: Conquest_Asterisk/macros/unit_stats.cfg:262
+#: Conquest_Asterisk/macros/unit_stats.cfg:327
+#: Conquest_Asterisk/macros/unit_stats.cfg:386
+#: Conquest_Asterisk/macros/unit_stats.cfg:448
+#: Conquest_Asterisk/macros/unit_stats.cfg:509
+#: Conquest_Asterisk/macros/unit_stats.cfg:674
+#: Conquest_Asterisk/macros/unit_stats.cfg:792
+#: Conquest_Asterisk/macros/unit_stats.cfg:556
+msgid "Commander"
+msgstr "Kommandeur"
+
+#. [unit]: type=Assassin
+#. unit name
+#. 15 gold assassination unit
+#: Conquest_Asterisk/macros/unit_events.cfg:1142
+#: Conquest_Asterisk/macros/unit_stats.cfg:209
+msgid "Assassin"
+msgstr "Attentäter"
+
+#. [unit]: type=Assassin
+#. unit description, mouse-over text
+#: Conquest_Asterisk/macros/unit_events.cfg:1144
+msgid "An Assassin!"
+msgstr "Ein Attentäter!"
+
+#. [unit]: type=Grand Knight
+#. [option]
+#. 20 gold unit
+#: Conquest_Asterisk/macros/unit_events.cfg:1233
+#: Conquest_Asterisk/macros/unit_stats.cfg:270
+msgid "Knight"
+msgstr "Ritter"
+
+#. [unit]: type=Royal Warrior
+#. [option]
+#. 25 gold unit
+#: Conquest_Asterisk/macros/unit_events.cfg:1305
+#: Conquest_Asterisk/macros/unit_stats.cfg:275
+msgid "Leader"
+msgstr "Anführer"
+
+#. [message]: speaker=narrator
+#: Conquest_Asterisk/macros/unit_stats.cfg:226
+#: Conquest_Asterisk/macros/unit_stats.cfg:306
+#: Conquest_Asterisk/macros/unit_stats.cfg:360
+#: Conquest_Asterisk/macros/unit_stats.cfg:418
+#: Conquest_Asterisk/macros/unit_stats.cfg:486
+#: Conquest_Asterisk/macros/unit_stats.cfg:583
+#: Conquest_Asterisk/macros/unit_stats.cfg:645
+#: Conquest_Asterisk/macros/unit_stats.cfg:714
+msgid "You have $gold gold. Select a unit to recruit:"
+msgstr "Ihr habt $gold Gold. Wählt eine Einheit:"
+
+#. [option]
+#: Conquest_Asterisk/macros/unit_stats.cfg:257
+#: Conquest_Asterisk/macros/unit_stats.cfg:270
+msgid "(Firststrike)"
+msgstr "(Erstschlag)"
+
+#. [option]
+#: Conquest_Asterisk/macros/unit_stats.cfg:279
+#: Conquest_Asterisk/macros/unit_stats.cfg:339
+#: Conquest_Asterisk/macros/unit_stats.cfg:396
+#: Conquest_Asterisk/macros/unit_stats.cfg:460
+#: Conquest_Asterisk/macros/unit_stats.cfg:521
+#: Conquest_Asterisk/macros/unit_stats.cfg:619
+#: Conquest_Asterisk/macros/unit_stats.cfg:691
+#: Conquest_Asterisk/macros/unit_stats.cfg:827
+msgid "Worker"
+msgstr "Arbeiter"
+
+#. [option]
+#: Conquest_Asterisk/macros/unit_stats.cfg:280
+#: Conquest_Asterisk/macros/unit_stats.cfg:340
+#: Conquest_Asterisk/macros/unit_stats.cfg:397
+#: Conquest_Asterisk/macros/unit_stats.cfg:461
+#: Conquest_Asterisk/macros/unit_stats.cfg:522
+#: Conquest_Asterisk/macros/unit_stats.cfg:620
+#: Conquest_Asterisk/macros/unit_stats.cfg:693
+#: Conquest_Asterisk/macros/unit_stats.cfg:828
+msgid "(+1 gold per turn if worker is standing on a city)"
+msgstr "(+1 Gold pro Runde wenn er in einer Stadt ist)"
+
+#. [option]
+#. 20 gold unit
+#: Conquest_Asterisk/macros/unit_stats.cfg:335
+msgid "Spider"
+msgstr "Spinne"
+
+#. [option]
+#. 8 gold unit
+#: Conquest_Asterisk/macros/unit_stats.cfg:378
+msgid "Hurricane Cavalry"
+msgstr "Sturm-Kavallerie"
+
+#. [option]
+#. 25 gold unit
+#: Conquest_Asterisk/macros/unit_stats.cfg:391
+msgid "Inferno Drake"
+msgstr "Infernodrake"
+
+#. [option]
+#. 3 gold unit
+#: Conquest_Asterisk/macros/unit_stats.cfg:428
+#: Conquest_Asterisk/macros/unit_stats.cfg:733
+#: Conquest_Asterisk/macros/unit_stats.cfg:539
+msgid "Light Cavalry"
+msgstr "Leichte Kavallerie"
+
+#. [option]
+#. 9 gold unit. Keep the name short.
+#: Conquest_Asterisk/macros/unit_stats.cfg:441
+msgid "Direwolver"
+msgstr "Schreckensreiter"
+
+#. [option]
+#. 20 gold unit
+#: Conquest_Asterisk/macros/unit_stats.cfg:456
+msgid "Troll"
+msgstr "Troll"
+
+#. [option]
+#. 9 gold unit
+#: Conquest_Asterisk/macros/unit_stats.cfg:505
+msgid "Chocobone"
+msgstr "Knochenreiter"
+
+#. [option]
+#. 20 gold unit
+#: Conquest_Asterisk/macros/unit_stats.cfg:517
+msgid "Spectre"
+msgstr "Spuk"
+
+#. 10 gold unit
+#: Conquest_Asterisk/macros/unit_stats.cfg:552
+msgid "Outrider"
+msgstr "Avantgarde"
+
+#. 20 gold unit
+#: Conquest_Asterisk/macros/unit_stats.cfg:561
+msgid "Enchantress"
+msgstr "Mystikerin"
+
+#: Conquest_Asterisk/macros/unit_stats.cfg:568
+msgid "(60% wood defense)"
+msgstr "(60% Verteidigung im Wald)"
+
+#. [option]
+#. 5 gold unit
+#: Conquest_Asterisk/macros/unit_stats.cfg:660
+msgid "Heavy Infantry"
+msgstr "Schwere Infanterie"
+
+#. [option]
+#. 8 gold unit
+#: Conquest_Asterisk/macros/unit_stats.cfg:665
+msgid "Cuttle Fish"
+msgstr "Tintenfisch"
+
+#. [option]
+#. 10 gold unit
+#: Conquest_Asterisk/macros/unit_stats.cfg:670
+msgid "Water Serpent"
+msgstr "Wasserschlange"
+
+#. [option]
+#. 15 gold assassination unit
+#: Conquest_Asterisk/macros/unit_stats.cfg:679
+msgid "Siren"
+msgstr "Sirene"
+
+#. [option]
+#. 20 gold sea serpent
+#: Conquest_Asterisk/macros/unit_stats.cfg:687
+msgid "Sea Monster"
+msgstr "Seeungeheuer"
+
+#. [option]
+#. 10 gold unit
+#: Conquest_Asterisk/macros/unit_stats.cfg:781
+msgid "Heavy Cavalry"
+msgstr "Schere Kavallerie"
+
+#. [option]
+#. 20 gold unit
+#: Conquest_Asterisk/macros/unit_stats.cfg:813
+msgid "Cataphract"
+msgstr "Kataphrakt"
+
+#. [set_menu_item]: id=recruitunit
+#: Conquest_Asterisk/macros/unit_stats.cfg:861
+msgid "Recruit Unit"
+msgstr "Einheit rekrutieren"
+
+#. [message]: speaker=narrator
+#. Error message, if the recruit menu was not correctly set up.
+#: Conquest_Asterisk/macros/unit_stats.cfg:891
+msgid "No units can be recruited in this village."
+msgstr "In diesem Dorf können keine Einheiten rekrutiert werden."
+
+#. [multiplayer]: id=Conquest_Crusades_by_enclave
+#: Conquest_Asterisk/scenarios/Crusades.cfg:5
+msgid "Conquest* Crusades"
+msgstr "Conquest* Crusades"
+
+#. [multiplayer]: id=Conquest_Crusades_by_enclave
+#: Conquest_Asterisk/scenarios/Crusades.cfg:6
+msgid ""
+"A good map for many players. Everybody has water access.\n"
+"Possible to be played with realm mode."
+msgstr ""
+"Eine Karte die sich gut mit mehreren Spieler spielen lässt.\n"
+"Jeder hat Zugang zum Wasser.\n"
+"Herrscher-Modus verfügbar."
+
+#. [multiplayer]: id=Conquest_Crusades_by_enclave
+#. [multiplayer]: id=Conquest_Wales_by_enclave
+#: Conquest_Asterisk/scenarios/Crusades.cfg:9
+#: Conquest_Asterisk/scenarios/Wales.cfg:9
+msgid "<b>Check the »Custom Options« tab. This map can be played by AI.</b>"
+msgstr ""
+"<b>Schau im Tab »Erweiterte Optionen«. Diese Karte kann von der KI gespielt "
+"werde.</b>"
+
+#. [multiplayer]: id=Conquest_Crusades_by_enclave
+#: Conquest_Asterisk/scenarios/Crusades.cfg:11
+msgid "Map by Mabuse – modified by enclave, ported by Shiki"
+msgstr "Karte von Mabuse – von enclave angepasst, von Shiki portiert"
+
+#. [multiplayer]: id=Conquest_Lotrando_by_enclave
+#: Conquest_Asterisk/scenarios/Lotrando.cfg:5
+msgid "Conquest* Lotrando"
+msgstr "Conquest* Lotrando"
+
+#. [multiplayer]: id=Conquest_Lotrando_by_enclave
+#: Conquest_Asterisk/scenarios/Lotrando.cfg:7
+msgid ""
+"A famous map.\n"
+"Optimized for 2 players and the capitol mode.\n"
+"\n"
+"<b>Check the »Custom Options« tab.</b>"
+msgstr ""
+"Eine bekannte Karte.\n"
+"Für 2 Spieler und den Basis-Modus optimiert.\n"
+"\n"
+"<b>Schau bei »Erweiterte Optionen«</b>"
+
+#. [multiplayer]: id=Conquest_Lotrando_by_enclave
+#: Conquest_Asterisk/scenarios/Lotrando.cfg:12
+msgid ""
+"Based on a map by Mia, map version 1.04; edited by SlowThinker, map version "
+"1.29; modified by enclave, ported by Shiki"
+msgstr ""
+"Ausgehend von einer Karte von Mia, Version 1.04, von Slowthinker bearbeitet, "
+"Version 1.29, angepasst von enclave, Shiki"
+
+#. [multiplayer]: id=Conquest_Poland_by_enclave
+#: Conquest_Asterisk/scenarios/Poland.cfg:5
+msgid "Conquest* Poland"
+msgstr "Conquest* Polen"
+
+#. [multiplayer]: id=Conquest_Poland_by_enclave
+#: Conquest_Asterisk/scenarios/Poland.cfg:7
+msgid ""
+"The map is optimized for 2 players and the capitol mode: central regions "
+"have lesser bonuses.\n"
+"Teleports and a variation of this map by the name Palandir can be played too."
+msgstr ""
+"Die Karte ist für 2 Spieler und den Basis-Modus gedacht: zentral gelegene "
+"Regionen geben geringere Boni.\n"
+"Es kann auch mit Teleportationstunneln oder auf einer Variante der Karte "
+"gespielt werden."
+
+#. [multiplayer]: id=Conquest_Poland_by_enclave
+#: Conquest_Asterisk/scenarios/Poland.cfg:10
+msgid "<b>Check the »Custom Options« tab.</b>"
+msgstr "<b>Schau im Tab »Erweiterte Optionen«</b>"
+
+#. [multiplayer]: id=Conquest_Poland_by_enclave
+#: Conquest_Asterisk/scenarios/Poland.cfg:13
+msgid "Map by Zbyll, edited by SlowThinker, Gwledig, enclave, Shiki"
+msgstr "Karte von Zbyll, verändert von Slowthinker, Gwledig, enclave, Shiki"
+
+#. [then]
+#. [label]
+#. to south
+#: Conquest_Asterisk/scenarios/Poland.cfg:63
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:66
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:100
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:134
+msgid "south"
+msgstr "Süden"
+
+#. [then]
+#. channel of teleportation (a channel for boats)
+#: Conquest_Asterisk/scenarios/Poland.cfg:84
+msgid "channel"
+msgstr "Kanal"
+
+#. [then]
+#. channel of teleportation (a channel for boats)
+#: Conquest_Asterisk/scenarios/Poland.cfg:86
+msgid "of"
+msgstr "der"
+
+#. [then]
+#. channel of teleportation (a channel for boats)
+#: Conquest_Asterisk/scenarios/Poland.cfg:88
+msgid "teleportation"
+msgstr "Teleportation"
+
+#. [then]
+#. [label]
+#. this way leads into the north
+#: Conquest_Asterisk/scenarios/Poland.cfg:91
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:71
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:105
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:139
+msgid "north"
+msgstr "Norden"
+
+#. [then]
+#. [label]
+#. teleport towards east
+#: Conquest_Asterisk/scenarios/Poland.cfg:113
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:168
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:202
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:236
+msgid "east"
+msgstr "Osten"
+
+#. [then]
+#. [label]
+#. connects to a place in the west of the map
+#: Conquest_Asterisk/scenarios/Poland.cfg:136
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:173
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:207
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:241
+msgid "west"
+msgstr "Westen"
+
+#. [message]: speaker=narrator
+#: Conquest_Asterisk/scenarios/Poland.cfg:159
+msgid "Tunnels enabled!"
+msgstr "Teleportationstunnel aktiviert!"
+
+#. [message]: speaker=narrator
+#: Conquest_Asterisk/scenarios/Poland.cfg:160
+msgid ""
+"Beware of teleportation tunnels. They work similar to the Silver Mage’s "
+"ability."
+msgstr ""
+"Obacht vor Teleportationstunneln. Sie funktionieren ähnlich wie die "
+"Fähigkeit der Silbernen Magier."
+
+#. [multiplayer]: id=Conquest_Surdmark_enclave
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:12
+msgid ""
+"Map by Lich_Lord; teleports added by SlowThinker and Lich_Lord, map version "
+"2.1\n"
+"Teleports change the map shape to a toroid. Distances between villages "
+"connected by teleports are long: that causes a slower expansion through "
+"teleports and also less bloody battles around them."
+msgstr ""
+"Karte von Lich_Lord, Teleports zusammen mit SlowThinker gemacht, Version "
+"2.1\n"
+"Mit Teleportationstunneln ändert sich die Form der Karte zu einem Toroid.\n"
+"\n"
+"Die Teleportationstunneln sind von Städten etwas weiter entfernt – dadurch "
+"verläuft die Expansion über sie langsamer und Kämpfe werden dort weniger "
+"blutig."
+
+#. [multiplayer]: id=Conquest_Wales_by_enclave
+#: Conquest_Asterisk/scenarios/Wales.cfg:5
+msgid "Conquest* Wales"
+msgstr "Conquest* Wales"
+
+#. [multiplayer]: id=Conquest_Wales_by_enclave
+#: Conquest_Asterisk/scenarios/Wales.cfg:6
+msgid ""
+"A map with 106 villages and access to the ocean for most players.\n"
+"Realm mode is balanced for 1 gold neutral spawns."
+msgstr ""
+"Eine Karte mit 106 Dörfern und Zugang zum Ozean für die meisten Spieler.\n"
+"Der Herrscher-Modus ist für 1 Gold Spawns ausgelegt."
+
+#. [multiplayer]: id=Conquest_Wales_by_enclave
+#: Conquest_Asterisk/scenarios/Wales.cfg:11
+msgid "Map by Gwledig – modified by enclave, ported by Shiki"
+msgstr "Karte von Gwledig – angepasst von enclave, von Shiki portiert"
+
+#~ msgid ""
+#~ "Units are different and combat is simplified. This game is more about "
+#~ "strategy than about tactics."
+#~ msgstr ""
+#~ "Kämpfe sind vereinfacht. Dieses Spiel ist mehr über Strategie als über "
+#~ "Taktik."
+
+#~ msgid " Cancel"
+#~ msgstr " Zurück"
+
+#~ msgid ""
+#~ " Militia - 2 Gold\n"
+#~ "HP: 45\n"
+#~ "12-3 Damage\n"
+#~ "7 Movement"
+#~ msgstr ""
+#~ " Miliz - 2 Gold\n"
+#~ "LP: 45\n"
+#~ "12-3 Schaden\n"
+#~ "7 BP"
+
+#~ msgid ""
+#~ " Infantry - 4 Gold\n"
+#~ "HP: 80\n"
+#~ "12-5 Damage\n"
+#~ "7 Movement"
+#~ msgstr ""
+#~ " Infanterie - 4 Gold\n"
+#~ "LP: 80\n"
+#~ "12-5 Schaden\n"
+#~ "7 BP"
+
+#~ msgid ""
+#~ " Cavalry - 6 Gold\n"
+#~ "HP: 100\n"
+#~ "12-6 Damage\n"
+#~ "10 Movement"
+#~ msgstr ""
+#~ " Kavallerie - 6 Gold\n"
+#~ "LP: 100\n"
+#~ "12-6 Schaden\n"
+#~ "10 BP"
+
+#~ msgid ""
+#~ " Hurricane Cavalry - 8 Gold\n"
+#~ "HP: 130\n"
+#~ "18-6 Damage\n"
+#~ "10 Movement"
+#~ msgstr ""
+#~ " Sturm-Kavallerie - 8 Gold\n"
+#~ "LP: 130\n"
+#~ "18-6 Schaden\n"
+#~ "10 BP"
+
+#~ msgid ""
+#~ " Elite Infantry - 10 Gold\n"
+#~ "HP: 150\n"
+#~ "22-6 Damage\n"
+#~ "7 Movement"
+#~ msgstr ""
+#~ " Elite-Infanterie - 10 Gold\n"
+#~ "LP: 150\n"
+#~ "22-6 Schaden\n"
+#~ "7 BP"
+
+#~ msgid ""
+#~ " Lieutenant - 15 Gold\n"
+#~ "HP: 200\n"
+#~ "36-5 Damage\n"
+#~ "8 Movement"
+#~ msgstr ""
+#~ " Leutnant - 15 Gold\n"
+#~ "LP: 200\n"
+#~ "36-5 Schaden\n"
+#~ "8 BP"
+
+#~ msgid "Lieutenant"
+#~ msgstr "Leutnant"
+
+#~ msgid ""
+#~ " Inferno Drake - 25 Gold\n"
+#~ "HP: 300\n"
+#~ "45-8 Damage\n"
+#~ "8 Movement"
+#~ msgstr ""
+#~ " Infernodrake - 25 Gold\n"
+#~ "LP: 300\n"
+#~ "45-8 Schaden\n"
+#~ "8 BP"
+
+#~ msgid ""
+#~ " Worker - 4 Gold\n"
+#~ "HP: 20 (+1 Gold per Turn if Worker is standing on a City)\n"
+#~ "10-1 Damage\n"
+#~ "5 Movement"
+#~ msgstr ""
+#~ " Arbeiter - 4 Gold\n"
+#~ "LP: 20 (+1 Gold pro Runde wenn der Arbeiter in einer Stadt ist)\n"
+#~ "10-1 Schaden\n"
+#~ "5 BP"
+
+#~ msgid ""
+#~ " Militia - 2 Gold\n"
+#~ "HP: 45\n"
+#~ "12-3 Damage\n"
+#~ "6 Movement"
+#~ msgstr ""
+#~ " Miliz - 2 Gold\n"
+#~ "LP: 45\n"
+#~ "12-3 Schaden\n"
+#~ "6 BP"
+
+#~ msgid ""
+#~ " Infantry - 4 Gold\n"
+#~ "HP: 80\n"
+#~ "12-5 Damage\n"
+#~ "6 Movement"
+#~ msgstr ""
+#~ " Infanterie - 4 Gold\n"
+#~ "LP: 80\n"
+#~ "12-5 Schaden\n"
+#~ "6 BP"
+
+#~ msgid ""
+#~ " Cavalry - 6 Gold\n"
+#~ "HP: 100\n"
+#~ "13-6 Damage\n"
+#~ "10 Movement"
+#~ msgstr ""
+#~ " Kavallerie - 6 Gold\n"
+#~ "LP: 100\n"
+#~ "13-6 Schaden\n"
+#~ "10 BP"
+
+#~ msgid ""
+#~ " Elite Infantry - 10 Gold\n"
+#~ "HP: 150\n"
+#~ "22-6 Damage\n"
+#~ "6 Movement"
+#~ msgstr ""
+#~ " Elite-Infanterie - 10 Gold\n"
+#~ "LP: 150\n"
+#~ "22-6 Schaden\n"
+#~ "6 BP"
+
+#~ msgid ""
+#~ " Lieutenant - 15 Gold\n"
+#~ "HP: 200\n"
+#~ "36-5 Damage\n"
+#~ "7 Movement"
+#~ msgstr ""
+#~ " Leutnant - 15 Gold\n"
+#~ "LP: 200\n"
+#~ "36-5 Schaden\n"
+#~ "7 BP"
+
+#~ msgid ""
+#~ " Spider - 20 Gold\n"
+#~ "HP: 250\n"
+#~ "44-6 Damage\n"
+#~ "7 Movement"
+#~ msgstr ""
+#~ " Spinne - 20 Gold\n"
+#~ "LP: 250\n"
+#~ "44-6 Schaden\n"
+#~ "7 BP"
+
+#~ msgid ""
+#~ " Militia - 1 Gold\n"
+#~ "HP: 25\n"
+#~ "10-2 Damage\n"
+#~ "7 Movement"
+#~ msgstr ""
+#~ " Miliz - 1 Gold\n"
+#~ "LP: 25\n"
+#~ "10-2 Schaden\n"
+#~ "7 BP"
+
+#~ msgid ""
+#~ " Light Cavalry - 3 Gold\n"
+#~ "HP: 65\n"
+#~ "12-4 Damage\n"
+#~ "10 Movement"
+#~ msgstr ""
+#~ " Leichte Kavallerie - 3 Gold\n"
+#~ "LP: 65\n"
+#~ "12-4 Schaden\n"
+#~ "10 BP"
+
+#~ msgid ""
+#~ " Cavalry - 5 Gold\n"
+#~ "HP: 90\n"
+#~ "12-6 Damage\n"
+#~ "10 Movement"
+#~ msgstr ""
+#~ " Kavallerie - 5 Gold\n"
+#~ "LP: 90\n"
+#~ "12-6 Schaden\n"
+#~ "10 BP"
+
+#~ msgid ""
+#~ " Elite Infantry - 8 Gold\n"
+#~ "HP: 130\n"
+#~ "18-6 Damage\n"
+#~ "7 Movement"
+#~ msgstr ""
+#~ " Elite-Infanterie - 8 Gold\n"
+#~ "LP: 130\n"
+#~ "18-6 Schaden\n"
+#~ "7 BP"
+
+#~ msgid ""
+#~ " Outrider - 9 Gold\n"
+#~ "HP: 140\n"
+#~ "20-6 Damage\n"
+#~ "10 Movement"
+#~ msgstr ""
+#~ " Avantgarde - 9 Gold\n"
+#~ "LP: 140\n"
+#~ "20-6 Schaden\n"
+#~ "10 BP"
+
+#~ msgid ""
+#~ " Enchantress - 20 Gold\n"
+#~ "HP: 250\n"
+#~ "44-6 Damage\n"
+#~ "8 Movement (60% wood defense)"
+#~ msgstr ""
+#~ " Mystikerin - 20 Gold\n"
+#~ "LP: 250\n"
+#~ "44-6 Schaden\n"
+#~ "8 BP (60% Verteidigung im Wald)"
+
+#~ msgid ""
+#~ " Infantry - 3 Gold\n"
+#~ "HP: 65\n"
+#~ "12-4 Damage\n"
+#~ "7 Movement"
+#~ msgstr ""
+#~ " Infanterie - 3 Gold\n"
+#~ "LP: 65\n"
+#~ "12-4 Schaden\n"
+#~ "7 BP"
+
+#~ msgid ""
+#~ " Pikeman - 5 Gold\n"
+#~ "HP: 100\n"
+#~ "15-5 Damage\n"
+#~ "4 Movement"
+#~ msgstr ""
+#~ " Pikenier - 5 Gold\n"
+#~ "LP: 100\n"
+#~ "15-5 Schaden\n"
+#~ "4 BP"
+
+#~ msgid ""
+#~ " Lancer - 10 Gold\n"
+#~ "HP: 150\n"
+#~ "22-6 Damage (Firststrike)\n"
+#~ "10 Movement"
+#~ msgstr ""
+#~ " Lanzenreiter - 10 Gold\n"
+#~ "LP: 150\n"
+#~ "22-6 Schaden (Erstschlag)\n"
+#~ "10 BP"
+
+#~ msgid ""
+#~ " Knight - 20 Gold\n"
+#~ "HP: 250\n"
+#~ "44-6 Damage (Firststrike)\n"
+#~ "10 Movement"
+#~ msgstr ""
+#~ " Ritter - 20 Gold\n"
+#~ "LP: 250\n"
+#~ "44-6 Schaden (Erstschlag)\n"
+#~ "10 BP"
+
+#~ msgid ""
+#~ " General - 25 Gold\n"
+#~ "HP: 300\n"
+#~ "45-8 Damage\n"
+#~ "8 Movement"
+#~ msgstr ""
+#~ " General - 25 Gold\n"
+#~ "LP: 300\n"
+#~ "45-8 Schaden\n"
+#~ "8 BP"
+
+#~ msgid ""
+#~ " Heavy Infantry - 5 Gold\n"
+#~ "HP: 90\n"
+#~ "12-6 Damage\n"
+#~ "7 Movement"
+#~ msgstr ""
+#~ " Schwere Infanterie - 5 Gold\n"
+#~ "LP: 90\n"
+#~ "12-6 Schaden\n"
+#~ "7 BP"
+
+#~ msgid ""
+#~ " Cuttle Fish - 8 Gold\n"
+#~ "HP: 130\n"
+#~ "18-6 Damage\n"
+#~ "8 Movement"
+#~ msgstr ""
+#~ "Tintenfisch - 8 Gold\n"
+#~ "LP: 130\n"
+#~ "18-6 Schaden\n"
+#~ "8 BP"
+
+#~ msgid ""
+#~ " Water Serpent - 10 Gold\n"
+#~ "HP: 150\n"
+#~ "22-6 Damage\n"
+#~ "8 Movement"
+#~ msgstr ""
+#~ "Wasserschlange - 10 Gold\n"
+#~ "LP: 150\n"
+#~ "22-6 Schaden\n"
+#~ "8 BP"
+
+#~ msgid ""
+#~ " Siren - 15 Gold\n"
+#~ "HP: 185\n"
+#~ "15-6 Damage (90-6 versus 25 gold units, Firststrike)\n"
+#~ "8 Movement"
+#~ msgstr ""
+#~ " Attentäter - 15 Gold\n"
+#~ "LP: 185\n"
+#~ "15-6 Schaden (90-6 gegen 25 Gold Einheiten, Erstschlag)\n"
+#~ "8 BP"
+
+#~ msgid ""
+#~ " Sea Serpent - 20 Gold\n"
+#~ "HP: 250\n"
+#~ "44-6 Damage\n"
+#~ "10 Movement"
+#~ msgstr ""
+#~ "Seeschlange - 20 Gold\n"
+#~ "LP: 250\n"
+#~ "44-6 Schaden\n"
+#~ "10 BP"
+
+#~ msgid "Sea Serpent"
+#~ msgstr "Seeungeheuer"
+
+#~ msgid ""
+#~ " Direwolver - 9 Gold\n"
+#~ "HP: 140\n"
+#~ "20-6 Damage\n"
+#~ "10 Movement"
+#~ msgstr ""
+#~ "Schreckensreiter - 9 Gold\n"
+#~ "LP: 140\n"
+#~ "20-6 Schaden\n"
+#~ "10 BP"
+
+#~ msgid ""
+#~ " Troll - 20 Gold\n"
+#~ "HP: 250\n"
+#~ "44-6 Damage\n"
+#~ "8 Movement"
+#~ msgstr ""
+#~ " Troll - 20 Gold\n"
+#~ "LP: 250\n"
+#~ "44-6 Schaden\n"
+#~ "8 BP"
+
+#~ msgid ""
+#~ " Chocobone - 9 Gold\n"
+#~ "HP: 140\n"
+#~ "20-6 Damage\n"
+#~ "10 Movement"
+#~ msgstr ""
+#~ "Knochenreiter - 9 Gold\n"
+#~ "LP: 140\n"
+#~ "20-6 Schaden\n"
+#~ "10 BP"
+
+#~ msgid ""
+#~ " Spectre - 20 Gold\n"
+#~ "HP: 250\n"
+#~ "44-6 Damage\n"
+#~ "8 Movement"
+#~ msgstr ""
+#~ " Spuk - 20 Gold\n"
+#~ "LP: 250\n"
+#~ "44-6 Schaden\n"
+#~ "8 BP"
+
+#~ msgid ""
+#~ " Assassin - 15 Gold\n"
+#~ "HP: 185\n"
+#~ "15-6 Damage (90-6 versus 25 gold units, Firststrike)\n"
+#~ "8 Movement"
+#~ msgstr ""
+#~ " Attentäter - 15 Gold\n"
+#~ "LP: 185\n"
+#~ "15-6 Schaden (90-6 gegen 25 Gold Einheiten, Erstschlag)\n"
+#~ "8 BP"
+
+#, fuzzy
+#~ msgid "Oswestry"
+#~ msgstr "Westen"
+
+#, fuzzy
+#~ msgid "Bridgnorth"
+#~ msgstr "Norden"
+
+#, fuzzy
+#~ msgid "Leominster"
+#~ msgstr "Seeungeheuer"
+
+#, fuzzy
+#~ msgid "Monmouth"
+#~ msgstr "Süden"
+
+#, fuzzy
+#~ msgid "Rhyader"
+#~ msgstr "Anführer"
+
+#~ msgid "target"
+#~ msgstr "Lohnenswertes Ziel"
+
+#~ msgid "Modified map, which is no longer accurately representing Poland."
+#~ msgstr ""
+#~ "Spielt auf einer veränderten Karte, welche nicht länger Polen akkurat "
+#~ "repräsentiert."
+
+#~ msgid "General"
+#~ msgstr "General"
+
+#~ msgid ""
+#~ " Boat - 3 Gold\n"
+#~ "HP: 65\n"
+#~ "Transport: Can transport a land unit\n"
+#~ "12-4 Damage\n"
+#~ "10 Movement"
+#~ msgstr ""
+#~ " Boot - 3 Gold\n"
+#~ "LP: 65\n"
+#~ "Transport: Kann Einheiten transportieren\n"
+#~ "12-4 Schaden\n"
+#~ "10 BP"
+
+#~ msgid ""
+#~ " Outrigger - 5 Gold\n"
+#~ "HP: 90\n"
+#~ "Transport: Can transport a land unit\n"
+#~ "12-6 Damage\n"
+#~ "10 Movement"
+#~ msgstr ""
+#~ " Ausleger - 5 Gold\n"
+#~ "LP: 90\n"
+#~ "Transport: Kann Einheiten transportieren\n"
+#~ "12-6 Schaden\n"
+#~ "10 BP"
+
+#~ msgid ""
+#~ " Caravel - 10 Gold\n"
+#~ "HP: 150\n"
+#~ "Transport: Can transport a land unit\n"
+#~ "22-6 Damage\n"
+#~ "10 Movement"
+#~ msgstr ""
+#~ " Karavelle  - 10 Gold\n"
+#~ "LP: 150\n"
+#~ "Transport: Kann Einheiten transportieren\n"
+#~ "22-6 Schaden\n"
+#~ "10 BP"
+
+#~ msgid ""
+#~ " Galleon - 15 Gold\n"
+#~ "HP: 200\n"
+#~ "Transport: Can transport a land unit\n"
+#~ "36-5 Damage\n"
+#~ "10 Movement"
+#~ msgstr ""
+#~ " Galeone - 15 Gold\n"
+#~ "LP: 200\n"
+#~ "Transport: Kann Einheiten transportieren\n"
+#~ "36-5 Schaden\n"
+#~ "10 BP"
+
+#~ msgid ""
+#~ " Pirate Galleon - 15 Gold\n"
+#~ "HP: 185\n"
+#~ "Transport: Can transport a land unit\n"
+#~ "15-6 Damage (90-6 versus 25 gold units, Firststrike)\n"
+#~ "10 Movement"
+#~ msgstr ""
+#~ " Piratengaleone - 15 Gold\n"
+#~ "LP: 185\n"
+#~ "Transport: Kann Einheiten transportieren\n"
+#~ "15-6 Schaden (90-6 gegen 25 Gold Einheiten, Erstschlag)\n"
+#~ "10 BP"
+
+#~ msgid ""
+#~ " Warship - 25 Gold\n"
+#~ "HP: 300\n"
+#~ "Transport: Can transport a land unit\n"
+#~ "45-8 Damage\n"
+#~ "8 Movement"
+#~ msgstr ""
+#~ " Kriegsschiff - 25 Gold\n"
+#~ "LP: 300\n"
+#~ "Transport: Kann Einheiten transportieren\n"
+#~ "45-8 Schaden\n"
+#~ "8 BP"
+
+#~ msgid "Please select the region you want to start with!"
+#~ msgstr "Wählt eine Region als Ausgangspunkt!"
+
+#~ msgid "north-east"
+#~ msgstr "Nordosten"
+
+#~ msgid "south-east"
+#~ msgstr "Südosten"
+
+#~ msgid "south-west"
+#~ msgstr "Südwesten"
+
+#~ msgid "north-west"
+#~ msgstr "Nordwesten"
+
+#~ msgid "Unboard"
+#~ msgstr "Schiff verlassen"
+
+#~ msgid ""
+#~ " Siren - 15 Gold\n"
+#~ "HP: 185\n"
+#~ "15-6 Damage (90-6 versus Generals, Firststrike) \n"
+#~ "8 Movement"
+#~ msgstr ""
+#~ "Sirene - 15 Gold\n"
+#~ "LP: 185\n"
+#~ "15-6 Schaden (90-6 gegen  25 Gold Einheiten, Erstschlag) \n"
+#~ "8 BP"
+
+#~ msgid "female^assassin"
+#~ msgstr "Attentäter"
