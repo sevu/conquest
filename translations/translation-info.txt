@@ -1,0 +1,50 @@
+To translate this add-on
+
+1) Translation software:
+   Install an editor for po-files. Popular programms are poedit and lokalize.
+   For Windows, Linux, Mac: https://poedit.net/download
+   For Linux, one of:
+      sudo apt install poedit
+      sudo apt install lokalize
+
+
+2) Translation Files:
+   wesnoth-Conquest.pot          For the important things, objectives, unit names, etc
+   wesnoth-Conquest_Europe.pot   For names of Cities and Countries.
+
+   Open a file, start translating. Europe file is good for trying out, but the other one is important.
+
+   Two thing which you need to know:
+   - For a linebreak, one must type "\n".
+   - If there is a $sign, it is a variable. Do keep the name of them as is.
+   There are also translation hints in the file ;-)
+
+
+3) po Files:
+   When you save, it will be stored as po-file.
+   To see the strings ingame, you can save the file in this location:
+   translations/<textomain-name>/<language>.po
+
+   If you for example translate the Europe file into Swedish:
+   translations/wesnoth-Conquest_Europe/sv.po
+
+   When restarting Wesnoth or pressing F5 key on the titlescreen,
+   then your translation file is read again and your changes become visible.
+
+   If it does not work: File managers often do not display the file extension (the part from the last dot onwards).
+   It might be that the file is in reality named sv.po.po ... which is not the correct filename!
+
+
+4) mo Files:
+   These porgramms can also create mo-files. This are machine-optimized files, which you can not read yourself.
+   To use these instead, one needs to place them at:
+   translations/<language>/LC_MESSAGES/<textdomain-name>.mo
+
+   So, for Arabic it would be:
+   translations/ar/LC_MESSAGES/wesnoth-Conquest_Europe.mo
+
+   However, it is good to ocassionally check ingame how your translation looks.
+   For example, you can see if the translated name is too long for the place where it is shown.
+
+   This is easier to do when you use the po-file directly.
+   (You can use a mo-file optionally when you finished.)
