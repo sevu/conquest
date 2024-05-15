@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.wesnoth.org/\n"
-"POT-Creation-Date: 2024-05-14 13:28 UTC\n"
-"PO-Revision-Date: 2024-05-15 01:49+0200\n"
+"POT-Creation-Date: 2024-05-15 00:52 UTC\n"
+"PO-Revision-Date: 2024-05-15 02:52+0200\n"
 "Last-Translator: Severin Glöckner <severin.gloeckner@stud.htwk-leipzig.de>\n"
 "Language-Team: German <irc://irc.libera.chat/#wesnoth-de>\n"
 "Language: de\n"
@@ -594,43 +594,43 @@ msgid "Adds [tunnel]s between some places on the map."
 msgstr "Auf der Karte werden zwischen manchen Stellen [tunnel] hinzugefügt."
 
 #. [side]: type=Master at Arms
-#: Conquest_Asterisk/macros/sides.cfg:14
+#: Conquest_Asterisk/macros/sides.cfg:12
 #: Conquest_Asterisk/scenarios/AI_TEST_EUROPE.cfg:30
 msgid "Team 1"
 msgstr "Team 1"
 
 #. [side]: type=Master at Arms
-#: Conquest_Asterisk/macros/sides.cfg:32
+#: Conquest_Asterisk/macros/sides.cfg:30
 #: Conquest_Asterisk/scenarios/AI_TEST_EUROPE.cfg:50
 msgid "Team 2"
 msgstr "Team 2"
 
 #. [side]: type=Master at Arms
-#: Conquest_Asterisk/macros/sides.cfg:50
+#: Conquest_Asterisk/macros/sides.cfg:48
 #: Conquest_Asterisk/scenarios/AI_TEST_EUROPE.cfg:70
 msgid "Team 3"
 msgstr "Team 3"
 
 #. [side]: type=Master at Arms
-#: Conquest_Asterisk/macros/sides.cfg:68
+#: Conquest_Asterisk/macros/sides.cfg:66
 #: Conquest_Asterisk/scenarios/AI_TEST_EUROPE.cfg:90
 msgid "Team 4"
 msgstr "Team 4"
 
 #. [side]: type=Master at Arms
-#: Conquest_Asterisk/macros/sides.cfg:86
+#: Conquest_Asterisk/macros/sides.cfg:84
 #: Conquest_Asterisk/scenarios/AI_TEST_EUROPE.cfg:110
 msgid "Team 5"
 msgstr "Team 5"
 
 #. [side]: type=Master at Arms
-#: Conquest_Asterisk/macros/sides.cfg:104
+#: Conquest_Asterisk/macros/sides.cfg:102
 #: Conquest_Asterisk/scenarios/AI_TEST_EUROPE.cfg:130
 msgid "Team 6"
 msgstr "Team 6"
 
 #. [side]
-#: Conquest_Asterisk/macros/sides.cfg:125
+#: Conquest_Asterisk/macros/sides.cfg:123
 #: Conquest_Asterisk/scenarios/AI_TEST_EUROPE.cfg:153
 msgid "Neutral"
 msgstr "Neutral"
@@ -1085,15 +1085,13 @@ msgid "Conquest* Europe"
 msgstr "Conquest* Europa"
 
 #. [multiplayer]: id=Conquest_Europe_by_enclave
-#. [multiplayer]: id=Conquest_Jel_wan_by_enclave
 #: Conquest_Asterisk/scenarios/Europe.cfg:6
-#: Conquest_Asterisk/scenarios/Jel_wan.cfg:6
 msgid ""
 "For 2-6 players.\n"
-"(no add-on needed for others)"
+"(No add-on needed for others.)"
 msgstr ""
 "Für 2-6 Spieler.\n"
-"(Andere brauchen diese Erweiterung nicht)"
+"(Andere brauchen diese Erweiterung nicht.)"
 
 #. [multiplayer]: id=Conquest_Europe_by_enclave
 #: Conquest_Asterisk/scenarios/Europe.cfg:11
@@ -1111,10 +1109,10 @@ msgstr "Conquest* Gagarna"
 #. [multiplayer]: id=Conquest_Gagarna_enclave
 #: Conquest_Asterisk/scenarios/Gagarna.cfg:6
 msgid ""
-"For 2-6 players.\n"
+"For 2-6 players. Without teleports.\n"
 "This is the western part of Surdmark."
 msgstr ""
-"Für 2-6 Spieler.\n"
+"Für 2-6 Spieler, ohne Teleportationstunnel.\n"
 "Dies ist der westliche Teil von Surdmark."
 
 #. [multiplayer]: id=Conquest_Gagarna_enclave
@@ -1128,7 +1126,7 @@ msgstr ""
 #: Conquest_Asterisk/scenarios/Jel_wan.cfg:9
 #: Conquest_Asterisk/scenarios/Lotrando.cfg:9
 #: Conquest_Asterisk/scenarios/Poland.cfg:10
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:17
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:9
 #: Conquest_Asterisk/scenarios/Torath.cfg:9
 #: Conquest_Asterisk/scenarios/Wesnoth.cfg:9
 msgid "<b>Check the »Custom Options« tab.</b>"
@@ -1145,6 +1143,15 @@ msgstr "Karte von Lich_Lord – angepasst von enclave, von Shiki portiert"
 #: Conquest_Asterisk/scenarios/Jel_wan.cfg:5
 msgid "Conquest* Jel’wan"
 msgstr "Conquest* Jel’wan"
+
+#. [multiplayer]: id=Conquest_Jel_wan_by_enclave
+#: Conquest_Asterisk/scenarios/Jel_wan.cfg:6
+msgid ""
+"For 2-6 players.\n"
+"(Have a look at the »Random Maps« section too.)"
+msgstr ""
+"Für 2-6 Spieler.\n"
+"(Es gibt auch »Zufallskarten« von Conquest.)"
 
 #. [multiplayer]: id=Conquest_Jel_wan_by_enclave
 #: Conquest_Asterisk/scenarios/Jel_wan.cfg:11
@@ -1200,9 +1207,9 @@ msgstr "Karte von Zbyll, verändert von Slowthinker, Gwledig, enclave, Shiki"
 #. [label]
 #. to south
 #: Conquest_Asterisk/scenarios/Poland.cfg:83
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:74
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:108
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:142
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:66
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:100
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:134
 msgid "south"
 msgstr "Süden"
 
@@ -1228,9 +1235,9 @@ msgstr "Teleportation"
 #. [label]
 #. this way leads into the north
 #: Conquest_Asterisk/scenarios/Poland.cfg:111
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:79
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:113
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:147
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:71
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:105
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:139
 msgid "north"
 msgstr "Norden"
 
@@ -1238,9 +1245,9 @@ msgstr "Norden"
 #. [label]
 #. teleport towards east
 #: Conquest_Asterisk/scenarios/Poland.cfg:133
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:176
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:210
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:244
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:168
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:202
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:236
 msgid "east"
 msgstr "Osten"
 
@@ -1248,9 +1255,9 @@ msgstr "Osten"
 #. [label]
 #. connects to a place in the west of the map
 #: Conquest_Asterisk/scenarios/Poland.cfg:156
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:181
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:215
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:249
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:173
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:207
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:241
 msgid "west"
 msgstr "Westen"
 
@@ -1269,12 +1276,12 @@ msgstr ""
 "Fähigkeit der Silbernen Magier."
 
 #. [multiplayer]: id=Conquest_Surdmark_enclave
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:13
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:5
 msgid "Conquest* Surdmark Long Teleports"
 msgstr "Conquest* Surdmark"
 
 #. [multiplayer]: id=Conquest_Surdmark_enclave
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:14
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:6
 msgid ""
 "For 2-6 players. This is the southern part of Pasarganta.\n"
 "This map has teleports, they change the map shape to a toroid."
@@ -1283,7 +1290,7 @@ msgstr ""
 "Aufgrund von Teleportationstunneln ist diese Karte ein Toroid."
 
 #. [multiplayer]: id=Conquest_Surdmark_enclave
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:19
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:11
 msgid ""
 "Map by Lich_Lord; teleports added by SlowThinker and Lich_Lord, map version "
 "2.1\n"
@@ -1307,10 +1314,10 @@ msgstr "Conquest* Torath"
 #. [multiplayer]: id=Conquest_Torath
 #: Conquest_Asterisk/scenarios/Torath.cfg:6
 msgid ""
-"For 2-6 players.\n"
+"For 2-6 players. Without teleports.\n"
 "This is the eastern part of Surdmark."
 msgstr ""
-"Für 2-6 Spieler.\n"
+"Für 2-6 Spieler, ohne Teleportationstunnel.\n"
 "Dies ist der östliche Teil von Surdmark."
 
 #. [multiplayer]: id=Conquest_Wales_by_enclave
