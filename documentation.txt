@@ -1,0 +1,147 @@
+Welcome!
+
+1) For translating, see translation-info.txt in translations directory.
+
+2) All files in this add-on are plain text files, just like this one.
+   They have different file extensions, but technically you can rename them as you want.
+
+   Any editor for text files works to edit them. (Only the Windows programm named "Editor" has a problem displaying line breaks).
+   Even things like LibreOffice Writer can display and edit the files. I used Sublime Text.
+
+   However, life is easier if you install an editor with syntax highlighting. See this forum thread:
+   https://r.wesnoth.org/t13799
+
+   It's learning by doing and looking around at what exists.
+
+3) Have fun!
+   Rest of this file is mostly things I noted down once,
+   and didn't delete in case they are useful for someone else too.
+
+   Not things I wrote when the code was written, but when I tried to understand it.
+
+
+4) Overview over events:
+   I noted here down what events exist. This was mostly to help me get an overview.
+   They are listed in the order of execution, usually each line being one event.
+
+For events with the same "name" it depends on which is included first into the scenario file.
+But to ensure the order, these few events have "priority=1" assigned in these cases.
+(While the priority key guarantees the order, it worked correct without too)
+
+Some events depend on each other.
+This file lists the events, in the order "event name" are executed
+
+Events, ordered by execution time:
+
+- preload
+  Various Lua things (have to be here)
+
+- prestart
+  setting variable for enabling realm mode
+  adding objectives
+  lower gold by 25 down to 0 (in prestart so status table shows this changed value as initial value)
+  set_menu_item for recruit menus (previously in start)
+  place village labels (previously in turn 1)
+
+- start
+  set_menu_item for board/disembark boats (should be prestart)
+
+- turn 1
+  select game length (not anymore, removed)
+  droid menu (should be prestart)
+  place village labels (on random maps)
+
+- new turn
+- side turn
+
+- side turn 1
+  initial region bonus calculation
+
+- turn refresh
+  Ask player to select game mode
+  capitol mode / all village mode (if chosen)
+
+- turn 1 refresh
+  reveal leaders (for Alliances Mod)
+  insert capture event (now after capitol mode won't trigger it) [priority=1]
+  realm mode (if chosen); NEEDS to happen after the capture event was inserted
+
+
+- turn 2
+  place neutral units [priority=1]
+  neutrals growth [happens afterwards, allowing to check if neutrals exist]
+
+- side turn 2
+  replace neutral militia units with ones from theme
+
+- time over
+  custom time over event [priority=1]
+
+
+Random Map generators have additionally some more events,
+which are not listed here.
+
+
+5) Similarly, I should note down how the regions are defined once I figured it out.
+   The syntax used in the regions.rgs files (one can rename them to cfg too).
+   And the other one used.
+
+
+6) If you know how to start programms from command line on your operating system,
+   you can speed up starting an game for testing. Here some commands for copy-paste:
+
+
+Testing quickly:
+An game can be started from the command line, saving clisks.
+
+# Just some map:
+wesnoth -d -m --scenario=Conquest_Gagarna_enclave --controller 1:null --controller 3:null --controller 5:null --controller 6:null
+
+# Testing a map with Realm mode:
+wesnoth -d -m --scenario=Conquest_Wesnoth_by_enclave --controller 1:null --controller 3:null --controller 5:null --controller 6:null
+
+# Testing a map with many villages:
+wesnoth -d -m --scenario=Conquest_Surdmark_enclave --controller 1:null --controller 3:null --controller 5:null --controller 6:null
+
+# A map with AI enabled:
+wesnoth -d -m --scenario=Conquest_Europe_by_enclave --controller 1:null --controller 2:null --controller 4:ai --controller 5:null --controller 6:null
+
+# All scenario IDs:
+Conquest_AI_Europe_by_enclave
+Conquest_Crusades_by_enclave
+Conquest_Europe_by_enclave
+Conquest_Gagarna_enclave
+Conquest_Jel_wan_by_enclave
+Conquest_Lotrando_by_enclave
+Conquest_Poland_by_enclave
+Conquest_Surdmark_enclave
+Conquest_Torath
+Conquest_Wales_by_enclave
+Conquest_Wesnoth_by_enclave
+Conquest_World
+
+What about Random Map Generators, maybe they can be started too from cmmand line...
+
+One thing to know:
+[options], which one can set when creating the game in the lobby, are ignored.
+Their default values defined there are not used either!
+Instead, the code of this add-on takes care to not crash in this case :-p
+
+(This is bcause [options] were added to Wesnoth later.)
+
+
+7) About checking numbers regarding performance.
+   Firstly, there is no point in doing that. But noted down how I did it here:
+
+In Wesnoth's cache directory, this addon's (compressed) cache files are the ones with
+45b13290b2e7d7304875e44f88689881, e.g.
+cache-v1.18.0-45b13290b2e7d7304875e44f88689881.gz
+
+One can see the size of the generated cache file.
+The command below will create the same as the cache file, but uncompressed.
+
+To compare how long the generation takes (happens when entrering the mp lobby),
+one can preprocess the add-on on command-line, with:
+wesnoth --preprocess-defines=MULTIPLAYER -p Conquest_Asterisk /tmp/
+
+However, it does not matter.
