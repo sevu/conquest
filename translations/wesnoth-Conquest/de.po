@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.wesnoth.org/\n"
-"POT-Creation-Date: 2024-05-15 00:52 UTC\n"
-"PO-Revision-Date: 2024-05-15 02:52+0200\n"
+"POT-Creation-Date: 2024-05-24 19:42 UTC\n"
+"PO-Revision-Date: 2024-05-24 21:43+0200\n"
 "Last-Translator: Severin Glöckner <severin.gloeckner@stud.htwk-leipzig.de>\n"
 "Language-Team: German <irc://irc.libera.chat/#wesnoth-de>\n"
 "Language: de\n"
@@ -207,21 +207,26 @@ msgstr ""
 "Rechts-klickt auf das Boot zum betreten. Ihr könnt zu einer anderen Stadt "
 "segeln und mittels Rechts-klick es entladen."
 
+#. [objective]: condition=lose
+#: Conquest_Asterisk/macros/core_objectives.cfg:44
+msgid "<b>Teleportation tunnels are activated!</b>"
+msgstr "<b>Teleportationstunnel sind aktiviert!</b>"
+
 #. [objectives]
 #. The next 10-20 strings are similar to the intro text, but use different formatting. The game is explained to the new player here.
 #. These strings have to fit on the objectives screen without a line break!
-#: Conquest_Asterisk/macros/core_objectives.cfg:82
+#: Conquest_Asterisk/macros/core_objectives.cfg:81
 msgid "How to play Conquest"
 msgstr "Wie man Conquest spielt"
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:83
+#: Conquest_Asterisk/macros/core_objectives.cfg:82
 msgid "Conquest is played with different units and has no leader nor keep."
 msgstr ""
 "Conquest wird mit anderen Einheiten gespielt und ohne Anführer und Burgen."
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:84
+#: Conquest_Asterisk/macros/core_objectives.cfg:83
 msgid ""
 "<b>To recruit, right click your vilas</b> (make sure there is no unit on the "
 "vila when recruiting)"
@@ -230,12 +235,12 @@ msgstr ""
 "Einheit stehen)"
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:85
+#: Conquest_Asterisk/macros/core_objectives.cfg:84
 msgid "Units can move 1 hex on their first turn, later they can move fully."
 msgstr "Einheiten können direkt nach dem Rekrutieren 1 Feld bewegt werden."
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:86
+#: Conquest_Asterisk/macros/core_objectives.cfg:85
 msgid ""
 "If you capture all vilas in a <b>region</b> you get <b>bonus</b> income."
 msgstr ""
@@ -243,7 +248,7 @@ msgstr ""
 "<b>zusätzliches</b> Einkommen."
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:87
+#: Conquest_Asterisk/macros/core_objectives.cfg:86
 msgid ""
 "On turn 2 empty vilas are filled with AI guardians (cannot move or recruit)."
 msgstr ""
@@ -251,12 +256,12 @@ msgstr ""
 "Euch nicht an)."
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:88
+#: Conquest_Asterisk/macros/core_objectives.cfg:87
 msgid "Placing <b>workers</b> on villages will provide another +1 income."
 msgstr "<b>Arbeiter</b> in Städten zu platzieren gibt Euch +1 Einkommen."
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:89
+#: Conquest_Asterisk/macros/core_objectives.cfg:88
 msgid ""
 "Use boat transports by recruiting a transport next to a vila, then make a "
 "unit on the vila."
@@ -265,12 +270,12 @@ msgstr ""
 "in der Stadt."
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:89
+#: Conquest_Asterisk/macros/core_objectives.cfg:88
 msgid "Using boats"
 msgstr "Boote verwenden"
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:90
+#: Conquest_Asterisk/macros/core_objectives.cfg:89
 msgid ""
 "Right-click the transport to board. You can move a transport to another vila "
 "and right-click to unload."
@@ -279,12 +284,12 @@ msgstr ""
 "zum Entladen."
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:91
+#: Conquest_Asterisk/macros/core_objectives.cfg:90
 msgid "Strategy"
 msgstr "Strategie"
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:92
+#: Conquest_Asterisk/macros/core_objectives.cfg:91
 msgid ""
 "You can have NAP (Non Agression Pact) with other players, use the Chat to "
 "discuss NAPs."
@@ -293,7 +298,7 @@ msgstr ""
 "diskutiert über den Chat!"
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:93
+#: Conquest_Asterisk/macros/core_objectives.cfg:92
 msgid ""
 "Combat is simplified. No Resistances, units are neutral and use berserk."
 msgstr "Keine Resistenzen, Einheiten sind neutral und immer im Kampfrausch."
@@ -556,31 +561,39 @@ msgstr "Fantasie"
 msgid "Real"
 msgstr "Echt"
 
-#. [checkbox]: id=winter
+#. [checkbox]: id=romans
 #. a setting which can be changed when creating the game
 #: Conquest_Asterisk/macros/options.cfg:216
+msgid "Roman map"
+msgstr "Der Aufstieg Roms"
+
+#. [checkbox]: id=romans
+#. [checkbox]: id=palandir
+#: Conquest_Asterisk/macros/options.cfg:217
+#: Conquest_Asterisk/macros/options.cfg:237
+msgid "Play on a modified map."
+msgstr "Verwendet eine Variation der Karte."
+
+#. [checkbox]: id=winter
+#. a setting which can be changed when creating the game
+#: Conquest_Asterisk/macros/options.cfg:226
 msgid "Winter map"
 msgstr "Winterkarte"
 
 #. [checkbox]: id=winter
-#: Conquest_Asterisk/macros/options.cfg:217
+#: Conquest_Asterisk/macros/options.cfg:227
 msgid "Play this map with snow."
 msgstr "Diese Karte mit Schnee spielen."
 
 #. [checkbox]: id=palandir
 #. a setting which can be changed when creating the game
-#: Conquest_Asterisk/macros/options.cfg:226
+#: Conquest_Asterisk/macros/options.cfg:236
 msgid "Play Palandir map"
 msgstr "Palandir Karte spielen"
 
-#. [checkbox]: id=palandir
-#: Conquest_Asterisk/macros/options.cfg:227
-msgid "Play on a modified map."
-msgstr "Verwendet eine Variation der Karte."
-
 #. [checkbox]: id=teleports
 #. a setting which can be changed when creating the game
-#: Conquest_Asterisk/macros/options.cfg:236
+#: Conquest_Asterisk/macros/options.cfg:246
 msgid "Teleports"
 msgstr "Teleportationstunnel"
 
@@ -589,7 +602,7 @@ msgstr "Teleportationstunnel"
 #. [/tunnel]
 #. Will be easier for translation to leave out the reference to the WML tag name.
 #. Explaining it as tunnel or teleportation.
-#: Conquest_Asterisk/macros/options.cfg:242
+#: Conquest_Asterisk/macros/options.cfg:252
 msgid "Adds [tunnel]s between some places on the map."
 msgstr "Auf der Karte werden zwischen manchen Stellen [tunnel] hinzugefügt."
 
@@ -643,18 +656,18 @@ msgstr "Schiff betreten"
 
 #. [set_menu_item]: id=disembarkc
 #. let a unit leave the ship
-#: Conquest_Asterisk/macros/transport_load_boats.cfg:110
+#: Conquest_Asterisk/macros/transport_load_boats.cfg:115
 msgid "Disembark"
 msgstr "Schiff verlassen"
 
 #. [set_menu_item]: id=w_recruitboats
-#: Conquest_Asterisk/macros/unit_boats.cfg:37
+#: Conquest_Asterisk/macros/unit_boats.cfg:31
 msgid "Recruit Boats"
 msgstr "Boot bauen"
 
 #. [message]: speaker=narrator
 #. Explanation in the boat recruit menu. Lines should not be too long.
-#: Conquest_Asterisk/macros/unit_boats.cfg:59
+#: Conquest_Asterisk/macros/unit_boats.cfg:58
 msgid ""
 "Boats can transport a unit between cities (own as well as hostile).\n"
 "1) Move the boat next to the city.\n"
@@ -670,23 +683,9 @@ msgstr ""
 "ist."
 
 #. [option]
-#. buy no unit
-#: Conquest_Asterisk/macros/unit_boats.cfg:66
-#: Conquest_Asterisk/macros/unit_stats.cfg:228
-#: Conquest_Asterisk/macros/unit_stats.cfg:308
-#: Conquest_Asterisk/macros/unit_stats.cfg:362
-#: Conquest_Asterisk/macros/unit_stats.cfg:420
-#: Conquest_Asterisk/macros/unit_stats.cfg:488
-#: Conquest_Asterisk/macros/unit_stats.cfg:585
-#: Conquest_Asterisk/macros/unit_stats.cfg:647
-#: Conquest_Asterisk/macros/unit_stats.cfg:716
-msgid "Cancel"
-msgstr "Zurück"
-
-#. [option]
 #. [unit]: type=Boat
 #. 3 gold boat
-#: Conquest_Asterisk/macros/unit_boats.cfg:71
+#: Conquest_Asterisk/macros/unit_boats.cfg:70
 #: Conquest_Asterisk/macros/unit_events.cfg:18
 msgid "Boat"
 msgstr "Boot"
@@ -694,7 +693,7 @@ msgstr "Boot"
 #. [option]
 #. [unit]: type=Boat
 #. 5 gold boat
-#: Conquest_Asterisk/macros/unit_boats.cfg:77
+#: Conquest_Asterisk/macros/unit_boats.cfg:76
 #: Conquest_Asterisk/macros/unit_events.cfg:124
 msgid "Outrigger"
 msgstr "Ausleger"
@@ -702,7 +701,7 @@ msgstr "Ausleger"
 #. [option]
 #. [unit]: type=Boat
 #. 10 gold boat
-#: Conquest_Asterisk/macros/unit_boats.cfg:83
+#: Conquest_Asterisk/macros/unit_boats.cfg:82
 #: Conquest_Asterisk/macros/unit_events.cfg:229
 msgid "Caravel"
 msgstr "Karavelle"
@@ -710,7 +709,7 @@ msgstr "Karavelle"
 #. [option]
 #. [unit]: type=Transport Galleon
 #. 15 gold boat
-#: Conquest_Asterisk/macros/unit_boats.cfg:89
+#: Conquest_Asterisk/macros/unit_boats.cfg:88
 #: Conquest_Asterisk/macros/unit_events.cfg:334
 msgid "Galleon"
 msgstr "Galeone"
@@ -718,22 +717,22 @@ msgstr "Galeone"
 #. [option]
 #. [unit]: type=Pirate Galleon
 #. 15 gold assassination boat
-#: Conquest_Asterisk/macros/unit_boats.cfg:96
+#: Conquest_Asterisk/macros/unit_boats.cfg:95
 #: Conquest_Asterisk/macros/unit_events.cfg:439
 msgid "Pirate Galleon"
 msgstr "Piratengaleone"
 
 #. [option]
-#: Conquest_Asterisk/macros/unit_boats.cfg:97
-#: Conquest_Asterisk/macros/unit_stats.cfg:680
-#: Conquest_Asterisk/macros/unit_stats.cfg:210
-msgid "90x6 versus 25 gold units, Firststrike"
-msgstr "90x6 vs 25 Gold Einheiten, Erstschlag"
+#: Conquest_Asterisk/macros/unit_boats.cfg:96
+#: Conquest_Asterisk/macros/unit_stats.cfg:726
+#: Conquest_Asterisk/macros/unit_stats.cfg:256
+msgid "90x6 versus 25 gold units"
+msgstr "90x6 gegen 25 Gold Einheiten"
 
 #. [option]
 #. [unit]: type=Galleon
 #. 25 gold boat
-#: Conquest_Asterisk/macros/unit_boats.cfg:103
+#: Conquest_Asterisk/macros/unit_boats.cfg:102
 #: Conquest_Asterisk/macros/unit_events.cfg:546
 msgid "Warship"
 msgstr "Kriegsschiff"
@@ -743,15 +742,15 @@ msgstr "Kriegsschiff"
 #. [option]
 #. 1 gold unit
 #: Conquest_Asterisk/macros/unit_events.cfg:649
-#: Conquest_Asterisk/macros/unit_events.cfg:1404
-#: Conquest_Asterisk/macros/unit_stats.cfg:232
-#: Conquest_Asterisk/macros/unit_stats.cfg:311
-#: Conquest_Asterisk/macros/unit_stats.cfg:365
-#: Conquest_Asterisk/macros/unit_stats.cfg:423
-#: Conquest_Asterisk/macros/unit_stats.cfg:491
-#: Conquest_Asterisk/macros/unit_stats.cfg:650
-#: Conquest_Asterisk/macros/unit_stats.cfg:719
-#: Conquest_Asterisk/macros/unit_stats.cfg:535
+#: Conquest_Asterisk/macros/unit_events.cfg:1413
+#: Conquest_Asterisk/macros/unit_stats.cfg:278
+#: Conquest_Asterisk/macros/unit_stats.cfg:357
+#: Conquest_Asterisk/macros/unit_stats.cfg:411
+#: Conquest_Asterisk/macros/unit_stats.cfg:469
+#: Conquest_Asterisk/macros/unit_stats.cfg:537
+#: Conquest_Asterisk/macros/unit_stats.cfg:696
+#: Conquest_Asterisk/macros/unit_stats.cfg:764
+#: Conquest_Asterisk/macros/unit_stats.cfg:581
 msgid "Militia"
 msgstr "Miliz"
 
@@ -760,12 +759,12 @@ msgstr "Miliz"
 #. [option]
 #. 3 gold unit
 #: Conquest_Asterisk/macros/unit_events.cfg:716
-#: Conquest_Asterisk/macros/unit_events.cfg:1475
-#: Conquest_Asterisk/macros/unit_stats.cfg:237
-#: Conquest_Asterisk/macros/unit_stats.cfg:315
-#: Conquest_Asterisk/macros/unit_stats.cfg:369
-#: Conquest_Asterisk/macros/unit_stats.cfg:495
-#: Conquest_Asterisk/macros/unit_stats.cfg:654
+#: Conquest_Asterisk/macros/unit_events.cfg:1484
+#: Conquest_Asterisk/macros/unit_stats.cfg:283
+#: Conquest_Asterisk/macros/unit_stats.cfg:361
+#: Conquest_Asterisk/macros/unit_stats.cfg:415
+#: Conquest_Asterisk/macros/unit_stats.cfg:541
+#: Conquest_Asterisk/macros/unit_stats.cfg:700
 msgid "Infantry"
 msgstr "Infanterie"
 
@@ -774,14 +773,14 @@ msgstr "Infanterie"
 #. [option]
 #. 5 gold unit
 #: Conquest_Asterisk/macros/unit_events.cfg:786
-#: Conquest_Asterisk/macros/unit_events.cfg:1547
-#: Conquest_Asterisk/macros/unit_stats.cfg:242
-#: Conquest_Asterisk/macros/unit_stats.cfg:319
-#: Conquest_Asterisk/macros/unit_stats.cfg:373
-#: Conquest_Asterisk/macros/unit_stats.cfg:432
-#: Conquest_Asterisk/macros/unit_stats.cfg:499
-#: Conquest_Asterisk/macros/unit_stats.cfg:743
-#: Conquest_Asterisk/macros/unit_stats.cfg:543
+#: Conquest_Asterisk/macros/unit_events.cfg:1556
+#: Conquest_Asterisk/macros/unit_stats.cfg:288
+#: Conquest_Asterisk/macros/unit_stats.cfg:365
+#: Conquest_Asterisk/macros/unit_stats.cfg:419
+#: Conquest_Asterisk/macros/unit_stats.cfg:478
+#: Conquest_Asterisk/macros/unit_stats.cfg:545
+#: Conquest_Asterisk/macros/unit_stats.cfg:788
+#: Conquest_Asterisk/macros/unit_stats.cfg:589
 msgid "Cavalry"
 msgstr "Kavallerie"
 
@@ -789,7 +788,7 @@ msgstr "Kavallerie"
 #. [option]
 #. 5 gold unit
 #: Conquest_Asterisk/macros/unit_events.cfg:856
-#: Conquest_Asterisk/macros/unit_stats.cfg:247
+#: Conquest_Asterisk/macros/unit_stats.cfg:293
 msgid "Pikeman"
 msgstr "Pikenier"
 
@@ -798,13 +797,13 @@ msgstr "Pikenier"
 #. [option]
 #. 8 gold unit
 #: Conquest_Asterisk/macros/unit_events.cfg:921
-#: Conquest_Asterisk/macros/unit_events.cfg:1606
-#: Conquest_Asterisk/macros/unit_stats.cfg:252
-#: Conquest_Asterisk/macros/unit_stats.cfg:323
-#: Conquest_Asterisk/macros/unit_stats.cfg:382
-#: Conquest_Asterisk/macros/unit_stats.cfg:436
-#: Conquest_Asterisk/macros/unit_stats.cfg:755
-#: Conquest_Asterisk/macros/unit_stats.cfg:547
+#: Conquest_Asterisk/macros/unit_events.cfg:1615
+#: Conquest_Asterisk/macros/unit_stats.cfg:298
+#: Conquest_Asterisk/macros/unit_stats.cfg:369
+#: Conquest_Asterisk/macros/unit_stats.cfg:428
+#: Conquest_Asterisk/macros/unit_stats.cfg:482
+#: Conquest_Asterisk/macros/unit_stats.cfg:800
+#: Conquest_Asterisk/macros/unit_stats.cfg:593
 msgid "Elite Infantry"
 msgstr "Elite-Infanterie"
 
@@ -812,7 +811,7 @@ msgstr "Elite-Infanterie"
 #. [option]
 #. 10 gold unit
 #: Conquest_Asterisk/macros/unit_events.cfg:991
-#: Conquest_Asterisk/macros/unit_stats.cfg:257
+#: Conquest_Asterisk/macros/unit_stats.cfg:303
 msgid "Lancer"
 msgstr "Lanzenreiter"
 
@@ -821,15 +820,15 @@ msgstr "Lanzenreiter"
 #. [option]
 #. 15 gold unit
 #: Conquest_Asterisk/macros/unit_events.cfg:1067
-#: Conquest_Asterisk/macros/unit_events.cfg:1678
-#: Conquest_Asterisk/macros/unit_stats.cfg:262
-#: Conquest_Asterisk/macros/unit_stats.cfg:327
-#: Conquest_Asterisk/macros/unit_stats.cfg:386
-#: Conquest_Asterisk/macros/unit_stats.cfg:448
-#: Conquest_Asterisk/macros/unit_stats.cfg:509
-#: Conquest_Asterisk/macros/unit_stats.cfg:674
-#: Conquest_Asterisk/macros/unit_stats.cfg:790
-#: Conquest_Asterisk/macros/unit_stats.cfg:556
+#: Conquest_Asterisk/macros/unit_events.cfg:1687
+#: Conquest_Asterisk/macros/unit_stats.cfg:308
+#: Conquest_Asterisk/macros/unit_stats.cfg:373
+#: Conquest_Asterisk/macros/unit_stats.cfg:432
+#: Conquest_Asterisk/macros/unit_stats.cfg:494
+#: Conquest_Asterisk/macros/unit_stats.cfg:555
+#: Conquest_Asterisk/macros/unit_stats.cfg:720
+#: Conquest_Asterisk/macros/unit_stats.cfg:835
+#: Conquest_Asterisk/macros/unit_stats.cfg:602
 msgid "Commander"
 msgstr "Kommandeur"
 
@@ -837,7 +836,7 @@ msgstr "Kommandeur"
 #. unit name
 #. 15 gold assassination unit
 #: Conquest_Asterisk/macros/unit_events.cfg:1142
-#: Conquest_Asterisk/macros/unit_stats.cfg:209
+#: Conquest_Asterisk/macros/unit_stats.cfg:255
 msgid "Assassin"
 msgstr "Attentäter"
 
@@ -850,208 +849,174 @@ msgstr "Ein Attentäter!"
 #. [unit]: type=Grand Knight
 #. [option]
 #. 20 gold unit
-#: Conquest_Asterisk/macros/unit_events.cfg:1233
-#: Conquest_Asterisk/macros/unit_stats.cfg:270
+#: Conquest_Asterisk/macros/unit_events.cfg:1242
+#: Conquest_Asterisk/macros/unit_stats.cfg:316
 msgid "Knight"
 msgstr "Ritter"
 
 #. [unit]: type=Royal Warrior
 #. [option]
 #. 25 gold unit
-#: Conquest_Asterisk/macros/unit_events.cfg:1305
-#: Conquest_Asterisk/macros/unit_stats.cfg:275
+#: Conquest_Asterisk/macros/unit_events.cfg:1314
+#: Conquest_Asterisk/macros/unit_stats.cfg:321
 msgid "Leader"
 msgstr "Anführer"
 
-#: Conquest_Asterisk/macros/unit_stats.cfg:27
-#: Conquest_Asterisk/macros/unit_stats.cfg:111
-msgid "Gold"
-msgstr "Gold"
-
-#: Conquest_Asterisk/macros/unit_stats.cfg:29
-#: Conquest_Asterisk/macros/unit_stats.cfg:113
-msgid "HP"
-msgstr "LP"
-
-#: Conquest_Asterisk/macros/unit_stats.cfg:30
-#: Conquest_Asterisk/macros/unit_stats.cfg:114
-msgid "Damage"
-msgstr "Schaden"
-
-#: Conquest_Asterisk/macros/unit_stats.cfg:31
-#: Conquest_Asterisk/macros/unit_stats.cfg:115
-msgid "Movement"
-msgstr "BP"
+#: Conquest_Asterisk/macros/unit_stats.cfg:50
+msgid "+1 gold per turn in a city"
+msgstr "+1 Gold je Runde in einer Stadt"
 
 #. [message]: speaker=narrator
-#: Conquest_Asterisk/macros/unit_stats.cfg:61
-#: Conquest_Asterisk/macros/unit_stats.cfg:200
+#: Conquest_Asterisk/macros/unit_stats.cfg:103
+#: Conquest_Asterisk/macros/unit_stats.cfg:246
 msgid "Insufficient Funds…"
 msgstr "Zu wenige Gold…"
 
 #. [message]: speaker=narrator
-#: Conquest_Asterisk/macros/unit_stats.cfg:226
-#: Conquest_Asterisk/macros/unit_stats.cfg:306
-#: Conquest_Asterisk/macros/unit_stats.cfg:360
-#: Conquest_Asterisk/macros/unit_stats.cfg:418
-#: Conquest_Asterisk/macros/unit_stats.cfg:486
-#: Conquest_Asterisk/macros/unit_stats.cfg:583
-#: Conquest_Asterisk/macros/unit_stats.cfg:645
-#: Conquest_Asterisk/macros/unit_stats.cfg:713
+#: Conquest_Asterisk/macros/unit_stats.cfg:272
+#: Conquest_Asterisk/macros/unit_stats.cfg:352
+#: Conquest_Asterisk/macros/unit_stats.cfg:406
+#: Conquest_Asterisk/macros/unit_stats.cfg:464
+#: Conquest_Asterisk/macros/unit_stats.cfg:532
+#: Conquest_Asterisk/macros/unit_stats.cfg:629
+#: Conquest_Asterisk/macros/unit_stats.cfg:691
+#: Conquest_Asterisk/macros/unit_stats.cfg:759
 msgid "You have $gold gold. Select a unit to recruit:"
 msgstr "Ihr habt $gold Gold. Wählt eine Einheit:"
 
 #. [option]
-#: Conquest_Asterisk/macros/unit_stats.cfg:257
-#: Conquest_Asterisk/macros/unit_stats.cfg:270
-msgid "(Firststrike)"
-msgstr "(Erstschlag)"
-
-#. [option]
-#: Conquest_Asterisk/macros/unit_stats.cfg:279
-#: Conquest_Asterisk/macros/unit_stats.cfg:339
-#: Conquest_Asterisk/macros/unit_stats.cfg:396
-#: Conquest_Asterisk/macros/unit_stats.cfg:460
-#: Conquest_Asterisk/macros/unit_stats.cfg:521
-#: Conquest_Asterisk/macros/unit_stats.cfg:619
-#: Conquest_Asterisk/macros/unit_stats.cfg:690
-#: Conquest_Asterisk/macros/unit_stats.cfg:825
+#: Conquest_Asterisk/macros/unit_stats.cfg:325
+#: Conquest_Asterisk/macros/unit_stats.cfg:385
+#: Conquest_Asterisk/macros/unit_stats.cfg:442
+#: Conquest_Asterisk/macros/unit_stats.cfg:506
+#: Conquest_Asterisk/macros/unit_stats.cfg:567
+#: Conquest_Asterisk/macros/unit_stats.cfg:665
+#: Conquest_Asterisk/macros/unit_stats.cfg:736
+#: Conquest_Asterisk/macros/unit_stats.cfg:870
 msgid "Worker"
 msgstr "Arbeiter"
 
 #. [option]
-#: Conquest_Asterisk/macros/unit_stats.cfg:280
-#: Conquest_Asterisk/macros/unit_stats.cfg:340
-#: Conquest_Asterisk/macros/unit_stats.cfg:397
-#: Conquest_Asterisk/macros/unit_stats.cfg:461
-#: Conquest_Asterisk/macros/unit_stats.cfg:522
-#: Conquest_Asterisk/macros/unit_stats.cfg:620
-#: Conquest_Asterisk/macros/unit_stats.cfg:692
-#: Conquest_Asterisk/macros/unit_stats.cfg:826
-msgid "(+1 gold per turn if worker is standing on a city)"
-msgstr "(+1 Gold pro Runde wenn er in einer Stadt ist)"
-
-#. [option]
 #. 20 gold unit
-#: Conquest_Asterisk/macros/unit_stats.cfg:335
+#: Conquest_Asterisk/macros/unit_stats.cfg:381
 msgid "Spider"
 msgstr "Spinne"
 
 #. [option]
 #. 8 gold unit
-#: Conquest_Asterisk/macros/unit_stats.cfg:378
+#: Conquest_Asterisk/macros/unit_stats.cfg:424
 msgid "Hurricane Cavalry"
 msgstr "Sturm-Kavallerie"
 
 #. [option]
 #. 25 gold unit
-#: Conquest_Asterisk/macros/unit_stats.cfg:391
+#: Conquest_Asterisk/macros/unit_stats.cfg:437
 msgid "Inferno Drake"
 msgstr "Infernodrake"
 
 #. [option]
 #. 3 gold unit
-#: Conquest_Asterisk/macros/unit_stats.cfg:428
-#: Conquest_Asterisk/macros/unit_stats.cfg:731
-#: Conquest_Asterisk/macros/unit_stats.cfg:539
+#: Conquest_Asterisk/macros/unit_stats.cfg:474
+#: Conquest_Asterisk/macros/unit_stats.cfg:776
+#: Conquest_Asterisk/macros/unit_stats.cfg:585
 msgid "Light Cavalry"
 msgstr "Leichte Kavallerie"
 
 #. [option]
 #. 9 gold unit. Keep the name short.
-#: Conquest_Asterisk/macros/unit_stats.cfg:441
+#: Conquest_Asterisk/macros/unit_stats.cfg:487
 msgid "Direwolver"
 msgstr "Schreckensreiter"
 
 #. [option]
 #. 20 gold unit
-#: Conquest_Asterisk/macros/unit_stats.cfg:456
+#: Conquest_Asterisk/macros/unit_stats.cfg:502
 msgid "Troll"
 msgstr "Troll"
 
 #. [option]
 #. 9 gold unit
-#: Conquest_Asterisk/macros/unit_stats.cfg:505
+#: Conquest_Asterisk/macros/unit_stats.cfg:551
 msgid "Chocobone"
 msgstr "Knochenreiter"
 
 #. [option]
 #. 20 gold unit
-#: Conquest_Asterisk/macros/unit_stats.cfg:517
+#: Conquest_Asterisk/macros/unit_stats.cfg:563
 msgid "Spectre"
 msgstr "Spuk"
 
 #. 10 gold unit
-#: Conquest_Asterisk/macros/unit_stats.cfg:552
+#: Conquest_Asterisk/macros/unit_stats.cfg:598
 msgid "Outrider"
 msgstr "Avantgarde"
 
 #. 20 gold unit
-#: Conquest_Asterisk/macros/unit_stats.cfg:561
+#: Conquest_Asterisk/macros/unit_stats.cfg:607
 msgid "Enchantress"
 msgstr "Mystikerin"
 
-#: Conquest_Asterisk/macros/unit_stats.cfg:568
+#: Conquest_Asterisk/macros/unit_stats.cfg:614
 msgid "(60% wood defense)"
 msgstr "(60% Verteidigung im Wald)"
 
 #. [option]
 #. 5 gold unit
-#: Conquest_Asterisk/macros/unit_stats.cfg:660
+#: Conquest_Asterisk/macros/unit_stats.cfg:706
 msgid "Heavy Infantry"
 msgstr "Schwere Infanterie"
 
 #. [option]
 #. 8 gold unit
-#: Conquest_Asterisk/macros/unit_stats.cfg:665
+#: Conquest_Asterisk/macros/unit_stats.cfg:711
 msgid "Cuttle Fish"
 msgstr "Tintenfisch"
 
 #. [option]
 #. 10 gold unit
-#: Conquest_Asterisk/macros/unit_stats.cfg:670
+#: Conquest_Asterisk/macros/unit_stats.cfg:716
 msgid "Water Serpent"
 msgstr "Wasserschlange"
 
 #. [option]
 #. 15 gold assassination unit
-#: Conquest_Asterisk/macros/unit_stats.cfg:679
+#: Conquest_Asterisk/macros/unit_stats.cfg:725
 msgid "Siren"
 msgstr "Sirene"
 
 #. [option]
 #. 20 gold sea serpent
-#: Conquest_Asterisk/macros/unit_stats.cfg:686
+#: Conquest_Asterisk/macros/unit_stats.cfg:732
 msgid "Sea Monster"
 msgstr "Seeungeheuer"
 
 #. [option]
 #. 10 gold unit
-#: Conquest_Asterisk/macros/unit_stats.cfg:779
+#: Conquest_Asterisk/macros/unit_stats.cfg:824
 msgid "Heavy Cavalry"
 msgstr "Schere Kavallerie"
 
 #. [option]
 #. 20 gold unit
-#: Conquest_Asterisk/macros/unit_stats.cfg:811
+#: Conquest_Asterisk/macros/unit_stats.cfg:856
 msgid "Cataphract"
 msgstr "Kataphrakt"
 
 #. [set_menu_item]: id=recruitunit
-#: Conquest_Asterisk/macros/unit_stats.cfg:859
+#: Conquest_Asterisk/macros/unit_stats.cfg:904
 msgid "Recruit Unit"
 msgstr "Einheit rekrutieren"
 
 #. [message]: speaker=narrator
 #. Error message, if the recruit menu was not correctly set up.
-#: Conquest_Asterisk/macros/unit_stats.cfg:889
+#: Conquest_Asterisk/macros/unit_stats.cfg:935
 msgid "No units can be recruited in this village."
 msgstr "In diesem Dorf können keine Einheiten rekrutiert werden."
 
 #. [multiplayer]: id=Conquest_Crusades_by_enclave
 #: Conquest_Asterisk/scenarios/Crusades.cfg:5
 msgid "Conquest* Crusades"
-msgstr "Conquest* Crusades"
+msgstr "Conquest* Kreuzzüge"
 
 #. [multiplayer]: id=Conquest_Crusades_by_enclave
 #. 2 lines for text
@@ -1166,10 +1131,10 @@ msgstr "Conquest* Lotrando"
 #. [multiplayer]: id=Conquest_Lotrando_by_enclave
 #: Conquest_Asterisk/scenarios/Lotrando.cfg:6
 msgid ""
-"A famous map.\n"
+"A famous map. Has many factions.\n"
 "Optimized for 2 players and the capitol mode."
 msgstr ""
-"Eine bekannte Karte.\n"
+"Eine bekannte Karte, mit vielen Fraktionen.\n"
 "Für 2 Spieler und den Basis-Modus optimiert."
 
 #. [multiplayer]: id=Conquest_Lotrando_by_enclave
@@ -1207,9 +1172,9 @@ msgstr "Karte von Zbyll, verändert von Slowthinker, Gwledig, enclave, Shiki"
 #. [label]
 #. to south
 #: Conquest_Asterisk/scenarios/Poland.cfg:83
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:66
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:100
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:134
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:123
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:157
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:191
 msgid "south"
 msgstr "Süden"
 
@@ -1235,9 +1200,9 @@ msgstr "Teleportation"
 #. [label]
 #. this way leads into the north
 #: Conquest_Asterisk/scenarios/Poland.cfg:111
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:71
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:105
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:139
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:128
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:162
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:196
 msgid "north"
 msgstr "Norden"
 
@@ -1245,9 +1210,9 @@ msgstr "Norden"
 #. [label]
 #. teleport towards east
 #: Conquest_Asterisk/scenarios/Poland.cfg:133
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:168
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:202
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:236
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:225
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:259
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:293
 msgid "east"
 msgstr "Osten"
 
@@ -1255,9 +1220,9 @@ msgstr "Osten"
 #. [label]
 #. connects to a place in the west of the map
 #: Conquest_Asterisk/scenarios/Poland.cfg:156
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:173
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:207
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:241
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:230
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:264
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:298
 msgid "west"
 msgstr "Westen"
 
@@ -1293,15 +1258,18 @@ msgstr ""
 #: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:11
 msgid ""
 "Map by Lich_Lord; teleports added by SlowThinker and Lich_Lord, map version "
-"2.1\n"
+"2.1"
+msgstr ""
+"Karte von Lich_Lord, Teleports zusammen mit SlowThinker gemacht, Version 2.1"
+
+#. [multiplayer]: id=Conquest_Surdmark_enclave
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:11
+msgid ""
 "Teleports change the map shape to a toroid. Distances between villages "
 "connected by teleports are long: that causes a slower expansion through "
 "teleports and also less bloody battles around them."
 msgstr ""
-"Karte von Lich_Lord, Teleports zusammen mit SlowThinker gemacht, Version "
-"2.1\n"
-"Mit Teleportationstunneln ändert sich die Form der Karte zu einem Toroid.\n"
-"\n"
+"Mit Teleportationstunneln ändert sich die Form der Karte zu einem Toroid. "
 "Die Teleportationstunneln sind von Städten etwas weiter entfernt – dadurch "
 "verläuft die Expansion über sie langsamer und Kämpfe werden dort weniger "
 "blutig."
@@ -1359,6 +1327,27 @@ msgid ""
 "Map by NULL, modified by Mabuse for Conquest purpose, modified by Gwledig "
 "and enclave, ported by Shiki"
 msgstr "Karte von NULL – angepasst von Mabuse, Gwledig, enclave, Shiki"
+
+#~ msgid "(+1 gold per turn if worker is standing on a city)"
+#~ msgstr "(+1 Gold pro Runde wenn er in einer Stadt ist)"
+
+#~ msgid "Cancel"
+#~ msgstr "Zurück"
+
+#~ msgid "Gold"
+#~ msgstr "Gold"
+
+#~ msgid "HP"
+#~ msgstr "LP"
+
+#~ msgid "Damage"
+#~ msgstr "Schaden"
+
+#~ msgid "Movement"
+#~ msgstr "BP"
+
+#~ msgid "(Firststrike)"
+#~ msgstr "(Erstschlag)"
 
 #~ msgid "(90x6 versus 25 gold units, Firststrike)"
 #~ msgstr "(90x6 vs 25 Gold Einheiten, Erstschlag)"
