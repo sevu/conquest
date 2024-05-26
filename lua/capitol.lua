@@ -2,7 +2,7 @@
 local _ = wesnoth.textdomain 'wesnoth-Conquest'
 local lua_all_villages = wesnoth.map.find{ gives_income = true }
 local lua_total_villages = #lua_all_villages - 1
-local lua_number_of_attempts = (wml.variables['CE_SYSTEM.number_of_attempts'] or 1) - 1
+local lua_number_of_attempts = wml.variables['CE_SYSTEM.number_of_attempts'] or 1
 local lua_friendly_distance = wml.variables['CE_SYSTEM.max_distance'] or 8
 local lua_enemy_distance = wml.variables['CE_SYSTEM.min_distance'] or 10
 ----------------------------------------------------------------------
@@ -12,11 +12,11 @@ for d=lua_enemy_distance,5,-1 do
 	wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Distance $d', {d=d}))
 
 	-- Loop to retry with same settings.
-	for k=0,lua_number_of_attempts,1 do
+	for k=1,lua_number_of_attempts,1 do
 		local break_sides_cycle = false
 		local text = _'Attempt $number out of $max'
 		wesnoth.interface.delay(1)
-		wesnoth.interface.add_chat_message('Conquest',text:vformat({ number=k+1, max=lua_number_of_attempts+1 }))
+		wesnoth.interface.add_chat_message('Conquest',text:vformat({ number=k, max=lua_number_of_attempts }))
 		---------------------------------------------------------------
 
 		local random_first_villa = mathx.random(0, lua_total_villages)
