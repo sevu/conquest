@@ -6,10 +6,12 @@ local lua_number_of_attempts = (wml.variables['CE_SYSTEM.number_of_attempts'] or
 local lua_friendly_distance = wml.variables['CE_SYSTEM.max_distance'] or 8
 local lua_enemy_distance = wml.variables['CE_SYSTEM.min_distance'] or 10
 ----------------------------------------------------------------------
+-- Loop to retry with lower distance to other players.
 for d=lua_enemy_distance,5,-1 do
 	wesnoth.interface.delay(1)
 	wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Distance $d', {d=d}))
 
+	-- Loop to retry with same settings.
 	for k=0,lua_number_of_attempts,1 do
 		local break_sides_cycle = false
 		local text = _'Attempt $number out of $max'
@@ -27,10 +29,12 @@ for d=lua_enemy_distance,5,-1 do
 				local break_random_villa_cycle = false
 				local current_side = v.side
 				--------------------------
+				-- Special handling for first side.
 				--- for first side, spawn 1 militia in a random village on map
 				if sides_counter == 1 then
-					local counter = 0
 
+					-- Determine a random village.
+					local counter = 0
 					for i, pairs_xy in ipairs(lua_all_villages) do
 						if random_first_villa == counter then
 							wml.variables.ce_spawn = { side = current_side, x = pairs_xy.x, y = pairs_xy.y }
@@ -45,6 +49,7 @@ for d=lua_enemy_distance,5,-1 do
 					local all_friendly_villages = wesnoth.map.find{ owner_side = 0, gives_income = true, {'and',
 						{ owner_side=current_side, gives_income = true, radius=lua_friendly_distance }}}
 
+					-- Choose 2nd and 3rd village village.
 					if #all_friendly_villages > 1 then
 						mathx.shuffle(all_friendly_villages)
 						local secondary_village_counter = 0
@@ -59,6 +64,7 @@ for d=lua_enemy_distance,5,-1 do
 						end
 
 					else
+						-- Not enough villages within max distance to own villages.
 						break_sides_cycle = true
 					end
 
@@ -109,7 +115,6 @@ for d=lua_enemy_distance,5,-1 do
 								end
 
 								if sides_counter == #all_sides then
-									wesnoth.interface.delay(1)
 									wesnoth.interface.add_chat_message('Conquest',_'All sides placed successfully')
 									return
 								end
@@ -151,4 +156,5 @@ for d=lua_enemy_distance,5,-1 do
 	end
 end
 -------------------------------------------------------------------
+wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Failed to alocate starting postions for all sides! Restart the game. For random maps, it helps to use a bigger map or to increase the number of attempts. Distance to own villages was $max|.', { max = lua_friendly_distance } ))
 -- >>
