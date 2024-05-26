@@ -74,8 +74,9 @@ for d=lua_enemy_distance,5,-1 do
 						{{'not', { gives_income = true, radius=d, {'not', { owner_side=0 }} }} }} }
 					--wesnoth.message(#lua_all_villages_left)
 					--------------------------------
-					local lua_total_villages_left = #lua_all_villages_left - 1
+					local lua_total_villages_left = #lua_all_villages_left - 1 -- Why -1? Looks like it should not.
 
+					-- Loop with up to 10 tries.
 					for n=1,10,1 do
 						if break_random_villa_cycle == false then
 
@@ -84,6 +85,7 @@ for d=lua_enemy_distance,5,-1 do
 								local random_villa = mathx.random(0, lua_total_villages_left)
 								local counter = 0
 
+								-- Spawn 1 village.
 								for i, pairs_xy in ipairs(lua_all_villages_left) do
 									if random_villa == counter then
 										wml.variables.ce_spawn = { side = current_side, x = pairs_xy.x, y = pairs_xy.y }
@@ -101,6 +103,7 @@ for d=lua_enemy_distance,5,-1 do
 								{'and', {{'not', { owner_side=current_side}} }} }} }},
 								{'and', { gives_income = true, radius=lua_friendly_distance, owner_side=current_side }} }
 
+							-- Place next 2 villages for the same side.
 							if #all_friendly_villages > 1 then
 								break_random_villa_cycle = true
 								mathx.shuffle(all_friendly_villages)
@@ -120,9 +123,11 @@ for d=lua_enemy_distance,5,-1 do
 								end
 
 							else
+								-- There are not 2 villages left fullfilling the two distance conditions.
 								wesnoth.interface.delay(1)
 								wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Retrying side $n placement',{n=current_side}))
 
+								-- Remove the already placed 1st village. Re-enter the loop afterwards.
 								local all_non_king_units_of_current_side = wesnoth.units.find_on_map{ side=current_side, canrecruit = false }
 								if #all_non_king_units_of_current_side > 0 then
 									wesnoth.map.set_owner({ all_non_king_units_of_current_side[1].x, all_non_king_units_of_current_side[1].y }, 0)
@@ -137,11 +142,13 @@ for d=lua_enemy_distance,5,-1 do
 					end
 
 					if break_random_villa_cycle == false then
+						-- Failed all 10 tries to place this side.
 						wesnoth.interface.delay(1)
 						wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Placing side $n failed', {n=current_side}))
 
+						-- Remove all units and start from scratch.
 						local all_non_king_units = wesnoth.units.find_on_map{ canrecruit = false }
-						for u=1,#all_non_king_units,1 do
+						for u=1,#all_non_king_units,1 do -- mistake here, off by 1
 							wesnoth.map.set_owner({ all_non_king_units[u].x, all_non_king_units[u].y }, 0)
 							wesnoth.units.erase(all_non_king_units[u].x, all_non_king_units[u].y)
 						end
