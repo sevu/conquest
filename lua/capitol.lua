@@ -6,15 +6,11 @@ local lua_number_of_attempts = (wml.variables['CE_SYSTEM.number_of_attempts'] or
 local lua_friendly_distance = wml.variables['CE_SYSTEM.max_distance'] or 8
 local lua_enemy_distance = wml.variables['CE_SYSTEM.min_distance'] or 10
 ----------------------------------------------------------------------
-local break_distance_cycle = false
 for d=lua_enemy_distance,5,-1 do
-	if break_distance_cycle == false then
-		local break_attempt_cycle = false
 		wesnoth.interface.delay(1)
 		wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Distance $d', {d=d}))
 
 		for k=0,lua_number_of_attempts,1 do
-			if break_attempt_cycle == false then
 				local break_sides_cycle = false
 				local text = _'Attempt $number out of $max'
 				wesnoth.interface.delay(1)
@@ -113,10 +109,9 @@ for d=lua_enemy_distance,5,-1 do
 										end
 
 										if sides_counter == #all_sides then
-											break_attempt_cycle = true
-											break_distance_cycle = true
 											wesnoth.interface.delay(1)
 											wesnoth.interface.add_chat_message('Conquest',_'All sides placed successfully')
+											return
 										end
 
 									else
@@ -129,15 +124,10 @@ for d=lua_enemy_distance,5,-1 do
 											wesnoth.units.erase(all_non_king_units_of_current_side[1].x, all_non_king_units_of_current_side[1].y)
 										end
 										--break_sides_cycle = true
-										--break_distance_cycle = true
-										--break_attempt_cycle = true
 										--break_random_villa_cycle = true
 									end
-									--break_attempt_cycle = true
 									--------------------------------
 									--break_sides_cycle = true
-									--break_distance_cycle = true
-									--break_attempt_cycle = true
 								end
 							end
 
@@ -151,20 +141,14 @@ for d=lua_enemy_distance,5,-1 do
 									wesnoth.units.erase(all_non_king_units[u].x, all_non_king_units[u].y)
 								end
 								break_sides_cycle = true
-								--break_distance_cycle = true
-								--break_attempt_cycle = true
 							end	
 						end
 						sides_counter = sides_counter + 1
 						-------------------------------------------
 					end
 				end
-			else
-				break_distance_cycle = true
-			end
 		----------------------------------------------------------
 		end
-	end
 end
 -------------------------------------------------------------------
 -- >>
