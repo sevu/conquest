@@ -64,7 +64,10 @@ for d=lua_enemy_distance,5,-1 do
 						end
 
 					else
-						-- Not enough villages within max distance to own villages.
+						-- No other two villages are within max distance to first village.
+						local first_unit = wesnoth.units.find_on_map{ side=current_side, canrecruit = false }[1]
+						wesnoth.map.set_owner({ first_unit.x, first_unit.y }, 0)
+						first_unit:erase()
 						break_sides_cycle = true
 					end
 
