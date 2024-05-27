@@ -21,13 +21,12 @@ for d=lua_enemy_distance,5,-1 do
 
 		local random_first_villa = mathx.random(0, lua_total_villages)
 		--
-		local sides_counter = 1
 		local all_sides = wesnoth.sides.find{ wml.tag.has_unit { canrecruit = true } }
 
-		for j,v in ipairs(all_sides) do
+		for sides_counter,s in ipairs(all_sides) do
 			if break_sides_cycle == false then
 				local break_random_villa_cycle = false
-				local current_side = v.side
+				local current_side = s.side
 				--------------------------
 				-- Special handling for first side.
 				--- for first side, spawn 1 militia in a random village on map
@@ -157,7 +156,6 @@ for d=lua_enemy_distance,5,-1 do
 						break_sides_cycle = true
 					end
 				end
-				sides_counter = sides_counter + 1
 				-------------------------------------------
 			end
 		end
