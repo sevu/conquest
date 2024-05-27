@@ -145,3 +145,15 @@ one can preprocess the add-on on command-line, with:
 wesnoth --preprocess-defines=MULTIPLAYER -p Conquest_Asterisk /tmp/
 
 However, it does not matter.
+
+8) Map Names (and villages):
+pasarganta - biggest map (301) TP
+surdmark - southern half (181) TP
+liquergue - eastern half (150) TP
+algernon - northern half (120)
+catoh     - western half (150)
+
+gagarna - south-west (90)
+torath  - south-east (90)
+samrock - north-east (60)
+burgoth - north-west (60)
