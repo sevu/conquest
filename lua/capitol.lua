@@ -150,13 +150,12 @@ for d=lua_enemy_distance,5,-1 do
 						wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Placing side $n failed', {n=current_side}))
 
 						-- Remove all units and start from scratch.
-						local all_non_king_units = wesnoth.units.find_on_map{ canrecruit = false }
-						for u=1,#all_non_king_units,1 do -- mistake here, off by 1
-							wesnoth.map.set_owner({ all_non_king_units[u].x, all_non_king_units[u].y }, 0)
-							wesnoth.units.erase(all_non_king_units[u].x, all_non_king_units[u].y)
+						for l, u in ipairs(wesnoth.units.find_on_map{ canrecruit = false }) do
+							wesnoth.map.set_owner({ u.x, u.y }, 0)
+							u:erase()
 						end
 						break_sides_cycle = true
-					end	
+					end
 				end
 				sides_counter = sides_counter + 1
 				-------------------------------------------
