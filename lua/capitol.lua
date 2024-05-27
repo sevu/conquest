@@ -131,10 +131,10 @@ for d=lua_enemy_distance,5,-1 do
 								wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Retrying side $n placement',{n=current_side}))
 
 								-- Remove the already placed 1st village. Re-enter the loop afterwards.
-								local all_non_king_units_of_current_side = wesnoth.units.find_on_map{ side=current_side, canrecruit = false }
-								if #all_non_king_units_of_current_side > 0 then
-									wesnoth.map.set_owner({ all_non_king_units_of_current_side[1].x, all_non_king_units_of_current_side[1].y }, 0)
-									wesnoth.units.erase(all_non_king_units_of_current_side[1].x, all_non_king_units_of_current_side[1].y)
+								local first_unit = wesnoth.units.find_on_map{ side=current_side, canrecruit = false }
+								if #first_unit > 0 then
+									wesnoth.map.set_owner({ first_unit[1].x, first_unit[1].y }, 0)
+									wesnoth.units.erase(first_unit[1].x, first_unit[1].y)
 								end
 								--break_sides_cycle = true
 								--break_random_villa_cycle = true
