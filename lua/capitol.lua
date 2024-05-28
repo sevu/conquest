@@ -1,11 +1,13 @@
--- <<
+-- << Magic marker. For Lua it's a comment, for the WML preprocessor an opening quotation sign.
+
 local _ = wesnoth.textdomain 'wesnoth-Conquest'
 local lua_all_villages = wesnoth.map.find{ gives_income = true }
 local lua_total_villages = #lua_all_villages - 1
 local lua_number_of_attempts = wml.variables['CE_SYSTEM.number_of_attempts'] or 1
 local lua_friendly_distance = wml.variables['CE_SYSTEM.max_distance'] or 8
 local lua_enemy_distance = wml.variables['CE_SYSTEM.min_distance'] or 10
-----------------------------------------------------------------------
+
+
 -- Loop to retry with lower distance to other players.
 for d=lua_enemy_distance,5,-1 do
 	wesnoth.interface.delay(1)
@@ -164,4 +166,5 @@ for d=lua_enemy_distance,5,-1 do
 end
 -------------------------------------------------------------------
 wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Failed to alocate starting postions for all sides! Restart the game. For random maps, it helps to use a bigger map or to increase the number of attempts. Distance to own villages was $max|.', { max = lua_friendly_distance } ))
--- >>
+
+-- Magic marker. For Lua it's a comment, for the WML preprocessor a closing quotation sign. >>
