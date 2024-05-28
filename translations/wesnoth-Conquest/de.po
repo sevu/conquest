@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.wesnoth.org/\n"
-"POT-Creation-Date: 2024-05-24 19:42 UTC\n"
-"PO-Revision-Date: 2024-05-24 21:43+0200\n"
+"POT-Creation-Date: 2024-05-27 13:14 UTC\n"
+"PO-Revision-Date: 2024-05-26 22:00+0200\n"
 "Last-Translator: Severin Glöckner <severin.gloeckner@stud.htwk-leipzig.de>\n"
 "Language-Team: German <irc://irc.libera.chat/#wesnoth-de>\n"
 "Language: de\n"
@@ -12,7 +12,38 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.0\n"
+
+#: Conquest_Asterisk/lua/capitol.lua:14
+msgid "Distance $d"
+msgstr "Distanz $d"
+
+#: Conquest_Asterisk/lua/capitol.lua:19
+msgid "Attempt $number out of $max"
+msgstr "Versuch $number von $max"
+
+#: Conquest_Asterisk/lua/capitol.lua:125
+msgid "All sides placed successfully"
+msgstr "Alle Parteien platziert"
+
+#: Conquest_Asterisk/lua/capitol.lua:132
+msgid "Retrying side $n placement"
+msgstr "Neuer Versuch bei Partei $n"
+
+#: Conquest_Asterisk/lua/capitol.lua:151
+msgid "Placing side $n failed"
+msgstr "Platzierung von Partei $n fehlgeschlagen"
+
+#: Conquest_Asterisk/lua/capitol.lua:168
+msgid ""
+"Failed to alocate starting postions for all sides! Restart the game. For "
+"random maps, it helps to use a bigger map or to increase the number of "
+"attempts. Distance to own villages was $max|."
+msgstr ""
+"Es konnte nicht für alle Spieler eine Startposition gefunden werden – Ihr "
+"müsst ein neues Spiel erstellen! Bei Zufallskarten hilft es eine größere "
+"Karte zu verwenden oder die Anzahl der Versuche zu erhöhen. Die Distanz zu "
+"eigenen Dörfer war auf $max gesetzt."
 
 #. [lua]: res.turns_over_advantage
 #. Turn limit reached (if one was used)
@@ -71,28 +102,8 @@ msgid "Can load and unload units between villages excluding mechanical units."
 msgstr ""
 "Kann Einheiten zwischen Städten transportieren (Kriegsgerät ausgenommen)."
 
-#: Conquest_Asterisk/macros/core_capitol_spawn.cfg:20
-msgid "Distance $d"
-msgstr "Distanz $d"
-
-#: Conquest_Asterisk/macros/core_capitol_spawn.cfg:25
-msgid "Attempt $number out of $max"
-msgstr "Versuch $number von $max"
-
-#: Conquest_Asterisk/macros/core_capitol_spawn.cfg:121
-msgid "All sides placed successfully"
-msgstr "Alle Parteien platziert"
-
-#: Conquest_Asterisk/macros/core_capitol_spawn.cfg:126
-msgid "Retrying side $n placement"
-msgstr "Neuer Versuch bei Partei $n"
-
-#: Conquest_Asterisk/macros/core_capitol_spawn.cfg:148
-msgid "Placing side $n failed"
-msgstr "Platzierung von Partei $n fehlgeschlagen"
-
 #. [print]
-#: Conquest_Asterisk/macros/core_capitol_spawn.cfg:184
+#: Conquest_Asterisk/macros/core_capitol_spawn.cfg:18
 msgid ""
 "         Neutral units (White)\n"
 "spawn on empty Cities at Turn 2.\n"
@@ -1013,6 +1024,44 @@ msgstr "Einheit rekrutieren"
 msgid "No units can be recruited in this village."
 msgstr "In diesem Dorf können keine Einheiten rekrutiert werden."
 
+#. [multiplayer]: id=Conquest_Burgoth
+#: Conquest_Asterisk/scenarios/Burgoth.cfg:5
+msgid "Conquest* Burgoth"
+msgstr "Conquest* Burgoth"
+
+#. [multiplayer]: id=Conquest_Burgoth
+#: Conquest_Asterisk/scenarios/Burgoth.cfg:6
+msgid ""
+"For 2-6 players.\n"
+"This is the north-western part of Pasarganta."
+msgstr ""
+"Für 2-6 Spieler.\n"
+"Dies ist der nordwestliche Teil von Pasarganta."
+
+#. [multiplayer]: id=Conquest_Burgoth
+#. [multiplayer]: id=Conquest_Gagarna_enclave
+#. [multiplayer]: id=Conquest_Jel_wan_by_enclave
+#. [multiplayer]: id=Conquest_Lotrando_by_enclave
+#. [multiplayer]: id=Conquest_Poland_by_enclave
+#. [multiplayer]: id=Conquest_Surdmark_enclave
+#. [multiplayer]: id=Conquest_Torath
+#. [multiplayer]: id=Conquest_Wesnoth_by_enclave
+#: Conquest_Asterisk/scenarios/Burgoth.cfg:9
+#: Conquest_Asterisk/scenarios/Gagarna.cfg:9
+#: Conquest_Asterisk/scenarios/Jel_wan.cfg:9
+#: Conquest_Asterisk/scenarios/Lotrando.cfg:9
+#: Conquest_Asterisk/scenarios/Poland.cfg:10
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:9
+#: Conquest_Asterisk/scenarios/Torath.cfg:9
+#: Conquest_Asterisk/scenarios/Wesnoth.cfg:9
+msgid "<b>Check the »Custom Options« tab.</b>"
+msgstr "<b>Schau im Tab »Erweiterte Optionen«</b>"
+
+#. [multiplayer]: id=Conquest_Burgoth
+#: Conquest_Asterisk/scenarios/Burgoth.cfg:11
+msgid "Map by Lich_Lord"
+msgstr "Karte von Lich_Lord"
+
 #. [multiplayer]: id=Conquest_Crusades_by_enclave
 #: Conquest_Asterisk/scenarios/Crusades.cfg:5
 msgid "Conquest* Crusades"
@@ -1079,23 +1128,6 @@ msgid ""
 msgstr ""
 "Für 2-6 Spieler, ohne Teleportationstunnel.\n"
 "Dies ist der westliche Teil von Surdmark."
-
-#. [multiplayer]: id=Conquest_Gagarna_enclave
-#. [multiplayer]: id=Conquest_Jel_wan_by_enclave
-#. [multiplayer]: id=Conquest_Lotrando_by_enclave
-#. [multiplayer]: id=Conquest_Poland_by_enclave
-#. [multiplayer]: id=Conquest_Surdmark_enclave
-#. [multiplayer]: id=Conquest_Torath
-#. [multiplayer]: id=Conquest_Wesnoth_by_enclave
-#: Conquest_Asterisk/scenarios/Gagarna.cfg:9
-#: Conquest_Asterisk/scenarios/Jel_wan.cfg:9
-#: Conquest_Asterisk/scenarios/Lotrando.cfg:9
-#: Conquest_Asterisk/scenarios/Poland.cfg:10
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:9
-#: Conquest_Asterisk/scenarios/Torath.cfg:9
-#: Conquest_Asterisk/scenarios/Wesnoth.cfg:9
-msgid "<b>Check the »Custom Options« tab.</b>"
-msgstr "<b>Schau im Tab »Erweiterte Optionen«</b>"
 
 #. [multiplayer]: id=Conquest_Gagarna_enclave
 #. [multiplayer]: id=Conquest_Torath
@@ -1915,4 +1947,3 @@ msgstr "Karte von NULL – angepasst von Mabuse, Gwledig, enclave, Shiki"
 
 #~ msgid "female^assassin"
 #~ msgstr "Attentäter"
-
