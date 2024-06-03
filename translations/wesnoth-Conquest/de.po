@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.wesnoth.org/\n"
-"POT-Creation-Date: 2024-05-27 13:14 UTC\n"
-"PO-Revision-Date: 2024-05-26 22:00+0200\n"
+"POT-Creation-Date: 2024-06-03 01:14 UTC\n"
+"PO-Revision-Date: 2024-06-03 03:27+0200\n"
 "Last-Translator: Severin Glöckner <severin.gloeckner@stud.htwk-leipzig.de>\n"
 "Language-Team: German <irc://irc.libera.chat/#wesnoth-de>\n"
 "Language: de\n"
@@ -226,18 +226,18 @@ msgstr "<b>Teleportationstunnel sind aktiviert!</b>"
 #. [objectives]
 #. The next 10-20 strings are similar to the intro text, but use different formatting. The game is explained to the new player here.
 #. These strings have to fit on the objectives screen without a line break!
-#: Conquest_Asterisk/macros/core_objectives.cfg:81
+#: Conquest_Asterisk/macros/core_objectives.cfg:85
 msgid "How to play Conquest"
 msgstr "Wie man Conquest spielt"
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:82
+#: Conquest_Asterisk/macros/core_objectives.cfg:86
 msgid "Conquest is played with different units and has no leader nor keep."
 msgstr ""
 "Conquest wird mit anderen Einheiten gespielt und ohne Anführer und Burgen."
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:83
+#: Conquest_Asterisk/macros/core_objectives.cfg:87
 msgid ""
 "<b>To recruit, right click your vilas</b> (make sure there is no unit on the "
 "vila when recruiting)"
@@ -246,12 +246,12 @@ msgstr ""
 "Einheit stehen)"
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:84
+#: Conquest_Asterisk/macros/core_objectives.cfg:88
 msgid "Units can move 1 hex on their first turn, later they can move fully."
 msgstr "Einheiten können direkt nach dem Rekrutieren 1 Feld bewegt werden."
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:85
+#: Conquest_Asterisk/macros/core_objectives.cfg:89
 msgid ""
 "If you capture all vilas in a <b>region</b> you get <b>bonus</b> income."
 msgstr ""
@@ -259,7 +259,7 @@ msgstr ""
 "<b>zusätzliches</b> Einkommen."
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:86
+#: Conquest_Asterisk/macros/core_objectives.cfg:90
 msgid ""
 "On turn 2 empty vilas are filled with AI guardians (cannot move or recruit)."
 msgstr ""
@@ -267,12 +267,12 @@ msgstr ""
 "Euch nicht an)."
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:87
+#: Conquest_Asterisk/macros/core_objectives.cfg:91
 msgid "Placing <b>workers</b> on villages will provide another +1 income."
 msgstr "<b>Arbeiter</b> in Städten zu platzieren gibt Euch +1 Einkommen."
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:88
+#: Conquest_Asterisk/macros/core_objectives.cfg:92
 msgid ""
 "Use boat transports by recruiting a transport next to a vila, then make a "
 "unit on the vila."
@@ -281,12 +281,12 @@ msgstr ""
 "in der Stadt."
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:88
+#: Conquest_Asterisk/macros/core_objectives.cfg:92
 msgid "Using boats"
 msgstr "Boote verwenden"
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:89
+#: Conquest_Asterisk/macros/core_objectives.cfg:93
 msgid ""
 "Right-click the transport to board. You can move a transport to another vila "
 "and right-click to unload."
@@ -295,12 +295,12 @@ msgstr ""
 "zum Entladen."
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:90
+#: Conquest_Asterisk/macros/core_objectives.cfg:94
 msgid "Strategy"
 msgstr "Strategie"
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:91
+#: Conquest_Asterisk/macros/core_objectives.cfg:95
 msgid ""
 "You can have NAP (Non Agression Pact) with other players, use the Chat to "
 "discuss NAPs."
@@ -309,23 +309,23 @@ msgstr ""
 "diskutiert über den Chat!"
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:92
+#: Conquest_Asterisk/macros/core_objectives.cfg:96
 msgid ""
 "Combat is simplified. No Resistances, units are neutral and use berserk."
 msgstr "Keine Resistenzen, Einheiten sind neutral und immer im Kampfrausch."
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:94
+#: Conquest_Asterisk/macros/core_objectives.cfg:98
 msgid "About Conquest*"
 msgstr "Über Conquest*"
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:96
+#: Conquest_Asterisk/macros/core_objectives.cfg:100
 msgid "You can join the Discord-Chat. Invite-Code: TUDEHgfE"
 msgstr "Es gibt einen Discord-Chat, der Einlade-Code lautet: TUDEHgfE"
 
 #. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:97
+#: Conquest_Asterisk/macros/core_objectives.cfg:101
 msgid "It would be great if you give feedback at r.wesnoth.org/t57848"
 msgstr "Gebt uns Feedback im Forum unter r.wesnoth.org/t57848"
 
@@ -605,6 +605,7 @@ msgstr "Palandir Karte spielen"
 #. [checkbox]: id=teleports
 #. a setting which can be changed when creating the game
 #: Conquest_Asterisk/macros/options.cfg:246
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:29
 msgid "Teleports"
 msgstr "Teleportationstunnel"
 
@@ -1055,10 +1056,12 @@ msgstr ""
 #: Conquest_Asterisk/scenarios/Torath.cfg:9
 #: Conquest_Asterisk/scenarios/Wesnoth.cfg:9
 msgid "<b>Check the »Custom Options« tab.</b>"
-msgstr "<b>Schau im Tab »Erweiterte Optionen«</b>"
+msgstr "<b>Schaut im Tab »Erweiterte Optionen«.</b>"
 
 #. [multiplayer]: id=Conquest_Burgoth
+#. [multiplayer]: id=Conquest_Pasarganta
 #: Conquest_Asterisk/scenarios/Burgoth.cfg:11
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:22
 msgid "Map by Lich_Lord"
 msgstr "Karte von Lich_Lord"
 
@@ -1085,7 +1088,7 @@ msgstr ""
 #: Conquest_Asterisk/scenarios/Wales.cfg:9
 msgid "<b>Check the »Custom Options« tab. This map can be played by AI.</b>"
 msgstr ""
-"<b>Schau im Tab »Erweiterte Optionen«. Diese Karte kann von der KI gespielt "
+"<b>Schaut im Tab »Erweiterte Optionen«. Diese Karte kann von der KI gespielt "
 "werden.</b>"
 
 #. [multiplayer]: id=Conquest_Crusades_by_enclave
@@ -1178,6 +1181,260 @@ msgstr ""
 "Ausgehend von einer Karte von Mia, Version 1.04, von Slowthinker bearbeitet, "
 "Version 1.29, angepasst von enclave, Shiki"
 
+#. [multiplayer]: id=Conquest_Pasarganta
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:5
+msgid "Conquest* Pasarganta"
+msgstr "Conquest* Pasarganta"
+
+#. [multiplayer]: id=Conquest_Pasarganta
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:6
+msgid ""
+"For 2-6 players. This is a map pack of its own. Different areas of this map "
+"can be played.\n"
+"Look at the village numbers below to see the size of the map."
+msgstr ""
+"Für 2-6 Spieler. Diese Karte ist ein Kartenpaket, verschiedene Gebiete können"
+" gespielt werden.\n"
+"Schaut unten auf die Anzahl der Dörfer, um zu wissen, wie groß die Karten"
+" sind."
+
+#. [multiplayer]: id=Conquest_Pasarganta
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:9
+msgid "<b>Check the »Custom Options« tab to choose the map section.</b>"
+msgstr ""
+"<b>Schaut im Tab »Erweiterte Optionen« um den Kartenausschnitt zu wählen.</b>"
+
+#. [multiplayer]: id=Conquest_Pasarganta
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:10
+msgid ""
+"\n"
+"Pasarganta - biggest map (>300) TP\n"
+"Surdmark - southern half (181) TP\n"
+"Liquergue - eastern half (150) TP\n"
+"Algernon - northern half (120)\n"
+"Catoh - western half (150)\n"
+"\n"
+"Gagarna - south-west (90)\n"
+"Torath - south-east (90)\n"
+"Samrock - north-east (60)\n"
+"Burgoth - north-west (60)"
+msgstr ""
+"\n"
+"Pasarganta - größte Karte (>300) TP\n"
+"Surdmark - südliche Hälfte (181) TP\n"
+"Liquergue - östliche Hälfte (150) TP\n"
+"Algernon - nördliche Hälfte (120)\n"
+"Catoh - westliche Hälfte (150)\n"
+"\n"
+"Gagarna - Südwesten (90)\n"
+"Torath - Südosten (90)\n"
+"Samrock - Nordosten (60)\n"
+"Burgoth - Nordwesten (60)"
+
+#. [checkbox]: id=teleports
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:29
+msgid "(New Pasarganta, Surdmark, Liquergue only)"
+msgstr "(Nur Pasarganta, Surdmark, Liquergue)"
+
+#. [checkbox]: id=teleports
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:30
+msgid ""
+"Teleports change the map shape to a toroid on Surdmark and Pasarganta and to "
+"a ring on Liquergue."
+msgstr ""
+"Teleportationstunnel ändern die Form der Karte zu einem Toroid in Surdmark"
+" und Pasarganta und zu einem Ring in Liquergue."
+
+#. [choice]: id=mapvariant, description=
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:34
+msgid "Section of the map"
+msgstr "Ausschnitt der Karte"
+
+#. [item]
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:38
+msgid "Pasarganta (biggest map, teleports)"
+msgstr "Pasarganta (größte Karte, TP)"
+
+#. [item]
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:42
+msgid "Surdmark (southern half, teleports)"
+msgstr "Surdmark (südliche Hälfte, TP)"
+
+#. [item]
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:47
+msgid "Liquergue (eastern half, teleports)"
+msgstr "Liquergue (östliche Hälfte, TP)"
+
+#. [item]
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:52
+msgid "Algernon (northern half)"
+msgstr "Algernon (nördliche Hälfte)"
+
+#. [item]
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:57
+msgid "Catoh (western half)"
+msgstr "Catoh (westliche Hälfte)"
+
+#. [item]
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:62
+msgid "Gagarna (south-west)"
+msgstr "Gagarna (Südwesten)"
+
+#. [item]
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:67
+msgid "Torath (south-east)"
+msgstr "Torath (Südosten)"
+
+#. [item]
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:72
+msgid "Samrock (north-east)"
+msgstr "Samrock (Nordosten)"
+
+#. [item]
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:77
+msgid "Burgoth (north-west)"
+msgstr "Burgoth (Nordwesten)"
+
+#. [item]
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:82
+msgid "Former Pasarganta (biggest map)"
+msgstr "Früheres Pasarganta (größte Karte)"
+
+#. [case]
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:403
+msgid "Algernon-section"
+msgstr "Algernon Abschnitt"
+
+#. [case]
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:407
+msgid "Catoh-section"
+msgstr "Catoh Abschnitt"
+
+#. [case]
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:411
+msgid "Gagarna-section"
+msgstr "Gagarna Abschnitt"
+
+#. [case]
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:415
+msgid "Torath-section"
+msgstr "Torath Abschnitt"
+
+#. [case]
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:419
+msgid "Samrock-section"
+msgstr "Samrock Abschnitt"
+
+#. [case]
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:423
+msgid "Burgoth-section"
+msgstr "Burgoth Abschnitt"
+
+#. [case]
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:427
+msgid "Complete map"
+msgstr "Komplette Karte"
+
+#. [then]
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:434
+msgid "New map variant"
+msgstr "Neue Kartenvariante"
+
+#. [else]
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:437
+msgid "New map variant with teleports"
+msgstr "Neue Kartenvariante mit Teleportationstunneln"
+
+#. [else]
+#. [then]
+#. [label]
+#. teleport towards east
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:439
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:448
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:472
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:475
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:478
+#: Conquest_Asterisk/scenarios/Poland.cfg:133
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:225
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:259
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:293
+msgid "east"
+msgstr "Osten"
+
+#. [else]
+#. [then]
+#. [label]
+#. connects to a place in the west of the map
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:440
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:449
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:473
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:476
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:479
+#: Conquest_Asterisk/scenarios/Poland.cfg:156
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:230
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:264
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:298
+msgid "west"
+msgstr "Westen"
+
+#. [else]
+#. [then]
+#. [label]
+#. to south
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:442
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:445
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:463
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:466
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:469
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:493
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:496
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:499
+#: Conquest_Asterisk/scenarios/Poland.cfg:83
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:123
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:157
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:191
+msgid "south"
+msgstr "Süden"
+
+#. [else]
+#. [then]
+#. [label]
+#. this way leads into the north
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:443
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:446
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:464
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:467
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:470
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:494
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:497
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:500
+#: Conquest_Asterisk/scenarios/Poland.cfg:111
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:128
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:162
+#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:196
+msgid "north"
+msgstr "Norden"
+
+#. [then]
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:458
+msgid "Surdmark-section"
+msgstr "Surdmark Abschnitt"
+
+#. [else]
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:461
+msgid "Surdmark-section with teleports"
+msgstr "Surdmark Abschnitt mit Teleportationstunneln"
+
+#. [then]
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:488
+msgid "Liquergue-section"
+msgstr "Liquergue Abschnitt"
+
+#. [else]
+#: Conquest_Asterisk/scenarios/Pasarganta.cfg:491
+msgid "Liquergue-section with teleports"
+msgstr "Liquergue Abschnitt mit Teleportationstunneln"
+
 #. [multiplayer]: id=Conquest_Poland_by_enclave
 #: Conquest_Asterisk/scenarios/Poland.cfg:5
 msgid "Conquest* Poland"
@@ -1201,16 +1458,6 @@ msgid "Map by Zbyll, edited by SlowThinker, Gwledig, enclave, Shiki"
 msgstr "Karte von Zbyll, verändert von Slowthinker, Gwledig, enclave, Shiki"
 
 #. [then]
-#. [label]
-#. to south
-#: Conquest_Asterisk/scenarios/Poland.cfg:83
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:123
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:157
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:191
-msgid "south"
-msgstr "Süden"
-
-#. [then]
 #. channel of teleportation (a channel for boats)
 #: Conquest_Asterisk/scenarios/Poland.cfg:104
 msgid "channel"
@@ -1227,36 +1474,6 @@ msgstr "der"
 #: Conquest_Asterisk/scenarios/Poland.cfg:108
 msgid "teleportation"
 msgstr "Teleportation"
-
-#. [then]
-#. [label]
-#. this way leads into the north
-#: Conquest_Asterisk/scenarios/Poland.cfg:111
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:128
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:162
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:196
-msgid "north"
-msgstr "Norden"
-
-#. [then]
-#. [label]
-#. teleport towards east
-#: Conquest_Asterisk/scenarios/Poland.cfg:133
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:225
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:259
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:293
-msgid "east"
-msgstr "Osten"
-
-#. [then]
-#. [label]
-#. connects to a place in the west of the map
-#: Conquest_Asterisk/scenarios/Poland.cfg:156
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:230
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:264
-#: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:298
-msgid "west"
-msgstr "Westen"
 
 #. [message]: speaker=narrator
 #: Conquest_Asterisk/scenarios/Poland.cfg:179
@@ -1919,18 +2136,6 @@ msgstr "Karte von NULL – angepasst von Mabuse, Gwledig, enclave, Shiki"
 #~ msgid "Please select the region you want to start with!"
 #~ msgstr "Wählt eine Region als Ausgangspunkt!"
 
-#~ msgid "north-east"
-#~ msgstr "Nordosten"
-
-#~ msgid "south-east"
-#~ msgstr "Südosten"
-
-#~ msgid "south-west"
-#~ msgstr "Südwesten"
-
-#~ msgid "north-west"
-#~ msgstr "Nordwesten"
-
 #~ msgid "Unboard"
 #~ msgstr "Schiff verlassen"
 
@@ -1947,3 +2152,4 @@ msgstr "Karte von NULL – angepasst von Mabuse, Gwledig, enclave, Shiki"
 
 #~ msgid "female^assassin"
 #~ msgstr "Attentäter"
+
