@@ -1,0 +1,85 @@
+[region]
+	name=Samrock
+	bonus=11
+	village_list=Sarepta,30,21,Rehevia,24,23,Herod,25,27,Larsa,32,25,Elis,30,28,Chalkis,20,27,Lanth,19,32
+[/region]
+[region]
+	name=Caliphi
+	bonus=9
+	village_list=Haran,38,17,Tanis,37,23,Ulam,45,20,Arwad,42,23,Dvir,47,25,Baalbek,41,27
+[/region]
+[region]
+	name=Ramprar
+	bonus=7
+	village_list=Croton,5,21,Dor,6,23,Nineveh,3,26,Damyar,11,25,Tholl,12,28
+[/region]
+[region]
+	name=Calron
+	bonus=7
+	village_list=Byblos,28,39,Carchemish,25,43,Ashur,32,43,Midian,23,47,Caith,29,49
+[/region]
+[region]
+	name=Smorg
+	bonus=7
+	village_list=Prag,42,43,Milt,38,46,Branor,45,46,Rogyr,42,49,Traklin,46,48
+[/region]
+[region]
+	name=Wamptir
+	bonus=6
+	village_list=Lefkandi,21,11,Monchack,16,14,Illiam,26,15,Eugeor,20,18
+[/region]
+[region]
+	name=Fangmar
+	bonus=6
+	village_list=Kalhu,47,34,Borsippa,38,35,Hanwa,41,38,Lafoa,47,38
+[/region]
+[region]
+	name=Jollywood
+	bonus=3
+	village_list=Vida,11,43,Fitai,13,46,Lyrinthia,17,43
+[/region]
+[region]
+	name=Yart
+	bonus=4
+	village_list=Taojia,14,34,Ognapur,13,38,Queztutil,18,37
+[/region]
+[region]
+	name=Trileka
+	bonus=4
+	village_list=Ubnat ans Yalerb,2,33,Ganent,5,36,Vinshat,1,38
+[/region]
+[region]
+	name=Abbasur
+	bonus=3
+	village_list=Jaffa,30,7,Al Mamul,28,10,Berral,34,9
+[/region]
+[region]
+	name=The Restless Swamps
+	bonus=2
+	village_list=Sidon,11,9,Barl,5,10
+[/region]
+[region]
+	name=Zimyar
+	bonus=2
+	village_list=Daev,2,15,Xea,7,17
+[/region]
+[region]
+	name=Zard
+	bonus=2
+	village_list=Thash,43,10,Kark,48,8
+[/region]
+[region]
+	name=Ectrun
+	bonus=2
+	village_list=Rollum,27,35,Laiten,32,34
+[/region]
+[region]
+	name=Yarghford Mountains
+	bonus=2
+	village_list=Gagenor,3,45,Khavar,6,47
+[/region]
+[region]
+	name=Lekturia
+	bonus=2
+	village_list=Kehra,13,21,Alabar,17,23
+[/region]
