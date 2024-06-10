@@ -19,17 +19,15 @@ for d=lua_enemy_distance,5,-1 do
 		local text = _'Attempt $number out of $max'
 		wesnoth.interface.delay(1)
 		wesnoth.interface.add_chat_message('Conquest',text:vformat({ number=k, max=lua_number_of_attempts }))
-		---------------------------------------------------------------
 
 		local random_first_villa = mathx.random(0, lua_total_villages)
-		--
 		local all_sides = wesnoth.sides.find{ wml.tag.has_unit { canrecruit = true } }
 
 		for sides_counter,s in ipairs(all_sides) do
 			if break_sides_cycle == false then
 				local break_random_villa_cycle = false
 				local current_side = s.side
-				--------------------------
+
 				-- Special handling for first side.
 				--- for first side, spawn 1 militia in a random village on map
 				if sides_counter == 1 then
@@ -72,19 +70,19 @@ for d=lua_enemy_distance,5,-1 do
 						break_sides_cycle = true
 					end
 
+				-- If it is not the first side.
 				else
 					---try if you can put next side with specified distances..
 					local lua_all_villages_left = wesnoth.map.find{ owner_side=0, gives_income = true, {'and',
 						{{'not', { gives_income = true, radius=d, {'not', { owner_side=0 }} }} }} }
-					--wesnoth.message(#lua_all_villages_left)
-					--------------------------------
-					local lua_total_villages_left = #lua_all_villages_left - 1 -- Why -1? Looks like it should not.
+
+					local lua_total_villages_left = #lua_all_villages_left - 1
 
 					-- Loop with up to 10 tries.
 					for n=1,10,1 do
 						if break_random_villa_cycle == false then
 
-							-- safety check for random function
+							-- Safety check for random function.
 							if lua_total_villages_left >= 0 then
 								local random_villa = mathx.random(0, lua_total_villages_left)
 								local counter = 0
@@ -98,6 +96,9 @@ for d=lua_enemy_distance,5,-1 do
 									end
 									counter = counter + 1
 								end
+							else
+								-- Did not find a first village. Re-enter the loop.
+								break
 							end
 
 							--- for first side store nearby villages in settings radius
@@ -132,16 +133,11 @@ for d=lua_enemy_distance,5,-1 do
 								wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Retrying side $n placement',{n=current_side}))
 
 								-- Remove the already placed 1st village. Re-enter the loop afterwards.
-								local first_unit = wesnoth.units.find_on_map{ side=current_side, canrecruit = false }
-								if #first_unit > 0 then
-									wesnoth.map.set_owner({ first_unit[1].x, first_unit[1].y }, 0)
-									wesnoth.units.erase(first_unit[1].x, first_unit[1].y)
-								end
-								--break_sides_cycle = true
-								--break_random_villa_cycle = true
+								local first_unit = wesnoth.units.find_on_map{ side=current_side, canrecruit = false }[1]
+								wesnoth.map.set_owner({ first_unit.x, first_unit.y }, 0)
+								first_unit:erase()
 							end
-							--------------------------------
-							--break_sides_cycle = true
+
 						end
 					end
 
@@ -158,13 +154,14 @@ for d=lua_enemy_distance,5,-1 do
 						break_sides_cycle = true
 					end
 				end
-				-------------------------------------------
+
 			end
 		end
-	----------------------------------------------------------
+
 	end
 end
--------------------------------------------------------------------
+
+
 wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Failed to alocate starting postions for all sides! Restart the game. For random maps, it helps to use a bigger map or to increase the number of attempts. Distance to own villages was $max|.', { max = lua_friendly_distance } ))
 
 -- Magic marker. For Lua it's a comment, for the WML preprocessor a closing quotation sign. >>
