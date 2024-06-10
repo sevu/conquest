@@ -1,11 +1,8 @@
-# wmllint: no translatables
+-- <<
 
-# Unused data is uncommented in the Lua code with --
+-- This function defines a new WML tag [region].
+-- Unused data is commented with --
 
-#define CE_SLOWTHINKER_TO_ENCLAVE_CONVERT
-[lua]
-name=slowthinker
-code = <<
 function wesnoth.wml_actions.region(cfg)
 	local region_name = cfg.name or wml.error '[region] expects a name= attribute.'
 	local region_bonus = cfg.bonus or wml.error '[region] expects a bonus= attribute.'
@@ -19,9 +16,9 @@ function wesnoth.wml_actions.region(cfg)
 	if string.find(region_codename,"’") then region_codename = string.gsub(region_codename,"’","_") end
 	if string.find(region_codename,"/") then region_codename = string.gsub(region_codename,"/","_") end
 	if string.find(region_codename,"-") then region_codename = string.gsub(region_codename,"-","_") end
-	---
 
-	-- Check if region doesn't exist
+
+	-- Check if region doesn't already exist (in that case only add villages to the region)
 	if wml.variables['CE_SYSTEM.regions_'..region_codename] == nil then
 
 		local lua_regions_length = wml.variables['CE_SYSTEM.regions.length'] or 0
@@ -34,14 +31,14 @@ function wesnoth.wml_actions.region(cfg)
 		-- wml.variables['CE_SYSTEM.regions['..lua_regions_length..'].name'] = region_name
 	end
 
-	---
+
 	local lua_previous = 'y'
 	local lua_village_x = -1
 	local lua_village_y = -1
 	local lua_village_name
 	local lua_offset_x = wml.variables['CE_SYSTEM.offset_x'] or 0
 	local lua_offset_y = wml.variables['CE_SYSTEM.offset_y'] or 0
------------------------------------------------------------	
+
 	for eachword in string.gmatch(village_list, "([^,]+)") do
 		if tonumber(eachword) ~= nil then
 			if lua_previous == 'string' then
@@ -55,9 +52,10 @@ function wesnoth.wml_actions.region(cfg)
 			lua_previous = 'string'
 			lua_village_name = eachword
 		end
-		-----------------------------------------------------
+
+
 		if lua_previous == 'y' then
-		--------------------
+
 			local lua_villages_length = wml.variables['CE_SYSTEM.regions_'..region_codename..'.length'] or 0
 
 			-- wml.variables['CE_SYSTEM.regions_'..region_codename..'['..lua_villages_length..'].name'] = lua_village_name
@@ -78,106 +76,5 @@ function wesnoth.wml_actions.region(cfg)
 		end
 	end
 end
->>
-[/lua]
-#enddef
 
-
-
-#define unsuudghh
-##################################
-[set_variables]
-name=ce_village_array
-[split]
-list=$CE_SE_Region.village_list
-key="village_info"
-separator=","
-[/split]
-[/set_variables]
-#############################
-{VARIABLE ce_val.village_name "empty"}
-{VARIABLE ce_val.x "-1"}
-{VARIABLE ce_val.y "-1"}
-{VARIABLE ce_val.previous "y"}
-##
-[foreach]
-array=ce_village_array
-[do]
-[if]
-[variable]
-name=this_item.village_info
-greater_than=0
-[/variable]
-[and]
-[variable]
-name=this_item.village_info
-less_than=301
-[/variable]
-[/and]
-[or]
-[variable]
-name=this_item.village_info
-equals=0
-[/variable]
-[/or]
-[then]
-	{VARIABLE ce_val.current "string"}
-	[if]
-	[variable]
-	name=ce_val.previous
-	equals="y"
-	[/variable]
-	[then]
-		{VARIABLE ce_val.village_name $this_item.village_info}
-		{VARIABLE ce_val.previous "string"}
-	[/then]
-	[/if]
-[/then]
-[else]
-	{VARIABLE ce_val.current "number"}
-	[if]
-	[variable]
-	name=ce_val.previous
-	equals="string"
-	[/variable]
-	[then]
-		{VARIABLE ce_val.x $this_item.village_info}
-		{VARIABLE ce_val.previous "x"}
-	[/then]
-	[else]
-		{VARIABLE ce_val.y $this_item.village_info}
-		{VARIABLE ce_val.previous "y"}
-	[/else]
-	[/if]
-[/else]
-[/if]
-#######
-[if]
-[variable]
-name=ce_val.previous
-equals="y"
-[/variable]
-[then]
-	{CE_SET_LABEL $ce_val.x $ce_val.y ($ce_val.village_name) $CE_SE_Region.codename}
-[/then]
-[/if]
-[/do]
-[/foreach]
-##################################
-{CLEAR_VARIABLE CE_SE_Region}
-{CLEAR_VARIABLE ce_village_array}
-{CLEAR_VARIABLE ce_val}
-[lua]
-code = <<
-	------------------
-	---local lua_previous = "y"
-	------------------
-	---while j>0 do
-	---	if village_info[j]
-	---
-	---	j = j - 1
-	---end
----end
->>
-[/lua]
-#enddef
+-- >>
