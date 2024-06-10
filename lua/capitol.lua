@@ -5,7 +5,7 @@ local lua_all_villages = wesnoth.map.find{ gives_income = true }
 local lua_total_villages = #lua_all_villages - 1
 local lua_number_of_attempts = wml.variables['CE_SYSTEM.number_of_attempts'] or 1
 local lua_friendly_distance = wml.variables['CE_SYSTEM.max_distance'] or 8
-local lua_enemy_distance = wml.variables['CE_SYSTEM.min_distance'] or 10
+local lua_enemy_distance = wml.variables['CE_SYSTEM.min_distance'] or 12
 
 
 -- Loop to retry with lower distance to other players.
