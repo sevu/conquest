@@ -78,24 +78,67 @@ Events, ordered by execution time:
   custom time over event [priority=1]
 
 
-Random Map generators have additionally some more events,
-which are not listed here.
+Random Map generators have additionally some more events, which are not listed here.
 
 
-5) Similarly, I should note down how the regions are defined once I figured it out.
-   The syntax used in the regions.rgs files (one can rename them to cfg too).
-   And the other one used.
+5) The regions are defined with the variables below:
+
+For each region:
+CE_SYSTEM.regions_Zacony_bonus = 7
+CE_SYSTEM.regions_Zaconyarray_num   is unused (is 3)
+CE_SYSTEM.regions_Zacony_array_num  is unused (is 3)
+CE_SYSTEM.regions[3].id = Zacony
+CE_SYSTEM.regions[3].bonus = 7
+CE_SYSTEM.regions[3].name = Zacony
+
+For each village of a region:
+CE_SYSTEM.regions_Zacony[0].name = of the village
+CE_SYSTEM.regions_Zacony[0].x
+CE_SYSTEM.regions_Zacony[0].y
+CE_SYSTEM.regions_city_X_Y.name = of the village
+CE_SYSTEM.regions_city_X_Y.region_id = Zacony
+CE_SYSTEM.regions_city_X_Y.array_num is unsed
 
 
-6) If you know how to start programms from command line on your operating system,
-   you can speed up starting an game for testing. Here some commands for copy-paste:
+So, seems all the data is stored twice. Not all is used.
+The macros to create regions use a few values which the rest doesn't.
+
+For the
+- tag to create regions
+- calculation of the bonus every turn
+- region based unit spawns
+WE CAN SUM UP:
+
+That there exists one array with all regions is used to iterate over them.
+
+CE_SYSTEM.regions[3].bonus is used
+CE_SYSTEM.regions[3].id = is used only to access the next tag which has more information
+CE_SYSTEM.regions_Zacony[0].x and y are used
+
+CE_SYSTEM.regions_Zacony[0].name is unused
+CE_SYSTEM.regions[3].name = Zacony is unused
+
+CE_SYSTEM.regions_Zacony   without index is same as index 0 and unused
+CE_SYSTEM.regions_city_X_Y completely unused
+
+
+6) A cutom wml tag is defined via Lua in region_tag.lua:
+
+[region]
+    color=red,green,blue notation, e.g. color=107,140,125 (same as hexadecimal #6b8c7d)
+    name=regionname (and an internal id will be derived from it)
+    bonus=number
+    village_list=name,x,y and repeat
+[/region]
+
+Alternatively, the map_regions_macros can be used to set up the labels and regions.
+
+7) If you know how to start programms from command line on your operating system,
+   you can speed up starting a game for testing. Here some commands for copy-paste:
 
 
 Testing quickly:
-An game can be started from the command line, saving clisks.
-
-# Just some map:
-wesnoth -d -m --scenario=Conquest_Gagarna_enclave --controller 1:null --controller 3:null --controller 5:null --controller 6:null
+A game can be started from the command line, saving clisks.
 
 # Testing a map with Realm mode:
 wesnoth -d -m --scenario=Conquest_Wesnoth_by_enclave --controller 1:null --controller 3:null --controller 5:null --controller 6:null
@@ -106,31 +149,30 @@ wesnoth -d -m --scenario=Conquest_Surdmark_enclave --controller 1:null --control
 # A map with AI enabled:
 wesnoth -d -m --scenario=Conquest_Europe_by_enclave --controller 1:null --controller 2:null --controller 4:ai --controller 5:null --controller 6:null
 
-# All scenario IDs:
+# More scenario IDs:
 Conquest_AI_Europe_by_enclave
 Conquest_Crusades_by_enclave
 Conquest_Europe_by_enclave
-Conquest_Gagarna_enclave
 Conquest_Jel_wan_by_enclave
 Conquest_Lotrando_by_enclave
+Conquest_Pasarganta
 Conquest_Poland_by_enclave
 Conquest_Surdmark_enclave
-Conquest_Torath
 Conquest_Wales_by_enclave
 Conquest_Wesnoth_by_enclave
 Conquest_World
 
-What about Random Map Generators, maybe they can be started too from cmmand line...
+What about Random Map Generators, maybe they can be started from command line too …
 
 One thing to know:
 [options], which one can set when creating the game in the lobby, are ignored.
-Their default values defined there are not used either!
+Their default values are not used either!
 Instead, the code of this add-on takes care to not crash in this case :-p
 
 (This is bcause [options] were added to Wesnoth later.)
 
 
-7) About checking numbers regarding performance.
+8) About checking numbers regarding performance.
    Firstly, there is no point in doing that. But noted down how I did it here:
 
 In Wesnoth's cache directory, this addon's (compressed) cache files are the ones with
@@ -145,15 +187,3 @@ one can preprocess the add-on on command-line, with:
 wesnoth --preprocess-defines=MULTIPLAYER -p Conquest_Asterisk /tmp/
 
 However, it does not matter.
-
-8) Map Names (and villages):
-pasarganta - biggest map (301) TP
-surdmark - southern half (181) TP
-liquergue - eastern half (150) TP
-algernon - northern half (120)
-catoh     - western half (150)
-
-gagarna - south-west (90)
-torath  - south-east (90)
-samrock - north-east (60)
-burgoth - north-west (60)
