@@ -14,46 +14,39 @@ elseif (spawns_theme == 1) or (spawns_theme == 7) or (spawns_theme == 8) or (spa
 -- Random Spawns
 -- Unbiased, Only Humans, Easy, Medium, Hard
 ---------------------------------------------------------------
--- for all regions
-	for i=0,lua_total_regions-1,1 do
-		local lua_current_region = wml.variables['CE_SYSTEM.regions['..i..'].id']
-		local lua_total_villages = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'.length']
-		if lua_total_villages > 1 then
+	local villages = wesnoth.map.find{ gives_income = true, owner_side = 7 }
 
-			-- for all villages of this region
-			for j=0,lua_total_villages-1,1 do
-				spawn_x = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'['..j..'].x']
-				spawn_y = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'['..j..'].y']
-				local village_unit = wesnoth.units.get(spawn_x, spawn_y)
+	for i,v in ipairs(villages) do
+		spawn_x = v.x
+		spawn_y = v.y
+		local village_unit = wesnoth.units.get(spawn_x, spawn_y)
 
-				if village_unit and village_unit.side == 7 then
-					wesnoth.units.erase(spawn_x, spawn_y)
-					wml.variables.ce_spawn = { side = 7, x = spawn_x, y = spawn_y }
+		if village_unit and village_unit.side == 7 then
+			wesnoth.units.erase(spawn_x, spawn_y)
+			wml.variables.ce_spawn = { side = 7, x = spawn_x, y = spawn_y }
 
-					if spawns_theme == 1 then
-						-- Conquest Minus
-						wesnoth.game_events.fire(mathx.random_choice('ce_spawn_5g_Cavalry,ce_spawn_4g_Dwarvishstalwart,ce_spawn_3g_Sergeant,ce_spawn_2g_Dwarvishguardsman,ce_spawn_1g_militia'))
+			if spawns_theme == 1 then
+				-- Conquest Minus
+				wesnoth.game_events.fire(mathx.random_choice('ce_spawn_5g_Cavalry,ce_spawn_4g_Dwarvishstalwart,ce_spawn_3g_Sergeant,ce_spawn_2g_Dwarvishguardsman,ce_spawn_1g_militia'))
 
-					elseif spawns_theme == 7 then
-						-- Conquest Minus with only Human Spawns
-						wesnoth.game_events.fire(mathx.random_choice('ce_spawn_5g_Cavalry,ce_spawn_3g_Sergeant,ce_spawn_1g_militia'))
+			elseif spawns_theme == 7 then
+				-- Conquest Minus with only Human Spawns
+				wesnoth.game_events.fire(mathx.random_choice('ce_spawn_5g_Cavalry,ce_spawn_3g_Sergeant,ce_spawn_1g_militia'))
 
-					elseif spawns_theme == 8 then
-						-- Conquest Minus Easy
-						wesnoth.game_events.fire(mathx.random_choice('ce_spawn_5g_Cavalry,ce_spawn_4g_Dwarvishstalwart,ce_spawn_3g_Sergeant,ce_spawn_3g_Sergeant,ce_spawn_3g_Sergeant,ce_spawn_2g_Dwarvishguardsman,ce_spawn_2g_Dwarvishguardsman,ce_spawn_2g_Dwarvishguardsman,ce_spawn_2g_Dwarvishguardsman,ce_spawn_1g_militia,ce_spawn_1g_militia,ce_spawn_1g_militia'))
+			elseif spawns_theme == 8 then
+				-- Conquest Minus Easy
+				wesnoth.game_events.fire(mathx.random_choice('ce_spawn_5g_Cavalry,ce_spawn_4g_Dwarvishstalwart,ce_spawn_3g_Sergeant,ce_spawn_3g_Sergeant,ce_spawn_3g_Sergeant,ce_spawn_2g_Dwarvishguardsman,ce_spawn_2g_Dwarvishguardsman,ce_spawn_2g_Dwarvishguardsman,ce_spawn_2g_Dwarvishguardsman,ce_spawn_1g_militia,ce_spawn_1g_militia,ce_spawn_1g_militia'))
 
-					elseif spawns_theme == 9 then
-						-- Conquest Minus Medium
-						wesnoth.game_events.fire(mathx.random_choice('ce_spawn_5g_Cavalry,ce_spawn_4g_Dwarvishstalwart,ce_spawn_4g_Dwarvishstalwart,ce_spawn_3g_Sergeant,ce_spawn_3g_Sergeant,ce_spawn_3g_Sergeant,ce_spawn_3g_Sergeant,ce_spawn_2g_Dwarvishguardsman,ce_spawn_2g_Dwarvishguardsman,ce_spawn_1g_militia'))
+			elseif spawns_theme == 9 then
+				-- Conquest Minus Medium
+				wesnoth.game_events.fire(mathx.random_choice('ce_spawn_5g_Cavalry,ce_spawn_4g_Dwarvishstalwart,ce_spawn_4g_Dwarvishstalwart,ce_spawn_3g_Sergeant,ce_spawn_3g_Sergeant,ce_spawn_3g_Sergeant,ce_spawn_3g_Sergeant,ce_spawn_2g_Dwarvishguardsman,ce_spawn_2g_Dwarvishguardsman,ce_spawn_1g_militia'))
 
-					elseif spawns_theme == 10 then
-						-- Conquest Minus Hard
-						wesnoth.game_events.fire(mathx.random_choice('ce_spawn_5g_Cavalry,ce_spawn_5g_Cavalry,ce_spawn_5g_Cavalry,ce_spawn_4g_Dwarvishstalwart,ce_spawn_4g_Dwarvishstalwart,ce_spawn_4g_Dwarvishstalwart,ce_spawn_3g_Sergeant,ce_spawn_3g_Sergeant,ce_spawn_2g_Dwarvishguardsman,ce_spawn_1g_militia'))
+			elseif spawns_theme == 10 then
+				-- Conquest Minus Hard
+				wesnoth.game_events.fire(mathx.random_choice('ce_spawn_5g_Cavalry,ce_spawn_5g_Cavalry,ce_spawn_5g_Cavalry,ce_spawn_4g_Dwarvishstalwart,ce_spawn_4g_Dwarvishstalwart,ce_spawn_4g_Dwarvishstalwart,ce_spawn_3g_Sergeant,ce_spawn_3g_Sergeant,ce_spawn_2g_Dwarvishguardsman,ce_spawn_1g_militia'))
 
-					end
-					wml.variables.ce_spawn = nil
-				end
 			end
+			wml.variables.ce_spawn = nil
 		end
 	end
 
