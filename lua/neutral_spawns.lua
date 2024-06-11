@@ -51,7 +51,16 @@ elseif spawns_theme == 3 then
 		local lua_total_villages = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'.length']
 		local counter = lua_total_villages
 
-			for j=0,lua_total_villages-1,1 do
+		-- In difference to the previous, this algorithm is not random but deterministic.
+		-- Loop over all villages, but in random order.
+		-- That way the units placed in a region are deterministic, but their position in the region is random.
+		local order = {}
+		for j=0,lua_total_villages-1,1 do
+			table.insert(order, j)
+		end
+		mathx.shuffle(order)
+
+		for z,j in ipairs(order) do
 				local spawn_x = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'['..j..'].x']
 				local spawn_y = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'['..j..'].y']
 				local neutral_village = #wesnoth.map.find{ owner_side = 0, gives_income = true, x = spawn_x, y = spawn_y } > 0
@@ -187,15 +196,22 @@ elseif spawns_theme == 6 then
 -- Hard Initial
 -- Region aware code, places in bigger regions stronger units.
 ---------------------------------------------------------------
--- for all regions
+-- For all regions.
 	local lua_total_regions = wml.variables['CE_SYSTEM.regions.length']
 	for i=0,lua_total_regions-1,1 do
 		local lua_current_region = wml.variables['CE_SYSTEM.regions['..i..'].id']
 		local lua_total_villages = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'.length']
 		local counter = lua_total_villages
 
-			-- for all villages of this region
-			for j=0,lua_total_villages-1,1 do
+		local order = {}
+		-- For all villages of this region.
+		for j=0,lua_total_villages-1,1 do
+			table.insert(order, j)
+		end
+		mathx.shuffle(order)
+
+		-- For all villages of this region, in a randomized order.
+		for z,j in ipairs(order) do
 				local spawn_x = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'['..j..'].x']
 				local spawn_y = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'['..j..'].y']
 				local neutral_village = #wesnoth.map.find{ owner_side = 0, gives_income = true, x = spawn_x, y = spawn_y } > 0
