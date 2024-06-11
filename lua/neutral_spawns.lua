@@ -1,31 +1,25 @@
 -- <<
 
 local spawns_theme = wml.variables['CE_SYSTEM.spawns_theme'] or 2
-local lua_total_regions = wml.variables['CE_SYSTEM.regions.length']
 local spawn_x = 0
 local spawn_y = 0
 
 
-if spawns_theme == 2 then
---- nothing.. use default Classic 1g in each city
-
 ---------------------------------------------------------------
-elseif (spawns_theme == 1) or (spawns_theme == 7) or (spawns_theme == 8) or (spawns_theme == 9) or (spawns_theme == 10) then
--- Random Spawns
+if (spawns_theme == 1) or (spawns_theme == 2) or (spawns_theme == 7) or (spawns_theme == 8) or (spawns_theme == 9) or (spawns_theme == 10) then
+-- Random Spawns and Classic 1g
 -- Unbiased, Only Humans, Easy, Medium, Hard
 ---------------------------------------------------------------
-	local villages = wesnoth.map.find{ gives_income = true, owner_side = 7 }
+	local villages = wesnoth.map.find{ owner_side = 0, gives_income = true }
 
 	for i,v in ipairs(villages) do
-		spawn_x = v.x
-		spawn_y = v.y
-		local village_unit = wesnoth.units.get(spawn_x, spawn_y)
+			wml.variables.ce_spawn = { side = 7, x = v.x, y = v.y }
 
-		if village_unit and village_unit.side == 7 then
-			wesnoth.units.erase(spawn_x, spawn_y)
-			wml.variables.ce_spawn = { side = 7, x = spawn_x, y = spawn_y }
+			if spawns_theme == 2 then
+				-- Classic 1g in each city
+				wesnoth.game_events.fire('ce_spawn_1g_militia')
 
-			if spawns_theme == 1 then
+			elseif spawns_theme == 1 then
 				-- Conquest Minus
 				wesnoth.game_events.fire(mathx.random_choice('ce_spawn_5g_Cavalry,ce_spawn_4g_Dwarvishstalwart,ce_spawn_3g_Sergeant,ce_spawn_2g_Dwarvishguardsman,ce_spawn_1g_militia'))
 
@@ -47,7 +41,6 @@ elseif (spawns_theme == 1) or (spawns_theme == 7) or (spawns_theme == 8) or (spa
 
 			end
 			wml.variables.ce_spawn = nil
-		end
 	end
 
 ---------------------------------------------------------------
@@ -55,23 +48,22 @@ elseif spawns_theme == 3 then
 -- Balanced Hard
 -- Region aware code, places one strong unit into every region and many weaker ones.
 ---------------------------------------------------------------
+	local lua_total_regions = wml.variables['CE_SYSTEM.regions.length']
 	for i=0,lua_total_regions-1,1 do
 		local lua_current_region = wml.variables['CE_SYSTEM.regions['..i..'].id']
 		local lua_total_villages = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'.length']
-
 		local counter = lua_total_villages
+
 		if lua_total_villages > 1 then
 			for j=0,lua_total_villages-1,1 do
 				spawn_x = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'['..j..'].x']
 				spawn_y = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'['..j..'].y']
-				local village_unit = wesnoth.units.get(spawn_x, spawn_y)
+				local neutral_village = #wesnoth.map.find{ owner_side = 0, gives_income = true, x = spawn_x, y = spawn_y } > 0
 
-				if village_unit and village_unit.side == 7 then
+				if neutral_village then
 					counter = counter - 1
 
-					wesnoth.units.erase(spawn_x, spawn_y)
 					wml.variables.ce_spawn = { side = 7, x = spawn_x, y = spawn_y }
-
 
 					-- 2 villages regions have one L3 and L5
 					if lua_total_villages == 2 then
@@ -178,7 +170,7 @@ elseif spawns_theme == 3 then
 							wesnoth.game_events.fire("ce_spawn_3g_Sergeant")
 						elseif counter == 6 then
 							wesnoth.game_events.fire("ce_spawn_15g_Lieutenant")
-						else 
+						else
 							wesnoth.game_events.fire(mathx.random_choice("ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry"))
 						end
 					end
@@ -189,9 +181,8 @@ elseif spawns_theme == 3 then
 		else
 			spawn_x = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'[0].x']
 			spawn_y = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'[0].y']
-			local village_unit = wesnoth.units.get(spawn_x, spawn_y)
-			if village_unit and village_unit.side == 7 then
-				wesnoth.units.erase(spawn_x, spawn_y)
+			local neutral_village = #wesnoth.map.find{ owner_side = 0, gives_income = true, x = spawn_x, y = spawn_y } > 0
+			if neutral_village then
 				wml.variables.ce_spawn = { side = 7, x = spawn_x, y = spawn_y }
 				wesnoth.game_events.fire(mathx.random_choice("ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry"))
 				wml.variables.ce_spawn = nil
@@ -205,23 +196,23 @@ elseif spawns_theme == 6 then
 -- Region aware code, places in bigger regions stronger units.
 ---------------------------------------------------------------
 -- for all regions
+	local lua_total_regions = wml.variables['CE_SYSTEM.regions.length']
 	for i=0,lua_total_regions-1,1 do
 		local lua_current_region = wml.variables['CE_SYSTEM.regions['..i..'].id']
 		local lua_total_villages = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'.length']
-
 		local counter = lua_total_villages
+
 		if lua_total_villages > 1 then
 
 			-- for all villages of this region
 			for j=0,lua_total_villages-1,1 do
 				spawn_x = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'['..j..'].x']
 				spawn_y = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'['..j..'].y']
-				local village_unit = wesnoth.units.get(spawn_x, spawn_y)
+				local neutral_village = #wesnoth.map.find{ owner_side = 0, gives_income = true, x = spawn_x, y = spawn_y } > 0
 
-				if village_unit and village_unit.side == 7 then
+				if neutral_village then
 					counter = counter - 1
 
-					wesnoth.units.erase(spawn_x, spawn_y)
 					wml.variables.ce_spawn = { side = 7, x = spawn_x, y = spawn_y }
 
 					-- Custom for 2 village regions
@@ -277,10 +268,9 @@ elseif spawns_theme == 6 then
 			-- If this region has only one village.
 			spawn_x = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'[0].x']
 			spawn_y = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'[0].y']
-			local village_unit = wesnoth.units.get(spawn_x, spawn_y)
+			local neutral_village = #wesnoth.map.find{ owner_side = 0, gives_income = true, x = spawn_x, y = spawn_y } > 0
 
-			if village_unit and village_unit.side == 7 then
-				wesnoth.units.erase(spawn_x, spawn_y)
+			if neutral_village then
 				wml.variables.ce_spawn = { side = 7, x = spawn_x, y = spawn_y }
 				wesnoth.game_events.fire(mathx.random_choice("ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry"))
 				wml.variables.ce_spawn = nil
