@@ -1,9 +1,6 @@
 -- <<
 
 local spawns_theme = wml.variables['CE_SYSTEM.spawns_theme'] or 2
-local spawn_x = 0
-local spawn_y = 0
-
 
 ---------------------------------------------------------------
 if (spawns_theme == 1) or (spawns_theme == 2) or (spawns_theme == 7) or (spawns_theme == 8) or (spawns_theme == 9) or (spawns_theme == 10) then
@@ -54,16 +51,21 @@ elseif spawns_theme == 3 then
 		local lua_total_villages = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'.length']
 		local counter = lua_total_villages
 
-		if lua_total_villages > 1 then
 			for j=0,lua_total_villages-1,1 do
-				spawn_x = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'['..j..'].x']
-				spawn_y = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'['..j..'].y']
+				local spawn_x = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'['..j..'].x']
+				local spawn_y = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'['..j..'].y']
 				local neutral_village = #wesnoth.map.find{ owner_side = 0, gives_income = true, x = spawn_x, y = spawn_y } > 0
 
 				if neutral_village then
+					-- The counter and the different cases ensure that not if some villages are occupied by plyers,
+					-- then the weak units are skipped and not the strong ones.
 					counter = counter - 1
 
 					wml.variables.ce_spawn = { side = 7, x = spawn_x, y = spawn_y }
+
+					if lua_total_villages == 1 then
+						wesnoth.game_events.fire(mathx.random_choice("ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry"))
+					end
 
 					-- 2 villages regions have one L3 and L5
 					if lua_total_villages == 2 then
@@ -178,16 +180,6 @@ elseif spawns_theme == 3 then
 					wml.variables.ce_spawn = nil
 				end
 			end
-		else
-			spawn_x = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'[0].x']
-			spawn_y = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'[0].y']
-			local neutral_village = #wesnoth.map.find{ owner_side = 0, gives_income = true, x = spawn_x, y = spawn_y } > 0
-			if neutral_village then
-				wml.variables.ce_spawn = { side = 7, x = spawn_x, y = spawn_y }
-				wesnoth.game_events.fire(mathx.random_choice("ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry"))
-				wml.variables.ce_spawn = nil
-			end
-		end
 	end
 
 ---------------------------------------------------------------
@@ -202,20 +194,24 @@ elseif spawns_theme == 6 then
 		local lua_total_villages = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'.length']
 		local counter = lua_total_villages
 
-		if lua_total_villages > 1 then
-
 			-- for all villages of this region
 			for j=0,lua_total_villages-1,1 do
-				spawn_x = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'['..j..'].x']
-				spawn_y = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'['..j..'].y']
+				local spawn_x = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'['..j..'].x']
+				local spawn_y = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'['..j..'].y']
 				local neutral_village = #wesnoth.map.find{ owner_side = 0, gives_income = true, x = spawn_x, y = spawn_y } > 0
 
 				if neutral_village then
+					-- For regions where players have some units, placing of the weak units is skipped.
 					counter = counter - 1
 
 					wml.variables.ce_spawn = { side = 7, x = spawn_x, y = spawn_y }
 
-					-- Custom for 2 village regions
+					-- Custom for 1 village regions.
+					if lua_total_villages == 1 then
+						wesnoth.game_events.fire(mathx.random_choice("ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry"))
+					end
+
+					-- Custom for 2 village regions.
 					if lua_total_villages == 2 then
 						if counter == 0 then
 							wesnoth.game_events.fire("ce_spawn_3g_Sergeant")
@@ -224,25 +220,14 @@ elseif spawns_theme == 6 then
 						end
 					end
 
-					-- Custom for 3 village regions.
-					if lua_total_villages == 3 then
-						if counter == 0 then
-							wesnoth.game_events.fire("ce_spawn_1g_militia")
-						elseif counter == 1 then
-							wesnoth.game_events.fire("ce_spawn_3g_Sergeant")
-						else
-							wesnoth.game_events.fire(mathx.random_choice("ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry"))
-						end
-					end
-
-					-- Algorithm for big regions
+					-- Algorithm for big regions.
 					-- The 2 themes differ only in this point.
 					-- 4 villages: L1, L3, two L5
 					-- 5 villages: L1, L3, two L5, L8
 					-- 6 villages: L1, L3, two L5, L8, L10
 					-- 7 villages: L1, L3, two L5, L8, L10, L15 for each additional village
 
-					if lua_total_villages > 3 then
+					if lua_total_villages > 2 then
 						if counter == 0 then
 							wesnoth.game_events.fire("ce_spawn_1g_militia")
 						elseif counter == 1 then
@@ -261,22 +246,12 @@ elseif spawns_theme == 6 then
 							wesnoth.game_events.fire("ce_spawn_15g_Lieutenant")
 						end
 					end
+
 					wml.variables.ce_spawn = nil
 				end
 			end
-		else
-			-- If this region has only one village.
-			spawn_x = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'[0].x']
-			spawn_y = wml.variables['CE_SYSTEM.regions_'..lua_current_region..'[0].y']
-			local neutral_village = #wesnoth.map.find{ owner_side = 0, gives_income = true, x = spawn_x, y = spawn_y } > 0
-
-			if neutral_village then
-				wml.variables.ce_spawn = { side = 7, x = spawn_x, y = spawn_y }
-				wesnoth.game_events.fire(mathx.random_choice("ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry"))
-				wml.variables.ce_spawn = nil
-			end
-		end
 	end
+
 end
 
 -- >>
