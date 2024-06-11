@@ -1,6 +1,15 @@
 -- <<
 
-local spawns_theme = wml.variables['CE_SYSTEM.spawns_theme'] or 2
+local spawns_theme = wml.variables['CE_SYSTEM.spawns_theme']
+
+if not spawns_theme or (spawns_theme == 11) then
+	-- Randomly choosing a spawns theme.
+	if wml.variables['CE_SYSTEM.regions'] then
+		spawns_theme = mathx.random_choice{ 1, 2, 3, 6, 7, 8, 9, 10 }
+	else
+		spawns_theme = mathx.random_choice{ 1, 2, 7, 8, 9, 10 }
+	end
+end
 
 ---------------------------------------------------------------
 if (spawns_theme == 1) or (spawns_theme == 2) or (spawns_theme == 7) or (spawns_theme == 8) or (spawns_theme == 9) or (spawns_theme == 10) then
