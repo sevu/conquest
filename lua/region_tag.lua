@@ -8,7 +8,7 @@ function wesnoth.wml_actions.region(cfg)
 	local region_bonus = cfg.bonus or wml.error '[region] expects a bonus= attribute.'
 	local village_list = cfg.village_list or wml.error '[region] expects a village_list= attribute.'
 	local region_color = cfg.color or '200,200,200'
-	
+
 	local region_codename = region_name
 	-- may be bug with double empty spaces or double "-" signs in same region name etc
 	if string.find(region_codename," ") then region_codename = string.gsub(region_codename," ","_") end
