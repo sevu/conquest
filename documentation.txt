@@ -68,11 +68,10 @@ Events, ordered by execution time:
 
 
 - turn 2
-  place neutral units [priority=1]
+  place neutral units from selected theme [priority=1]
   neutrals growth [happens afterwards, allowing to check if neutrals exist]
 
 - side turn 2
-  replace neutral militia units with ones from theme
 
 - time over
   custom time over event [priority=1]
