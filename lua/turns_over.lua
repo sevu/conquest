@@ -8,7 +8,7 @@ function res.turns_over_advantage()
 	local winning_sides, side_results = res.calc_turns_over_advantage()
 	wml.variables['won'] = table.concat(winning_sides, ',')
 
-	local _ = wesnoth.textdomain "wesnoth-Conquest"
+	local _ = wesnoth.textdomain 'wesnoth-Conquest'
 	-- po: Turn limit reached (if one was used)
 	res.show_turns_over_advantage(winning_sides, side_results, _'End of Game')
 end
@@ -51,24 +51,24 @@ end
 ---Show the turns over advantage popup.
 function res.show_turns_over_advantage(winning_sides, side_results, title)
 	local _
-	local side_comparison = ""
+	local side_comparison = ''
 	for side = 1, #wesnoth.sides do
 		local outcome = side_results[side]
 		local side_color = wesnoth.colors[wesnoth.sides[side].color].pango_color
 
 		if outcome == false then
-			_ = wesnoth.textdomain "wesnoth-multiplayer"
+			_ = wesnoth.textdomain 'wesnoth-multiplayer'
 			local side_text = _ "<span strikethrough='true' foreground='$side_color'>Side $side_number</span>:  Has lost all units"
 			side_comparison = side_comparison .. side_text:vformat{side_color = side_color, side_number = side} .. "\n"
 		elseif outcome ~= nil then
-			_ = wesnoth.textdomain "wesnoth-Conquest"
+			_ = wesnoth.textdomain 'wesnoth-Conquest'
 			-- po: This is a shortened string from the mainline textdomain wesnoth-multiplayer. You can copy the text from there and delete a part of it: https://gettext.wesnoth.org/?package=wesnoth-multiplayer
 			local side_text = _ "<span foreground='$side_color'>Side $side_number</span>:  Income = $income"
 			side_comparison = side_comparison .. side_text:vformat{side_color = side_color, side_number = side, income = outcome.income} .. "\n"
 		end
 	end
 
-	_ = wesnoth.textdomain "wesnoth-multiplayer"
+	_ = wesnoth.textdomain 'wesnoth-multiplayer'
 	if #winning_sides == 1 then
 		local side = winning_sides[1]
 		local side_color = wesnoth.colors[wesnoth.sides[side].color].pango_color
@@ -78,12 +78,12 @@ function res.show_turns_over_advantage(winning_sides, side_results, title)
 		local comparison_text = _ "Sides $side_number and $other_side_number are tied."
 		side_comparison = side_comparison .. "\n" .. comparison_text:vformat{side_number = winning_sides[1], other_side_number = winning_sides[2]}
 	elseif #winning_sides ~= 0 then
-		local winners = stringx.format_conjunct_list("", winning_sides)
+		local winners = stringx.format_conjunct_list('', winning_sides)
 		local comparison_text = _ "Sides $winners are tied."
 		side_comparison = side_comparison .. "\n" .. comparison_text:vformat{winners = winners}
 	end
 
-	title = title or _ "dialog^Turns Over"
+	title = title or _ 'dialog^Turns Over'
 	gui.show_popup(title, side_comparison)
 end
 

@@ -82,26 +82,26 @@ elseif spawns_theme == 3 then
 				wml.variables.ce_spawn = { side = 7, x = spawn_x, y = spawn_y }
 
 				if lua_total_villages == 1 then
-					wesnoth.game_events.fire(mathx.random_choice("ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry"))
+					wesnoth.game_events.fire(mathx.random_choice('ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry'))
 				end
 
 				-- 2 villages regions have one L3 and L5
 				if lua_total_villages == 2 then
 					if counter == 0 then
-						wesnoth.game_events.fire("ce_spawn_3g_Sergeant")
+						wesnoth.game_events.fire('ce_spawn_3g_Sergeant')
 					else
-						wesnoth.game_events.fire(mathx.random_choice("ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry"))
+						wesnoth.game_events.fire(mathx.random_choice('ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry'))
 					end
 				end
 
 				-- 3 villages regions have one L1, L3 and L5
 				if lua_total_villages == 3 then
 					if counter == 0 then
-						wesnoth.game_events.fire("ce_spawn_1g_militia")
+						wesnoth.game_events.fire('ce_spawn_1g_militia')
 					elseif counter == 1 then
-						wesnoth.game_events.fire("ce_spawn_3g_Sergeant")
+						wesnoth.game_events.fire('ce_spawn_3g_Sergeant')
 					else
-						wesnoth.game_events.fire(mathx.random_choice("ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry"))
+						wesnoth.game_events.fire(mathx.random_choice('ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry'))
 					end
 				end
 
@@ -109,13 +109,13 @@ elseif spawns_theme == 3 then
 				-- This is a second L3 instead of a second L5 compared to Initial
 				if lua_total_villages == 4 then
 					if counter == 0 then
-						wesnoth.game_events.fire("ce_spawn_1g_militia")
+						wesnoth.game_events.fire('ce_spawn_1g_militia')
 					elseif counter == 1 then
-						wesnoth.game_events.fire("ce_spawn_3g_Sergeant")
+						wesnoth.game_events.fire('ce_spawn_3g_Sergeant')
 					elseif counter == 2 then
-						wesnoth.game_events.fire("ce_spawn_3g_Sergeant")
+						wesnoth.game_events.fire('ce_spawn_3g_Sergeant')
 					else
-						wesnoth.game_events.fire(mathx.random_choice("ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry"))
+						wesnoth.game_events.fire(mathx.random_choice('ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry'))
 					end
 				end
 
@@ -123,15 +123,15 @@ elseif spawns_theme == 3 then
 				-- Compared to Initial it has an L3 instead of an L5
 				if lua_total_villages == 5 then
 					if counter == 0 then
-						wesnoth.game_events.fire("ce_spawn_1g_militia")
+						wesnoth.game_events.fire('ce_spawn_1g_militia')
 					elseif counter == 1 then
-						wesnoth.game_events.fire("ce_spawn_1g_militia")
+						wesnoth.game_events.fire('ce_spawn_1g_militia')
 					elseif counter == 2 then
-						wesnoth.game_events.fire("ce_spawn_3g_Sergeant")
+						wesnoth.game_events.fire('ce_spawn_3g_Sergeant')
 					elseif counter == 3 then
-						wesnoth.game_events.fire("ce_spawn_3g_Sergeant")
+						wesnoth.game_events.fire('ce_spawn_3g_Sergeant')
 					else
-						wesnoth.game_events.fire("ce_spawn_8g_Eliteinfantry")
+						wesnoth.game_events.fire('ce_spawn_8g_Eliteinfantry')
 					end
 				end
 
@@ -139,17 +139,17 @@ elseif spawns_theme == 3 then
 				-- Initial has an L10 an and L5 instead of two L1
 				if lua_total_villages == 6 then
 					if counter == 0 then
-						wesnoth.game_events.fire("ce_spawn_1g_militia")
+						wesnoth.game_events.fire('ce_spawn_1g_militia')
 					elseif counter == 1 then
-						wesnoth.game_events.fire("ce_spawn_1g_militia")
+						wesnoth.game_events.fire('ce_spawn_1g_militia')
 					elseif counter == 2 then
-						wesnoth.game_events.fire("ce_spawn_1g_militia")
+						wesnoth.game_events.fire('ce_spawn_1g_militia')
 					elseif counter == 3 then
-						wesnoth.game_events.fire("ce_spawn_3g_Sergeant")
+						wesnoth.game_events.fire('ce_spawn_3g_Sergeant')
 					elseif counter == 4 then
-						wesnoth.game_events.fire(mathx.random_choice("ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry"))
+						wesnoth.game_events.fire(mathx.random_choice('ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry'))
 					else
-						wesnoth.game_events.fire("ce_spawn_8g_Eliteinfantry")
+						wesnoth.game_events.fire('ce_spawn_8g_Eliteinfantry')
 					end
 				end
 
@@ -157,19 +157,19 @@ elseif spawns_theme == 3 then
 				-- Initial has an L10, L8, two L5 instead of four L1
 				if lua_total_villages == 7 then
 					if counter == 0 then
-						wesnoth.game_events.fire("ce_spawn_1g_militia")
+						wesnoth.game_events.fire('ce_spawn_1g_militia')
 					elseif counter == 1 then
-						wesnoth.game_events.fire("ce_spawn_1g_militia")
+						wesnoth.game_events.fire('ce_spawn_1g_militia')
 					elseif counter == 2 then
-						wesnoth.game_events.fire("ce_spawn_1g_militia")
+						wesnoth.game_events.fire('ce_spawn_1g_militia')
 					elseif counter == 3 then
-						wesnoth.game_events.fire("ce_spawn_1g_militia")
+						wesnoth.game_events.fire('ce_spawn_1g_militia')
 					elseif counter == 4 then
-						wesnoth.game_events.fire("ce_spawn_1g_militia")
+						wesnoth.game_events.fire('ce_spawn_1g_militia')
 					elseif counter == 5 then
-						wesnoth.game_events.fire("ce_spawn_3g_Sergeant")
+						wesnoth.game_events.fire('ce_spawn_3g_Sergeant')
 					else
-						wesnoth.game_events.fire("ce_spawn_15g_Lieutenant")
+						wesnoth.game_events.fire('ce_spawn_15g_Lieutenant')
 					end
 				end
 
@@ -177,21 +177,21 @@ elseif spawns_theme == 3 then
 				-- Unlike on Initial, each additional village receives an L5 instead of L15
 				if lua_total_villages > 7 then
 					if counter == 0 then
-						wesnoth.game_events.fire("ce_spawn_1g_militia")
+						wesnoth.game_events.fire('ce_spawn_1g_militia')
 					elseif counter == 1 then
-						wesnoth.game_events.fire("ce_spawn_1g_militia")
+						wesnoth.game_events.fire('ce_spawn_1g_militia')
 					elseif counter == 2 then
-						wesnoth.game_events.fire("ce_spawn_1g_militia")
+						wesnoth.game_events.fire('ce_spawn_1g_militia')
 					elseif counter == 3 then
-						wesnoth.game_events.fire("ce_spawn_1g_militia")
+						wesnoth.game_events.fire('ce_spawn_1g_militia')
 					elseif counter == 4 then
-						wesnoth.game_events.fire("ce_spawn_1g_militia")
+						wesnoth.game_events.fire('ce_spawn_1g_militia')
 					elseif counter == 5 then
-						wesnoth.game_events.fire("ce_spawn_3g_Sergeant")
+						wesnoth.game_events.fire('ce_spawn_3g_Sergeant')
 					elseif counter == 6 then
-						wesnoth.game_events.fire("ce_spawn_15g_Lieutenant")
+						wesnoth.game_events.fire('ce_spawn_15g_Lieutenant')
 					else
-						wesnoth.game_events.fire(mathx.random_choice("ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry"))
+						wesnoth.game_events.fire(mathx.random_choice('ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry'))
 					end
 				end
 
@@ -233,15 +233,15 @@ elseif spawns_theme == 6 then
 
 				-- Custom for 1 village regions.
 				if lua_total_villages == 1 then
-					wesnoth.game_events.fire(mathx.random_choice("ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry"))
+					wesnoth.game_events.fire(mathx.random_choice('ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry'))
 				end
 
 				-- Custom for 2 village regions.
 				if lua_total_villages == 2 then
 					if counter == 0 then
-						wesnoth.game_events.fire("ce_spawn_3g_Sergeant")
+						wesnoth.game_events.fire('ce_spawn_3g_Sergeant')
 					else
-						wesnoth.game_events.fire(mathx.random_choice("ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry"))
+						wesnoth.game_events.fire(mathx.random_choice('ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry'))
 					end
 				end
 
@@ -254,21 +254,21 @@ elseif spawns_theme == 6 then
 
 				if lua_total_villages > 2 then
 					if counter == 0 then
-						wesnoth.game_events.fire("ce_spawn_1g_militia")
+						wesnoth.game_events.fire('ce_spawn_1g_militia')
 					elseif counter == 1 then
-						wesnoth.game_events.fire("ce_spawn_3g_Sergeant")
+						wesnoth.game_events.fire('ce_spawn_3g_Sergeant')
 					elseif counter == 2 then
-						wesnoth.game_events.fire(mathx.random_choice("ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry"))
+						wesnoth.game_events.fire(mathx.random_choice('ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry'))
 					elseif counter == 3 then
-						wesnoth.game_events.fire(mathx.random_choice("ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry"))
+						wesnoth.game_events.fire(mathx.random_choice('ce_spawn_5g_Pikeman,ce_spawn_5g_Cavalry'))
 					elseif counter == 4 then
-						wesnoth.game_events.fire("ce_spawn_8g_Eliteinfantry")
+						wesnoth.game_events.fire('ce_spawn_8g_Eliteinfantry')
 					elseif counter == 5 then
-						wesnoth.game_events.fire("ce_spawn_10g_Lancer")
+						wesnoth.game_events.fire('ce_spawn_10g_Lancer')
 					elseif counter == 6 then
-						wesnoth.game_events.fire("ce_spawn_15g_Lieutenant")
+						wesnoth.game_events.fire('ce_spawn_15g_Lieutenant')
 					else
-						wesnoth.game_events.fire("ce_spawn_15g_Lieutenant")
+						wesnoth.game_events.fire('ce_spawn_15g_Lieutenant')
 					end
 				end
 
