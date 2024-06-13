@@ -100,75 +100,57 @@ if amount_of_gold > 0 then
 		local spawn = "ce_spawn_25g_General"
 		local spawn_cost = 25
 		if primary_x == 0 then primary_x=secondary_x primary_y=secondary_y end
+
 		if gold_per_hex >25 then
 			spawn = "ce_spawn_25g_General"
 			spawn_cost = 25
+		elseif gold_per_hex > 25 then
+			spawn = "ce_spawn_25g_General"
+			spawn_cost = 25
+		elseif gold_per_hex > 20 then
+			spawn = "ce_spawn_20g_Knight"
+			spawn_cost = 20
+		elseif gold_per_hex > 15 then
+			spawn = "ce_spawn_15g_Lieutenant"
+			spawn_cost = 15
+		elseif gold_per_hex > 10 then
+			spawn = "ce_spawn_10g_Lancer"
+			spawn_cost = 10
+		elseif gold_per_hex > 8 then
+			spawn = "ce_spawn_8g_Eliteinfantry"
+			spawn_cost = 8
+		elseif gold_per_hex > 5 then
+			spawn = "ce_spawn_5g_Cavalry"
+			spawn_cost = 5
+		elseif gold_per_hex > 3 then
+			spawn = "ce_spawn_3g_Sergeant"
+			spawn_cost = 3
 		else
-			if gold_per_hex > 25 then
-				spawn = "ce_spawn_25g_General"
-				spawn_cost = 25
-			else
-			if gold_per_hex > 20 then
-				spawn = "ce_spawn_20g_Knight"
-				spawn_cost = 20
-			else
-			if gold_per_hex > 15 then
-				spawn = "ce_spawn_15g_Lieutenant"
-				spawn_cost = 15
-			else
-				if gold_per_hex > 10 then
+			if #free_spaces > 2 then
+				if amount_of_gold >= 10 then
 					spawn = "ce_spawn_10g_Lancer"
 					spawn_cost = 10
+				elseif amount_of_gold >= 8 then
+					spawn = "ce_spawn_8g_Eliteinfantry"
+					spawn_cost = 8
+				elseif amount_of_gold >= 5 then
+					spawn = "ce_spawn_5g_Cavalry"
+					spawn_cost = 5
+				elseif amount_of_gold >= 3 then
+					spawn = "ce_spawn_3g_Sergeant"
+					spawn_cost = 3
 				else
-					if gold_per_hex > 8 then
-						spawn = "ce_spawn_8g_Eliteinfantry"
-						spawn_cost = 8
-					else
-						if gold_per_hex > 5 then
-							spawn = "ce_spawn_5g_Cavalry"
-							spawn_cost = 5
-						else
-							if gold_per_hex > 3 then
-								spawn = "ce_spawn_3g_Sergeant"
-								spawn_cost = 3
-							else
-								if #free_spaces > 2 then
-									if amount_of_gold >= 10 then
-										spawn = "ce_spawn_10g_Lancer"
-										spawn_cost = 10
-									else
-										if amount_of_gold >= 8 then
-											spawn = "ce_spawn_8g_Eliteinfantry"
-											spawn_cost = 8
-										else
-											if amount_of_gold >= 5 then
-												spawn = "ce_spawn_5g_Cavalry"
-												spawn_cost = 5
-											else
-												if amount_of_gold >= 3 then
-													spawn = "ce_spawn_3g_Sergeant"
-													spawn_cost = 3
-												else
-													spawn = "ce_spawn_1g_militia"
-													spawn_cost = 1
-												end
-											end
-										end
-									end
-								else
-									if gold_per_hex > 0 then
-										spawn = "ce_spawn_1g_militia"
-										spawn_cost = 1
-									end
-								end
-							end
-						end
-					end
+					spawn = "ce_spawn_1g_militia"
+					spawn_cost = 1
+				end
+			else
+				if gold_per_hex > 0 then
+					spawn = "ce_spawn_1g_militia"
+					spawn_cost = 1
 				end
 			end
-			end
-			end
 		end
+
 		if not wesnoth.get_unit(primary_x,primary_y) then
 			local bool water = wesnoth.match_location(pairs_xy[1], pairs_xy[2], { terrain = "W*,W*^*" })
 			---wesnoth.message("water="..tostring(water)..",bool="..tostring(bool))
@@ -289,6 +271,7 @@ local max_random_villa_no_enemies_y = 0
 local min_random_villa_no_enemies_x = 0
 local min_random_villa_no_enemies_y = 0
 local region_counter = {}
+
 if #side_villages > 1 then
 	helper.shuffle(side_villages)
 	local rcounter = 0
@@ -326,6 +309,7 @@ if #side_villages > 1 then
 			local free_spaces = wesnoth.get_locations({ terrain="Gg,Gs,Re,Rd,W*", include_borders=false, { "and", { x=tostring(pairs_xy[1]), y=tostring(pairs_xy[2]), radius=1 }},{"not", {{"filter", {} }} } })
 			local enemies_in_radius_locations = wesnoth.get_locations({ terrain="*,*^*",  { "and", { x=tostring(pairs_xy[1]), y=tostring(pairs_xy[2]), radius=10 }},{"filter", { canrecruit=false, {"filter_side", {{"enemy_of",{ side = tostring(lua_side)} }} }} } })
 						---+ #wesnoth.get_locations({ terrain="*,*^*",  { "and", { x=tostring(pairs_xy[1]), y=tostring(pairs_xy[2]), radius=10 }},{"filter", {{"filter_side", {{"enemy_of",{ side = tostring(lua_side)} }} }} } })
+
 			if enemies_in_radius_locations then
 				local enemies_in_radius = #enemies_in_radius_locations
 				---wesnoth.label {x=tostring(pairs_xy[1]),y=tostring(pairs_xy[2]),text=tostring(enemies_in_radius),color={255,255,255,255}}
