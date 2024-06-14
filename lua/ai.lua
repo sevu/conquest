@@ -1,6 +1,6 @@
 -- <<
 
--- This code is executed as part of an event at turn start.
+-- This code is executed as part of an event at turn end.
 -- It places units and reduces the gold of the ai side.
 
 
@@ -18,13 +18,12 @@ wml.fire("do_command",{{"attack",{ weapon=0, defender_weapon=0, {"source", { x=x
 end
 
 function attack_adjacent_enemies(unit_x,unit_y)
----wesnoth.map.get_adjacent_hexes(unit_x,unit_y)
 
 local recruited_unit = wesnoth.units.get(unit_x,unit_y)
 local max_enemy_x = 0
 local max_enemy_y = 0
 local max_enemy_hitpoints = 0
-for x, y in helper.adjacent_tiles(unit_x,unit_y) do
+for x, y in wesnoth.current.map:iter_adjacent(unit_x,unit_y) do
 	local enemy_unit = wesnoth.units.get(x, y)
 	if enemy_unit then
 		if wesnoth.sides.is_enemy(wesnoth.current.side, enemy_unit.side) then
@@ -190,12 +189,6 @@ if amount_of_gold > 0 then
 					-- heal units
 
 					-- animate all players recruits (move all units to my system.. of events)
-
-					-- sand and snow movepoints
-
-					-- EUROPE BUG - red has 4 village start from time to time..
-					-- calculate how many villages each player has, if one has 4, then calculate distances to all other owned villages
-					-- and delete one with largest distance. refresh fog etc.
 
 					c = c + 1
 					---wesnoth.message(tostring(c)..","..tostring(pairs_xy[1])..","..tostring(pairs_xy[2]))
