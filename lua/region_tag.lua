@@ -10,12 +10,12 @@ function wesnoth.wml_actions.region(cfg)
 	local region_color = cfg.color or '200,200,200'
 
 	local region_codename = region_name
-	-- may be bug with double empty spaces or double "-" signs in same region name etc
-	if string.find(region_codename," ") then region_codename = string.gsub(region_codename," ","_") end
-	if string.find(region_codename,"'") then region_codename = string.gsub(region_codename,"'","_") end
-	if string.find(region_codename,"’") then region_codename = string.gsub(region_codename,"’","_") end
-	if string.find(region_codename,"/") then region_codename = string.gsub(region_codename,"/","_") end
-	if string.find(region_codename,"-") then region_codename = string.gsub(region_codename,"-","_") end
+	-- may be bug with double empty spaces or double '-' signs in same region name etc
+	if string.find(region_codename,' ') then region_codename = string.gsub(region_codename,' ','_') end
+	if string.find(region_codename,"'") then region_codename = string.gsub(region_codename,"'",'' ) end
+	if string.find(region_codename,'’') then region_codename = string.gsub(region_codename,'’','' ) end
+	if string.find(region_codename,'/') then region_codename = string.gsub(region_codename,'/','_') end
+	if string.find(region_codename,'-') then region_codename = string.gsub(region_codename,'-','_') end
 
 
 	-- Check if region doesn't already exist (in that case only add villages to the region)
@@ -39,7 +39,7 @@ function wesnoth.wml_actions.region(cfg)
 	local lua_offset_x = wml.variables['CE_SYSTEM.offset_x'] or 0
 	local lua_offset_y = wml.variables['CE_SYSTEM.offset_y'] or 0
 
-	for eachword in string.gmatch(village_list, "([^,]+)") do
+	for eachword in string.gmatch(village_list, '([^,]+)') do
 		if tonumber(eachword) ~= nil then
 			if lua_previous == 'string' then
 				lua_previous = 'x'
