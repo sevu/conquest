@@ -268,7 +268,8 @@ elseif spawns_theme == 6 then
 					elseif counter == 6 then
 						wesnoth.game_events.fire('ce_spawn_15g_Lieutenant')
 					else
-						wesnoth.game_events.fire('ce_spawn_15g_Lieutenant')
+						-- Exists only on Pasarganta maps.
+						wesnoth.game_events.fire(mathx.random_choice('ce_spawn_5g_Pikeman,ce_spawn_8g_Eliteinfantry,ce_spawn_10g_Lancer'))
 					end
 				end
 
