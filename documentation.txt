@@ -41,31 +41,28 @@ Events, ordered by execution time:
   adding objectives
   lower gold by 25 down to 0 (in prestart so status table shows this changed value as initial value)
   set_menu_item for recruit menus (previously in start)
+  set_menu_item for board/disembark boats (previously in prestart)
   place village labels (previously in turn 1)
 
 - start
-  set_menu_item for board/disembark boats (should be prestart)
 
 - turn 1
-  select game length (not anymore, removed)
-  droid menu (should be prestart)
   place village labels (on random maps)
+  droid menu (should be prestart)
+  select game length (not anymore, removed)
 
 - new turn
 - side turn
-
 - side turn 1
-  initial region bonus calculation
 
 - turn refresh
   Ask player to select game mode
   capitol mode / all village mode (if chosen)
+  insert capture event (now after capitol mode won't trigger it) [priority=-1]
 
 - turn 1 refresh
   reveal leaders (for Alliances Mod)
-  insert capture event (now after capitol mode won't trigger it) [priority=1]
   realm mode (if chosen); NEEDS to happen after the capture event was inserted
-
 
 - turn 2
   place neutral units from selected theme [priority=1]
