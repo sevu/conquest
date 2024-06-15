@@ -369,9 +369,9 @@ village_list="Cavao,21,92,Tejarp,19,99,Zucian,20,95,Uruth,23,98,Panthen,15,98"
 	village_list="Slux,5,94,Yoe,1,96,Lackra,7,99,Difoe,3,99"
 [/region]
 [region]
-	bonus="2"
+	bonus="4"
 	name="Trevero"
-	village_list="Trevero,14,88,Bentran,12,91"
+	village_list="Trevero,14,88,Bentran,12,91,Watafake,10,88"
 [/region]
 [region]
 	bonus="1"
