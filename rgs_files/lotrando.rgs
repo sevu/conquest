@@ -3,7 +3,7 @@
 	bonus=3
 	village_list=Lestomysl,23,13,Maloslav,16,11,Slatihor,25,10
 [/region]
-[region] 
+[region]
 	name=Condorus
 	bonus=7
 	village_list=Trantus,31,38,Vultaria,19,40,Tremendo,24,40,Broinia,18,43,Lisitino,24,36,Sithinia,26,43
@@ -71,7 +71,7 @@
 [region]
 	name=Lorelaien
 	bonus=2
-	village_list=Erwendur,39,23,Anduithel,43,25		
+	village_list=Erwendur,39,23,Anduithel,43,25
 [/region]
 [region]
 	name=Ethelen
