@@ -38,11 +38,12 @@ Events, ordered by execution time:
 
 - prestart
   setting variable for enabling realm mode
-  adding objectives
   lower gold by 25 down to 0 (in prestart so status table shows this changed value as initial value)
   set_menu_item for recruit menus (previously in start)
   set_menu_item for board/disembark boats (previously in prestart)
   place village labels (previously in turn 1)
+  adding objectives [priority=-1]
+
 
 - start
 
