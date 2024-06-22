@@ -340,7 +340,7 @@ if #side_villages > 1 then
 		end
 	end
 	----------------------------------------------
-	wml.fire("modify_side",{ side = lua_side , gold = remaining_gold })
+	wesnoth.sides[lua_side].gold = remaining_gold
 	-------------------------
 else
 	local remaining_gold = side_gold
@@ -351,7 +351,7 @@ else
 		end
 	end
 	----------------------------------------------
-	wml.fire("modify_side",{ side = lua_side , gold = remaining_gold })
+	wesnoth.sides[lua_side].gold = remaining_gold
 	-------------------------
 end
 ---wesnoth.message("AI side has "..tostring(side_gold).." gold and "..tostring(#side_villages).." villages with "..tostring(total_free_spaces).." free spaces.")
