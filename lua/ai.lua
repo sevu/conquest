@@ -5,10 +5,10 @@
 
 
 function simulate_combat(x1,y1,x2,y2)
----wesnoth.message("harm unit")
+---wesnoth.message('harm unit')
 ---wesnoth.delay(1000)
-wml.fire("do_command",{{"attack",{ weapon=0, defender_weapon=0, {"source", { x=x1, y=y1 } }, {"destination", { x=x2, y=y2 } } }}})
----wesnoth.fire("harm_unit",{ delay=0, { "filter", { x=tostring(x1), y=tostring(y1) } }, { "filter_second",{ x=tostring(x2), y=tostring(y2) } } })
+wml.fire('do_command',{{'attack',{ weapon=0, defender_weapon=0, {'source', { x=x1, y=y1 } }, {'destination', { x=x2, y=y2 } } }}})
+---wesnoth.fire('harm_unit',{ delay=0, { 'filter', { x=tostring(x1), y=tostring(y1) } }, { 'filter_second',{ x=tostring(x2), y=tostring(y2) } } })
 ---wesnoth.delay(2000)
 ---[harm_unit]
 ---[animate_unit] copy from ranged maybe.. looks like..
@@ -35,7 +35,7 @@ for x, y in wesnoth.current.map:iter_adjacent(unit_x,unit_y) do
 				end
 				--attack unit
 				---simulate_combat(unit_x,unit_y,x,y)
-				---wesnoth.message("There is enemy at "..tostring(x)..","..tostring(y).." with lower or same hitpoints ("..tostring(unit_x)..","..tostring(unit_y)..")")
+				---wesnoth.message('There is enemy at '..tostring(x)..','..tostring(y)..' with lower or same hitpoints ('..tostring(unit_x)..','..tostring(unit_y)..')')
 			else
 				local enemy_defense = wesnoth.units.defense_on(enemy_unit, wesnoth.current.map[enemy_unit])
 				local recruited_unit_defense = wesnoth.units.defense_on(recruited_unit, wesnoth.current.map[recruited_unit])
@@ -66,17 +66,17 @@ end
 end
 
 function convert_recruit_into_ship(price)
-local ship_spawn = "ce_spawn_3g_boat"
+local ship_spawn = 'ce_spawn_3g_boat'
 if price == 3 then
-	ship_spawn = "ce_spawn_3g_boat"
+	ship_spawn = 'ce_spawn_3g_boat'
 elseif price == 5 then
-	ship_spawn = "ce_spawn_5g_dhow"
+	ship_spawn = 'ce_spawn_5g_dhow'
 elseif price == 10 then
-	ship_spawn = "ce_spawn_10g_caravel"
+	ship_spawn = 'ce_spawn_10g_caravel'
 elseif price == 15 then
-	ship_spawn = "ce_spawn_15g_galleon"
+	ship_spawn = 'ce_spawn_15g_galleon'
 elseif price == 25 then
-	ship_spawn = "ce_spawn_25g_warship"
+	ship_spawn = 'ce_spawn_25g_warship'
 end
 return ship_spawn
 end
@@ -84,71 +84,71 @@ end
 function spawn_units(amount_of_gold,primary_x,primary_y,secondary_x,secondary_y)
 if amount_of_gold > 0 then
 	local lua_side = wesnoth.current.side
-	local free_spaces = wesnoth.map.find({ terrain="Gg,Gs,Re,Rd,W*", include_borders=false, { "and", { x=primary_x, y=primary_y, radius=1 }},{"not", {{"filter", {} }} } })
+	local free_spaces = wesnoth.map.find({ terrain='Gg,Gs,Re,Rd,W*', include_borders=false, { 'and', { x=primary_x, y=primary_y, radius=1 }},{'not', {{'filter', {} }} } })
 	---local gold_per_hex = mathx.round(amount_of_gold / #free_spaces)
 	local gold_per_hex = mathx.round(amount_of_gold / 1.5)
 	local spawn_array = {}
 	---local goto_array = {}
 	local c = 0
 	for ff, pairs_xy in ipairs(free_spaces) do
-		local spawn = "ce_spawn_25g_General"
+		local spawn = 'ce_spawn_25g_General'
 		local spawn_cost = 25
 		if primary_x == 0 then primary_x=secondary_x primary_y=secondary_y end
 
 		if gold_per_hex >25 then
-			spawn = "ce_spawn_25g_General"
+			spawn = 'ce_spawn_25g_General'
 			spawn_cost = 25
 		elseif gold_per_hex > 25 then
-			spawn = "ce_spawn_25g_General"
+			spawn = 'ce_spawn_25g_General'
 			spawn_cost = 25
 		elseif gold_per_hex > 20 then
-			spawn = "ce_spawn_20g_Knight"
+			spawn = 'ce_spawn_20g_Knight'
 			spawn_cost = 20
 		elseif gold_per_hex > 15 then
-			spawn = "ce_spawn_15g_Lieutenant"
+			spawn = 'ce_spawn_15g_Lieutenant'
 			spawn_cost = 15
 		elseif gold_per_hex > 10 then
-			spawn = "ce_spawn_10g_Lancer"
+			spawn = 'ce_spawn_10g_Lancer'
 			spawn_cost = 10
 		elseif gold_per_hex > 8 then
-			spawn = "ce_spawn_8g_Eliteinfantry"
+			spawn = 'ce_spawn_8g_Eliteinfantry'
 			spawn_cost = 8
 		elseif gold_per_hex > 5 then
-			spawn = "ce_spawn_5g_Cavalry"
+			spawn = 'ce_spawn_5g_Cavalry'
 			spawn_cost = 5
 		elseif gold_per_hex > 3 then
-			spawn = "ce_spawn_3g_Sergeant"
+			spawn = 'ce_spawn_3g_Sergeant'
 			spawn_cost = 3
 		else
 			if #free_spaces > 2 then
 				if amount_of_gold >= 10 then
-					spawn = "ce_spawn_10g_Lancer"
+					spawn = 'ce_spawn_10g_Lancer'
 					spawn_cost = 10
 				elseif amount_of_gold >= 8 then
-					spawn = "ce_spawn_8g_Eliteinfantry"
+					spawn = 'ce_spawn_8g_Eliteinfantry'
 					spawn_cost = 8
 				elseif amount_of_gold >= 5 then
-					spawn = "ce_spawn_5g_Cavalry"
+					spawn = 'ce_spawn_5g_Cavalry'
 					spawn_cost = 5
 				elseif amount_of_gold >= 3 then
-					spawn = "ce_spawn_3g_Sergeant"
+					spawn = 'ce_spawn_3g_Sergeant'
 					spawn_cost = 3
 				else
-					spawn = "ce_spawn_1g_militia"
+					spawn = 'ce_spawn_1g_militia'
 					spawn_cost = 1
 				end
 			else
 				if gold_per_hex > 0 then
-					spawn = "ce_spawn_1g_militia"
+					spawn = 'ce_spawn_1g_militia'
 					spawn_cost = 1
 				end
 			end
 		end
 
 		if not wesnoth.units.get(primary_x,primary_y) then
-			local bool water = wesnoth.map.matches(pairs_xy[1], pairs_xy[2], { terrain = "W*,W*^*" })
-			---wesnoth.message("water="..tostring(water)..",bool="..tostring(bool))
-			---{ "not", terrain = "Wwf,Wwf^*" }
+			local bool water = wesnoth.map.matches(pairs_xy[1], pairs_xy[2], { terrain = 'W*,W*^*' })
+			---wesnoth.message('water='..tostring(water)..',bool='..tostring(bool))
+			---{ 'not', terrain = 'Wwf,Wwf^*' }
 			if water == false then
 				if amount_of_gold >= spawn_cost then
 					amount_of_gold = amount_of_gold - spawn_cost
@@ -191,12 +191,12 @@ if amount_of_gold > 0 then
 					-- animate all players recruits (move all units to my system.. of events)
 
 					c = c + 1
-					---wesnoth.message(tostring(c)..","..tostring(pairs_xy[1])..","..tostring(pairs_xy[2]))
+					---wesnoth.message(tostring(c)..','..tostring(pairs_xy[1])..','..tostring(pairs_xy[2]))
 					spawn_array[c] = {}
 					spawn_array[c][1] = spawn
 					spawn_array[c][2] = pairs_xy[1]
 					spawn_array[c][3] = pairs_xy[2]
-					spawn_array[c][4] = "flat"
+					spawn_array[c][4] = 'flat'
 					spawn_array[c][5] = spawn_cost
 				end
 			else
@@ -208,7 +208,7 @@ if amount_of_gold > 0 then
 						spawn_array[c][1] = spawn
 						spawn_array[c][2] = pairs_xy[1]
 						spawn_array[c][3] = pairs_xy[2]
-						spawn_array[c][4] = "water"
+						spawn_array[c][4] = 'water'
 						spawn_array[c][5] = spawn_cost
 					end
 				end
@@ -218,7 +218,7 @@ if amount_of_gold > 0 then
 	for j=c,1,-1 do
 		wml.variables.ce_spawn = { side = lua_side, x = primary_x, y = primary_y, animate = true}
 		if j>1 then
-			if spawn_array[j][4] == "water" then
+			if spawn_array[j][4] == 'water' then
 				wesnoth.game_events.fire(convert_recruit_into_ship(spawn_array[j][5]))
 			else
 				wesnoth.game_events.fire(spawn_array[j][1])
@@ -240,9 +240,9 @@ end
 
 local lua_side = wesnoth.current.side
 local side_gold = wesnoth.sides[lua_side].gold
-local side_villages = wesnoth.map.find({ terrain="*^V*", owner_side=lua_side})
----wesnoth.message("AI side has "..tostring(side_gold).." gold and "..tostring(#side_villages).." villages.")
---- local free_spaces = wesnoth.map.find({ terrain="Gg,Gs,Re,Rd,Wwf", owner_side=lua_side})
+local side_villages = wesnoth.map.find({ terrain='*^V*', owner_side=lua_side})
+---wesnoth.message('AI side has '..tostring(side_gold)..' gold and '..tostring(#side_villages)..' villages.')
+--- local free_spaces = wesnoth.map.find({ terrain='Gg,Gs,Re,Rd,Wwf', owner_side=lua_side})
 local total_free_spaces = 0
 local each_village_enemies = 0
 local max_enemies_x = 0
@@ -262,9 +262,9 @@ if #side_villages > 1 then
 	local rcounter = 0
 	for f, pairs_xy in ipairs(side_villages) do
 		-------------------------------------------------
-	--		local total_villages_in_region = wesnoth.get_variable("CE_SYSTEM.regions_"..tostring(wesnoth.get_variable("CE_SYSTEM.regions_city_"..tostring(pairs_xy[1]).."_"..tostring(pairs_xy[2])..".region_id"))..".length")
-	--		local region_id = wesnoth.get_variable("CE_SYSTEM.regions_city_"..tostring(pairs_xy[1]).."_"..tostring(pairs_xy[2])..".region_id")
-			---wesnoth.message("Region "..tostring(region_id).." has "..tostring(total_villages_in_region).." villages")
+	--		local total_villages_in_region = wesnoth.get_variable('CE_SYSTEM.regions_'..tostring(wesnoth.get_variable('CE_SYSTEM.regions_city_'..tostring(pairs_xy[1])..'_'..tostring(pairs_xy[2])..'.region_id'))..'.length')
+	--		local region_id = wesnoth.get_variable('CE_SYSTEM.regions_city_'..tostring(pairs_xy[1])..'_'..tostring(pairs_xy[2])..'.region_id')
+			---wesnoth.message('Region '..tostring(region_id)..' has '..tostring(total_villages_in_region)..' villages')
 	--		region_counter[rcounter] = {}
 	--		region_counter[rcounter][1] = region_id
 	--		if region_counter[rcounter][2] then
@@ -291,9 +291,9 @@ if #side_villages > 1 then
 				min_random_villa_no_enemies_x = pairs_xy[1]
 				min_random_villa_no_enemies_y = pairs_xy[2]
 			end
-			local free_spaces = wesnoth.map.find({ terrain="Gg,Gs,Re,Rd,W*", include_borders=false, { "and", { x=pairs_xy[1], y=pairs_xy[2], radius=1 }},{"not", {{"filter", {} }} } })
-			local enemies_in_radius_locations = wesnoth.map.find({ terrain="*,*^*",  { "and", { x=pairs_xy[1], y=pairs_xy[2], radius=10 }},{"filter", { canrecruit=false, {"filter_side", {{"enemy_of",{ side = lua_side} }} }} } })
-						---+ #wesnoth.get_locations({ terrain="*,*^*",  { "and", { x=pairs_xy[1], y=pairs_xy[2], radius=10 }},{"filter", {{"filter_side", {{"enemy_of",{ side = lua_side} }} }} } })
+			local free_spaces = wesnoth.map.find({ terrain='Gg,Gs,Re,Rd,W*', include_borders=false, { 'and', { x=pairs_xy[1], y=pairs_xy[2], radius=1 }},{'not', {{'filter', {} }} } })
+			local enemies_in_radius_locations = wesnoth.map.find({ terrain='*,*^*',  { 'and', { x=pairs_xy[1], y=pairs_xy[2], radius=10 }},{'filter', { canrecruit=false, {'filter_side', {{'enemy_of',{ side = lua_side} }} }} } })
+						---+ #wesnoth.get_locations({ terrain='*,*^*',  { 'and', { x=pairs_xy[1], y=pairs_xy[2], radius=10 }},{'filter', {{'filter_side', {{'enemy_of',{ side = lua_side} }} }} } })
 
 			if enemies_in_radius_locations then
 				local enemies_in_radius = #enemies_in_radius_locations
@@ -323,7 +323,7 @@ if #side_villages > 1 then
 		end
 	end
 --	for i=0,#region_counter,1 do
---		wesnoth.message("AI has "..tostring(region_counter[i][2]).."/"..tostring(region_counter[i][3]).." villages of Region "..tostring(region_counter[i][1]))
+--		wesnoth.message('AI has '..tostring(region_counter[i][2])..'/'..tostring(region_counter[i][3])..' villages of Region '..tostring(region_counter[i][1]))
 --	end
 	----------------------------------
 	local third_of_gold = mathx.round(side_gold / 3)
@@ -354,8 +354,8 @@ else
 	wesnoth.sides[lua_side].gold = remaining_gold
 	-------------------------
 end
----wesnoth.message("AI side has "..tostring(side_gold).." gold and "..tostring(#side_villages).." villages with "..tostring(total_free_spaces).." free spaces.")
+---wesnoth.message('AI side has '..tostring(side_gold)..' gold and '..tostring(#side_villages)..' villages with '..tostring(total_free_spaces)..' free spaces.')
 ---local side_gold = wesnoth.sides[lua_side].gold
----wesnoth.message("AI side has"..tostring(side_gold).."gold left")
+---wesnoth.message('AI side has'..tostring(side_gold)..'gold left')
 
 -- >>
