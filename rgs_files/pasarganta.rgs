@@ -251,61 +251,73 @@ village_list=Baslan,55,46,Dhaharmb,53,49,Frenchenmar,47,39,Camle,49,44,Dassledue
 [region]
 	bonus=10
 	name=Torath
+	color=241,206,108
 village_list=Anorla,86,72,Olcade,95,75,Trin,91,72,Turm,97,77,Lusit,91,76,Jeramaa,87,76
 [/region]
 [region]
 	bonus=4
 	name=Eryx
+	color=186,118,241
 	village_list=Eryx,87,79,Gysko,91,80,Petalita,96,80
 [/region]
 [region]
 	bonus=7
 	name=Lathur
+	color=194,171,113
 village_list=Jacetan,81,84,Jath,84,86,Illerge,87,89,Sardoth,92,87,Sargordis,95,85
 [/region]
 [region]
 	bonus=6
 	name=Sicca
+	color=194,159,134
 	village_list=Emard,98,89,Agarlatium,99,95,Refren,95,92,Thurn,96,98
 [/region]
 [region]
 	bonus=2
 	name=Faria
+	color=186,118,241
 	village_list=Chacer,87,94,Motana,89,97
 [/region]
 [region]
 	bonus=4
 	name=Abydos
+	color=113,141,69
 	village_list=Redd,73,95,Attalani,73,98,Famura,79,97
 [/region]
 [region]
 	bonus=4
 	name=Hamilcar
+	color=139,85,141
 	village_list=Tibana,75,90,Hanlu,80,87,Ponyal,80,91
 [/region]
 [region]
 	bonus=2
 	name=Yetrab
+	color=101,125,163
 	village_list=Quetal,64,88,Sinanal,66,90
 [/region]
 [region]
 	bonus=7
 	name=Soltane
+	color=88,88,182
 village_list=Veto,64,81,Tajaran,68,79,Astur,73,81,Turdin,68,84,Sumana,74,84
 [/region]
 [region]
 	bonus=2
 	name=Himera
+	color=182,57,138
 	village_list=Himera,76,75,Chold,79,78
 [/region]
 [region]
 	bonus=2
 	name=Thalia
+	color=67,193,147
 	village_list=Quepia,69,76,Hatrarlo,66,77
 [/region]
 [region]
 	bonus=6
 	name=Behaima
+	color=92,149,193
 	village_list=Tiafiflis,68,65,Lualdi,76,66,Hano,72,64,Ivar,73,70
 [/region]
 [region]
@@ -346,6 +358,7 @@ village_list=Larica,53,78,Brac,57,79,Mosran,52,80,Begh,56,82,Kalufa,53,84,Bith,4
 [region]
 	bonus=2
 	name=Aurelatia
+	color=61,134,61
 	village_list=Aurelia,35,88,Scencar,38,86
 [/region]
 [region]
@@ -356,11 +369,13 @@ village_list=Larica,53,78,Brac,57,79,Mosran,52,80,Begh,56,82,Kalufa,53,84,Bith,4
 [region]
 	bonus=9
 	name=Gagarlon
+	color=50,84,86
 village_list=Gogama,21,82,Olcede,30,82,Wharm,21,87,Uaklan,30,87,Aquil,25,85,Maajer,25,81
 [/region]
 [region]
 	bonus=7
 	name=Vickmark
+	color=168,102,76
 village_list=Cavao,21,92,Tejarp,19,99,Zucian,20,95,Uruth,23,98,Panthen,15,98
 [/region]
 [region]
@@ -371,6 +386,7 @@ village_list=Cavao,21,92,Tejarp,19,99,Zucian,20,95,Uruth,23,98,Panthen,15,98
 [region]
 	bonus=4
 	name=Trevero
+	color=129,109,168
 	village_list=Trevero,14,88,Bentran,12,91,Watafake,10,88
 [/region]
 [region]
@@ -381,11 +397,13 @@ village_list=Cavao,21,92,Tejarp,19,99,Zucian,20,95,Uruth,23,98,Panthen,15,98
 [region]
 	bonus=6
 	name=Pentaria
+	color=73,180,123
 	village_list=Whartle,2,91,Esterif,2,80,Glaboph,5,89,Eterun,3,85
 [/region]
 [region]
 	bonus=3
 	name=Norcard Tribe
+	color=143,161,85
 	village_list=Wrongr,14,80,Villuge,12,83,Bragh,16,77
 [/region]
 [region]
