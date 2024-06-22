@@ -5,11 +5,11 @@
 
 
 function simulate_combat(x1,y1,x2,y2)
----wesnoth.message('harm unit')
----wesnoth.delay(1000)
+---wesnoth.interface.add_chat_message('harm unit')
+---wesnoth.interface.delay(1000)
 wml.fire('do_command',{{'attack',{ weapon=0, defender_weapon=0, {'source', { x=x1, y=y1 } }, {'destination', { x=x2, y=y2 } } }}})
----wesnoth.fire('harm_unit',{ delay=0, { 'filter', { x=tostring(x1), y=tostring(y1) } }, { 'filter_second',{ x=tostring(x2), y=tostring(y2) } } })
----wesnoth.delay(2000)
+---wml.fire('harm_unit',{ delay=0, { 'filter', { x=x1, y=y1 } }, { 'filter_second',{ x=x2, y=y2 } } })
+---wesnoth.interface.delay(2000)
 ---[harm_unit]
 ---[animate_unit] copy from ranged maybe.. looks like..
 ---    [filter]: StandardUnitFilter all matching units will be harmed (required).
@@ -33,24 +33,24 @@ for x, y in wesnoth.current.map:iter_adjacent(unit_x,unit_y) do
 					max_enemy_x = enemy_unit.x
 					max_enemy_y = enemy_unit.y
 				end
-				--attack unit
-				---simulate_combat(unit_x,unit_y,x,y)
-				---wesnoth.message('There is enemy at '..tostring(x)..','..tostring(y)..' with lower or same hitpoints ('..tostring(unit_x)..','..tostring(unit_y)..')')
+				-- attack unit
+				-- simulate_combat(unit_x,unit_y,x,y)
+				-- wesnoth.interface.add_chat_message('There is enemy at '..x..','..y..' with lower or same hitpoints ('..unit_x..','..unit_y..')')
 			else
 				local enemy_defense = wesnoth.units.defense_on(enemy_unit, wesnoth.current.map[enemy_unit])
 				local recruited_unit_defense = wesnoth.units.defense_on(recruited_unit, wesnoth.current.map[recruited_unit])
 
 				if recruited_unit.hitpoints == enemy_unit.hitpoints then
 						if enemy_defense <= recruited_unit_defense then
-							--attack unit
+							-- attack unit
 							if max_enemy_hitpoints < enemy_unit.hitpoints then
 								max_enemy_hitpoints = enemy_unit.hitpoints
 								max_enemy_x = enemy_unit.x
 								max_enemy_y = enemy_unit.y
 							end
-							---simulate_combat(unit_x,unit_y,x,y)
+							-- simulate_combat(unit_x,unit_y,x,y)
 						else
-							--do nothing
+							-- do nothing
 						end
 				else
 					-- do nothing
@@ -60,7 +60,7 @@ for x, y in wesnoth.current.map:iter_adjacent(unit_x,unit_y) do
 	end
 end
 if max_enemy_hitpoints > 0 then
-	--- attack strongest killable enemy
+	-- attack strongest killable enemy
 	simulate_combat(unit_x,unit_y,max_enemy_x,max_enemy_y)
 end
 end
@@ -146,9 +146,9 @@ if amount_of_gold > 0 then
 		end
 
 		if not wesnoth.units.get(primary_x,primary_y) then
-			local bool water = wesnoth.map.matches(pairs_xy[1], pairs_xy[2], { terrain = 'W*,W*^*' })
-			---wesnoth.message('water='..tostring(water)..',bool='..tostring(bool))
-			---{ 'not', terrain = 'Wwf,Wwf^*' }
+			local bool water = wesnoth.map.matches(pairs_xy[1], pairs_xy[2], { terrain = 'W*^*' })
+			-- wesnoth.interface.add_chat_message('water='..water..', bool='..bool)
+			---{ 'not', terrain = 'Wwf^*' }
 			if water == false then
 				if amount_of_gold >= spawn_cost then
 					amount_of_gold = amount_of_gold - spawn_cost
@@ -191,7 +191,7 @@ if amount_of_gold > 0 then
 					-- animate all players recruits (move all units to my system.. of events)
 
 					c = c + 1
-					---wesnoth.message(tostring(c)..','..tostring(pairs_xy[1])..','..tostring(pairs_xy[2]))
+					-- wesnoth.interface.add_chat_message(c..','..pairs_xy[1]..','..pairs_xy[2])
 					spawn_array[c] = {}
 					spawn_array[c][1] = spawn
 					spawn_array[c][2] = pairs_xy[1]
@@ -240,9 +240,9 @@ end
 
 local lua_side = wesnoth.current.side
 local side_gold = wesnoth.sides[lua_side].gold
-local side_villages = wesnoth.map.find({ terrain='*^V*', owner_side=lua_side})
----wesnoth.message('AI side has '..tostring(side_gold)..' gold and '..tostring(#side_villages)..' villages.')
---- local free_spaces = wesnoth.map.find({ terrain='Gg,Gs,Re,Rd,Wwf', owner_side=lua_side})
+local side_villages = wesnoth.map.find({ gives_income=true, owner_side=lua_side})
+-- wesnoth.interface.add_chat_message('AI side has '..side_gold..' gold and '..#side_villages..' villages.')
+-- local free_spaces = wesnoth.map.find{ terrain='Gg,Gs,Re,Rd,Wwf', owner_side=lua_side}
 local total_free_spaces = 0
 local each_village_enemies = 0
 local max_enemies_x = 0
@@ -262,9 +262,9 @@ if #side_villages > 1 then
 	local rcounter = 0
 	for f, pairs_xy in ipairs(side_villages) do
 		-------------------------------------------------
-	--		local total_villages_in_region = wesnoth.get_variable('CE_SYSTEM.regions_'..tostring(wesnoth.get_variable('CE_SYSTEM.regions_city_'..tostring(pairs_xy[1])..'_'..tostring(pairs_xy[2])..'.region_id'))..'.length')
-	--		local region_id = wesnoth.get_variable('CE_SYSTEM.regions_city_'..tostring(pairs_xy[1])..'_'..tostring(pairs_xy[2])..'.region_id')
-			---wesnoth.message('Region '..tostring(region_id)..' has '..tostring(total_villages_in_region)..' villages')
+	--		local total_villages_in_region = wml.variables['CE_SYSTEM.regions_'..wml.variables['CE_SYSTEM.regions_city_'..pairs_xy[1]..'_'..pairs_xy[2]..'.region_id']..'.length']
+	--		local region_id = wml.variables['CE_SYSTEM.regions_city_'..pairs_xy[1]..'_'..pairs_xy[2]..'.region_id']
+			-- wesnoth.interface.add_chat_message('Region '..region_id..' has '..total_villages_in_region..' villages')
 	--		region_counter[rcounter] = {}
 	--		region_counter[rcounter][1] = region_id
 	--		if region_counter[rcounter][2] then
@@ -291,13 +291,13 @@ if #side_villages > 1 then
 				min_random_villa_no_enemies_x = pairs_xy[1]
 				min_random_villa_no_enemies_y = pairs_xy[2]
 			end
-			local free_spaces = wesnoth.map.find({ terrain='Gg,Gs,Re,Rd,W*', include_borders=false, { 'and', { x=pairs_xy[1], y=pairs_xy[2], radius=1 }},{'not', {{'filter', {} }} } })
-			local enemies_in_radius_locations = wesnoth.map.find({ terrain='*,*^*',  { 'and', { x=pairs_xy[1], y=pairs_xy[2], radius=10 }},{'filter', { canrecruit=false, {'filter_side', {{'enemy_of',{ side = lua_side} }} }} } })
-						---+ #wesnoth.get_locations({ terrain='*,*^*',  { 'and', { x=pairs_xy[1], y=pairs_xy[2], radius=10 }},{'filter', {{'filter_side', {{'enemy_of',{ side = lua_side} }} }} } })
+			local free_spaces = wesnoth.map.find{ terrain='Gg,Gs,Re,Rd,W*', include_borders=false, { 'and', { x=pairs_xy[1], y=pairs_xy[2], radius=1 }},{'not', {{'filter', {} }} } }
+			local enemies_in_radius_locations = wesnoth.map.find{ terrain='*^*',  { 'and', { x=pairs_xy[1], y=pairs_xy[2], radius=10 }},{'filter', { canrecruit=false, {'filter_side', {{'enemy_of',{ side = lua_side} }} }} } }
+						---+ #wesnoth.map.find{ terrain='*^*',  { 'and', { x=pairs_xy[1], y=pairs_xy[2], radius=10 }},{'filter', {{'filter_side', {{'enemy_of',{ side = lua_side} }} }} } }
 
 			if enemies_in_radius_locations then
 				local enemies_in_radius = #enemies_in_radius_locations
-				---wesnoth.label {x=tostring(pairs_xy[1]),y=tostring(pairs_xy[2]),text=tostring(enemies_in_radius),color={255,255,255,255}}
+				-- wesnoth.map.add_label{ x=pairs_xy[1], y=pairs_xy[2], text=enemies_in_radius, color={255,255,255} }
 				if enemies_in_radius > 0 then
 					if enemies_in_radius > max_enemies_num then
 						max_enemies_num = enemies_in_radius
@@ -319,11 +319,11 @@ if #side_villages > 1 then
 					end
 				end
 			end
-			--total_free_spaces = total_free_spaces + #free_spaces + 1
+			-- total_free_spaces = total_free_spaces + #free_spaces + 1
 		end
 	end
 --	for i=0,#region_counter,1 do
---		wesnoth.message('AI has '..tostring(region_counter[i][2])..'/'..tostring(region_counter[i][3])..' villages of Region '..tostring(region_counter[i][1]))
+--		wesnoth.interface.add_chat_message('AI has '..region_counter[i][2]..'/'..region_counter[i][3]..' villages of Region '..region_counter[i][1])
 --	end
 	----------------------------------
 	local third_of_gold = mathx.round(side_gold / 3)
@@ -354,8 +354,7 @@ else
 	wesnoth.sides[lua_side].gold = remaining_gold
 	-------------------------
 end
----wesnoth.message('AI side has '..tostring(side_gold)..' gold and '..tostring(#side_villages)..' villages with '..tostring(total_free_spaces)..' free spaces.')
----local side_gold = wesnoth.sides[lua_side].gold
----wesnoth.message('AI side has'..tostring(side_gold)..'gold left')
+-- wesnoth.interface.add_chat_message('AI side has '..side_gold..' gold and '..#side_villages..' villages with '..total_free_spaces..' free spaces.')
+-- wesnoth.interface.add_chat_message('AI side has'..side_gold..'gold left')
 
 -- >>
