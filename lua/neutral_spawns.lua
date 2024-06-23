@@ -216,7 +216,9 @@ elseif (spawns_theme == 3) or (spawns_theme == 6) then
 				wesnoth.game_events.fire('ce_spawn_15g_Lieutenant')
 			else
 				-- Exists only on Pasarganta maps.
-				wesnoth.game_events.fire(mathx.random_choice('ce_spawn_5g_Pikeman,ce_spawn_8g_Eliteinfantry,ce_spawn_10g_Lancer'))
+				-- Not making it harder by placing stronger units, but making it more difficult to predict:
+				-- If you see an 1g militia, it does not necessarily mean that no other player spawned in this region.
+				wesnoth.game_events.fire(mathx.random_choice('ce_spawn_1g_militia,ce_spawn_3g_Sergeant,ce_spawn_5g_Pikeman,ce_spawn_8g_Eliteinfantry,ce_spawn_10g_Lancer'))
 			end
 		end
 	end
