@@ -1,6 +1,7 @@
 [region]
 	bonus=4
 	name=Moosane
+	color=227,49,73
 	village_list=Rahch,9,2,Agrith,5,5,Malath,10,5
 [/region]
 [region]
@@ -11,16 +12,19 @@
 [region]
 	bonus=7
 	name=Zacony
+	color=177,29,120
 village_list=Inkledoth,19,11,Lynshire,24,12,Irksurd,28,12,Liger,29,9,Axmenta,18,7
 [/region]
 [region]
 	bonus=5
 	name=Ifendrun
+	color=240,202,66
 	village_list=Chito,3,13,Azurpi,10,13,Akafane,4,18,Khalazar,8,10
 [/region]
 [region]
 	bonus=2
 	name=Litophane
+	color=179,90,92
 	village_list=Ifda,16,16,Ujanpsar,20,16
 [/region]
 [region]
@@ -36,21 +40,25 @@ village_list=Ameron,3,30,Paphos,5,33,Curiam,3,36,Noriclam,3,40,Arelate,9,41
 [region]
 	bonus=6
 	name=Chumlitca
+	color=57,204,175
 	village_list=Danmark,13,36,Swezine,16,38,Imple,21,40,Yolundy,24,37
 [/region]
 [region]
 	bonus=7
 	name=Carolas
+	color=63,158,158
 village_list=Eburath,27,42,Cemenark,31,43,Difor,22,46,Brackgun,26,48,Musslepoe,31,46
 [/region]
 [region]
 	bonus=2
 	name=Miggle
+	color=32,159,123
 	village_list=Quaza,16,45,Gaggle,15,50
 [/region]
 [region]
 	bonus=4
 	name=Herull Swamp
+	color=136,113,60
 	village_list=Pictqua,6,48,Rite,10,49,Harra,2,49
 [/region]
 [region]
@@ -76,9 +84,11 @@ village_list=Stealdt,21,25,Blant,22,32,Torcaste,17,26,Zacon,18,29,Mexa,24,28,Gag
 [region]
 	bonus=7
 	name=Damondica
+	color=168,139,34
 village_list=Crauh,38,34,Pettau,30,36,Umbria,33,39,Sequana,40,38,Benerick,36,41
 [/region]
 [region]
+	# Exclusive, leader spot
 	bonus=2
 	name=Aracaj
 	village_list=Arac,33,13,Nular,34,8
@@ -86,6 +96,7 @@ village_list=Crauh,38,34,Pettau,30,36,Umbria,33,39,Sequana,40,38,Benerick,36,41
 [region]
 	bonus=7
 	name=Alsay
+	color=242,161,19
 village_list=Camendoz,36,1,Fakul,41,2,Pittleheim,38,4,Frison,44,5,Agripp,46,2
 [/region]
 [region]
@@ -96,41 +107,51 @@ village_list=Camendoz,36,1,Fakul,41,2,Pittleheim,38,4,Frison,44,5,Agripp,46,2
 [region]
 	bonus=6
 	name=Veneran
+	color=143,136,177
 village_list=Narbo,43,22,Sarmiz,41,25,Bala,39,21,Kumaya,37,27,Nibal,35,24,Maboz,33,29
 [/region]
 [region]
 	bonus=2
 	name=The Restless Swamps
+	color=85,85,0
 	village_list=Sidon,61,3,Barl,55,4
 [/region]
 [region]
 	bonus=6
 	name=Zimyar
+	color=139,174,227
 	village_list=Daev,52,9,Xea,57,11,Fonostane,48,8,Ranor,50,11
 [/region]
 [region]
 	bonus=7
 	name=Wamptir
+	color=227,113,170
 village_list=Lefkandi,73,7,Monchack,66,8,Illiam,74,11,Eugeor,70,12,Eraduam,69,3
 [/region]
 [region]
 	bonus=2
 	name=Lekturia
+	color=27,118,198 #same color with more brightness
+	#color=21,93,156
 	village_list=Kehra,63,15,Alabar,67,17
 [/region]
 [region]
 	bonus=7
 	name=Ramprar
+	#color=130,89,38 too dark, only less brightness
+	color=161,110,47
 village_list=Croton,55,15,Dor,56,17,Nineveh,53,20,Damyar,61,19,Tholl,62,22
 [/region]
 [region]
 	bonus=9
 	name=Trileka
+	color=93,127,221
 	village_list=Ubnat ans Yalerb,52,27,Ganent,55,30,Vinshat,51,32,Patergory,47,32,Zseas,44,29,Cultany,47,26
 [/region]
 [region]
 	bonus=4
 	name=Yart
+	color=200,48,185
 	village_list=Taojia,64,28,Ognapur,63,32,Queztutil,68,31
 [/region]
 [region]
@@ -141,6 +162,7 @@ village_list=Croton,55,15,Dor,56,17,Nineveh,53,20,Damyar,61,19,Tholl,62,22
 [region]
 	bonus=6
 	name=Zard
+	color=206,44,79
 	village_list=Thash,93,4,Kark,97,2,Zullah,98,5,Akkath,99,9
 [/region]
 [region]
@@ -151,16 +173,21 @@ village_list=Croton,55,15,Dor,56,17,Nineveh,53,20,Damyar,61,19,Tholl,62,22
 [region]
 	bonus=9
 	name=Caliphi
+	#color=161,76,55
+	color=166,71,50
 village_list=Haran,88,11,Tanis,87,17,Ulam,95,14,Arwad,92,17,Dvir,97,19,Baalbek,91,21
 [/region]
 [region]
 	bonus=11
 	name=Samrock
+	color=236,185,57
 village_list=Sarepta,79,16,Rehevia,75,21,Herod,73,18,Larsa,82,19,Elis,80,22,Chalkis,70,21,Lanth,70,25
 [/region]
 [region]
+	# Exclusive, tents
 	bonus=2
 	name=Arshai
+	color=49,221,135
 	village_list=Llathos,91,25,Rushu,87,25
 [/region]
 [region]
@@ -171,36 +198,44 @@ village_list=Sarepta,79,16,Rehevia,75,21,Herod,73,18,Larsa,82,19,Elis,80,22,Chal
 [region]
 	bonus=6
 	name=Fangmar
+	color=174,96,230
 	village_list=Kalhu,96,29,Borsippa,88,30,Hanwa,91,33,Lafoa,97,34
 [/region]
 [region]
 	bonus=7
 	name=Smorg
+	color=170,85,0
 village_list=Prag,92,37,Milt,88,40,Branor,95,40,Rogyr,92,43,Traklin,96,42
 [/region]
 [region]
 	bonus=9
 	name=Calron
+	color=61,72,227
 village_list=Byblos,79,34,Carchemish,74,36,Ashur,82,37,Midian,73,42,Caith,79,43,Emer,77,39
 [/region]
 [region]
 	bonus=3
 	name=Jollywood
+	color=119,223,81
 	village_list=Vida,61,37,Fitai,63,40,Lyrinthia,67,37
 [/region]
 [region]
+	# Exclusive, Merfolk
 	bonus=3
 	name=Atlassa
+	color=25,169,247
 	village_list=Plin,99,50,Soshu,100,52,Marra,96,50
 [/region]
 [region]
 	bonus=7
 	name=Etruria
+	color=69,168,67
 village_list=Lussen,84,46,Uluria,86,49,Cantabre,89,51,Sebar,86,54,Spenar,91,55
 [/region]
 [region]
 	bonus=7
 	name=Segesta
+	color=217,190,122
 village_list=Desardia,68,48,Bastei,74,47,Oretino,80,47,Layel,71,52,Loffa,76,52
 [/region]
 [region]
@@ -211,21 +246,25 @@ village_list=Desardia,68,48,Bastei,74,47,Oretino,80,47,Layel,71,52,Loffa,76,52
 [region]
 	name=Yarghford Mountains
 	bonus=15
+	color=152,76,1
 village_list=Baslan,55,46,Dhaharmb,53,49,Frenchenmar,47,39,Camle,49,44,Dassleduer,42,43,Gagenor,53,39,Khavar,56,41,Hensferheim,44,46,Hickburg,47,49
 [/region]
 [region]
 	bonus=3
 	name=Willow Wood
+	color=53,208,131
 	village_list=Freyar,51,55,Fatamanate,56,53,Kaltuna,55,56
 [/region]
 [region]
 	bonus=2
 	name=Drepana
+	color=176,34,232
 	village_list=Chailu,65,56,Xinanago,66,59
 [/region]
 [region]
 	bonus=5
 	name=Rusaddi
+	color=79,188,101
 	village_list=Icorna,74,57,Calor,80,61,Glab,78,58,Kokane,75,62
 [/region]
 [region]
@@ -241,6 +280,7 @@ village_list=Baslan,55,46,Dhaharmb,53,49,Frenchenmar,47,39,Camle,49,44,Dassledue
 [region]
 	bonus=2
 	name=Morton Swamp
+	color=164,107,143
 	village_list=Mortu,99,69,Sidrar,99,64
 [/region]
 [region]
@@ -281,7 +321,9 @@ village_list=Jacetan,81,84,Jath,84,86,Illerge,87,89,Sardoth,92,87,Sargordis,95,8
 [region]
 	bonus=4
 	name=Abydos
-	color=113,141,69
+	#color=113,141,69
+	color=115,143,70
+	#color=151,142,31 # yellow from swamp
 	village_list=Redd,73,95,Attalani,73,98,Famura,79,97
 [/region]
 [region]
@@ -299,7 +341,7 @@ village_list=Jacetan,81,84,Jath,84,86,Illerge,87,89,Sardoth,92,87,Sargordis,95,8
 [region]
 	bonus=7
 	name=Soltane
-	color=88,88,182
+	color=97,97,201
 village_list=Veto,64,81,Tajaran,68,79,Astur,73,81,Turdin,68,84,Sumana,74,84
 [/region]
 [region]
@@ -323,11 +365,13 @@ village_list=Veto,64,81,Tajaran,68,79,Astur,73,81,Turdin,68,84,Sumana,74,84
 [region]
 	bonus=13
 	name=Thysea
+	color=212,163,102
 village_list=Mesarna,56,62,Aeoki,61,64,Gallis,56,66,Antian,60,67,Gimnete,52,70,Duerlo,57,70,Deitan,59,73,Nivea,63,70
 [/region]
 [region]
 	bonus=6
 	name=Soveran
+	color=88,189,174
 	village_list=Degacia,36,82,Mogun,37,77,Eigglebury,34,79,Ophrik,42,75
 [/region]
 [region]
@@ -358,7 +402,8 @@ village_list=Larica,53,78,Brac,57,79,Mosran,52,80,Begh,56,82,Kalufa,53,84,Bith,4
 [region]
 	bonus=2
 	name=Aurelatia
-	color=61,134,61
+	#color=61,134,61 is okay, but a bit more colorful maybe
+	color=76,127,38
 	village_list=Aurelia,35,88,Scencar,38,86
 [/region]
 [region]
@@ -369,7 +414,7 @@ village_list=Larica,53,78,Brac,57,79,Mosran,52,80,Begh,56,82,Kalufa,53,84,Bith,4
 [region]
 	bonus=9
 	name=Gagarlon
-	color=50,84,86
+	color=94,164,169
 village_list=Gogama,21,82,Olcede,30,82,Wharm,21,87,Uaklan,30,87,Aquil,25,85,Maajer,25,81
 [/region]
 [region]
@@ -392,6 +437,7 @@ village_list=Cavao,21,92,Tejarp,19,99,Zucian,20,95,Uruth,23,98,Panthen,15,98
 [region]
 	bonus=1
 	name=Mermaid Cave
+	color=226,111,216
 	village_list=Liguna,17,86
 [/region]
 [region]
@@ -403,7 +449,7 @@ village_list=Cavao,21,92,Tejarp,19,99,Zucian,20,95,Uruth,23,98,Panthen,15,98
 [region]
 	bonus=3
 	name=Norcard Tribe
-	color=143,161,85
+	color=150,172,76
 	village_list=Wrongr,14,80,Villuge,12,83,Bragh,16,77
 [/region]
 [region]
@@ -419,16 +465,19 @@ village_list=Cavao,21,92,Tejarp,19,99,Zucian,20,95,Uruth,23,98,Panthen,15,98
 [region]
 	bonus=1
 	name=Hagaron
+	color=61,124,241
 	village_list=Hagaron,13,64
 [/region]
 [region]
 	bonus=9
 	name=Tarsia
+	color=83,198,125
 village_list=Lariss,13,69,Flamir,26,71,Bruttite,19,68,Larutania,26,61,Kaluhy,20,63,Salonir,25,67
 [/region]
 [region]
 	bonus=4
 	name=Vindoth
+	color=201,218,44
 	village_list=Ventebshew,33,73,Talouf,31,77,Sheirn,34,75
 [/region]
 [region]
@@ -439,6 +488,7 @@ village_list=Jetera,39,72,Opath,47,65,Centabre,41,69,Emerita,45,69,Quingentali,4
 [region]
 	bonus=4
 	name=Bostra
+	color=217,104,47
 	village_list=Friz,34,64,Ptuj,37,67,Byzack,41,64
 [/region]
 [region]
@@ -449,11 +499,15 @@ village_list=Jetera,39,72,Opath,47,65,Centabre,41,69,Emerita,45,69,Quingentali,4
 [region]
 	bonus=11
 	name=Fargundy
+	# Some Burgundry tint
+	color=182,42,113
+	#color=149,40,41
 village_list=Mesardon,32,49,Kailath,33,53,Cuebark,39,54,Leptis,29,52,Mogun,37,51,Dioclate,27,56,Nivopo,32,57
 [/region]
 [region]
 	bonus=1
 	name=Adda
+	color=121,96,198
 	village_list=Adda,51,74
 [/region]
 [region]
