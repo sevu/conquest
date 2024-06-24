@@ -18,6 +18,24 @@ function wesnoth.wml_actions.region(cfg)
 	if string.find(region_codename,'-') then region_codename = string.gsub(region_codename,'-','_') end
 
 
+	-- Special mode for Pasarganta maps.
+	-- Will recolor existing labels with the region_color from this tag.
+	if wml.variables.mapsection and (wml.variables.mapvariant ~= 'pasarganta_new') then
+		-- Recolor-mode on, recolor existing region:
+		for j=0,wml.variables['CE_SYSTEM.regions_' ..  region_codename ..'.length']-1,1 do
+			local village_label = wesnoth.map.get_label{
+				wml.variables['CE_SYSTEM.regions_'..region_codename..'['..j..'].x'],
+				wml.variables['CE_SYSTEM.regions_'..region_codename..'['..j..'].y'],
+			}
+
+			-- Overwrite label in a new color.
+			village_label.color = region_color
+			wesnoth.map.add_label(village_label)
+		end
+		return
+	end
+
+
 	-- Check if region doesn't already exist (in that case only add villages to the region)
 	if wml.variables['CE_SYSTEM.regions_'..region_codename] == nil then
 
