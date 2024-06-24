@@ -16,28 +16,28 @@ function create_total_bonus_message()
 end
 
 function calculate_region_bonus(lua_current_side)
-	local lua_total_regions = wml.variables['CE_SYSTEM.regions.length']
-	local lua_income_bonus = 0
-	for i=0,lua_total_regions-1,1 do
-		local lua_region_name_id = wml.variables['CE_SYSTEM.regions['..i..'].id']
-		local lua_all_villages_belong_to_this_player = true
-		local lua_total_villages_in_region = wml.variables['CE_SYSTEM.regions_'..lua_region_name_id..'.length']
+	local total_regions = wml.variables['CE_SYSTEM.regions.length']
+	local income_bonus = 0
+	for i=0,total_regions-1,1 do
+		local region_name_id = wml.variables['CE_SYSTEM.regions['..i..'].id']
+		local all_villages_belong_to_this_player = true
+		local total_villages_in_region = wml.variables['CE_SYSTEM.regions_'..region_name_id..'.length']
 
-		for j=0,lua_total_villages_in_region-1,1 do
-			local lua_villa_owner_x = wml.variables['CE_SYSTEM.regions_'..lua_region_name_id..'['..j..'].x']
-			local lua_villa_owner_y = wml.variables['CE_SYSTEM.regions_'..lua_region_name_id..'['..j..'].y']
-			local lua_villa_owner_side = wesnoth.map.get_owner{ lua_villa_owner_x, lua_villa_owner_y }
-			if lua_current_side ~= lua_villa_owner_side then
-				lua_all_villages_belong_to_this_player = false
+		for j=0,total_villages_in_region-1,1 do
+			local villa_owner_x = wml.variables['CE_SYSTEM.regions_'..region_name_id..'['..j..'].x']
+			local villa_owner_y = wml.variables['CE_SYSTEM.regions_'..region_name_id..'['..j..'].y']
+			local villa_owner_side = wesnoth.map.get_owner{ villa_owner_x, villa_owner_y }
+			if lua_current_side ~= villa_owner_side then
+				all_villages_belong_to_this_player = false
 				break
 			end
 		end
 
-		if lua_all_villages_belong_to_this_player == true then
-			lua_income_bonus = lua_income_bonus + wml.variables['CE_SYSTEM.regions['..i..'].bonus']
+		if all_villages_belong_to_this_player == true then
+			income_bonus = income_bonus + wml.variables['CE_SYSTEM.regions['..i..'].bonus']
 		end
 	end
-	wml.fire('modify_side', { side = lua_current_side, income = lua_income_bonus })
+	wesnoth.sides[lua_current_side].base_income = income_bonus + 2
 end
 
 -- >>
