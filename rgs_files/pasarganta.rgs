@@ -7,6 +7,7 @@
 [region]
 	bonus=2
 	name=Baetica
+	color=218,197,90
 	village_list=Halmui,20,2,Ramano,24,3
 [/region]
 [region]
@@ -30,29 +31,32 @@ village_list=Inkledoth,19,11,Lynshire,24,12,Irksurd,28,12,Liger,29,9,Axmenta,18,
 [region]
 	bonus=6
 	name=New Caightbury
+	color=55,114,253
 	village_list=Bowden,13,21,Eichstler,7,22,Panturis,9,27,Lorna,14,25
 [/region]
 [region]
 	bonus=7
 	name=Shix Forest
+	color=63,158,158
 village_list=Ameron,3,30,Paphos,5,33,Curiam,3,36,Noriclam,3,40,Arelate,9,41
 [/region]
 [region]
 	bonus=6
 	name=Chumlitca
-	color=57,204,175
+	color=58,172,243
 	village_list=Danmark,13,36,Swezine,16,38,Imple,21,40,Yolundy,24,37
 [/region]
 [region]
 	bonus=7
 	name=Carolas
-	color=63,158,158
+	color=57,204,175
 village_list=Eburath,27,42,Cemenark,31,43,Difor,22,46,Brackgun,26,48,Musslepoe,31,46
 [/region]
 [region]
 	bonus=2
 	name=Miggle
-	color=32,159,123
+	#color=136,88,240
+	color=142,94,254
 	village_list=Quaza,16,45,Gaggle,15,50
 [/region]
 [region]
@@ -64,21 +68,25 @@ village_list=Eburath,27,42,Cemenark,31,43,Difor,22,46,Brackgun,26,48,Musslepoe,3
 [region]
 	bonus=7
 	name=Gortyr
+	color=217,231,149
 village_list=Jhaya,7,55,Burd,6,61,Yellja,13,61,Suindin,2,59,Gordsa,10,58
 [/region]
 [region]
 	bonus=6
 	name=Wrymandy
+	color=41,172,243
 	village_list=Orotinphire,16,54,Majn,25,53,Sour,18,58,Thopo,22,57
 [/region]
 [region]
 	bonus=2
 	name=Clamforia
+	color=32,159,123
 	village_list=Seguso,22,20,Getusa,27,21
 [/region]
 [region]
 	bonus=9
 	name=Vetura
+	color=244,202,143
 village_list=Stealdt,21,25,Blant,22,32,Torcaste,17,26,Zacon,18,29,Mexa,24,28,Gagar,16,32
 [/region]
 [region]
@@ -91,6 +99,7 @@ village_list=Crauh,38,34,Pettau,30,36,Umbria,33,39,Sequana,40,38,Benerick,36,41
 	# Exclusive, leader spot
 	bonus=2
 	name=Aracaj
+	color=32,223,182
 	village_list=Arac,33,13,Nular,34,8
 [/region]
 [region]
@@ -102,12 +111,14 @@ village_list=Camendoz,36,1,Fakul,41,2,Pittleheim,38,4,Frison,44,5,Agripp,46,2
 [region]
 	bonus=5
 	name=Taedt
+	color=206,159,253
 	village_list=Tubb,39,10,Porlomb,39,14,Ancyra,45,14,Mero,42,16
 [/region]
 [region]
 	bonus=6
 	name=Veneran
-	color=143,136,177
+	#color=143,136,177
+	color=132,194,204
 village_list=Narbo,43,22,Sarmiz,41,25,Bala,39,21,Kumaya,37,27,Nibal,35,24,Maboz,33,29
 [/region]
 [region]
@@ -157,6 +168,7 @@ village_list=Croton,55,15,Dor,56,17,Nineveh,53,20,Damyar,61,19,Tholl,62,22
 [region]
 	bonus=4
 	name=Abbasur
+	color=236,170,77
 	village_list=Jaffa,80,1,Al Mamul,78,4,Berral,85,4
 [/region]
 [region]
@@ -168,13 +180,15 @@ village_list=Croton,55,15,Dor,56,17,Nineveh,53,20,Damyar,61,19,Tholl,62,22
 [region]
 	bonus=1
 	name=Tokk
+	color=123,87,229
 	village_list=Tokk,79,12
 [/region]
 [region]
 	bonus=9
 	name=Caliphi
 	#color=161,76,55
-	color=166,71,50
+	#color=166,71,50
+	color=216,103,80
 village_list=Haran,88,11,Tanis,87,17,Ulam,95,14,Arwad,92,17,Dvir,97,19,Baalbek,91,21
 [/region]
 [region]
@@ -193,6 +207,7 @@ village_list=Sarepta,79,16,Rehevia,75,21,Herod,73,18,Larsa,82,19,Elis,80,22,Chal
 [region]
 	bonus=2
 	name=Ectrun
+	color=241,109,228
 	village_list=Rollum,77,29,Laiten,82,28
 [/region]
 [region]
@@ -210,7 +225,8 @@ village_list=Prag,92,37,Milt,88,40,Branor,95,40,Rogyr,92,43,Traklin,96,42
 [region]
 	bonus=9
 	name=Calron
-	color=61,72,227
+	#color=61,72,227
+	color=69,80,206
 village_list=Byblos,79,34,Carchemish,74,36,Ashur,82,37,Midian,73,42,Caith,79,43,Emer,77,39
 [/region]
 [region]
@@ -241,6 +257,7 @@ village_list=Desardia,68,48,Bastei,74,47,Oretino,80,47,Layel,71,52,Loffa,76,52
 [region]
 	name=Jo
 	bonus=1
+	color=136,169,240
 	village_list=Jo,62,48
 [/region]
 [region]
@@ -270,11 +287,13 @@ village_list=Baslan,55,46,Dhaharmb,53,49,Frenchenmar,47,39,Camle,49,44,Dassledue
 [region]
 	bonus=2
 	name=Slevor
+	color=89,248,203
 	village_list=Rapaax,91,60,Seyal,96,59
 [/region]
 [region]
 	bonus=4
 	name=Zama
+	color=241,71,74
 	village_list=Marali,87,64,Locri,90,66,Drepanei,92,64
 [/region]
 [region]
@@ -286,6 +305,7 @@ village_list=Baslan,55,46,Dhaharmb,53,49,Frenchenmar,47,39,Camle,49,44,Dassledue
 [region]
 	bonus=2
 	name=Tyndaris
+	color=123,190,34
 	village_list=Tylon,79,71,Seccar,81,68
 [/region]
 [region]
@@ -377,26 +397,31 @@ village_list=Mesarna,56,62,Aeoki,61,64,Gallis,56,66,Antian,60,67,Gimnete,52,70,D
 [region]
 	bonus=11
 	name=Barca
+	color=234,116,48
 village_list=Larica,53,78,Brac,57,79,Mosran,52,80,Begh,56,82,Kalufa,53,84,Bith,46,81,Fraj,49,79,Chilio,48,84
 [/region]
 [region]
 	bonus=2
 	name=Castra
+	color=60,250,250
 	village_list=Castra,55,90,Waar,57,92
 [/region]
 [region]
 	bonus=4
 	name=Darp
+	color=232,71,74
 	village_list=Deglatia,54,96,Tramtium,59,98,Maneus,55,100
 [/region]
 [region]
 	bonus=2
 	name=Nobade
+	color=253,118,127
 	village_list=Teoch,44,96,Breez,43,99
 [/region]
 [region]
 	bonus=4
 	name=Dalmatuska
+	color=132,238,131
 	village_list=Dalmatuska,41,91,Yska,45,91,Decius,49,90
 [/region]
 [region]
@@ -409,6 +434,7 @@ village_list=Larica,53,78,Brac,57,79,Mosran,52,80,Begh,56,82,Kalufa,53,84,Bith,4
 [region]
 	bonus=4
 	name=Cottidan
+	color=239,194,80
 	village_list=Recal,27,92,Effer,31,95,Sester,35,95
 [/region]
 [region]
@@ -426,6 +452,7 @@ village_list=Cavao,21,92,Tejarp,19,99,Zucian,20,95,Uruth,23,98,Panthen,15,98
 [region]
 	bonus=5
 	name=Siznak
+	color=150,157,199
 	village_list=Slux,5,94,Yoe,1,96,Lackra,7,99,Difoe,3,99
 [/region]
 [region]
@@ -455,11 +482,13 @@ village_list=Cavao,21,92,Tejarp,19,99,Zucian,20,95,Uruth,23,98,Panthen,15,98
 [region]
 	bonus=4
 	name=Poltovio
+	color=240,66,173
 	village_list=Tijuanah,5,73,Champan,6,76,Poloth,9,73
 [/region]
 [region]
 	bonus=3
 	name=Merman Clan
+	color=179,212,230
 	village_list=Coralia,3,67,Seaser,5,64,Swavah,6,66
 [/region]
 [region]
@@ -483,6 +512,7 @@ village_list=Lariss,13,69,Flamir,26,71,Bruttite,19,68,Larutania,26,61,Kaluhy,20,
 [region]
 	bonus=11
 	name=New Calron
+	color=60,130,236
 village_list=Jetera,39,72,Opath,47,65,Centabre,41,69,Emerita,45,69,Quingentali,49,70,New,52,63,Caithur,51,67
 [/region]
 [region]
@@ -494,6 +524,7 @@ village_list=Jetera,39,72,Opath,47,65,Centabre,41,69,Emerita,45,69,Quingentali,4
 [region]
 	bonus=2
 	name=Curtany
+	color=205,93,236
 	village_list=Liger,44,56,Frison,43,60
 [/region]
 [region]
@@ -507,11 +538,13 @@ village_list=Mesardon,32,49,Kailath,33,53,Cuebark,39,54,Leptis,29,52,Mogun,37,51
 [region]
 	bonus=1
 	name=Adda
-	color=121,96,198
+	#color=121,96,198
+	color=136,109,225
 	village_list=Adda,51,74
 [/region]
 [region]
 	bonus=1
 	name=Esta
+	color=161,94,255
 	village_list=Esta,44,33
 [/region]
