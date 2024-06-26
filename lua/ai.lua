@@ -84,7 +84,7 @@ end
 function spawn_units(amount_of_gold,primary_x,primary_y,secondary_x,secondary_y)
 if amount_of_gold > 0 then
 	local lua_side = wesnoth.current.side
-	local free_spaces = wesnoth.map.find({ terrain='Gg,Gs,Re,Rd,W*', include_borders=false, { 'and', { x=primary_x, y=primary_y, radius=1 }},{'not', {{'filter', {} }} } })
+	local free_spaces = wesnoth.map.find{ terrain='Gg,Gs,Re,Rd,W*', include_borders=false, { 'and', { x=primary_x, y=primary_y, radius=1 }},{'not', {{'filter', {} }} } }
 	---local gold_per_hex = mathx.round(amount_of_gold / #free_spaces)
 	local gold_per_hex = mathx.round(amount_of_gold / 1.5)
 	local spawn_array = {}
@@ -216,7 +216,7 @@ if amount_of_gold > 0 then
 		end
 	end
 	for j=c,1,-1 do
-		wml.variables.ce_spawn = { side = lua_side, x = primary_x, y = primary_y, animate = true}
+		wml.variables.ce_spawn = { side = lua_side, x = primary_x, y = primary_y, animate = true }
 		if j>1 then
 			if spawn_array[j][4] == 'water' then
 				wesnoth.game_events.fire(convert_recruit_into_ship(spawn_array[j][5]))
@@ -240,7 +240,7 @@ end
 
 local lua_side = wesnoth.current.side
 local side_gold = wesnoth.sides[lua_side].gold
-local side_villages = wesnoth.map.find({ gives_income=true, owner_side=lua_side})
+local side_villages = wesnoth.map.find{ gives_income=true, owner_side=lua_side }
 -- wesnoth.interface.add_chat_message('AI side has '..side_gold..' gold and '..#side_villages..' villages.')
 -- local free_spaces = wesnoth.map.find{ terrain='Gg,Gs,Re,Rd,Wwf', owner_side=lua_side}
 local total_free_spaces = 0
