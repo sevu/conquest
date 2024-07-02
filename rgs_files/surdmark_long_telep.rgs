@@ -94,7 +94,7 @@
 	village_list=Slux,9,52,Yoe,5,54,Lackra,11,57,Difoe,7,57
 [/region]
 [region]
-	name=Yarghford Mountains
+	name=Yarghford
 	bonus=5
 	village_list=Hensferheim,48,4,Hickburg,51,7,Baslan,59,4,Dhaharmb,57,7
 [/region]

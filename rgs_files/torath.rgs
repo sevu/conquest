@@ -129,7 +129,7 @@
 	village_list=New,2,19
 [/region]
 [region]
-	name=Yarghford Mountains
+	name=Yarghford
 	bonus=2
 	village_list=Baslan,5,2,Dhaharmb,3,5
 [/region]

@@ -54,7 +54,7 @@
 	village_list=Jaffa,30,7,Al Mamul,28,10,Berral,34,9
 [/region]
 [region]
-	name=The Restless Swamps
+	name=Restless Swamps
 	bonus=2
 	village_list=Sidon,11,9,Barl,5,10
 [/region]
@@ -74,7 +74,7 @@
 	village_list=Rollum,27,35,Laiten,32,34
 [/region]
 [region]
-	name=Yarghford Mountains
+	name=Yarghford
 	bonus=2
 	village_list=Gagenor,3,45,Khavar,6,47
 [/region]

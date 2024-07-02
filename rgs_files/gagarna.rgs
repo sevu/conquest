@@ -84,7 +84,7 @@
 	village_list=Bith,46,37,Fraj,49,35,Chilio,48,40
 [/region]
 [region]
-	name=Yarghford Mountains
+	name=Yarghford
 	bonus=2
 	village_list=Hensferheim,44,2,Hickburg,47,5
 [/region]

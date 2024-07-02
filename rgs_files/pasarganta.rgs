@@ -123,7 +123,7 @@ village_list=Narbo,43,22,Sarmiz,41,25,Bala,39,21,Kumaya,37,27,Nibal,35,24,Maboz,
 [/region]
 [region]
 	bonus=2
-	name=The Restless Swamps
+	name=Restless Swamps
 	color=85,85,0
 	village_list=Sidon,61,3,Barl,55,4
 [/region]
@@ -261,7 +261,7 @@ village_list=Desardia,68,48,Bastei,74,47,Oretino,80,47,Layel,71,52,Loffa,76,52
 	village_list=Jo,62,48
 [/region]
 [region]
-	name=Yarghford Mountains
+	name=Yarghford
 	bonus=15
 	color=152,76,1
 village_list=Baslan,55,46,Dhaharmb,53,49,Frenchenmar,47,39,Camle,49,44,Dassleduer,42,43,Gagenor,53,39,Khavar,56,41,Hensferheim,44,46,Hickburg,47,49
