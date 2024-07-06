@@ -52,7 +52,7 @@ function wesnoth.wml_actions.region(cfg)
 	local previous, village_x, village_y, village_name
 	local offset_x = wml.variables['CE_SYSTEM.offset_x'] or 0
 	local offset_y = wml.variables['CE_SYSTEM.offset_y'] or 0
-	local _ = wesnoth.textdomain 'wesnoth-Conquest_Vilas'
+	local t = wesnoth.textdomain 'wesnoth-Conquest_Vilas'
 
 	for eachword in string.gmatch(village_list, '([^,]+)') do
 		if tonumber(eachword) ~= nil then
@@ -82,7 +82,7 @@ function wesnoth.wml_actions.region(cfg)
 			-- wml.variables['CE_SYSTEM.regions_city_'..village_x..'_'..village_y..'.array_num'] = array_num
 
 			wesnoth.map.add_label {
-				text = _(village_name)..' ('.._(region_name)..' +'..region_bonus..')',
+				text = t(village_name)..' ('..t(region_name)..' +'..region_bonus..')',
 				color = region_color,
 				x = village_x,
 				y = village_y,
