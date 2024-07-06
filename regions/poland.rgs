@@ -1,85 +1,102 @@
 [region]
 	name=Bornholm
 	bonus=4
+	color=153,180,223
 	village_list=Ronne,5,1,Hexo,11,3,Kolobrzeg,11,7
 [/region]
 [region]
 	name=Szczecinskie
 	bonus=7
+	color=207,158,196
 	village_list=Szczecin,6,14,Swinoujscie,2,11,Dziwnow,10,12,Stargard,11,17,Gryfino,4,18
 [/region]
 [region]
 	name=Pomorskie
 	bonus=4
+	color=167,151,200
 	village_list=Koszalin,19,9,Szczecinek,22,11,Pila,20,15
 [/region]
 [region]
 	name=Trojmiasto
 	bonus=7
+	color=184,133,133
 	village_list=Hel,35,9,Gdynia,30,10,Sopot,34,13,Gdansk,37,16,Krynica,40,13
 [/region]
 [region]
 	name=Lubuskie
 	bonus=4
+	color=206,180,148
 	village_list=Gorzow Wlk.,6,22,Miedzyrzecz,11,23,Zielona Gora,6,26
 [/region]
 [region]
 	name=Wielkopolska
 	bonus=5
+	color=221,152,146
 	village_list=Wagrowiec,19,23,Gniezno,18,25,Poznan,15,29,Nowy Tomysl,11,30,Leszno,15,33
 [/region]
 [region]
 	name=Dolny Slask
 	bonus=4
+	color=141,193,157
 	village_list=Wroclaw,9,34,Walbrzych,9,37,Legnica,5,34
 [/region]
 [region]
 	name=Lodzkie
 	bonus=4
+	color=219,188,170
 	village_list=Lodz,26,30,Kalisz,20,32,Czestochowa,22,35,Piotrkow Tryb.,27,34
 [/region]
 [region]
 	name=Slask
 	bonus=5
+	color=201,160,40
 	village_list=Katowice,19,39,Opole,14,38,Tychy,19,42,Gliwice,15,42
 [/region]
 [region]
 	name=Malopolska
 	bonus=7
+	color=184,221,130
 	village_list=Krakow,30,40,Kielce,34,37,Bielsko-Biala,25,41,Zakopane,26,44,Nowy Targ,32,44
 [/region]
 [region]
 	name=Mazowsze
 	bonus=6
+	color=150,171,149
 	village_list=Warszawa W,41,29,Warszawa E,43,28,Poltusk,42,24,Plock,35,28,Skierniewice,37,33,Radom,42,34
 [/region]
 [region]
 	name=Kujawy
 	bonus=4
+	color=185,208,146
 	village_list=Wloclawek,35,23,Torun,30,20,Bydgoszcz,25,20,Inowroclaw,29,24
 [/region]
 [region]
 	name=Mazury
 	bonus=7
+	color=147,177,213
 	village_list=Ostroda,40,19,Olsztyn,45,17,Mragowo,46,21,Braniewo,50,13,Elk,52,17
 [/region]
 [region]
 	name=Kaliningrad
 	bonus=3
+	color=167,154,141
 	village_list=Suwalki,57,13,Kaunas,59,8
 [/region]
 [region]
 	name=Podlasie
 	bonus=4
+	color=171,183,144
 	village_list=Bialystok,52,24,Lublin,51,31,Pulawy,47,34
 [/region]
 [region]
 	name=Podkarpaty
 	bonus=5
+	color=135,224,173
 	village_list=Nowy Sacz,39,46,Tarnow,40,41,Tarnobrzeg,45,41,Debica,43,44
 [/region]
 [region]
 	name=Rzeszowskie
 	bonus=5
+	color=192,168,140
 	village_list=Rzeszow,52,38,Przemysl,55,42,Krosno,50,44,Zamosc,54,35
 [/region]
