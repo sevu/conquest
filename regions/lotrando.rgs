@@ -29,7 +29,7 @@
 	village_list=Lafunte,7,24,Nauberg,8,19,Acharves,16,21,Pestront,12,19,Hestada,18,17
 [/region]
 [region]
-	name=Northern Waste
+	name=Wasteland
 	bonus=4
 	village_list=Hru-aghak,43,2,Mt. Vidlaban,36,2,Kwestru-Hna,29,4
 [/region]
@@ -39,7 +39,7 @@
 	village_list=Shidnahel,18,30,Netipol,22,28,Rasaniya,26,26,Thrapton,32,23
 [/region]
 [region]
-	name=Foggy Mountains
+	name=Foggy World
 	bonus=3
 	village_list=Istanael,29,11,Steppentan,31,15,Sastak,34,17,Morbak,37,19
 [/region]
@@ -49,7 +49,7 @@
 	village_list=Orcil,29,28,Strup,27,30
 [/region]
 [region]
-	name=Kingdom of Gryphands
+	name=Gryphenia
 	bonus=2
 	village_list=Osh Malo,46,9,Az Kvarn,47,7
 [/region]
