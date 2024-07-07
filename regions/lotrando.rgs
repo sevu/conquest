@@ -1,16 +1,22 @@
 [region]
 	name=Free Tribes
 	bonus=3
+	color=82,129,200
 	village_list=Lestomysl,23,13,Maloslav,16,11,Slatihor,25,10
 [/region]
 [region]
 	name=Condorus
 	bonus=7
+	color=221,190,185
 	village_list=Trantus,31,38,Vultaria,19,40,Tremendo,24,40,Broinia,18,43,Lisitino,24,36,Sithinia,26,43
 [/region]
 [region]
 	name=Murter
 	bonus=7
+	#color=139,157,153
+	#color=162,179,174
+	#color=121,121,180
+	color=122,119,208
 	village_list=Krebs,48,43,Amhur,40,41,Ugrum,42,39,Mrahgranak,49,37,Grumthor,47,40
 [/region]
 [region]
@@ -21,75 +27,103 @@
 [region]
 	name=Kirkwood
 	bonus=5
+	#color=12,167,30
+	#color=15,199,36
+	color=36,169,36
 	village_list=Pleditur,40,9,Dark Forest,43,18,Tredule,45,14,Lisutene,39,14,Estapur,47,16
 [/region]
 [region]
 	name=Eltanur
 	bonus=5
+	color=207,100,148
 	village_list=Lafunte,7,24,Nauberg,8,19,Acharves,16,21,Pestront,12,19,Hestada,18,17
 [/region]
 [region]
 	name=Wasteland
 	bonus=4
+	color=190,180,45
 	village_list=Hru-aghak,43,2,Mt. Vidlaban,36,2,Kwestru-Hna,29,4
 [/region]
 [region]
 	name=Mumland
 	bonus=4
+	color=109,169,212
 	village_list=Shidnahel,18,30,Netipol,22,28,Rasaniya,26,26,Thrapton,32,23
 [/region]
 [region]
 	name=Foggy World
 	bonus=3
+	color=222,121,192
 	village_list=Istanael,29,11,Steppentan,31,15,Sastak,34,17,Morbak,37,19
 [/region]
 [region]
 	name=Goblingard
 	bonus=2
+	#color=204,204,152 barely different
+	#color=206,206,54
+	# color=206,206,100 good color
+	color=218,180,91
 	village_list=Orcil,29,28,Strup,27,30
 [/region]
 [region]
 	name=Gryphenia
 	bonus=2
+	#color=199,115,41 good color but want more brown here
+	#color=181,117,45
+	#color=101,75,57
+	color=132,94,69
 	village_list=Osh Malo,46,9,Az Kvarn,47,7
 [/region]
 [region]
 	name=Western Havens
 	bonus=5
+	color=109,169,212
 	village_list=Celtar,8,13,Tryel,10,9,Estrul,3,17,Wistele,3,10
 [/region]
 [region]
 	name=Barbarians
 	bonus=2
+	color=198,171,152
 	village_list=Dead Marshes,47,33,Brown lands,47,28
 [/region]
 [region]
 	name=Menhiria
 	bonus=4
+	color=78,215,112
 	village_list=Ramtadur,16,25,Bluteria,21,24,Arnosen,24,20,Lenticia,25,18
 [/region]
 [region]
 	name=Lorelaien
 	bonus=2
+	#color=137,69,206
+	#color=170,99,229 main
+	color=172,93,236
 	village_list=Erwendur,39,23,Anduithel,43,25
 [/region]
 [region]
 	name=Ethelen
 	bonus=2
+	#color=111,163,211 #bit too dark
+	color=84,153,213
 	village_list=Zubeyda,32,43,Lotrando,35,42
 [/region]
 [region]
 	name=Frachtal
 	bonus=3
+	#color=190,94,75
+	#color=216,105,86 quite okay, needs tweaks
+	color=216,124,108 #other direction, less saturation
 	village_list=Kwazz,22,1,Ghrak-trul,15,5,Cerulean mt.,11,3
 [/region]
 [region]
 	name=Elenna
 	bonus=4
+	color=116,216,116
 	village_list=Nuradas,5,28,Midlund,3,32,Usten,4,35
 [/region]
 [region]
 	name=Mermen atoll
 	bonus=1
+	color=96,208,230
 	village_list=Atoll,7,39
 [/region]
