@@ -5,7 +5,7 @@
 	village_list=Lobwelig,11,10,Sil’Nawen,10,6,Jolnuve,7,12,Waygen,15,13,Jek’Mav,18,8,Kovonil,11,16
 [/region]
 [region]
-	name=Shakul Mountains
+	name=Mountains
 	bonus=3
 	#color=209,36,62
 	#color=226,51,65
@@ -37,7 +37,7 @@
 	village_list=Og,52,15,Jarveenarel Port,48,16
 [/region]
 [region]
-	name=Hajulen Kingdom
+	name=Hajulen
 	bonus=8
 	#color=113,87,209
 	#color=127,100,226
@@ -58,7 +58,7 @@
 	village_list=Siltanul,30,18,Pilk,37,17,Funit,32,21,Malawoni,37,20,Calfor,35,23,Koilo Port,34,27
 [/region]
 [region]
-	name=Forgotten Swamps
+	name=Swamps
 	bonus=4
 	color=218,215,127
 	village_list=Kaargoth,9,31,Yug-Nothet,15,32,Duul,10,36,M’Pyeeh,17,36
@@ -94,7 +94,7 @@
 	village_list=Nul’Sijuani,45,20,Sul’Sijuani,47,23
 [/region]
 [region]
-	name=Amphiboa Colony
+	name=Amphiboa
 	bonus=3
 	color=123,226,175
 	village_list=Agaoen,60,16,Linoean,56,20,Kaelonu,61,20
