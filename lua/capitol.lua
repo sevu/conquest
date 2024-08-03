@@ -32,11 +32,12 @@ for d=enemy_distance,5,-1 do
 
 				-- Determine a random village.
 				local counter = 0
-				for i, pairs_xy in ipairs(all_villages) do
+				for i, villa in ipairs(all_villages) do
 					if random_first_villa == counter then
-						wml.variables.ce_spawn = { side = current_side, x = pairs_xy.x, y = pairs_xy.y }
+						wml.variables.ce_spawn = { side = current_side, x = villa.x, y = villa.y }
 						wesnoth.game_events.fire('ce_spawn_1g_militia')
 						wml.variables.ce_spawn = nil
+						break
 					end
 					counter = counter + 1
 				end
@@ -51,11 +52,13 @@ for d=enemy_distance,5,-1 do
 					mathx.shuffle(all_friendly_villages)
 					local secondary_village_counter = 0
 
-					for f, pairss_xy in ipairs(all_friendly_villages) do
+					for f, villa in ipairs(all_friendly_villages) do
 						if secondary_village_counter < 2 then
-							wml.variables.ce_spawn = { side = current_side, x = pairss_xy.x, y = pairss_xy.y }
+							wml.variables.ce_spawn = { side = current_side, x = villa.x, y = villa.y }
 							wesnoth.game_events.fire('ce_spawn_1g_militia')
 							wml.variables.ce_spawn = nil
+						else
+							break
 						end
 						secondary_village_counter = secondary_village_counter + 1
 					end
@@ -86,11 +89,12 @@ for d=enemy_distance,5,-1 do
 							local counter = 0
 
 							-- Spawn 1 village.
-							for i, pairs_xy in ipairs(all_villages_left) do
+							for i, villa in ipairs(all_villages_left) do
 								if random_villa == counter then
-									wml.variables.ce_spawn = { side = current_side, x = pairs_xy.x, y = pairs_xy.y }
+									wml.variables.ce_spawn = { side = current_side, x = villa.x, y = villa.y }
 									wesnoth.game_events.fire('ce_spawn_1g_militia')
 									wml.variables.ce_spawn = nil
+									break
 								end
 								counter = counter + 1
 							end
@@ -111,11 +115,13 @@ for d=enemy_distance,5,-1 do
 							break_random_villa_cycle = true
 							mathx.shuffle(all_friendly_villages)
 							local secondary_village_counter = 0
-							for f, pairss_xy in ipairs(all_friendly_villages) do
+							for f, villa in ipairs(all_friendly_villages) do
 								if secondary_village_counter < 2 then
-									wml.variables.ce_spawn = { side = current_side, x = pairss_xy.x, y = pairss_xy.y }
+									wml.variables.ce_spawn = { side = current_side, x = villa.x, y = villa.y }
 									wesnoth.game_events.fire('ce_spawn_1g_militia')
 									wml.variables.ce_spawn = nil
+								else
+									break
 								end
 								secondary_village_counter = secondary_village_counter + 1
 							end
