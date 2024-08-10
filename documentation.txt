@@ -138,26 +138,14 @@ Testing quickly:
 A game can be started from the command line, saving clisks.
 
 # Testing a map with Realm mode:
-wesnoth -d -m --scenario=Conquest_Wesnoth_by_enclave --controller 1:null --controller 3:null --controller 5:null --controller 6:null
+wesnoth -d -m --scenario=Conquest_Wesnoth --controller 1:null --controller 3:null --controller 5:null --controller 6:null
 
 # Testing a map with many villages:
-wesnoth -d -m --scenario=Conquest_Surdmark_enclave --controller 1:null --controller 3:null --controller 5:null --controller 6:null
+wesnoth -d -m --scenario=Conquest_Surdmark --controller 1:null --controller 3:null --controller 5:null --controller 6:null
 
 # A map with AI enabled:
-wesnoth -d -m --scenario=Conquest_Europe_by_enclave --controller 1:null --controller 2:null --controller 4:ai --controller 5:null --controller 6:null
+wesnoth -d -m --scenario=Conquest_Europe --controller 1:null --controller 2:null --controller 4:ai --controller 5:null --controller 6:null
 
-# More scenario IDs:
-Conquest_AI_Europe_by_enclave
-Conquest_Crusades_by_enclave
-Conquest_Europe_by_enclave
-Conquest_Jel_wan_by_enclave
-Conquest_Lotrando_by_enclave
-Conquest_Pasarganta
-Conquest_Poland_by_enclave
-Conquest_Surdmark_enclave
-Conquest_Wales_by_enclave
-Conquest_Wesnoth_by_enclave
-Conquest_World
 
 What about Random Map Generators, maybe they can be started from command line too …
 
