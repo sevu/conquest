@@ -146,7 +146,7 @@ if amount_of_gold > 0 then
 		end
 
 		if not wesnoth.units.get(primary_x,primary_y) then
-			local bool water = wesnoth.map.matches(pairs_xy[1], pairs_xy[2], { terrain = 'W*^*' })
+			local bool water = wesnoth.map.matches(pairs_xy.x, pairs_xy.y, { terrain = 'W*^*' })
 			-- wesnoth.interface.add_chat_message('water='..water..', bool='..bool)
 			---{ 'not', terrain = 'Wwf^*' }
 			if water == false then
@@ -191,11 +191,11 @@ if amount_of_gold > 0 then
 					-- animate all players recruits (move all units to my system.. of events)
 
 					c = c + 1
-					-- wesnoth.interface.add_chat_message(c..','..pairs_xy[1]..','..pairs_xy[2])
+					-- wesnoth.interface.add_chat_message(c..','..pairs_xy.x..','..pairs_xy.y)
 					spawn_array[c] = {}
 					spawn_array[c][1] = spawn
-					spawn_array[c][2] = pairs_xy[1]
-					spawn_array[c][3] = pairs_xy[2]
+					spawn_array[c][2] = pairs_xy.x
+					spawn_array[c][3] = pairs_xy.y
 					spawn_array[c][4] = 'flat'
 					spawn_array[c][5] = spawn_cost
 				end
@@ -206,8 +206,8 @@ if amount_of_gold > 0 then
 						c = c + 1
 						spawn_array[c] = {}
 						spawn_array[c][1] = spawn
-						spawn_array[c][2] = pairs_xy[1]
-						spawn_array[c][3] = pairs_xy[2]
+						spawn_array[c][2] = pairs_xy.x
+						spawn_array[c][3] = pairs_xy.y
 						spawn_array[c][4] = 'water'
 						spawn_array[c][5] = spawn_cost
 					end
@@ -262,8 +262,8 @@ if #side_villages > 1 then
 	local rcounter = 0
 	for f, pairs_xy in ipairs(side_villages) do
 		-------------------------------------------------
-	--		local total_villages_in_region = wml.variables['CE_SYSTEM.regions_'..wml.variables['CE_SYSTEM.regions_city_'..pairs_xy[1]..'_'..pairs_xy[2]..'.region_id']..'.length']
-	--		local region_id = wml.variables['CE_SYSTEM.regions_city_'..pairs_xy[1]..'_'..pairs_xy[2]..'.region_id']
+	--		local total_villages_in_region = wml.variables['CE_SYSTEM.regions_'..wml.variables['CE_SYSTEM.regions_city_'..pairs_xy.x..'_'..pairs_xy.y..'.region_id']..'.length']
+	--		local region_id = wml.variables['CE_SYSTEM.regions_city_'..pairs_xy.x..'_'..pairs_xy.y..'.region_id']
 			-- wesnoth.interface.add_chat_message('Region '..region_id..' has '..total_villages_in_region..' villages')
 	--		region_counter[rcounter] = {}
 	--		region_counter[rcounter][1] = region_id
@@ -282,39 +282,39 @@ if #side_villages > 1 then
 			-- priority recruit before turn 5-7 near bonus
 
 			-------------------------------------------------
-		local lua_unit = wesnoth.units.get(pairs_xy[1], pairs_xy[2])
+		local lua_unit = wesnoth.units.get(pairs_xy.x, pairs_xy.y)
 		if not lua_unit then
 			if max_random_villa_no_enemies_x == 0 then
-				max_random_villa_no_enemies_x = pairs_xy[1]
-				max_random_villa_no_enemies_y = pairs_xy[2]
+				max_random_villa_no_enemies_x = pairs_xy.x
+				max_random_villa_no_enemies_y = pairs_xy.y
 			else
-				min_random_villa_no_enemies_x = pairs_xy[1]
-				min_random_villa_no_enemies_y = pairs_xy[2]
+				min_random_villa_no_enemies_x = pairs_xy.x
+				min_random_villa_no_enemies_y = pairs_xy.y
 			end
-			local free_spaces = wesnoth.map.find{ terrain='Gg,Gs,Re,Rd,W*', include_borders=false, { 'and', { x=pairs_xy[1], y=pairs_xy[2], radius=1 }},{'not', {{'filter', {} }} } }
-			local enemies_in_radius_locations = wesnoth.map.find{ terrain='*^*',  { 'and', { x=pairs_xy[1], y=pairs_xy[2], radius=10 }},{'filter', { canrecruit=false, {'filter_side', {{'enemy_of',{ side = lua_side} }} }} } }
-						---+ #wesnoth.map.find{ terrain='*^*',  { 'and', { x=pairs_xy[1], y=pairs_xy[2], radius=10 }},{'filter', {{'filter_side', {{'enemy_of',{ side = lua_side} }} }} } }
+			local free_spaces = wesnoth.map.find{ terrain='Gg,Gs,Re,Rd,W*', include_borders=false, { 'and', { x=pairs_xy.x, y=pairs_xy.y, radius=1 }},{'not', {{'filter', {} }} } }
+			local enemies_in_radius_locations = wesnoth.map.find{ terrain='*^*',  { 'and', { x=pairs_xy.x, y=pairs_xy.y, radius=10 }},{'filter', { canrecruit=false, {'filter_side', {{'enemy_of',{ side = lua_side} }} }} } }
+						---+ #wesnoth.map.find{ terrain='*^*',  { 'and', { x=pairs_xy.x, y=pairs_xy.y, radius=10 }},{'filter', {{'filter_side', {{'enemy_of',{ side = lua_side} }} }} } }
 
 			if enemies_in_radius_locations then
 				local enemies_in_radius = #enemies_in_radius_locations
-				-- wesnoth.map.add_label{ x=pairs_xy[1], y=pairs_xy[2], text=enemies_in_radius, color={255,255,255} }
+				-- wesnoth.map.add_label{ x=pairs_xy.x, y=pairs_xy.y, text=enemies_in_radius, color={255,255,255} }
 				if enemies_in_radius > 0 then
 					if enemies_in_radius > max_enemies_num then
 						max_enemies_num = enemies_in_radius
-						max_enemies_x =	pairs_xy[1]
-						max_enemies_y =	pairs_xy[2]
+						max_enemies_x =	pairs_xy.x
+						max_enemies_y =	pairs_xy.y
 					end
 					if min_enemies_num == 0 then
 						if enemies_in_radius > 0 then
 							min_enemies_num = enemies_in_radius
-							min_enemies_x =	pairs_xy[1]
-							min_enemies_y =	pairs_xy[2]
+							min_enemies_x =	pairs_xy.x
+							min_enemies_y =	pairs_xy.y
 						end
 					else
 						if enemies_in_radius < min_enemies_num then
 							min_enemies_num = enemies_in_radius
-							min_enemies_x =	pairs_xy[1]
-							min_enemies_y =	pairs_xy[2]
+							min_enemies_x =	pairs_xy.x
+							min_enemies_y =	pairs_xy.y
 						end
 					end
 				end
@@ -334,9 +334,9 @@ if #side_villages > 1 then
 	third_of_gold = spawn_units(third_of_gold,min_enemies_x,min_enemies_y,min_random_villa_no_enemies_x,min_random_villa_no_enemies_y)
 	local remaining_gold = third_of_gold + larger_gold
 	for f, pairss_xy in ipairs(side_villages) do
-		local lua_unit = wesnoth.units.get(pairss_xy[1], pairss_xy[2])
+		local lua_unit = wesnoth.units.get(pairss_xy.x, pairss_xy.y)
 		if not lua_unit then
-			remaining_gold = spawn_units(remaining_gold,pairss_xy[1],pairss_xy[2],0,0)
+			remaining_gold = spawn_units(remaining_gold,pairss_xy.x,pairss_xy.y,0,0)
 		end
 	end
 	----------------------------------------------
@@ -345,9 +345,9 @@ if #side_villages > 1 then
 else
 	local remaining_gold = side_gold
 	for f, pairss_xy in ipairs(side_villages) do
-		local lua_unit = wesnoth.units.get(pairss_xy[1], pairss_xy[2])
+		local lua_unit = wesnoth.units.get(pairss_xy.x, pairss_xy.y)
 		if not lua_unit then
-			remaining_gold = spawn_units(remaining_gold,pairss_xy[1],pairss_xy[2],0,0)
+			remaining_gold = spawn_units(remaining_gold,pairss_xy.x,pairss_xy.y,0,0)
 		end
 	end
 	----------------------------------------------
