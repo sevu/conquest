@@ -4,7 +4,7 @@
 -- It places units and reduces the gold of the ai side.
 
 
-function simulate_combat(x1,y1,x2,y2)
+function simulate_combat(x1, y1, x2, y2)
 ---wesnoth.interface.add_chat_message('harm unit')
 ---wesnoth.interface.delay(1000)
 wml.fire('do_command',{{'attack',{ weapon=0, defender_weapon=0, {'source', { x=x1, y=y1 } }, {'destination', { x=x2, y=y2 } } }}})
@@ -17,13 +17,13 @@ wml.fire('do_command',{{'attack',{ weapon=0, defender_weapon=0, {'source', { x=x
 ---fire_event: (default no) if yes, when a unit is killed by harming, the corresponding events are fired. If yes, also the corresponding advance and post advance events are fired.
 end
 
-function attack_adjacent_enemies(unit_x,unit_y)
+function attack_adjacent_enemies(unit_x, unit_y)
 
-local recruited_unit = wesnoth.units.get(unit_x,unit_y)
+local recruited_unit = wesnoth.units.get(unit_x, unit_y)
 local max_enemy_x = 0
 local max_enemy_y = 0
 local max_enemy_hitpoints = 0
-for x, y in wesnoth.current.map:iter_adjacent(unit_x,unit_y) do
+for x, y in wesnoth.current.map:iter_adjacent(unit_x, unit_y) do
 	local enemy_unit = wesnoth.units.get(x, y)
 	if enemy_unit then
 		if wesnoth.sides.is_enemy(wesnoth.current.side, enemy_unit.side) then
@@ -34,7 +34,7 @@ for x, y in wesnoth.current.map:iter_adjacent(unit_x,unit_y) do
 					max_enemy_y = enemy_unit.y
 				end
 				-- attack unit
-				-- simulate_combat(unit_x,unit_y,x,y)
+				-- simulate_combat(unit_x, unit_y, x, y)
 				-- wesnoth.interface.add_chat_message('There is enemy at '..x..','..y..' with lower or same hitpoints ('..unit_x..','..unit_y..')')
 			else
 				local enemy_defense = wesnoth.units.defense_on(enemy_unit, wesnoth.current.map[enemy_unit])
@@ -48,7 +48,7 @@ for x, y in wesnoth.current.map:iter_adjacent(unit_x,unit_y) do
 								max_enemy_x = enemy_unit.x
 								max_enemy_y = enemy_unit.y
 							end
-							-- simulate_combat(unit_x,unit_y,x,y)
+							-- simulate_combat(unit_x, unit_y, x, y)
 						else
 							-- do nothing
 						end
@@ -61,7 +61,7 @@ for x, y in wesnoth.current.map:iter_adjacent(unit_x,unit_y) do
 end
 if max_enemy_hitpoints > 0 then
 	-- attack strongest killable enemy
-	simulate_combat(unit_x,unit_y,max_enemy_x,max_enemy_y)
+	simulate_combat(unit_x, unit_y, max_enemy_x, max_enemy_y)
 end
 end
 
@@ -81,7 +81,7 @@ end
 return ship_spawn
 end
 
-function spawn_units(amount_of_gold,primary_x,primary_y,secondary_x,secondary_y)
+function spawn_units(amount_of_gold, primary_x, primary_y, secondary_x, secondary_y)
 if amount_of_gold > 0 then
 	local lua_side = wesnoth.current.side
 	local free_spaces = wesnoth.map.find{ terrain='Gg,Gs,Re,Rd,W*', include_borders=false, { 'and', { x=primary_x, y=primary_y, radius=1 }},{'not', {{'filter', {} }} } }
@@ -145,7 +145,7 @@ if amount_of_gold > 0 then
 			end
 		end
 
-		if not wesnoth.units.get(primary_x,primary_y) then
+		if not wesnoth.units.get(primary_x, primary_y) then
 			local bool water = wesnoth.map.matches(pairs_xy.x, pairs_xy.y, { terrain = 'W*^*' })
 			-- wesnoth.interface.add_chat_message('water='..water..', bool='..bool)
 			---{ 'not', terrain = 'Wwf^*' }
@@ -330,13 +330,13 @@ if #side_villages > 1 then
 	local larger_gold = third_of_gold * 2
 	third_of_gold = side_gold - larger_gold
 	----------------------------------------------
-	larger_gold = spawn_units(larger_gold,max_enemies_x,max_enemies_y,max_random_villa_no_enemies_x,max_random_villa_no_enemies_y)
-	third_of_gold = spawn_units(third_of_gold,min_enemies_x,min_enemies_y,min_random_villa_no_enemies_x,min_random_villa_no_enemies_y)
+	larger_gold = spawn_units(larger_gold, max_enemies_x, max_enemies_y, max_random_villa_no_enemies_x, max_random_villa_no_enemies_y)
+	third_of_gold = spawn_units(third_of_gold, min_enemies_x, min_enemies_y, min_random_villa_no_enemies_x, min_random_villa_no_enemies_y)
 	local remaining_gold = third_of_gold + larger_gold
 	for f, pairss_xy in ipairs(side_villages) do
 		local lua_unit = wesnoth.units.get(pairss_xy.x, pairss_xy.y)
 		if not lua_unit then
-			remaining_gold = spawn_units(remaining_gold,pairss_xy.x,pairss_xy.y,0,0)
+			remaining_gold = spawn_units(remaining_gold, pairss_xy.x, pairss_xy.y, 0, 0)
 		end
 	end
 	----------------------------------------------
@@ -347,7 +347,7 @@ else
 	for f, pairss_xy in ipairs(side_villages) do
 		local lua_unit = wesnoth.units.get(pairss_xy.x, pairss_xy.y)
 		if not lua_unit then
-			remaining_gold = spawn_units(remaining_gold,pairss_xy.x,pairss_xy.y,0,0)
+			remaining_gold = spawn_units(remaining_gold, pairss_xy.x, pairss_xy.y, 0, 0)
 		end
 	end
 	----------------------------------------------
