@@ -28,9 +28,6 @@ For events with the same "name" it depends on which is included first into the s
 But to ensure the order, these few events have "priority=1" assigned in these cases.
 (While the priority key guarantees the order, it worked correct without too)
 
-Some events depend on each other.
-This file lists the events, in the order "event name" are executed
-
 Events, ordered by execution time:
 
 - preload
@@ -135,7 +132,7 @@ Alternatively, the map_regions_macros can be used to set up the labels and regio
 
 
 Testing quickly:
-A game can be started from the command line, saving clisks.
+A game can be started from the command line, saving clicks.
 
 # Testing a map with Realm mode:
 wesnoth -d -m --scenario=Conquest_Wesnoth --controller 1:null --controller 3:null --controller 5:null --controller 6:null
