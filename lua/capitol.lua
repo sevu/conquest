@@ -9,14 +9,12 @@ local number_of_attempts
 
 
 -- Loop to retry with lower distance to other players.
-for d=enemy_distance,5,-1 do
-	-- wesnoth.interface.delay(1)
-	-- wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Distance $d', {d=d}))
+for d=enemy_distance,4,-1 do
 
 	-- Set number_of_attempts depending on current distance.
-	-- When the currently used distance its high, it is fine do use a smaller distance on the next try.
+	-- When the currently used distance is high, it is fine do use a smaller distance on the next try.
 	-- If the distance is small, a retry with the same distance might be nice.
-	-- On very low distance, we use many retries, to handle maps with very many villages on a small space
+	-- On very low distance, we use many retries, to handle randomly generated maps with very many villages on small space.
 	if d <= 5 then
 		number_of_attempts = 10
 	elseif d <= 6 then
@@ -29,16 +27,11 @@ for d=enemy_distance,5,-1 do
 
 	-- Loop to retry with same settings.
 	for k=1,number_of_attempts,1 do
-		-- local text = _'Attempt $number out of $max'
-		-- wesnoth.interface.delay(1)
-		-- wesnoth.interface.add_chat_message('Conquest',text:vformat({ number=k, max=number_of_attempts }))
-		wesnoth.interface.delay(10)
+		wesnoth.interface.delay(1)
 		if k == 1 then
 			wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Distance $d', {d=d}))
-			print(stringx.vformat(_'Distance $d', {d=d}))
 		else
 			wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Distance $d, Attempt $k', {d=d, k=k}))
-			print(stringx.vformat(_'Distance $d, Attempt $k', {d=d, k=k}))
 		end
 
 		local random_first_villa = mathx.random(0, total_villages)
@@ -187,9 +180,6 @@ for d=enemy_distance,5,-1 do
 end
 
 
-wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Failed to alocate starting postions for all sides! Restart the game. For random maps, it helps to use a bigger map or to increase the number of attempts. Distance to own villages was $max|.', { max = friendly_distance } ))
-
--- old strings for translation file
-local text = _'Attempt $number out of $max'
+wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Failed to alocate starting postions for all sides! Restart the game. For random maps, it helps to use a bigger map. Distance to own villages was set to $max|.', { max = friendly_distance } ))
 
 -- Magic marker. For Lua it's a comment, for the WML preprocessor a closing quotation sign. >>

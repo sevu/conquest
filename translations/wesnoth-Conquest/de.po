@@ -29,6 +29,10 @@ msgstr "Grundeinkommen:"
 msgid "Distance $d"
 msgstr "Distanz $d"
 
+#: Conquest_Asterisk/lua/capitol.lua:16
+msgid "Distance $d, Attempt $k"
+msgstr "Distanz $d, Versuch $k"
+
 #: Conquest_Asterisk/lua/capitol.lua:18
 msgid "Attempt $number out of $max"
 msgstr "Versuch $number von $max"
@@ -55,6 +59,15 @@ msgstr ""
 "müsst ein neues Spiel erstellen! Bei Zufallskarten hilft es eine größere "
 "Karte zu verwenden oder die Anzahl der Versuche zu erhöhen. Die Distanz zu "
 "eigenen Dörfer war auf $max gesetzt."
+
+#: Conquest_Asterisk/lua/capitol.lua:183
+msgid ""
+"Failed to alocate starting postions for all sides! Restart the game. For "
+"random maps, it helps to use a bigger map. Distance to own villages was set to $max|."
+msgstr ""
+"Es konnte nicht für alle Spieler eine Startposition gefunden werden – Ihr "
+"müsst ein neues Spiel erstellen! Bei Zufallskarten hilft es eine größere "
+"Karte zu verwenden. Die Distanz zu eigenen Dörfer war auf $max gesetzt."
 
 #. [lua]: res.turns_over_advantage
 #. Turn limit reached (if one was used)
