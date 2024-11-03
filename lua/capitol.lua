@@ -111,48 +111,54 @@ for d=enemy_distance,4,-1 do
 								end
 								counter = counter + 1
 							end
+
+							--- for first side store nearby villages in settings radius
+							--- and place 2 militia in randomly shuffled 2 of them
+							local all_friendly_villages = wesnoth.map.find{ gives_income = true, owner_side=0, {'and',
+								{{'not', { gives_income = true, radius=d, {'not',{ owner_side=0 }},
+								{'and', {{'not', { owner_side=current_side}} }} }} }},
+								{'and', { gives_income = true, radius=friendly_distance, owner_side=current_side }} }
+
+							-- Place next 2 villages for the same side.
+							if #all_friendly_villages > 1 then
+								break_random_villa_cycle = true
+								mathx.shuffle(all_friendly_villages)
+								local secondary_village_counter = 0
+								for f, villa in ipairs(all_friendly_villages) do
+									if secondary_village_counter < 2 then
+										wml.variables.ce_spawn = { side = current_side, x = villa.x, y = villa.y }
+										wesnoth.game_events.fire('ce_spawn_1g_militia')
+										wml.variables.ce_spawn = nil
+									else
+										break
+									end
+									secondary_village_counter = secondary_village_counter + 1
+								end
+
+								if sides_counter == #all_sides then
+									wesnoth.interface.add_chat_message('Conquest',_'All sides placed successfully')
+									return
+								end
+
+							else
+								-- There are not 2 villages left fullfilling the two distance conditions.
+								if n < 10 then
+									wesnoth.interface.delay(1)
+									wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Retrying side $n placement'..' ($x/10)',{n=current_side, x=n+1}))
+								end
+
+								-- Remove the already placed 1st village. Re-enter the loop afterwards.
+								local first_unit = wesnoth.units.find_on_map{ side=current_side, canrecruit = false }[1]
+								wesnoth.map.set_owner({ first_unit.x, first_unit.y }, 0)
+								first_unit:erase()
+							end
+
 						else
 							-- Did not find a first village. Re-enter the loop.
-							break
-						end
-
-						--- for first side store nearby villages in settings radius
-						--- and place 2 militia in randomly shuffled 2 of them
-						local all_friendly_villages = wesnoth.map.find{ gives_income = true, owner_side=0, {'and',
-							{{'not', { gives_income = true, radius=d, {'not',{ owner_side=0 }},
-							{'and', {{'not', { owner_side=current_side}} }} }} }},
-							{'and', { gives_income = true, radius=friendly_distance, owner_side=current_side }} }
-
-						-- Place next 2 villages for the same side.
-						if #all_friendly_villages > 1 then
-							break_random_villa_cycle = true
-							mathx.shuffle(all_friendly_villages)
-							local secondary_village_counter = 0
-							for f, villa in ipairs(all_friendly_villages) do
-								if secondary_village_counter < 2 then
-									wml.variables.ce_spawn = { side = current_side, x = villa.x, y = villa.y }
-									wesnoth.game_events.fire('ce_spawn_1g_militia')
-									wml.variables.ce_spawn = nil
-								else
-									break
-								end
-								secondary_village_counter = secondary_village_counter + 1
+							if n < 10 then
+								wesnoth.interface.delay(1)
+								wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Retrying side $n placement'..' ($x/10)',{n=current_side, x=n+1}))
 							end
-
-							if sides_counter == #all_sides then
-								wesnoth.interface.add_chat_message('Conquest',_'All sides placed successfully')
-								return
-							end
-
-						else
-							-- There are not 2 villages left fullfilling the two distance conditions.
-							wesnoth.interface.delay(1)
-							wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Retrying side $n placement',{n=current_side}))
-
-							-- Remove the already placed 1st village. Re-enter the loop afterwards.
-							local first_unit = wesnoth.units.find_on_map{ side=current_side, canrecruit = false }[1]
-							wesnoth.map.set_owner({ first_unit.x, first_unit.y }, 0)
-							first_unit:erase()
 						end
 
 					end
@@ -179,5 +185,7 @@ end
 
 
 wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Failed to alocate starting postions for all sides! Restart the game. For random maps, it helps to use a bigger map. Distance to own villages was set to $max|.', { max = friendly_distance } ))
+
+local old_message = _'Retrying side $n placement'
 
 -- Magic marker. For Lua it's a comment, for the WML preprocessor a closing quotation sign. >>
