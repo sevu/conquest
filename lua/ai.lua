@@ -1,84 +1,83 @@
 -- <<
 
 -- This code is executed as part of an event at turn end.
--- It places units and reduces the gold of the ai side.
+-- It places units and reduces in return the gold of the ai side.
 
 
 function simulate_combat(x1, y1, x2, y2)
----wesnoth.interface.add_chat_message('harm unit')
----wesnoth.interface.delay(1000)
-wml.fire('do_command',{{'attack',{ weapon=0, defender_weapon=0, {'source', { x=x1, y=y1 } }, {'destination', { x=x2, y=y2 } } }}})
----wml.fire('harm_unit',{ delay=0, { 'filter', { x=x1, y=y1 } }, { 'filter_second',{ x=x2, y=y2 } } })
----wesnoth.interface.delay(2000)
----[harm_unit]
----[animate_unit] copy from ranged maybe.. looks like..
----    [filter]: StandardUnitFilter all matching units will be harmed (required).
----    [filter_second]: StandardUnitFilter if present, the first matching unit will attack all the units matching the filter above.
----fire_event: (default no) if yes, when a unit is killed by harming, the corresponding events are fired. If yes, also the corresponding advance and post advance events are fired.
+	---wesnoth.interface.add_chat_message('harm unit')
+	---wesnoth.interface.delay(1000)
+	wml.fire('do_command',{{'attack',{ weapon=0, defender_weapon=0, {'source', { x=x1, y=y1 } }, {'destination', { x=x2, y=y2 } } }}})
+	---wml.fire('harm_unit',{ delay=0, { 'filter', { x=x1, y=y1 } }, { 'filter_second',{ x=x2, y=y2 } } })
+	---wesnoth.interface.delay(2000)
+	---[harm_unit]
+	---[animate_unit] copy from ranged maybe.. looks like..
+	---    [filter]: StandardUnitFilter all matching units will be harmed (required).
+	---    [filter_second]: StandardUnitFilter if present, the first matching unit will attack all the units matching the filter above.
+	---fire_event: (default no) if yes, when a unit is killed by harming, the corresponding events are fired. If yes, also the corresponding advance and post advance events are fired.
 end
 
 function attack_adjacent_enemies(unit_x, unit_y)
-
-local recruited_unit = wesnoth.units.get(unit_x, unit_y)
-local max_enemy_x = 0
-local max_enemy_y = 0
-local max_enemy_hitpoints = 0
-for x, y in wesnoth.current.map:iter_adjacent(unit_x, unit_y) do
-	local enemy_unit = wesnoth.units.get(x, y)
-	if enemy_unit then
-		if wesnoth.sides.is_enemy(wesnoth.current.side, enemy_unit.side) then
-			if recruited_unit.hitpoints > enemy_unit.hitpoints then
-				if max_enemy_hitpoints < enemy_unit.hitpoints then
-					max_enemy_hitpoints = enemy_unit.hitpoints
-					max_enemy_x = enemy_unit.x
-					max_enemy_y = enemy_unit.y
-				end
-				-- attack unit
-				-- simulate_combat(unit_x, unit_y, x, y)
-				-- wesnoth.interface.add_chat_message('There is enemy at '..x..','..y..' with lower or same hitpoints ('..unit_x..','..unit_y..')')
-			else
-				local enemy_defense = wesnoth.units.defense_on(enemy_unit, wesnoth.current.map[enemy_unit])
-				local recruited_unit_defense = wesnoth.units.defense_on(recruited_unit, wesnoth.current.map[recruited_unit])
-
-				if recruited_unit.hitpoints == enemy_unit.hitpoints then
-						if enemy_defense <= recruited_unit_defense then
-							-- attack unit
-							if max_enemy_hitpoints < enemy_unit.hitpoints then
-								max_enemy_hitpoints = enemy_unit.hitpoints
-								max_enemy_x = enemy_unit.x
-								max_enemy_y = enemy_unit.y
-							end
-							-- simulate_combat(unit_x, unit_y, x, y)
-						else
-							-- do nothing
-						end
+	local recruited_unit = wesnoth.units.get(unit_x, unit_y)
+	local max_enemy_x = 0
+	local max_enemy_y = 0
+	local max_enemy_hitpoints = 0
+	for x, y in wesnoth.current.map:iter_adjacent(unit_x, unit_y) do
+		local enemy_unit = wesnoth.units.get(x, y)
+		if enemy_unit then
+			if wesnoth.sides.is_enemy(wesnoth.current.side, enemy_unit.side) then
+				if recruited_unit.hitpoints > enemy_unit.hitpoints then
+					if max_enemy_hitpoints < enemy_unit.hitpoints then
+						max_enemy_hitpoints = enemy_unit.hitpoints
+						max_enemy_x = enemy_unit.x
+						max_enemy_y = enemy_unit.y
+					end
+					-- attack unit
+					-- simulate_combat(unit_x, unit_y, x, y)
+					-- wesnoth.interface.add_chat_message('There is enemy at '..x..','..y..' with lower or same hitpoints ('..unit_x..','..unit_y..')')
 				else
-					-- do nothing
+					local enemy_defense = wesnoth.units.defense_on(enemy_unit, wesnoth.current.map[enemy_unit])
+					local recruited_unit_defense = wesnoth.units.defense_on(recruited_unit, wesnoth.current.map[recruited_unit])
+
+					if recruited_unit.hitpoints == enemy_unit.hitpoints then
+							if enemy_defense <= recruited_unit_defense then
+								-- attack unit
+								if max_enemy_hitpoints < enemy_unit.hitpoints then
+									max_enemy_hitpoints = enemy_unit.hitpoints
+									max_enemy_x = enemy_unit.x
+									max_enemy_y = enemy_unit.y
+								end
+								-- simulate_combat(unit_x, unit_y, x, y)
+							else
+								-- do nothing
+							end
+					else
+						-- do nothing
+					end
 				end
 			end
 		end
 	end
-end
-if max_enemy_hitpoints > 0 then
-	-- attack strongest killable enemy
-	simulate_combat(unit_x, unit_y, max_enemy_x, max_enemy_y)
-end
+	if max_enemy_hitpoints > 0 then
+		-- attack strongest killable enemy
+		simulate_combat(unit_x, unit_y, max_enemy_x, max_enemy_y)
+	end
 end
 
 function convert_recruit_into_ship(price)
-local ship_spawn = 'ce_spawn_3g_boat'
-if price == 3 then
-	ship_spawn = 'ce_spawn_3g_boat'
-elseif price == 5 then
-	ship_spawn = 'ce_spawn_5g_dhow'
-elseif price == 10 then
-	ship_spawn = 'ce_spawn_10g_caravel'
-elseif price == 15 then
-	ship_spawn = 'ce_spawn_15g_galleon'
-elseif price == 25 then
-	ship_spawn = 'ce_spawn_25g_warship'
-end
-return ship_spawn
+	local ship_spawn = 'ce_spawn_3g_boat'
+	if price == 3 then
+		ship_spawn = 'ce_spawn_3g_boat'
+	elseif price == 5 then
+		ship_spawn = 'ce_spawn_5g_dhow'
+	elseif price == 10 then
+		ship_spawn = 'ce_spawn_10g_caravel'
+	elseif price == 15 then
+		ship_spawn = 'ce_spawn_15g_galleon'
+	elseif price == 25 then
+		ship_spawn = 'ce_spawn_25g_warship'
+	end
+	return ship_spawn
 end
 
 function spawn_units(amount_of_gold, primary_x, primary_y, secondary_x, secondary_y)
