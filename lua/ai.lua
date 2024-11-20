@@ -89,7 +89,7 @@ if amount_of_gold > 0 then
 	local spawn_array = {}
 	---local goto_array = {}
 	local c = 0
-	for ff, pairs_xy in ipairs(free_spaces) do
+	for ff, pos in ipairs(free_spaces) do
 		local spawn = 'ce_spawn_25g_General'
 		local spawn_cost = 25
 		if primary_x == 0 then primary_x=secondary_x primary_y=secondary_y end
@@ -145,7 +145,7 @@ if amount_of_gold > 0 then
 		end
 
 		if not wesnoth.units.get(primary_x, primary_y) then
-			local bool water = wesnoth.map.matches(pairs_xy.x, pairs_xy.y, { terrain = 'W*^*' })
+			local bool water = wesnoth.map.matches(pos.x, pos.y, { terrain = 'W*^*' })
 			-- wesnoth.interface.add_chat_message('water='..water..', bool='..bool)
 			---{ 'not', terrain = 'Wwf^*' }
 			if water == false then
@@ -190,11 +190,11 @@ if amount_of_gold > 0 then
 					-- animate all players recruits (move all units to my system.. of events)
 
 					c = c + 1
-					-- wesnoth.interface.add_chat_message(c..','..pairs_xy.x..','..pairs_xy.y)
+					-- wesnoth.interface.add_chat_message(c..','..pos.x..','..pos.y)
 					spawn_array[c] = {}
 					spawn_array[c][1] = spawn
-					spawn_array[c][2] = pairs_xy.x
-					spawn_array[c][3] = pairs_xy.y
+					spawn_array[c][2] = pos.x
+					spawn_array[c][3] = pos.y
 					spawn_array[c][4] = 'flat'
 					spawn_array[c][5] = spawn_cost
 				end
@@ -205,8 +205,8 @@ if amount_of_gold > 0 then
 						c = c + 1
 						spawn_array[c] = {}
 						spawn_array[c][1] = spawn
-						spawn_array[c][2] = pairs_xy.x
-						spawn_array[c][3] = pairs_xy.y
+						spawn_array[c][2] = pos.x
+						spawn_array[c][3] = pos.y
 						spawn_array[c][4] = 'water'
 						spawn_array[c][5] = spawn_cost
 					end
