@@ -259,10 +259,10 @@ local region_counter = {}
 if #side_villages > 1 then
 	mathx.shuffle(side_villages)
 	local rcounter = 0
-	for f, pairs_xy in ipairs(side_villages) do
+	for f, vil in ipairs(side_villages) do
 		-------------------------------------------------
-	--		local total_villages_in_region = wml.variables['CE_SYSTEM.regions_'..wml.variables['CE_SYSTEM.regions_city_'..pairs_xy.x..'_'..pairs_xy.y..'.region_id']..'.length']
-	--		local region_id = wml.variables['CE_SYSTEM.regions_city_'..pairs_xy.x..'_'..pairs_xy.y..'.region_id']
+	--		local total_villages_in_region = wml.variables['CE_SYSTEM.regions_'..wml.variables['CE_SYSTEM.regions_city_'..vil.x..'_'..vil.y..'.region_id']..'.length']
+	--		local region_id = wml.variables['CE_SYSTEM.regions_city_'..vil.x..'_'..vil.y..'.region_id']
 			-- wesnoth.interface.add_chat_message('Region '..region_id..' has '..total_villages_in_region..' villages')
 	--		region_counter[rcounter] = {}
 	--		region_counter[rcounter][1] = region_id
@@ -281,39 +281,39 @@ if #side_villages > 1 then
 			-- priority recruit before turn 5-7 near bonus
 
 			-------------------------------------------------
-		local lua_unit = wesnoth.units.get(pairs_xy.x, pairs_xy.y)
+		local lua_unit = wesnoth.units.get(vil.x, vil.y)
 		if not lua_unit then
 			if max_random_villa_no_enemies_x == 0 then
-				max_random_villa_no_enemies_x = pairs_xy.x
-				max_random_villa_no_enemies_y = pairs_xy.y
+				max_random_villa_no_enemies_x = vil.x
+				max_random_villa_no_enemies_y = vil.y
 			else
-				min_random_villa_no_enemies_x = pairs_xy.x
-				min_random_villa_no_enemies_y = pairs_xy.y
+				min_random_villa_no_enemies_x = vil.x
+				min_random_villa_no_enemies_y = vil.y
 			end
-			local free_spaces = wesnoth.map.find{ terrain='Gg,Gs,Re,Rd,W*', include_borders=false, { 'and', { x=pairs_xy.x, y=pairs_xy.y, radius=1 }},{'not', {{'filter', {} }} } }
-			local enemies_in_radius_locations = wesnoth.map.find{ terrain='*^*',  { 'and', { x=pairs_xy.x, y=pairs_xy.y, radius=10 }},{'filter', { canrecruit=false, {'filter_side', {{'enemy_of',{ side = lua_side} }} }} } }
-						---+ #wesnoth.map.find{ terrain='*^*',  { 'and', { x=pairs_xy.x, y=pairs_xy.y, radius=10 }},{'filter', {{'filter_side', {{'enemy_of',{ side = lua_side} }} }} } }
+			local free_spaces = wesnoth.map.find{ terrain='Gg,Gs,Re,Rd,W*', include_borders=false, { 'and', { x=vil.x, y=vil.y, radius=1 }},{'not', {{'filter', {} }} } }
+			local enemies_in_radius_locations = wesnoth.map.find{ terrain='*^*',  { 'and', { x=vil.x, y=vil.y, radius=10 }},{'filter', { canrecruit=false, {'filter_side', {{'enemy_of',{ side = lua_side} }} }} } }
+						---+ #wesnoth.map.find{ terrain='*^*',  { 'and', { x=vil.x, y=vil.y, radius=10 }},{'filter', {{'filter_side', {{'enemy_of',{ side = lua_side} }} }} } }
 
 			if enemies_in_radius_locations then
 				local enemies_in_radius = #enemies_in_radius_locations
-				-- wesnoth.map.add_label{ x=pairs_xy.x, y=pairs_xy.y, text=enemies_in_radius, color={255,255,255} }
+				-- wesnoth.map.add_label{ x=vil.x, y=vil.y, text=enemies_in_radius, color={255,255,255} }
 				if enemies_in_radius > 0 then
 					if enemies_in_radius > max_enemies_num then
 						max_enemies_num = enemies_in_radius
-						max_enemies_x =	pairs_xy.x
-						max_enemies_y =	pairs_xy.y
+						max_enemies_x =	vil.x
+						max_enemies_y =	vil.y
 					end
 					if min_enemies_num == 0 then
 						if enemies_in_radius > 0 then
 							min_enemies_num = enemies_in_radius
-							min_enemies_x =	pairs_xy.x
-							min_enemies_y =	pairs_xy.y
+							min_enemies_x =	vil.x
+							min_enemies_y =	vil.y
 						end
 					else
 						if enemies_in_radius < min_enemies_num then
 							min_enemies_num = enemies_in_radius
-							min_enemies_x =	pairs_xy.x
-							min_enemies_y =	pairs_xy.y
+							min_enemies_x =	vil.x
+							min_enemies_y =	vil.y
 						end
 					end
 				end
@@ -332,10 +332,10 @@ if #side_villages > 1 then
 	larger_gold = spawn_units(larger_gold, max_enemies_x, max_enemies_y, max_random_villa_no_enemies_x, max_random_villa_no_enemies_y)
 	third_of_gold = spawn_units(third_of_gold, min_enemies_x, min_enemies_y, min_random_villa_no_enemies_x, min_random_villa_no_enemies_y)
 	local remaining_gold = third_of_gold + larger_gold
-	for f, pairss_xy in ipairs(side_villages) do
-		local lua_unit = wesnoth.units.get(pairss_xy.x, pairss_xy.y)
+	for f, village in ipairs(side_villages) do
+		local lua_unit = wesnoth.units.get(village.x, village.y)
 		if not lua_unit then
-			remaining_gold = spawn_units(remaining_gold, pairss_xy.x, pairss_xy.y, 0, 0)
+			remaining_gold = spawn_units(remaining_gold, village.x, village.y, 0, 0)
 		end
 	end
 	----------------------------------------------
@@ -343,10 +343,10 @@ if #side_villages > 1 then
 	-------------------------
 else
 	local remaining_gold = side_gold
-	for f, pairss_xy in ipairs(side_villages) do
-		local lua_unit = wesnoth.units.get(pairss_xy.x, pairss_xy.y)
+	for f, village in ipairs(side_villages) do
+		local lua_unit = wesnoth.units.get(village.x, village.y)
 		if not lua_unit then
-			remaining_gold = spawn_units(remaining_gold, pairss_xy.x, pairss_xy.y, 0, 0)
+			remaining_gold = spawn_units(remaining_gold, village.x, village.y, 0, 0)
 		end
 	end
 	----------------------------------------------
