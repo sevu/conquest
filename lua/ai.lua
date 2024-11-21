@@ -81,7 +81,8 @@ function convert_recruit_into_ship(price)
 end
 
 function spawn_units(amount_of_gold, primary_x, primary_y, secondary_x, secondary_y)
-if amount_of_gold > 0 then
+	if amount_of_gold <= 0 then return amount_of_gold end
+
 	local lua_side = wesnoth.current.side
 	local free_spaces = wesnoth.map.find{ terrain='Gg,Gs,Re,Rd,W*', include_borders=false, { 'and', { x=primary_x, y=primary_y, radius=1 }},{'not', {{'filter', {} }} } }
 	---local gold_per_hex = mathx.round(amount_of_gold / #free_spaces)
@@ -89,6 +90,8 @@ if amount_of_gold > 0 then
 	local spawn_array = {}
 	---local goto_array = {}
 	local c = 0
+
+	-- Choose which unit to spawn.
 	for ff, pos in ipairs(free_spaces) do
 		local spawn = 'ce_spawn_25g_General'
 		local spawn_cost = 25
@@ -230,8 +233,8 @@ if amount_of_gold > 0 then
 		end
 		wml.variables.ce_spawn = nil
 	end
-end
-return amount_of_gold
+
+	return amount_of_gold
 end
 
 --------------- /end of spawn function procedure
