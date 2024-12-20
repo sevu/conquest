@@ -1,0 +1,149 @@
+[region]
+	name=South of Market
+	bonus=8
+	color=255,127,36
+	village_list=Civic Center,43,27,South Beach,47,30,Brannan,45,33,Mission,41,35,AT&T Park,52,36
+[/region]
+[region]
+	name=Parkside
+	bonus=7
+	color=205,16,118
+	village_list=Stern Grove,16,39,SFSU,12,46,Stonestown,18,43,Sloat,10,43,Lowell High,23,45
+[/region]
+[region]
+	name=NorthWest
+	bonus=6
+	color=205,38,38
+	village_list=Conzelman,5,1,Coast Guard,15,3,Vista Point,10,1,Horseshoe Bay,18,2
+[/region]
+[region]
+	name=Treasure Island
+	bonus=6
+	color=205,149,12
+	village_list=Palms Port,46,4,Sturgeon,50,4,De la Vista,53,7,Yerba Buena,54,10
+[/region]
+[region]
+	name=Marina
+	bonus=6
+	color=16,78,139
+	village_list=Fort Mason,33,13,Fishermans Wharf,38,14,Chinatown,42,18,Ferry Plaza,46,15
+[/region]
+[region]
+	name=Golden Gate Park
+	bonus=7
+	color=153,50,205
+	village_list=Pacific,5,21,Metson,13,23,Stow,19,24,Lily Pond,23,23
+[/region]
+[region]
+	name=Bayview
+	bonus=6
+	color=153,204,50
+	village_list=Hilltop,47,52,Bayview,49,59,India Basin,54,57,City College,53,53
+[/region]
+[region]
+	name=Sunset
+	bonus=6
+	color=0,205,102
+	village_list=Taraval,10,31,Central,14,35,Sunset Beach,6,34,Judah,5,29
+[/region]
+[region]
+	name=Alcatraz Island
+	bonus=5
+	color=0,178,238
+	village_list=West,29,4,East,33,4,Central,32,2
+[/region]
+[region]
+	name=Upper Market
+	bonus=5
+	color=65,105,225
+	village_list=Duboce,31,23,Mission High,34,27,West Portal,32,31
+[/region]
+[region]
+	name=Bernal Heights
+	bonus=5
+	color=139,90,43
+	village_list=Kansas,36,39,Rhode Island,41,42,Connecticut,37,44
+[/region]
+[region]
+	name=Presidio
+	bonus=5
+	color=0,205,205
+	village_list=Golden Gate Plaza,13,12,Kobbe,17,15,Morton,22,16
+[/region]
+[region]
+	name=Crocker Amazon
+	bonus=4
+	#color=121,207,59
+	color=118,238,0
+	village_list=Olivet,24,59,San Bruno MT,29,59,Valley DR,33,59
+[/region]
+[region]
+	name=Excelsior
+	bonus=5
+	#color=59,193,200
+	color=30,144,255
+	village_list=Parkmerced,19,52,Ingleside,28,52,West Wood,23,56
+[/region]
+[region]
+	name=Lakeshore
+	bonus=5
+	color=255,140,0
+	village_list=Merced,10,58,Funston,14,58,Skyline,9,54
+[/region]
+[region]
+	name=Piers
+	bonus=2
+	color=0,205,102
+	village_list=Pier 30,53,22,Pier 40,53,26
+[/region]
+[region]
+	name=South Swamp
+	bonus=2
+	#color=114,59,150
+	color=153,50,205
+	village_list=Geneva,36,54,Cow Palace,41,58
+[/region]
+[region]
+	name=Sea Cliff
+	bonus=2
+	color=60,179,113
+	village_list=Light House,3,16,China Swamp,6,18
+[/region]
+[region]
+	name=Rincon Forest
+	bonus=2
+	color=0,127,255
+	village_list=Rincon Library,47,41,Webster,45,46
+[/region]
+[region]
+	name=Twin Peaks
+	bonus=2
+	#color=175,116,64
+	color=142,35,35
+	village_list=South Peak,23,35,North Peak,26,32
+[/region]
+[region]
+	name=Glen Park
+	bonus=2
+	#color=102,194,77
+	color=60,179,113
+	village_list=Glen Canyon Park,32,39,Billy Goat Hill,28,44
+[/region]
+[region]
+	name=Potrero Hill
+	bonus=2
+	color=132,112,255
+	village_list=China Basin Park,55,44,UCSF Mission Bay,50,46
+[/region]
+[region]
+	name=Pacific Heights
+	bonus=2
+	color=238,59,59
+	village_list=Broadway,33,19,Huntington,38,19
+[/region]
+[region]
+	name=Yerba Buena Island
+	bonus=2
+	color=205,16,118
+	village_list=Macalla,56,12,Healy,58,16
+[/region]
