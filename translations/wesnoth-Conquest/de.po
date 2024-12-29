@@ -354,10 +354,13 @@ msgstr "Keine Resistenzen, Einheiten sind neutral und immer im Kampfrausch."
 msgid "About Conquest"
 msgstr "Über Conquest"
 
-#. [objectives]
-#: Conquest_Asterisk/macros/core_objectives.cfg:118
 msgid "You can join the Discord-Chat. Invite-Code: TUDEHgfE"
 msgstr "Es gibt einen Discord-Chat, der Einlade-Code lautet: TUDEHgfE"
+
+#. [objectives]
+#: Conquest_Asterisk/macros/core_objectives.cfg:118
+msgid "You can join the Discord-Chat. Invite-Code: "
+msgstr "Es gibt einen Discord-Chat, der Einlade-Code lautet: "
 
 #. [objectives]
 #: Conquest_Asterisk/macros/core_objectives.cfg:119
