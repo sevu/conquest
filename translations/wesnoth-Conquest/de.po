@@ -1057,6 +1057,12 @@ msgstr "Schwere Infanterie"
 #: Conquest_Asterisk/macros/unit_stats.cfg:725
 msgid "Cuttle Fish"
 msgstr "Tintenfisch"
+#. [option]
+
+#: Conquest_Asterisk/macros/unit_stats.cfg:726
+#: Conquest_Asterisk/macros/unit_stats.cfg:747
+msgid "(60% deep water defense)"
+msgstr "(Bevorzugt tiefes Wasser)"
 
 #. [option]
 #. 10 gold unit

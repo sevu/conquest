@@ -3,6 +3,7 @@
 
 translations:
 	wmlxgettext --domain=wesnoth-Conquest --directory=.. --recursive -o wesnoth-Conquest.pot
+	msgmerge -U wesnoth-Conquest/fr.po wesnoth-Conquest.pot
 	msgmerge -U wesnoth-Conquest/de.po wesnoth-Conquest.pot
 
 europe: de/LC_MESSAGES/wesnoth-Conquest_Europe.mo
