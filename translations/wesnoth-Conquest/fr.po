@@ -723,6 +723,9 @@ msgstr "Galion pirate"
 msgid "90x6 versus 25 gold units"
 msgstr "90x6 contre unités de 25 or"
 
+msgid "Small Warship"
+msgstr "Petit cuirassé"
+
 #. [option]
 #. [unit]: type=Galleon
 #. 25 gold boat
