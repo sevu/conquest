@@ -148,10 +148,10 @@ function spawn_units(amount_of_gold, primary_x, primary_y, secondary_x, secondar
 		end
 
 		if not wesnoth.units.get(primary_x, primary_y) then
-			local bool water = wesnoth.map.matches(pos.x, pos.y, { terrain = 'W*^*' })
-			-- wesnoth.interface.add_chat_message('water='..water..', bool='..bool)
+			local water = wesnoth.map.matches(pos.x, pos.y, { terrain = 'W*^*' })
+			-- wesnoth.interface.add_chat_message('water='..water)
 			---{ 'not', terrain = 'Wwf^*' }
-			if water == false then
+			if not water then
 				if amount_of_gold >= spawn_cost then
 					amount_of_gold = amount_of_gold - spawn_cost
 
