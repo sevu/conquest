@@ -65,7 +65,7 @@ function attack_adjacent_enemies(unit_x, unit_y)
 end
 
 function convert_recruit_into_ship(price)
-	local ship_spawn = 'ce_spawn_3g_boat'
+	local ship_spawn = 'ce_spawn_5g_dhow'
 	if price == 3 then
 		ship_spawn = 'ce_spawn_3g_boat'
 	elseif price == 5 then
@@ -74,6 +74,8 @@ function convert_recruit_into_ship(price)
 		ship_spawn = 'ce_spawn_10g_caravel'
 	elseif price == 15 then
 		ship_spawn = 'ce_spawn_15g_galleon'
+	elseif price == 20 then
+		ship_spawn = 'ce_spawn_20g_ship'
 	elseif price == 25 then
 		ship_spawn = 'ce_spawn_25g_warship'
 	end
