@@ -1,0 +1,80 @@
+[region]
+	name=Before Twelve
+	bonus=5
+	village_list=11:59,25,10,11:48,22,7,11:41,21,4,11:30,18,8
+[/region]
+[region]
+	name=After Twelve
+	bonus=5
+	village_list=12:01,27,4,12:12,30,7,12:15,32,4,12:45,35,8
+[/region]
+[region]
+	name=One
+	bonus=5
+	village_list=1:00,41,3,1:11,42,8,1:12,47,4
+[/region]
+[region]
+	name=Two
+	bonus=4
+	village_list=2:00,41,14,2:02,50,8,2:06,47,12
+[/region]
+[region]
+	name=Before Three
+	bonus=5
+	village_list=2:35,48,18,2:40,45,21,2:49,50,22,2:58,43,24
+[/region]
+[region]
+	name=After Three
+	bonus=5
+	village_list=3:01,50,26,3:12,46,28,3:20,43,30,3:31,49,31
+[/region]
+[region]
+	name=Four
+	bonus=4
+	village_list=4:00,49,36,4:09,45,37,4:11,40,35
+[/region]
+[region]
+	name=Five
+	bonus=5
+	village_list=5:00,48,42,5:10,41,42,5:17,45,46
+[/region]
+[region]
+	name=Before Six
+	bonus=5
+	village_list=5:39,34,45,5:38,32,41,5:51,30,45,5:59,27,41
+[/region]
+[region]
+	name=After Six
+	bonus=5
+	village_list=6:01,25,47,6:12,23,45,6:20,22,41,6:31,19,45
+[/region]
+[region]
+	name=Seven
+	bonus=5
+	village_list=7:00,13,47,7:26,10,43,7:30,5,46
+[/region]
+[region]
+	name=Eight
+	bonus=4
+	village_list=8:00,13,37,8:02,8,37,8:04,3,39
+[/region]
+[region]
+	name=Before Nine
+	bonus=5
+	village_list=8:32,9,31,8:40,5,29,8:41,2,28,8:58,9,27
+[/region]
+[region]
+	name=After Nine
+	bonus=5
+	village_list=9:01,3,24,9:11,9,21,9:12,5,21,9:27,2,18
+[/region]
+[region]
+	name=Ten
+	bonus=4
+	village_list=10:00,12,15,10:02,8,13,10:04,3,11
+[/region]
+[region]
+	name=Eleven
+	bonus=5
+	village_list=11:00,10,8,11:01,6,4,11:25,11,2
+[/region]
