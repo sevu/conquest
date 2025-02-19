@@ -227,7 +227,7 @@ function spawn_units(amount_of_gold, primary_x, primary_y, secondary_x, secondar
 			else
 				wesnoth.game_events.fire(spawn_array[j][1])
 			end
-			wesnoth.interface.move_unit_fake({ x=primary_x, y=primary_y }, spawn_array[j][2], spawn_array[j][3])
+			move_unit({ x=primary_x, y=primary_y }, spawn_array[j][2], spawn_array[j][3])
 			attack_adjacent_enemies(spawn_array[j][2], spawn_array[j][3])
 		else
 			wesnoth.game_events.fire(spawn_array[j][1])
