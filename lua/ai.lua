@@ -241,6 +241,7 @@ end
 
 --------------- /end of spawn function procedure
 ---------------------------------------------
+function main_ai_code()
 
 local lua_side = wesnoth.current.side
 local side_gold = wesnoth.sides[lua_side].gold
@@ -361,4 +362,5 @@ end
 -- wesnoth.interface.add_chat_message('AI side has '..side_gold..' gold and '..#side_villages..' villages with '..total_free_spaces..' free spaces.')
 -- wesnoth.interface.add_chat_message('AI side has'..side_gold..'gold left')
 
+end
 -- >>
