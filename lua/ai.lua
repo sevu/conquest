@@ -86,7 +86,7 @@ function spawn_units(amount_of_gold, primary_x, primary_y, secondary_x, secondar
 	if amount_of_gold <= 0 then return amount_of_gold end
 
 	local lua_side = wesnoth.current.side
-	local free_spaces = wesnoth.map.find{ terrain='Gg,Gs,Re,Rd,W*', include_borders=false, { 'and', { x=primary_x, y=primary_y, radius=1 }},{'not', {{'filter', {} }} } }
+	local free_spaces = wesnoth.map.find{ terrain='G*,R*,C*,W*', include_borders=false, { 'and', { x=primary_x, y=primary_y, radius=1 }},{'not', {{'filter', {} }} } }
 	---local gold_per_hex = mathx.round(amount_of_gold / #free_spaces)
 	local gold_per_hex = mathx.round(amount_of_gold / 1.5)
 	local spawn_array = {}
@@ -100,9 +100,6 @@ function spawn_units(amount_of_gold, primary_x, primary_y, secondary_x, secondar
 		if primary_x == 0 then primary_x=secondary_x primary_y=secondary_y end
 
 		if gold_per_hex >25 then
-			spawn = 'ce_spawn_25g_General'
-			spawn_cost = 25
-		elseif gold_per_hex > 25 then
 			spawn = 'ce_spawn_25g_General'
 			spawn_cost = 25
 		elseif gold_per_hex > 20 then
@@ -296,7 +293,7 @@ if #side_villages > 1 then
 				min_random_villa_no_enemies_x = vil.x
 				min_random_villa_no_enemies_y = vil.y
 			end
-			local free_spaces = wesnoth.map.find{ terrain='Gg,Gs,Re,Rd,W*', include_borders=false, { 'and', { x=vil.x, y=vil.y, radius=1 }},{'not', {{'filter', {} }} } }
+			local free_spaces = wesnoth.map.find{ terrain='G*,R*,C*,W*', include_borders=false, { 'and', { x=vil.x, y=vil.y, radius=1 }},{'not', {{'filter', {} }} } }
 			local enemies_in_radius_locations = wesnoth.map.find{ terrain='*^*',  { 'and', { x=vil.x, y=vil.y, radius=10 }},{'filter', { canrecruit=false, {'filter_side', {{'enemy_of',{ side = lua_side} }} }} } }
 						---+ #wesnoth.map.find{ terrain='*^*',  { 'and', { x=vil.x, y=vil.y, radius=10 }},{'filter', {{'filter_side', {{'enemy_of',{ side = lua_side} }} }} } }
 
