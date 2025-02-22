@@ -216,6 +216,7 @@ function spawn_units(amount_of_gold, primary_x, primary_y, secondary_x, secondar
 			end
 		end
 	end
+
 	for j=c,1,-1 do
 		wml.variables.ce_spawn = { side = lua_side, x = primary_x, y = primary_y, animate = true }
 		if j>1 then
@@ -238,44 +239,44 @@ end
 
 --------------- /end of spawn function procedure
 ---------------------------------------------
+
 function main_ai_code()
+	local lua_side = wesnoth.current.side
+	local side_gold = wesnoth.sides[lua_side].gold
+	local side_villages = wesnoth.map.find{ gives_income=true, owner_side=lua_side }
+	-- wesnoth.interface.add_chat_message('AI side has '..side_gold..' gold and '..#side_villages..' villages.')
+	-- local free_spaces = wesnoth.map.find{ terrain='Gg,Gs,Re,Rd,Wwf', owner_side=lua_side}
+	local total_free_spaces = 0
+	local each_village_enemies = 0
+	local max_enemies_x = 0
+	local max_enemies_y = 0
+	local max_enemies_num = 0
+	local min_enemies_x = 0
+	local min_enemies_y = 0
+	local min_enemies_num = 0
+	local max_random_villa_no_enemies_x = 0
+	local max_random_villa_no_enemies_y = 0
+	local min_random_villa_no_enemies_x = 0
+	local min_random_villa_no_enemies_y = 0
+	local region_counter = {}
 
-local lua_side = wesnoth.current.side
-local side_gold = wesnoth.sides[lua_side].gold
-local side_villages = wesnoth.map.find{ gives_income=true, owner_side=lua_side }
--- wesnoth.interface.add_chat_message('AI side has '..side_gold..' gold and '..#side_villages..' villages.')
--- local free_spaces = wesnoth.map.find{ terrain='Gg,Gs,Re,Rd,Wwf', owner_side=lua_side}
-local total_free_spaces = 0
-local each_village_enemies = 0
-local max_enemies_x = 0
-local max_enemies_y = 0
-local max_enemies_num = 0
-local min_enemies_x = 0
-local min_enemies_y = 0
-local min_enemies_num = 0
-local max_random_villa_no_enemies_x = 0
-local max_random_villa_no_enemies_y = 0
-local min_random_villa_no_enemies_x = 0
-local min_random_villa_no_enemies_y = 0
-local region_counter = {}
-
-if #side_villages > 1 then
-	mathx.shuffle(side_villages)
-	local rcounter = 0
-	for f, vil in ipairs(side_villages) do
-		-------------------------------------------------
-	--		local total_villages_in_region = wml.variables['CE_SYSTEM.regions_'..wml.variables['CE_SYSTEM.regions_city_'..vil.x..'_'..vil.y..'.region_id']..'.length']
-	--		local region_id = wml.variables['CE_SYSTEM.regions_city_'..vil.x..'_'..vil.y..'.region_id']
+	if #side_villages > 1 then
+		mathx.shuffle(side_villages)
+		local rcounter = 0
+		for f, vil in ipairs(side_villages) do
+			-------------------------------------------------
+		--	local total_villages_in_region = wml.variables['CE_SYSTEM.regions_'..wml.variables['CE_SYSTEM.regions_city_'..vil.x..'_'..vil.y..'.region_id']..'.length']
+		--	local region_id = wml.variables['CE_SYSTEM.regions_city_'..vil.x..'_'..vil.y..'.region_id']
 			-- wesnoth.interface.add_chat_message('Region '..region_id..' has '..total_villages_in_region..' villages')
-	--		region_counter[rcounter] = {}
-	--		region_counter[rcounter][1] = region_id
-	--		if region_counter[rcounter][2] then
-	--			region_counter[rcounter][2] = region_counter[rcounter][2] + 1
-	--		else
-	--			region_counter[rcounter][2] = 0
-	--		end
-	--		region_counter[rcounter][3] = total_villages_in_region
-	--		rcounter = rcounter + 1
+		--	region_counter[rcounter] = {}
+		--	region_counter[rcounter][1] = region_id
+		--	if region_counter[rcounter][2] then
+		--		region_counter[rcounter][2] = region_counter[rcounter][2] + 1
+		--	else
+		--		region_counter[rcounter][2] = 0
+		--	end
+		--	region_counter[rcounter][3] = total_villages_in_region
+		--	rcounter = rcounter + 1
 			-- {VARIABLE CE_SYSTEM.regions_city_{X}_{Y}.region_id
 			-- {VARIABLE CE_SYSTEM.regions_{ID}_bonus
 			-- {VARIABLE CE_SYSTEM.regions_{REGION}.length
@@ -284,80 +285,83 @@ if #side_villages > 1 then
 			-- priority recruit before turn 5-7 near bonus
 
 			-------------------------------------------------
-		local lua_unit = wesnoth.units.get(vil.x, vil.y)
-		if not lua_unit then
-			if max_random_villa_no_enemies_x == 0 then
-				max_random_villa_no_enemies_x = vil.x
-				max_random_villa_no_enemies_y = vil.y
-			else
-				min_random_villa_no_enemies_x = vil.x
-				min_random_villa_no_enemies_y = vil.y
-			end
-			local free_spaces = wesnoth.map.find{ terrain='G*,R*,C*,W*', include_borders=false, { 'and', { x=vil.x, y=vil.y, radius=1 }},{'not', {{'filter', {} }} } }
-			local enemies_in_radius_locations = wesnoth.map.find{ terrain='*^*',  { 'and', { x=vil.x, y=vil.y, radius=10 }},{'filter', { canrecruit=false, {'filter_side', {{'enemy_of',{ side = lua_side} }} }} } }
-						---+ #wesnoth.map.find{ terrain='*^*',  { 'and', { x=vil.x, y=vil.y, radius=10 }},{'filter', {{'filter_side', {{'enemy_of',{ side = lua_side} }} }} } }
+			local lua_unit = wesnoth.units.get(vil.x, vil.y)
+			if not lua_unit then
+				if max_random_villa_no_enemies_x == 0 then
+					max_random_villa_no_enemies_x = vil.x
+					max_random_villa_no_enemies_y = vil.y
+				else
+					min_random_villa_no_enemies_x = vil.x
+					min_random_villa_no_enemies_y = vil.y
+				end
+				local free_spaces = wesnoth.map.find{ terrain='G*,R*,C*,W*', include_borders=false, { 'and', { x=vil.x, y=vil.y, radius=1 }},{'not', {{'filter', {} }} } }
+				local enemies_in_radius_locations = wesnoth.map.find{ terrain='*^*',  { 'and', { x=vil.x, y=vil.y, radius=10 }},{'filter', { canrecruit=false, {'filter_side', {{'enemy_of',{ side = lua_side} }} }} } }
+							---+ #wesnoth.map.find{ terrain='*^*',  { 'and', { x=vil.x, y=vil.y, radius=10 }},{'filter', {{'filter_side', {{'enemy_of',{ side = lua_side} }} }} } }
 
-			if enemies_in_radius_locations then
-				local enemies_in_radius = #enemies_in_radius_locations
-				-- wesnoth.map.add_label{ x=vil.x, y=vil.y, text=enemies_in_radius, color={255,255,255} }
-				if enemies_in_radius > 0 then
-					if enemies_in_radius > max_enemies_num then
-						max_enemies_num = enemies_in_radius
-						max_enemies_x =	vil.x
-						max_enemies_y =	vil.y
-					end
-					if min_enemies_num == 0 then
-						if enemies_in_radius > 0 then
-							min_enemies_num = enemies_in_radius
-							min_enemies_x =	vil.x
-							min_enemies_y =	vil.y
+				if enemies_in_radius_locations then
+					local enemies_in_radius = #enemies_in_radius_locations
+					-- wesnoth.map.add_label{ x=vil.x, y=vil.y, text=enemies_in_radius, color={255,255,255} }
+					if enemies_in_radius > 0 then
+						if enemies_in_radius > max_enemies_num then
+							max_enemies_num = enemies_in_radius
+							max_enemies_x =	vil.x
+							max_enemies_y =	vil.y
 						end
-					else
-						if enemies_in_radius < min_enemies_num then
-							min_enemies_num = enemies_in_radius
-							min_enemies_x =	vil.x
-							min_enemies_y =	vil.y
+						if min_enemies_num == 0 then
+							if enemies_in_radius > 0 then
+								min_enemies_num = enemies_in_radius
+								min_enemies_x =	vil.x
+								min_enemies_y =	vil.y
+							end
+						else
+							if enemies_in_radius < min_enemies_num then
+								min_enemies_num = enemies_in_radius
+								min_enemies_x =	vil.x
+								min_enemies_y =	vil.y
+							end
 						end
 					end
 				end
+				-- total_free_spaces = total_free_spaces + #free_spaces + 1
 			end
-			-- total_free_spaces = total_free_spaces + #free_spaces + 1
 		end
-	end
---	for i=0,#region_counter,1 do
---		wesnoth.interface.add_chat_message('AI has '..region_counter[i][2]..'/'..region_counter[i][3]..' villages of Region '..region_counter[i][1])
---	end
-	----------------------------------
-	local third_of_gold = mathx.round(side_gold / 3)
-	local larger_gold = third_of_gold * 2
-	third_of_gold = side_gold - larger_gold
-	----------------------------------------------
-	larger_gold = spawn_units(larger_gold, max_enemies_x, max_enemies_y, max_random_villa_no_enemies_x, max_random_villa_no_enemies_y)
-	third_of_gold = spawn_units(third_of_gold, min_enemies_x, min_enemies_y, min_random_villa_no_enemies_x, min_random_villa_no_enemies_y)
-	local remaining_gold = third_of_gold + larger_gold
-	for f, village in ipairs(side_villages) do
-		local lua_unit = wesnoth.units.get(village.x, village.y)
-		if not lua_unit then
-			remaining_gold = spawn_units(remaining_gold, village.x, village.y, 0, 0)
+		--	for i=0,#region_counter,1 do
+		--		wesnoth.interface.add_chat_message('AI has '..region_counter[i][2]..'/'..region_counter[i][3]..' villages of Region '..region_counter[i][1])
+		--	end
+		----------------------------------
+
+		local third_of_gold = mathx.round(side_gold / 3)
+		local larger_gold = third_of_gold * 2
+		third_of_gold = side_gold - larger_gold
+		----------------------------------------------
+		larger_gold = spawn_units(larger_gold, max_enemies_x, max_enemies_y, max_random_villa_no_enemies_x, max_random_villa_no_enemies_y)
+		third_of_gold = spawn_units(third_of_gold, min_enemies_x, min_enemies_y, min_random_villa_no_enemies_x, min_random_villa_no_enemies_y)
+
+		local remaining_gold = third_of_gold + larger_gold
+		for f, village in ipairs(side_villages) do
+			local lua_unit = wesnoth.units.get(village.x, village.y)
+			if not lua_unit then
+				remaining_gold = spawn_units(remaining_gold, village.x, village.y, 0, 0)
+			end
 		end
-	end
-	----------------------------------------------
-	wesnoth.sides[lua_side].gold = remaining_gold
-	-------------------------
-else
-	local remaining_gold = side_gold
-	for f, village in ipairs(side_villages) do
-		local lua_unit = wesnoth.units.get(village.x, village.y)
-		if not lua_unit then
-			remaining_gold = spawn_units(remaining_gold, village.x, village.y, 0, 0)
+		----------------------------------------------
+		wesnoth.sides[lua_side].gold = remaining_gold
+		-------------------------
+	else
+		local remaining_gold = side_gold
+		for f, village in ipairs(side_villages) do
+			local lua_unit = wesnoth.units.get(village.x, village.y)
+			if not lua_unit then
+				remaining_gold = spawn_units(remaining_gold, village.x, village.y, 0, 0)
+			end
 		end
+		----------------------------------------------
+		wesnoth.sides[lua_side].gold = remaining_gold
+		-------------------------
 	end
-	----------------------------------------------
-	wesnoth.sides[lua_side].gold = remaining_gold
-	-------------------------
-end
--- wesnoth.interface.add_chat_message('AI side has '..side_gold..' gold and '..#side_villages..' villages with '..total_free_spaces..' free spaces.')
--- wesnoth.interface.add_chat_message('AI side has'..side_gold..'gold left')
+	-- wesnoth.interface.add_chat_message('AI side has '..side_gold..' gold and '..#side_villages..' villages with '..total_free_spaces..' free spaces.')
+	-- wesnoth.interface.add_chat_message('AI side has'..side_gold..'gold left')
 
 end
+
 -- >>
