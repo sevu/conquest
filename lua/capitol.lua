@@ -129,7 +129,7 @@ for d=enemy_distance,4,-1 do
 				}
 
 				-- If option is activated and the Lua variable tunnels was defined by the scenario.
-				if wml.variables.teleports and tunnels then
+				if wml.variables.teleports and rawget(_G, 'tunnels') then
 
 					for k,tunnel_end in ipairs(tunnels) do
 						local t
