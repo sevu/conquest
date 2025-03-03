@@ -654,6 +654,9 @@ msgstr "Diese Karte mit Schnee spielen."
 msgid "Play Palandir map"
 msgstr "Palandir Karte spielen"
 
+msgid "No Center"
+msgstr "Ohne die Mitte"
+
 #. [checkbox]: id=no_boats
 #. a setting which can be changed when creating the game
 #: Conquest_Asterisk/macros/options.cfg:257
@@ -1160,7 +1163,7 @@ msgid ""
 "A good map for many players. Everybody has water access.\n"
 "Possible to be played with realm mode."
 msgstr ""
-"Eine Karte die sich gut mit mehreren Spieler spielen lässt.\n"
+"Eine Karte, die sich gut mit mehreren Spielern spielen lässt.\n"
 "Jeder hat Zugang zum Wasser. Herrscher-Modus verfügbar."
 
 #. [multiplayer]: id=Conquest_Crusades
@@ -1178,6 +1181,25 @@ msgstr ""
 #: Conquest_Asterisk/scenarios/Crusades.cfg:12
 msgid "Map by Mabuse – modified by enclave, ported by Shiki"
 msgstr "Karte von Mabuse – von enclave angepasst, von Shiki portiert"
+
+#. [multiplayer]: id=Conquest_Dative
+#: Conquest_Asterisk/scenarios/Dative.cfg:5
+msgid "Conquest Dative"
+msgstr "Conquest Dative"
+
+#. [multiplayer]: id=Conquest_Dative
+#: Conquest_Asterisk/scenarios/Dative.cfg:6
+msgid ""
+"Designed for a balanced 1 vs. 1 gameplay.\n"
+"Two map variants – with and without center."
+msgstr ""
+"Für 1-gegen-1 erstellt, aber bis zu 6 Spieler sind möglich.\n"
+"Zwei Kartenvarianten – mit und ohne Mitte."
+
+#. [multiplayer]: id=Conquest_Dative
+#: Conquest_Asterisk/scenarios/Dative.cfg:12
+msgid "Map by Zbyll, edited by SlowThinker – ported by Shiki"
+msgstr "Karte von Zbyll, verändert von Slowthinker – portiert von Shiki"
 
 #. [multiplayer]: id=Conquest_Europe
 #: Conquest_Asterisk/scenarios/Europe.cfg:5
@@ -1292,7 +1314,7 @@ msgstr "Karte von Lich_Lord und Blop"
 #. [choice]: id=teleports
 #: Conquest_Asterisk/scenarios/Pasarganta.cfg:31
 msgid "(Pasarganta, Surdmark, Liquergue only)"
-msgstr "(Nur Pasarganta, Surdmark, Liquergue)"
+msgstr "(Pasarganta, Surdmark, Liquergue)"
 
 #. [choice]: id=teleports
 #: Conquest_Asterisk/scenarios/Pasarganta.cfg:32
