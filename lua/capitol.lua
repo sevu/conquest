@@ -210,6 +210,18 @@ for d=enemy_distance,4,-1 do
 
 								if sides_counter == #all_sides then
 									wesnoth.interface.add_chat_message('Conquest',_'All sides placed successfully')
+
+									local viewer, vision = wesnoth.interface.get_viewing_side()
+									local p = wesnoth.units.find_on_map{ side = viewer, canrecruit = false }
+									local viewer_x = math.ceil((math.min(p[1].x, p[2].x, p[3].x) + math.max(p[1].x, p[2].x, p[3].x)) / 2)
+									local viewer_y = math.ceil((math.min(p[1].y, p[2].y, p[3].y) + math.max(p[1].y, p[2].y, p[3].y)) / 2)
+
+									-- Updates vision of own units for side who didn't start their turn already now.
+									wesnoth.wml_actions.redraw{ clear_shroud = true }
+
+									-- Scroll to the units of the first side which you control.
+									wesnoth.interface.scroll_to_hex(viewer_x, viewer_y)
+
 									return
 								end
 
