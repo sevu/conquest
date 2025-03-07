@@ -367,6 +367,9 @@ msgstr "Es gibt einen Discord-Chat, der Einlade-Code lautet: "
 msgid "It would be great if you give feedback at r.wesnoth.org/t57848"
 msgstr "Gebt uns Feedback im Forum unter r.wesnoth.org/t57848"
 
+msgid "Gold per Village for human players is $gold|."
+msgstr "Spieler erhalten 2 Gold je Dorf."
+
 #: Conquest_Asterisk/macros/neutrals_growth.cfg:23
 msgid "Option enabled: Neutrals grow stronger after every $no turns."
 msgstr "Option aktiviert: Neutrale Einheiten werden alle $no Runden stärker."
