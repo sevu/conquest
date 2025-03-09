@@ -1120,17 +1120,24 @@ msgid "Conquest Celestia"
 msgstr "Conquest Celestia"
 
 #. [multiplayer]: id=Conquest_Celestia
-#. [multiplayer]: id=Conquest_Jelwan
 #. [multiplayer]: id=Conquest_Francisco
 #: Conquest_Asterisk/scenarios/Celestia.cfg:6
-#: Conquest_Asterisk/scenarios/Jel_wan.cfg:6
 #: Conquest_Asterisk/scenarios/San_Francisco.cfg:6
 msgid ""
 "For 2-6 players.\n"
-"(Have a look at the »Random Maps« section too.)"
+"Have a look at the »Random Maps« section too."
 msgstr ""
 "Für 2-6 Spieler.\n"
-"(Es gibt auch »Zufallskarten« von Conquest.)"
+"Es gibt auch »Zufallskarten« von Conquest."
+
+#. [multiplayer]: id=Conquest_Jelwan
+#: Conquest_Asterisk/scenarios/Jel_wan.cfg:6
+msgid ""
+"For 2-6 players.\n"
+"There are more island maps in the »Random Maps« section."
+msgstr ""
+"Für 2-6 Spieler.\n"
+"Es gibt weitere Inselkarten unter »Zufallskarten«."
 
 #. [multiplayer]: id=Conquest_Celestia
 #. [multiplayer]: id=Conquest_Jelwan
@@ -1146,8 +1153,8 @@ msgstr ""
 #: Conquest_Asterisk/scenarios/San_Francisco.cfg:9
 #: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:9
 #: Conquest_Asterisk/scenarios/Wesnoth.cfg:9
-msgid "<b>Check the »Custom Options« tab.</b>"
-msgstr "<b>Schaut im Tab »Erweiterte Optionen«.</b>"
+msgid "Check the »Custom Options« tab."
+msgstr "Schaut im Tab »Erweiterte Optionen«."
 
 #. [multiplayer]: id=Conquest_Celestia
 #: Conquest_Asterisk/scenarios/Celestia.cfg:11
@@ -1164,21 +1171,10 @@ msgstr "Conquest Kreuzzüge"
 #: Conquest_Asterisk/scenarios/Crusades.cfg:7
 msgid ""
 "A good map for many players. Everybody has water access.\n"
-"Possible to be played with realm mode."
+"Can be played with Realm mode."
 msgstr ""
 "Eine Karte, die sich gut mit mehreren Spielern spielen lässt.\n"
 "Jeder hat Zugang zum Wasser. Herrscher-Modus verfügbar."
-
-#. [multiplayer]: id=Conquest_Crusades
-#. [multiplayer]: id=Conquest_Europe
-#. [multiplayer]: id=Conquest_Wales
-#: Conquest_Asterisk/scenarios/Crusades.cfg:10
-#: Conquest_Asterisk/scenarios/Europe.cfg:9
-#: Conquest_Asterisk/scenarios/Wales.cfg:9
-msgid "<b>Check the »Custom Options« tab. This map can be played by AI.</b>"
-msgstr ""
-"<b>Schaut im Tab »Erweiterte Optionen«. Diese Karte kann von der KI gespielt "
-"werden.</b>"
 
 #. [multiplayer]: id=Conquest_Crusades
 #: Conquest_Asterisk/scenarios/Crusades.cfg:12
@@ -1213,10 +1209,10 @@ msgstr "Conquest Europa"
 #: Conquest_Asterisk/scenarios/Europe.cfg:6
 msgid ""
 "For 2-6 players.\n"
-"(No add-on needed for others.)"
+"Players do not need to download this add-on."
 msgstr ""
 "Für 2-6 Spieler.\n"
-"(Andere brauchen diese Erweiterung nicht.)"
+"Die Anderen brauchen diese Erweiterung nicht."
 
 #. [multiplayer]: id=Conquest_Europe
 #: Conquest_Asterisk/scenarios/Europe.cfg:11
@@ -1244,7 +1240,7 @@ msgstr "Conquest Lotrando"
 #. [multiplayer]: id=Conquest_Lotrando
 #: Conquest_Asterisk/scenarios/Lotrando.cfg:6
 msgid ""
-"A famous map. Has many factions.\n"
+"A popular map. Has many factions.\n"
 "Optimized for 2 players and the capitol mode."
 msgstr ""
 "Eine bekannte Karte, mit vielen Fraktionen.\n"
