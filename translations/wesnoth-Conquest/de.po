@@ -568,6 +568,15 @@ msgstr ""
 "Voll funktionsfähig und frei von OOS-Fehlern, aber enthält unentdeckte Bugs. "
 "Kann mit den nächsten beiden Optionen verbessert werden."
 
+msgid "AI side has +1 Gold per Village"
+msgstr "KI Parteien erhalten +1 Gold je Dorf"
+
+msgid "In the early game this can compensate for players being better at expanding, while in the late game it gives the same bonus as a worker would give."
+msgstr "Dieser Bonus skaliert mit der Zeit. Während Ihr 1 Gold je Dorf erhaltet, sind es für die KI 2. Die KI erhält 1 Gold mehr je Dorf."
+
+msgid "The AI check happens every turn, but you need to use the command :droid 3 full rather than just :droid, otherwise the bonus won’t be given."
+msgstr "Der KI-Check wird jede Runde durchgeführt, Ihr müsst jedoch den Befehl :droid 3 full anstatt nur :droid verwenden."
+
 #. [slider]: id=CE_SYSTEM.Experimental_AI_Extra_Gold_perturn
 #. a setting which can be changed when creating the game
 #: Conquest_Asterisk/macros/options.cfg:181
@@ -580,6 +589,9 @@ msgid "Giving AI more gold per turn will create stronger AI."
 msgstr ""
 "Der KI mehr Gold pro Runde zur Verfügung zu stellen wird einen stärkeren "
 "Gegner erschaffen."
+
+msgid "This happens also for sides which became ai-controlled during the game. You need to use the command »:droid 3 <i>full</i>« instead of only »:droid« for this to work."
+msgstr "Dies gilt auch für Parteien, die erst während des Spiels zu KI-Parteien werden. Dafür müsst ihr den Befehl »:droid 3 <i>full</i>« statt nur »:droid« verwenden."
 
 #. [slider]: id=CE_SYSTEM.Experimental_AI_Extra_Gold_start
 #. a setting which can be changed when creating the game
@@ -600,7 +612,7 @@ msgid "Random Maps Region Names"
 msgstr "Namen für Region auf Zufallskarten"
 
 #. [choice]: id=CE_SYSTEM.random_map_region_names
-#. applicable only when you chose to play specially designed C* random maps from Random Maps" section.
+#. applicable only when you chose to play specially designed C* random maps from Random Maps section.
 #: Conquest_Asterisk/macros/options.cfg:203
 msgid ""
 "Should randomly generated maps use names of real world countries for region "

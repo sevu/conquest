@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.wesnoth.org/\n"
-"POT-Creation-Date: 2025-03-12 10:27 UTC\n"
+"POT-Creation-Date: 2025-03-14 00:06 UTC\n"
 "PO-Revision-Date: 2025-02-05 05:55+0100\n"
 "Last-Translator: Severin Glöckner <severin.gloeckner@stud.htwk-leipzig.de>\n"
 "Language-Team: German <irc://irc.libera.chat/#wesnoth-de>\n"
@@ -484,7 +484,7 @@ msgstr ""
 #: Conquest_Asterisk/macros/options.cfg:183
 msgid ""
 "The AI check happens every turn, but you need to use the command :droid 3 "
-"full rather than just :droid, otherwise the bonus won't be given."
+"full rather than just :droid, otherwise the bonus won’t be given."
 msgstr ""
 
 #. [slider]: id=CE_SYSTEM.Experimental_AI_Extra_Gold_perturn
@@ -518,20 +518,15 @@ msgid ""
 "Giving AI more starting gold can create more competitive AI in mid game."
 msgstr ""
 
-#. [slider]: id=CE_SYSTEM.Experimental_AI_Extra_Gold_start
-#: Conquest_Asterisk/macros/options.cfg:209
-msgid "Currently AI receives also +1 gold per village."
-msgstr ""
-
 #. [choice]: id=CE_SYSTEM.random_map_region_names
 #. a setting which can be changed when creating the game
-#: Conquest_Asterisk/macros/options.cfg:220
+#: Conquest_Asterisk/macros/options.cfg:218
 msgid "Random Maps Region Names"
 msgstr ""
 
 #. [choice]: id=CE_SYSTEM.random_map_region_names
 #. applicable only when you chose to play specially designed C* random maps from Random Maps section.
-#: Conquest_Asterisk/macros/options.cfg:222
+#: Conquest_Asterisk/macros/options.cfg:220
 msgid ""
 "Should randomly generated maps use names of real world countries for region "
 "naming or fantasy ones?"
@@ -539,68 +534,68 @@ msgstr ""
 
 #. [item]
 #. randomly chooses one of the next two options
-#: Conquest_Asterisk/macros/options.cfg:225
+#: Conquest_Asterisk/macros/options.cfg:223
 msgid "Any"
 msgstr ""
 
 #. [item]
 #. uses fantasy names for region naming
-#: Conquest_Asterisk/macros/options.cfg:230
+#: Conquest_Asterisk/macros/options.cfg:228
 msgid "Fairy"
 msgstr ""
 
 #. [item]
 #. uses real world countries
-#: Conquest_Asterisk/macros/options.cfg:235
+#: Conquest_Asterisk/macros/options.cfg:233
 msgid "Real"
 msgstr ""
 
 #. [checkbox]: id=romans
 #. a setting which can be changed when creating the game
-#: Conquest_Asterisk/macros/options.cfg:246
+#: Conquest_Asterisk/macros/options.cfg:244
 msgid "Roman map"
 msgstr ""
 
 #. [checkbox]: id=romans
 #. [checkbox]: id=palandir
 #. [checkbox]: id=nocenter
-#: Conquest_Asterisk/macros/options.cfg:247
-#: Conquest_Asterisk/macros/options.cfg:267
-#: Conquest_Asterisk/macros/options.cfg:277
+#: Conquest_Asterisk/macros/options.cfg:245
+#: Conquest_Asterisk/macros/options.cfg:265
+#: Conquest_Asterisk/macros/options.cfg:275
 msgid "Play on a modified map."
 msgstr ""
 
 #. [checkbox]: id=winter
 #. a setting which can be changed when creating the game
-#: Conquest_Asterisk/macros/options.cfg:256
+#: Conquest_Asterisk/macros/options.cfg:254
 msgid "Winter map"
 msgstr ""
 
 #. [checkbox]: id=winter
-#: Conquest_Asterisk/macros/options.cfg:257
+#: Conquest_Asterisk/macros/options.cfg:255
 msgid "Play this map with snow."
 msgstr ""
 
 #. [checkbox]: id=palandir
 #. a setting which can be changed when creating the game
-#: Conquest_Asterisk/macros/options.cfg:266
+#: Conquest_Asterisk/macros/options.cfg:264
 msgid "Play Palandir map"
 msgstr ""
 
 #. [checkbox]: id=nocenter
 #. Play without the center of the map.
-#: Conquest_Asterisk/macros/options.cfg:276
+#: Conquest_Asterisk/macros/options.cfg:274
 msgid "No Center"
 msgstr ""
 
 #. [checkbox]: id=no_boats
 #. a setting which can be changed when creating the game
-#: Conquest_Asterisk/macros/options.cfg:286
+#: Conquest_Asterisk/macros/options.cfg:284
 msgid "No Boats"
 msgstr ""
 
 #. [checkbox]: id=no_boats
-#: Conquest_Asterisk/macros/options.cfg:287
+#: Conquest_Asterisk/macros/options.cfg:285
 msgid ""
 "In order not to confuse newbies, boats can be removed from this scenario."
 msgstr ""
@@ -608,7 +603,7 @@ msgstr ""
 #. [checkbox]: id=teleports
 #. [choice]: id=teleports
 #. a setting which can be changed when creating the game
-#: Conquest_Asterisk/macros/options.cfg:296
+#: Conquest_Asterisk/macros/options.cfg:294
 #: Conquest_Asterisk/scenarios/Pasarganta.cfg:32
 msgid "Teleports"
 msgstr ""
@@ -618,7 +613,7 @@ msgstr ""
 #. [/tunnel]
 #. Will be easier for translation to leave out the reference to the WML tag name.
 #. Explaining it as tunnel or teleportation.
-#: Conquest_Asterisk/macros/options.cfg:302
+#: Conquest_Asterisk/macros/options.cfg:300
 msgid "Adds [tunnel]s between some places on the map."
 msgstr ""
 
