@@ -2,7 +2,7 @@ Welcome!
 
 1) For translating, see translation-info.txt in translations directory.
 
-2) All files in this add-on are plain text files, just like this one.
+2) The files in this add-on are plain text files, just like this one.
    They have different file extensions, but technically you can rename them as you want.
 
    Any editor for text files works to edit them. (Only the Windows programm named "Editor" has a problem displaying line breaks).
@@ -13,14 +13,10 @@ Welcome!
 
    It's learning by doing and looking around at what exists.
 
-3) Have fun!
-   Rest of this file is mostly things I noted down once,
-   and didn't delete in case they are useful for someone else too.
-
-   Not things I wrote when the code was written, but when I tried to understand it.
+   Have fun!
 
 
-4) Overview over events:
+3) Overview over events:
    I noted here down what events exist. This was mostly to help me get an overview.
    They are listed in the order of execution, usually each line being one event.
 
@@ -41,8 +37,8 @@ Events, ordered by execution time:
   place village labels (previously in turn 1)
   adding objectives [priority=-1]
 
-
 - start
+  check if a side is ai controlled
 
 - turn 1
   place village labels (on random maps)
@@ -75,48 +71,54 @@ Events, ordered by execution time:
 Random Map generators have additionally some more events, which are not listed here.
 
 
-5) The regions are defined with the variables below:
+4) The data for regions is stored in the WML variable container CE_SYSTEM.
+The structure can be seen with :inspect and looks as follows:
+
+[CE_SYSTEM]
+  [regions]
+    bonus = 7
+    id = Zacony
+  [/regions]
+  [regions_Zacony]
+    x = 19
+    y = 11
+  [/regions_Zacony]
+  [regions_Zacony]
+    x = 24
+    y = 12
+  [/regions_Zacony]
+
+This is what is required, but on some maps, more values are set.
+While mostly not used anymore, they are defined with the variables below:
 
 For each region:
-CE_SYSTEM.regions_Zacony_bonus = 7
-CE_SYSTEM.regions_Zaconyarray_num   is unused (is 3)
-CE_SYSTEM.regions_Zacony_array_num  is unused (is 3)
-CE_SYSTEM.regions[3].id = Zacony
+CE_SYSTEM.regions_Zacony_bonus = 7  (unused)
+CE_SYSTEM.regions_Zacony_array_num = 3 (map_regions_macros.cfg uses it at creation time only)
 CE_SYSTEM.regions[3].bonus = 7
-CE_SYSTEM.regions[3].name = Zacony
+CE_SYSTEM.regions[3].name = Zacony  (unused)
+CE_SYSTEM.regions[3].id = Zacony (used to access the next tag)
 
 For each village of a region:
-CE_SYSTEM.regions_Zacony[0].name = of the village
+CE_SYSTEM.regions_Zacony[0].name = of the village (unused)
 CE_SYSTEM.regions_Zacony[0].x
 CE_SYSTEM.regions_Zacony[0].y
-CE_SYSTEM.regions_city_X_Y.name = of the village
-CE_SYSTEM.regions_city_X_Y.region_id = Zacony
-CE_SYSTEM.regions_city_X_Y.array_num is unsed
+CE_SYSTEM.regions_city_X_Y.name = of the village (unused)
+CE_SYSTEM.regions_city_X_Y.region_id = Zacony (unused)
+CE_SYSTEM.regions_city_X_Y.array_num (unused)
 
 
 So, seems all the data is stored twice. Not all is used.
 The macros to create regions use a few values which the rest doesn't.
 
-For the
-- tag to create regions
-- calculation of the bonus every turn
-- region based unit spawns
-WE CAN SUM UP:
+The fact that there exists one array CE_SYSTEM.regions with all regions allows to iterate over them.
+One can use the value from CE_SYSTEM.regions[0].id to iterate over the villages too.
 
-That there exists one array with all regions is used to iterate over them.
-
-CE_SYSTEM.regions[3].bonus is used
-CE_SYSTEM.regions[3].id = is used only to access the next tag which has more information
-CE_SYSTEM.regions_Zacony[0].x and y are used
-
-CE_SYSTEM.regions_Zacony[0].name is unused
-CE_SYSTEM.regions[3].name = Zacony is unused
-
-CE_SYSTEM.regions_Zacony   without index is same as index 0 and unused
-CE_SYSTEM.regions_city_X_Y completely unused
+This is done by:
+- Calculation of the bonus every turn and when capturing a village.
+- Region based spawns of neutral units.
 
 
-6) A cutom wml tag is defined via Lua in region_tag.lua:
+4.1) A cutom WML tag is defined via Lua in region_tag.lua:
 
 [region]
     color=red,green,blue notation, e.g. color=107,140,125 (same as hexadecimal #6b8c7d)
@@ -125,7 +127,190 @@ CE_SYSTEM.regions_city_X_Y completely unused
     village_list=name,x,y and repeat
 [/region]
 
-Alternatively, the map_regions_macros can be used to set up the labels and regions.
+Behaviour of this tag can be influrenced by setting global variables:
+
+# Used by Pasarganta maps, shifts coordinates.
+{VARIABLE CE_SYSTEM.offset_x 0}
+{VARIABLE CE_SYSTEM.offset_y 0}
+
+# Used by Dative to not show the bonus as part of the village label.
+{VARIABLE CE_SYSTEM.short_label yes}
+
+# Print additionally labels for a region table.
+{VARIABLE CE_SYSTEM.region_table 2,49}
+{VARIABLE CE_SYSTEM.rows 2}
+
+# Internally these variables will be used to determine the next label.
+# One can change them in between to change coordinates.
+CE_SYSTEM.row CE_SYSTEM.column
+
+# For example, assuimg the last column would contain only one label,
+# place this before the last [region] tag, to skip two rows and
+# allign the label at the bottom instead of the top in the last column.
+{VARIABLE CE_SYSTEM.row 2}
+
+
+4.2) Using macros instead of the [region] tag.
+
+The [region] tag has one limitation, one can't specify a textdomain.
+The maps with real-world names of cities use a different method to define regions.
+The macros from map_regions_macros.cfg can alternatively be used to set up the labels and regions:
+
+{CE_SET_REGION_BONUS GlynsForest _"Glyn’s Forest" 2}
+{CE_SET_LABEL 27 21 _"Glyn’s Rest" (GlynsForest)}
+{CE_SET_LABEL 29 18 _"Shylas" (GlynsForest) COLOR=255,181,188}
+
+
+4.3) Other labels
+
+To use Pango markup such as <small> … </small> one needs a different macro,
+where the [label]color= key is not used. Instead one can set the color with Pango markup.
+
+{SET_LABEL 15 45 "<span color='#ffb5bc'><b>15. "+_"Glyn’s Forest"+"</b></span>"}
+{SET_LABEL 16 45 "<span color='#ffb5bc'><small>2 "+{GOLD_STRING}+"</small></span>"}
+
+This macro from mainline sets only a label, but does not create the data structure.
+
+
+5) Realm Mode, Teleports and custom maps
+
+Maps can have their own options, or they can set a variable in a prestart event.
+
+For Realm Mode:
+- Set the WML variable realmavailable to yes in a prestart event.
+- Add a scenario-specific turn 1 refresh event where you let players choose the region.
+
+To use teleportation tunnels:
+- A scenario needs to create them with the [tunnel] tag.
+  Because they are blocked if a unit is on the exit hex we use multiple exit hexes,
+  and two seperate tunnels instead of one bidirectional one.
+  Poland map is an example with fine-tuned tunnels.
+
+- Capitol spawns can take the distance over tunnels into account. For that:
+  - The WML variable teleports must exist and not be set to no.
+  - The Lua variable tunnels must contains two coordinates which the algorithm will take into account.
+    Needs to be in a preload event with first_time_only=no. They should not be the same as the real [tunnel] but simple, e.g.
+    tunnels = {}
+    tunnels[1] = {}
+    tubnels[1][1] = {}
+    tunnels[1][1]['x'] = 1
+    tunnels[1][1].y = 27
+    tunnels[1][2] = { x = 58, y = 28 }
+
+    tunnels[2] = { {x = 28, y = 2}, { x = 21, y = 47 } }
+    -- These are the two tunnels from the Poland map.
+
+
+Making a custom map.
+Best to start by copying one of the simpler scenarios such as Jel’wan.
+
+What does one need for a new Conquest scenario?
+- Some general things like name etc.
+- Like with all scenarios, sides need to be defined there.
+  Special is, that side 7 are the neutral units, so it needs at least 7 sides.
+- [load_resource] adds most of the Conquest stuff
+- The recruit menu is seperately included with a macro.
+  Copy it from Pasarganta. Currently not all maps have the same recruits.
+- Regions are optional, the World map has none. Different methods exist to define them.
+- While not strictly reqired, the [options] would be useful.
+  One can also add new scenario-specific ones.
+
+Other than that, you could do anything which non-conquest scenarios do by adding [events]
+Spawning units in turn 5, giving extra gold when moving onto 15,24 …
+
+If the new map is created in another add-on, add to the top of the file:
+{~add-ons/Conquest_Asterisk/macros/sides.cfg}
+{~add-ons/Conquest_Asterisk/macros/unit_stats.cfg}
+{~add-ons/Conquest_Asterisk/macros/options.cfg}
+{~add-ons/Conquest_Asterisk/macros/map_regions_macros.cfg}
+
+
+6) Units and Recruits
+
+The units used in Conquest are currently all mainline units with modified stats.
+They have an [object] (almost the same as a [trait] ), which changes their level, damage, hitpoints etc.
+As it are mainline [unit_type]s and no custom graphics are used, other players do currently not need to download the add-on.
+
+One problem is, that the unit stats are defined in WML, but we also want to place units from Lua code.
+As it are not real [unit_type]s, but [unit]s with lots of additional WML, this would be difficult from Lua.
+
+The solution is:
+The units are created by a WML event, which has a custom name such as ce_spawn_1g_milita.
+Whenever one needs such a unit, one fires that event (be it from WML or from Lua).
+And prior to firing the event, one sets a variable.
+
+  [set_variables]
+    name=ce_spawn
+    [value]
+      side=$side_number
+      x=10
+      y=24
+      animate=yes
+    [/value]
+  [/set_variables]
+  [fire_event]
+    name=ca_spawn_1g_milita
+  [/fire_event]
+  {CLEAR_VARIABLE ce_spawn}
+
+This is how boats, humans and dwarves are spawned.
+These units are defined in unit_events.cfg
+
+
+6.1) The recruit menu
+
+Unlike the former code, it uses exaclty one recuit menu for all units (except boats).
+This has the advantage that one can assign one hotkey to recuit units.
+
+The check which faction's units are offered happens inside the [set_menu_item] with an [if].
+The [if] checks the type of village to decide the faction, but it could also be changed to check a WML variable.
+
+To choose the units, currently the [message] tag with [option]s is used (Maybe doing some fancy Lua dialog someday?)
+There are some macros which do generate:
+- The message tag.
+- The text for an option for each unit.
+- The [command] part with the the unit stats.
+
+DEFINED_UNIT macro adds the text for the option, reduces the gold and uses fire_event to place the unit.
+Used for humans, dwarves, boats.
+Example: {DEFINED_UNIT 1 _"Militia" " 25" 7 1g_militia 10 2}
+
+CONQUEST_UNIT macro does also add the text for the option, but more.
+It does not use fire_event, but instead puts a [unit] tag there with all the modifications to the mainline unit.
+It is a 1-line macro to create a unit along with its recruit option.
+Currently used for all the other factions, which are elves, orcs, undead, drakes, dunefolk and merfolk.
+These units can be created only from the recruit menu and not from Lua, so not by the ai.
+
+Example: {CONQUEST_UNIT 1 _"Militia" " 25" 7 (Orcish Grunt) 10 2 (ADV=Orcish Warrior)}
+It is basically what the old code did, but as macro. The code is in unit_stats.cfg.
+
+
+6.2) Adding new units
+
+There is a third type of units to maybe add:
+Non-mainline units with custom graphics and maybe animations. How could these be added?
+
+Conquest+ uses a unit without sprite and adds an overlay on top.
+When the unit moves, the overlay is not shown. Could use the same trick as used for the 5g and 10g boat to handle that.
+
+But could also make a new [unit_type].
+Having a custom unit_type will require that others download the add-on,
+but if custom graphics are used they anyway need to download it.
+If wanted, the unit_type could also be defined by a macro.
+
+And have a variation of DEFINED_UNIT macro which places a unit of this type.
+Example: {CUSTOM_UNIT 1 _"Accensus" 28 6 typename 12 2}
+
+As one common recuit menu is used, where to include the units?
+# {RECRUIT_UNIT_MENU (
+#      {HUMAN_RECRUITS *^Vh*}
+#      {ELVES_RECRUITS *^Ve*}
+#      {RIFT_RECRUITS  *^V*}
+# )}
+
+Maybe a pre-game boolean option would be added to disable/enable the unit.
+But as soon as it is possible to recruit such units, the scenario needs require_scenario=yes
+
 
 7) If you know how to start programms from command line on your operating system,
    you can speed up starting a game for testing. Here some commands for copy-paste:
