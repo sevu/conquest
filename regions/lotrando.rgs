@@ -1,10 +1,4 @@
 [region]
-	name=Free Tribes
-	bonus=3
-	color=82,129,200
-	village_list=Lestomysl,23,13,Maloslav,16,11,Slatihor,25,10
-[/region]
-[region]
 	name=Condorus
 	bonus=7
 	color=221,190,185
@@ -39,6 +33,12 @@
 	village_list=Lafunte,7,24,Nauberg,8,19,Acharves,16,21,Pestront,12,19,Hestada,18,17
 [/region]
 [region]
+	name=Western Havens
+	bonus=5
+	color=109,169,212
+	village_list=Celtar,8,13,Tryel,10,9,Estrul,3,17,Wistele,3,10
+[/region]
+[region]
 	name=Wasteland
 	bonus=4
 	color=190,180,45
@@ -51,10 +51,36 @@
 	village_list=Shidnahel,18,30,Netipol,22,28,Rasaniya,26,26,Thrapton,32,23
 [/region]
 [region]
+	name=Menhiria
+	bonus=4
+	color=78,215,112
+	village_list=Ramtadur,16,25,Bluteria,21,24,Arnosen,24,20,Lenticia,25,18
+[/region]
+[region]
+	name=Elenna
+	bonus=4
+	color=116,216,116
+	village_list=Nuradas,5,28,Midlund,3,32,Usten,4,35
+[/region]
+[region]
+	name=Free Tribes
+	bonus=3
+	color=82,129,200
+	village_list=Lestomysl,23,13,Maloslav,16,11,Slatihor,25,10
+[/region]
+[region]
 	name=Foggy World
 	bonus=3
 	color=222,121,192
 	village_list=Istanael,29,11,Steppentan,31,15,Sastak,34,17,Morbak,37,19
+[/region]
+[region]
+	name=Frachtal
+	bonus=3
+	#color=190,94,75
+	#color=216,105,86 quite okay, needs tweaks
+	color=216,124,108 #other direction, less saturation
+	village_list=Kwazz,22,1,Ghrak-trul,15,5,Cerulean mt.,11,3
 [/region]
 [region]
 	name=Goblingard
@@ -75,22 +101,10 @@
 	village_list=Osh Malo,46,9,Az Kvarn,47,7
 [/region]
 [region]
-	name=Western Havens
-	bonus=5
-	color=109,169,212
-	village_list=Celtar,8,13,Tryel,10,9,Estrul,3,17,Wistele,3,10
-[/region]
-[region]
 	name=Barbarians
 	bonus=2
 	color=198,171,152
 	village_list=Dead Marshes,47,33,Brown lands,47,28
-[/region]
-[region]
-	name=Menhiria
-	bonus=4
-	color=78,215,112
-	village_list=Ramtadur,16,25,Bluteria,21,24,Arnosen,24,20,Lenticia,25,18
 [/region]
 [region]
 	name=Lorelaien
@@ -107,20 +121,10 @@
 	color=84,153,213
 	village_list=Zubeyda,32,43,Lotrando,35,42
 [/region]
-[region]
-	name=Frachtal
-	bonus=3
-	#color=190,94,75
-	#color=216,105,86 quite okay, needs tweaks
-	color=216,124,108 #other direction, less saturation
-	village_list=Kwazz,22,1,Ghrak-trul,15,5,Cerulean mt.,11,3
-[/region]
-[region]
-	name=Elenna
-	bonus=4
-	color=116,216,116
-	village_list=Nuradas,5,28,Midlund,3,32,Usten,4,35
-[/region]
+[set_variable]
+	name=CE_SYSTEM.row
+	add=1
+[/set_variable]
 [region]
 	name=Mermen atoll
 	bonus=1
