@@ -11,19 +11,19 @@ function wesnoth.wml_actions.region(cfg)
 	local region_color = cfg.color or '200,200,200'
 
 	local region_codename = region_name
-	if string.find(region_codename,' ') then region_codename = string.gsub(region_codename,' ','_') end
-	if string.find(region_codename,"'") then region_codename = string.gsub(region_codename,"'",'' ) end
-	if string.find(region_codename,'’') then region_codename = string.gsub(region_codename,'’','' ) end
-	if string.find(region_codename,'/') then region_codename = string.gsub(region_codename,'/','_') end
-	if string.find(region_codename,'-') then region_codename = string.gsub(region_codename,'-','_') end
+	-- Replace some signs [ /-'’] to allow using it as name for a WML variable.
+	region_codename = string.gsub(region_codename, '[ /-]', '_')
+	region_codename = string.gsub(region_codename, "['’]", '' )
 
 
 	-- Special mode for Pasarganta maps.
 	-- Will recolor existing labels with the region_color from this tag.
 	if wml.variables.mapsection and (wml.variables.mapvariant ~= 'pasarganta_new') then
+
 		-- Recolor-mode on, recolor existing region:
 		for j=0,wml.variables['CE_SYSTEM.regions_' ..  region_codename ..'.length']-1,1 do
-			local village_label = wesnoth.map.get_label{
+
+			local village_label = wesnoth.map.get_label {
 				wml.variables['CE_SYSTEM.regions_'..region_codename..'['..j..'].x'],
 				wml.variables['CE_SYSTEM.regions_'..region_codename..'['..j..'].y'],
 			}
@@ -36,6 +36,8 @@ function wesnoth.wml_actions.region(cfg)
 	end
 
 
+	-- Create a variable to store the information about the region, the bonus will be saved there.
+	--
 	-- Check if region doesn't already exist (in that case only add villages to the region)
 	if wml.variables['CE_SYSTEM.regions_'..region_codename] == nil then
 
@@ -70,6 +72,7 @@ function wesnoth.wml_actions.region(cfg)
 	end
 
 
+	-- Handle village list
 	local previous, village_x, village_y, village_name, village_text
 	local offset_x = wml.variables['CE_SYSTEM.offset_x'] or 0
 	local offset_y = wml.variables['CE_SYSTEM.offset_y'] or 0
