@@ -72,11 +72,13 @@ function wesnoth.wml_actions.region(cfg)
 	end
 
 
+
 	-- Handle village list
 	local previous, village_x, village_y, village_name, village_text
 	local offset_x = wml.variables['CE_SYSTEM.offset_x'] or 0
 	local offset_y = wml.variables['CE_SYSTEM.offset_y'] or 0
-	local short_label = wml.variables['CE_SYSTEM.short_label']
+	local label_style = wml.variables['CE_SYSTEM.label_style']
+
 
 	for eachword in string.gmatch(village_list, '([^,]+)') do
 		if tonumber(eachword) ~= nil then
@@ -105,10 +107,21 @@ function wesnoth.wml_actions.region(cfg)
 			-- wml.variables['CE_SYSTEM.regions_city_'..village_x..'_'..village_y..'.region_id'] = region_codename
 			-- wml.variables['CE_SYSTEM.regions_city_'..village_x..'_'..village_y..'.array_num'] = array_num
 
-			if short_label then
-				village_text = t(village_name)..' ('..t(region_name)..')'
-			else
+
+			if not label_style then
 				village_text = t(village_name)..' ('..t(region_name)..' +'..region_bonus..')'
+
+			elseif label_style == 'short' then
+				village_text = t(village_name)..' ('..t(region_name)..')'
+
+			elseif label_style == 'bonus' then
+				village_text = t(village_name)..' ( +'..region_bonus..')'
+
+			elseif label_style == 'region' then
+				village_text = t(region_name) ..' +'..region_bonus
+
+			elseif label_style == 'simple' then
+				village_text = t(village_name)
 			end
 
 			wesnoth.map.add_label {
