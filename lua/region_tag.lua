@@ -50,7 +50,21 @@ function wesnoth.wml_actions.region(cfg)
 		wml.variables['CE_SYSTEM.regions['..array_num..'].bonus'] = region_bonus
 		-- wml.variables['CE_SYSTEM.regions['..array_num..'].name'] = region_name
 
-		-- Special mode for Dative map,
+
+
+		-- Special mode for Poland map,
+		-- print region name with a label somewhere on the map.
+		if cfg.region_center then
+			local center_x = stringx.split(cfg.region_center)[1]
+			local center_y = stringx.split(cfg.region_center)[2]
+
+			wesnoth.map.add_label { text = string.upper(tostring(t(region_name))..' +'..region_bonus),
+									color = region_color, x = center_x, y = center_y }
+		end
+
+
+
+		-- Special mode for Dative, Jel’wan, Lotrando and Poland maps,
 		-- place a table with an extra label describing the bonus of the region.
 		if wml.variables['CE_SYSTEM.region_table'] then
 			local tab_x = stringx.split(wml.variables['CE_SYSTEM.region_table'])[1] + (wml.variables['CE_SYSTEM.column'] or 0)
