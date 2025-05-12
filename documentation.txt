@@ -125,6 +125,7 @@ This is done by:
     name=regionname (and an internal id will be derived from it)
     bonus=number
     village_list=name,x,y and repeat
+    region_center=x,y optionally shows an additional label with the region name and bonus
 [/region]
 
 Behaviour of this tag can be influrenced by setting global variables:
@@ -134,7 +135,13 @@ Behaviour of this tag can be influrenced by setting global variables:
 {VARIABLE CE_SYSTEM.offset_y 0}
 
 # Used by Dative to not show the bonus as part of the village label.
-{VARIABLE CE_SYSTEM.short_label yes}
+# Poland uses simple and shows instead the region name and bonus by setting region_center.
+# no      Darnol (Sunny Hills +5)
+# short   Darnol (Sunny Hills)
+# bonus   Darnol ( +5)
+# region  Sunny Hills ( +5)
+# simple  Darnol
+{VARIABLE CE_SYSTEM.label_style short}
 
 # Print additionally labels for a region table.
 {VARIABLE CE_SYSTEM.region_table 2,49}
@@ -215,7 +222,7 @@ What does one need for a new Conquest scenario?
 - While not strictly reqired, the [options] would be useful.
   One can also add new scenario-specific ones.
 
-Other than that, you could do anything which non-conquest scenarios do by adding [events]
+Other than that, you could also do anything which non-conquest scenarios do. By adding [events]
 Spawning units in turn 5, giving extra gold when moving onto 15,24 …
 
 If the new map is created in another add-on, add to the top of the file:
