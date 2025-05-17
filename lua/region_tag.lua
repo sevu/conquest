@@ -5,15 +5,17 @@
 
 function wesnoth.wml_actions.region(cfg)
 	local t = wesnoth.textdomain 'wesnoth-Conquest_Vilas'
-	local village_list = tostring(cfg.village_list) or wml.error '[region] expects a village_list= attribute.'
-	local region_name  = tostring(cfg.name) or wml.error '[region] expects a name= attribute.'
+	local village_list = cfg.village_list or wml.error '[region] expects a village_list= attribute.'
+	local region_name  = cfg.name or wml.error '[region] expects a name= attribute.'
 	local region_bonus = cfg.bonus or wml.error '[region] expects a bonus= attribute.'
 	local region_color = cfg.color or '200,200,200'
 
-	local region_codename = region_name
+	local region_codename = tostring(region_name)
 	-- Replace some signs [ /-'’] to allow using it as name for a WML variable.
+	-- One can add here replacement of Polish letters to ascii characters to use them.
 	region_codename = string.gsub(region_codename, '[ /-]', '_')
 	region_codename = string.gsub(region_codename, "['’]", '' )
+
 
 
 	-- Special mode for Pasarganta maps.
@@ -34,6 +36,7 @@ function wesnoth.wml_actions.region(cfg)
 		end
 		return
 	end
+
 
 
 	-- Create a variable to store the information about the region, the bonus will be saved there.
