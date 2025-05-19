@@ -97,8 +97,8 @@ function wesnoth.wml_actions.region(cfg)
 	local label_style = wml.variables['CE_SYSTEM.label_style']
 
 
-	for eachword in string.gmatch(village_list, '([^,]+)') do
-		if tonumber(eachword) ~= nil then
+	for eachword in string.gmatch(village_list, '([^,]*)') do
+		if tonumber(eachword) then
 			if previous == 'string' then
 				previous = 'x'
 				village_x = eachword + offset_x
