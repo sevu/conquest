@@ -126,7 +126,7 @@
 	add=1
 [/set_variable]
 [region]
-	name=Mermen atoll
+	name=Mermen Atoll
 	bonus=1
 	color=96,208,230
 	village_list=Atoll,7,39
