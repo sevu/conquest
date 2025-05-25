@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.wesnoth.org/\n"
 "POT-Creation-Date: 2025-03-14 00:06 UTC\n"
-"PO-Revision-Date: 2025-02-05 05:55+0100\n"
+"PO-Revision-Date: 2025-05-25 21:31+0200\n"
 "Last-Translator: Severin Glöckner <severin.gloeckner@stud.htwk-leipzig.de>\n"
 "Language-Team: German <irc://irc.libera.chat/#wesnoth-de>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 25.04.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. [lua]: create_total_bonus_message
@@ -23,7 +23,7 @@ msgstr "Bonus Total:"
 #. [lua]: create_total_bonus_message
 #: Conquest_Asterisk/lua/bonus.lua:13
 msgid "Base income:"
-msgstr "Revenue de base:"
+msgstr "Revenu de base:"
 
 #. [lua]: tunnel_distance_check
 #: Conquest_Asterisk/lua/capitol.lua:54
@@ -38,7 +38,7 @@ msgstr "Distance $d, #$k"
 #. [lua]: tunnel_distance_check
 #: Conquest_Asterisk/lua/capitol.lua:212
 msgid "All sides placed successfully"
-msgstr ""
+msgstr "Toutes les pages ont été placées."
 
 #. [lua]: tunnel_distance_check
 #: Conquest_Asterisk/lua/capitol.lua:236 Conquest_Asterisk/lua/capitol.lua:249
@@ -63,7 +63,7 @@ msgstr ""
 #. Turn limit reached (if one was used)
 #: Conquest_Asterisk/lua/turns_over.lua:13
 msgid "End of Game"
-msgstr ""
+msgstr "Fin du jeu"
 
 #. [lua]: res.show_turns_over_advantage
 #. This is a shortened string from the mainline textdomain wesnoth-multiplayer. You can copy the text from there and delete a part of it: https://gettext.wesnoth.org/?package=wesnoth-multiplayer
@@ -85,19 +85,21 @@ msgstr "assassin"
 #: Conquest_Asterisk/macros/abilities.cfg:15
 msgid "Deals 90 damage per strike versus 25 gold units like Warships."
 msgstr ""
+"Inflige 90 dégâts par coup contre des unités d’or de 25, comme les navires de "
+"guerre."
 
 #. [general]
 #. ability/trait which shows the player a weakness of his most expensive unit.
 #. It is an assassination target. Translate freely, "worthy target" works fine too.
 #: Conquest_Asterisk/macros/abilities.cfg:31
 msgid "assassination target"
-msgstr "cible d'assassinat"
+msgstr "cible d’assassinat"
 
 #. [general]
 #. From Assassain, Pirate Galleon, Mermaid Siren
 #: Conquest_Asterisk/macros/abilities.cfg:33
 msgid "Receives 90 damage per hit from units like Assassins."
-msgstr ""
+msgstr "Reçoit 90 dégâts par coup des unités telles que les Assassins."
 
 #. [works]
 #. this is a trait/ability, it will be displayed in the sidebar.
@@ -121,7 +123,7 @@ msgstr "Transporteur"
 #. this text is displayed when moving the mouse over the name.
 #: Conquest_Asterisk/macros/abilities.cfg:66
 msgid "Can load and unload units between villages excluding mechanical units."
-msgstr ""
+msgstr "Peut charger et décharger des unités entre les villages."
 
 #. [print]
 #: Conquest_Asterisk/macros/core_capitol_spawn.cfg:18
@@ -130,11 +132,14 @@ msgid ""
 "spawn on empty Cities at Turn 2.\n"
 "         They can’t attack you."
 msgstr ""
+"              Unités neutres (Blanches)\n"
+"apparaissent dans les villes libres au tour 2.\n"
+"      Elles ne peuvent pas vous attaquer."
 
 #. [message]: speaker=narrator
 #: Conquest_Asterisk/macros/core_game_menu.cfg:13
 msgid "Please select GAME MODE"
-msgstr ""
+msgstr "Sélectionnez le MODE JEU"
 
 #. [option]
 #. ideally title in one line and 2 more lines for the text.
@@ -144,6 +149,9 @@ msgid ""
 "Each player can select a region to start with.\n"
 "Remaining cities are guarded by AI units from turn 2 on."
 msgstr ""
+" REALM MODE\n"
+"Chaque joueur sélectionne une région de départ.\n"
+"Les villes restantes sont gardées par des unités neutres à partir du tour 2."
 
 #. [option]
 #. ideally title in one line and 2 more lines for the text.
@@ -153,6 +161,9 @@ msgid ""
 "Each player starts distant to other players with 3 nearby\n"
 "assigned cities. Free cities are guarded by Neutrals."
 msgstr ""
+" CAPITOL MODE\n"
+"Chaque joueur commence éloigné des autres avec 3 villes\n"
+"assignées à proximité. Les villes libres sont gardées par des neutres."
 
 #. [option]
 #. ideally title in one line and 1-2 more lines for the text.
@@ -161,30 +172,32 @@ msgid ""
 " ALL VILLAGE MODE\n"
 "All villages are randomly distributed among the players."
 msgstr ""
+" ALL VILLAGE MODE\n"
+"Tous les villages sont répartis aléatoirement entre les joueurs."
 
 #. Next 5 strings are for realm mode.
 #: Conquest_Asterisk/macros/core_game_menu.cfg:104
 msgid "Choose a Region"
-msgstr ""
+msgstr "Choisissez une région"
 
 #: Conquest_Asterisk/macros/core_game_menu.cfg:105
 msgid "Free cities will be filled with neutral units on turn 2."
-msgstr ""
+msgstr "Les villes libres reçoivent d’unités neutres au tour 2."
 
 #: Conquest_Asterisk/macros/core_game_menu.cfg:116
 #: Conquest_Asterisk/macros/core_game_menu.cfg:127
 msgid "Cities"
-msgstr ""
+msgstr "Villes"
 
 #: Conquest_Asterisk/macros/core_game_menu.cfg:116
 #: Conquest_Asterisk/macros/core_game_menu.cfg:127
 msgid "Income Bonus"
-msgstr ""
+msgstr "Revenu Bonus"
 
 #: Conquest_Asterisk/macros/core_game_menu.cfg:116
 #: Conquest_Asterisk/macros/core_game_menu.cfg:127
 msgid "starting Gold"
-msgstr ""
+msgstr "Or au départ"
 
 #. this is the first thing new players will see
 #: Conquest_Asterisk/macros/core_intro.cfg:6
@@ -208,23 +221,41 @@ msgid ""
 "Right-click the transport to board. You can move a transport to another vila "
 "and right-click to unload."
 msgstr ""
+"Comment jouer à Conquest\n"
+"\n"
+"\n"
+"Conquest n’a PAS de CHEF et PAS de CHÂTEAU.\n"
+"POUR RECRUTER, FAITES UN CLIC DROIT SUR VOS VILLES (sans unité sur la ville)."
+"\n"
+"Les unités se déplacent de 1 hexagone au premier tour, puis complètement.\n"
+"\n"
+"Capturer toutes les villes d’une RÉGION vous donne de l’or BONUS.\n"
+"3 modes : REALM (région de départ), CAPITOL (3 villes de départ), ALL VILLAGES"
+" (répartis).\n"
+"Au tour 2, les villes vides sont gardées par des IA (pas de mouvement ni de re"
+"crutement).\n"
+"\n"
+"Pour les transports maritimes, placez un bateau près d’une ville, puis recrute"
+"z une unité sur la ville.\n"
+"Clic droit sur le transport pour embarquer. Déplacez-le à côté d’une autre vil"
+"le et clic droit pour débarquer."
 
 #. [objective]: condition=lose
 #: Conquest_Asterisk/macros/core_objectives.cfg:59
 msgid "<b>Teleportation tunnels are activated!</b>"
-msgstr ""
+msgstr "<b>Les tunnels de téléportation sont actifs !</b>"
 
 #. [objectives]
 #. The next 10-20 strings are similar to the intro text, but use different formatting. The game is explained to the new player here.
 #. These strings have to fit on the objectives screen without a line break!
 #: Conquest_Asterisk/macros/core_objectives.cfg:103
 msgid "How to play Conquest"
-msgstr ""
+msgstr "Comment jouer à Conquest"
 
 #. [objectives]
 #: Conquest_Asterisk/macros/core_objectives.cfg:104
 msgid "Conquest is played with different units and has no leader nor keep."
-msgstr ""
+msgstr "Conquest se joue avec différentes unités et n’a ni chef ni château."
 
 #. [objectives]
 #: Conquest_Asterisk/macros/core_objectives.cfg:105
@@ -232,28 +263,34 @@ msgid ""
 "<b>To recruit, right click your vilas</b> (make sure there is no unit on the "
 "vila when recruiting)"
 msgstr ""
+"<b>Pour recruter, clic droit sur vos villes</b> (sans unité sur la ville)."
 
 #. [objectives]
 #: Conquest_Asterisk/macros/core_objectives.cfg:106
 msgid "Units can move 1 hex on their first turn, later they can move fully."
 msgstr ""
+"Les unités se déplacent de 1 hexagone au premier tour, puis complètement."
 
 #. [objectives]
 #: Conquest_Asterisk/macros/core_objectives.cfg:107
 msgid ""
 "If you capture all vilas in a <b>region</b> you get <b>bonus</b> income."
 msgstr ""
+"Si vous conquérir toutes les villes dans une <b>région</b>, vous obtenez du <b"
+">bonus</b> or."
 
 #. [objectives]
 #: Conquest_Asterisk/macros/core_objectives.cfg:108
 msgid ""
 "On turn 2 empty vilas are filled with AI guardians (cannot move or recruit)."
 msgstr ""
+"Au tour 2, les villes vides sont gardées par des IA (ne peuvent ni se déplacer"
+" ni recruter)."
 
 #. [objectives]
 #: Conquest_Asterisk/macros/core_objectives.cfg:109
 msgid "Placing <b>workers</b> on villages will provide another +1 income."
-msgstr ""
+msgstr "Mettre des <b>travailleurs</b> dans les villes ajoute +1 revenu."
 
 #. [objectives]
 #: Conquest_Asterisk/macros/core_objectives.cfg:110
@@ -261,11 +298,13 @@ msgid ""
 "Use boat transports by recruiting a transport next to a vila, then make a "
 "unit on the vila."
 msgstr ""
+"Utilisez des transports maritimes en plaçant un bateau près d’une ville, puis "
+"placez une unité sur la ville."
 
 #. [objectives]
 #: Conquest_Asterisk/macros/core_objectives.cfg:110
 msgid "Using boats"
-msgstr ""
+msgstr "Utilisation des bateaux"
 
 #. [objectives]
 #: Conquest_Asterisk/macros/core_objectives.cfg:111
@@ -273,11 +312,13 @@ msgid ""
 "Right-click the transport to board. You can move a transport to another vila "
 "and right-click to unload."
 msgstr ""
+"Clic droit sur le bateau pour embarquer. Déplacez-le à côté d’une ville et cli"
+"c droit pour décharger."
 
 #. [objectives]
 #: Conquest_Asterisk/macros/core_objectives.cfg:112
 msgid "Strategy"
-msgstr ""
+msgstr "Stratégie"
 
 #. [objectives]
 #: Conquest_Asterisk/macros/core_objectives.cfg:113
@@ -285,12 +326,16 @@ msgid ""
 "You can have NAP (Non Agression Pact) with other players, use the Chat to "
 "discuss NAPs."
 msgstr ""
+"Vous pouvez avoir un NAP (Pacte de Non-Agression) avec d’autres joueurs, discu"
+"tez-en dans le chat."
 
 #. [objectives]
 #: Conquest_Asterisk/macros/core_objectives.cfg:114
 msgid ""
 "Combat is simplified. No Resistances, units are neutral and use berserk."
 msgstr ""
+"Le combat est simplifié. Pas de résistances, les unités ont un alignement neut"
+"re et utilisent berserk."
 
 #. [objectives]
 #: Conquest_Asterisk/macros/core_objectives.cfg:116
@@ -300,28 +345,33 @@ msgstr ""
 #. [objectives]
 #: Conquest_Asterisk/macros/core_objectives.cfg:118
 msgid "You can join the Discord-Chat. Invite-Code: "
-msgstr ""
+msgstr "Vous pouvez rejoindre le chat Discord. Code d’invitation : "
 
 #. [objectives]
 #: Conquest_Asterisk/macros/core_objectives.cfg:119
 msgid "It would be great if you give feedback at r.wesnoth.org/t57848"
 msgstr ""
+"Ce serait super si vous pouviez laisser vos commentaires à r.wesnoth.org/t5784"
+"8"
 
 #: Conquest_Asterisk/macros/map_macros.cfg:347
 msgid "Gold per Village for human players is $gold|."
-msgstr ""
+msgstr "L’or par village pour les joueurs humains est de $gold|."
 
 #: Conquest_Asterisk/macros/neutrals_growth.cfg:27
 msgid "Option enabled: Neutrals grow stronger after every $no turns."
 msgstr ""
+"Option activée : Les neutres deviennent plus forts après chaque $no tours."
 
 #: Conquest_Asterisk/macros/neutrals_growth.cfg:30
 msgid "Option enabled: Neutrals grow stronger every turn and will be healed."
 msgstr ""
+"Option activée : Les neutres deviennent plus forts à chaque tour et seront soi"
+"gnés."
 
 #: Conquest_Asterisk/macros/neutrals_growth.cfg:92
 msgid "Neutrals got stronger this turn."
-msgstr ""
+msgstr "Les neutres sont devenus plus forts ce tour."
 
 #. [entry]: id=CE_SYSTEM.host_name
 #. a setting which can be changed when creating the game
@@ -700,6 +750,15 @@ msgid ""
 "To disembark, sail next to another city, then right-click the boat.\n"
 "For your own ships, you can see in the sidebar if a unit is aboard."
 msgstr ""
+"Les bateaux peuvent transporter une unité entre les villes (propres et hostile"
+"s).\n"
+"1) Déplacez le bateau à côté de la ville.\n"
+"2) Recrutez une unité dans la ville.\n"
+"3) Cliquez droit sur le bateau pour y monter.\n"
+"Pour débarquer, naviguez à côté d’une autre ville et cliquez droit sur le bate"
+"au.\n"
+"Vous pouvez voir dans le panneau d'état si une unité est à bord de vos navires"
+"."
 
 #. [option]
 #. [unit]: type=Boat
@@ -833,7 +892,7 @@ msgstr "Piquier"
 #: Conquest_Asterisk/macros/unit_stats.cfg:832
 #: Conquest_Asterisk/macros/unit_stats.cfg:605
 msgid "Elite Infantry"
-msgstr "Infanterie d'élite"
+msgstr "Infanterie d’élite"
 
 #. [unit]: type=Paladin
 #. [option]
@@ -1049,7 +1108,7 @@ msgstr ""
 #. [multiplayer]: id=Conquest_Crusades
 #: Conquest_Asterisk/scenarios/Crusades.cfg:5
 msgid "Conquest Crusades"
-msgstr ""
+msgstr "Conquest Croisades"
 
 #. [multiplayer]: id=Conquest_Crusades
 #. 2 lines for text
@@ -1496,7 +1555,7 @@ msgstr "Section de Liquergue avec des tunnels"
 #. [multiplayer]: id=Conquest_Poland
 #: Conquest_Asterisk/scenarios/Poland.cfg:5
 msgid "Conquest Poland"
-msgstr ""
+msgstr "Conquest Pologne"
 
 #. [multiplayer]: id=Conquest_Poland
 #: Conquest_Asterisk/scenarios/Poland.cfg:7
@@ -1540,11 +1599,13 @@ msgid ""
 "Beware of teleportation tunnels. They work similar to the Silver Mage’s "
 "ability."
 msgstr ""
+"Attention aux tunnels de téléportation. Ils fonctionnent de manière similaire "
+"à la capacité du Mage d’argent."
 
 #. [multiplayer]: id=Conquest_Surdmark
 #: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:5
 msgid "Conquest Surdmark Long Teleports"
-msgstr ""
+msgstr "Conquest Surdmark (avec tunnels)"
 
 #. [multiplayer]: id=Conquest_Surdmark
 #: Conquest_Asterisk/scenarios/Surdmark_telep_long.cfg:6
@@ -1571,7 +1632,7 @@ msgstr ""
 #. [multiplayer]: id=Conquest_Wales
 #: Conquest_Asterisk/scenarios/Wales.cfg:5
 msgid "Conquest Wales"
-msgstr ""
+msgstr "Conquest Pays de Galles"
 
 #. [multiplayer]: id=Conquest_Wales
 #: Conquest_Asterisk/scenarios/Wales.cfg:6
