@@ -115,6 +115,7 @@ for d=enemy_distance,4,-1 do
 			else
 				---try if you can put next side with specified distances..
 
+				-- This filter gets all villages, except the ones being in a radius around player villages.
 				local addition
 				local filter = { gives_income = true, owner_side = 0,
 					{'not', { gives_income = true,
@@ -144,6 +145,7 @@ for d=enemy_distance,4,-1 do
 
 				end
 
+				-- Get the candidates for first village by using the filter.
 				local all_villages_left = wesnoth.map.find(filter)
 				local total_villages_left = #all_villages_left
 
@@ -201,8 +203,12 @@ for d=enemy_distance,4,-1 do
 
 									local viewer, vision = wesnoth.interface.get_viewing_side()
 									local p = wesnoth.units.find_on_map{ side = viewer, canrecruit = false }
-									local viewer_x = math.ceil((math.min(p[1].x, p[2].x, p[3].x) + math.max(p[1].x, p[2].x, p[3].x)) / 2)
-									local viewer_y = math.ceil((math.min(p[1].y, p[2].y, p[3].y) + math.max(p[1].y, p[2].y, p[3].y)) / 2)
+
+									local bounding_box_x = (math.min(p[1].x, p[2].x, p[3].x) + math.max(p[1].x, p[2].x, p[3].x)) / 2
+									local bounding_box_y = (math.min(p[1].y, p[2].y, p[3].y) + math.max(p[1].y, p[2].y, p[3].y)) / 2
+
+									local viewer_x = math.ceil(bounding_box_x)
+									local viewer_y = math.ceil(bounding_box_y)
 
 									-- Updates vision of own units for side who didn't start their turn already now.
 									wesnoth.wml_actions.redraw{ clear_shroud = true }
@@ -262,7 +268,5 @@ end
 
 
 wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Failed to alocate starting postions for all sides! Restart the game. For random maps, it helps to use a bigger map. Distance to own villages was set to $max|.', { max = friendly_distance } ))
-
-local old_message = _'Retrying side $n placement'
 
 -- Magic marker. For Lua it's a comment, for the WML preprocessor a closing quotation sign. >>
