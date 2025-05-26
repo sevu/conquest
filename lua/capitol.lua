@@ -2,7 +2,7 @@
 
 local _ = wesnoth.textdomain 'wesnoth-Conquest'
 local all_villages = wesnoth.map.find{ gives_income = true }
-local total_villages = #all_villages - 1
+local total_villages = #all_villages
 local friendly_distance = wml.variables['CE_SYSTEM.max_distance'] or 8
 local enemy_distance = wml.variables['CE_SYSTEM.min_distance'] or 12
 local number_of_attempts = wml.variables['CE_SYSTEM.number_of_attempts'] or 1
@@ -56,7 +56,7 @@ for d=enemy_distance,4,-1 do
 			wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Distance $d, Attempt $k', {d=d, k=k}))
 		end
 
-		local random_first_villa = mathx.random(0, total_villages)
+
 		local all_sides = wesnoth.sides.find{ wml.tag.has_unit { canrecruit = true } }
 
 		-- Only tracking the taken villages to use this variables if this map has tunnels.
@@ -74,17 +74,12 @@ for d=enemy_distance,4,-1 do
 				taken_villages = {}
 
 				-- Determine a random village.
-				local counter = 0
-				for i, villa in ipairs(all_villages) do
-					if random_first_villa == counter then
-						table.insert(taken_villages, { x = villa.x, y = villa.y })
-						wml.variables.ce_spawn = { side = current_side, x = villa.x, y = villa.y }
-						wesnoth.game_events.fire('ce_spawn_1g_militia')
-						wml.variables.ce_spawn = nil
-						break
-					end
-					counter = counter + 1
-				end
+				local random_first_villa = mathx.random(1, total_villages)
+				local villa = all_villages[random_first_villa]
+				table.insert(taken_villages, { x = villa.x, y = villa.y })
+				wml.variables.ce_spawn = { side = current_side, x = villa.x, y = villa.y }
+				wesnoth.game_events.fire('ce_spawn_1g_militia')
+				wml.variables.ce_spawn = nil
 
 				--- for first side store nearby villages in settings radius
 				--- and place 2 militia in randomly shuffled 2 of them
@@ -150,7 +145,7 @@ for d=enemy_distance,4,-1 do
 				end
 
 				local all_villages_left = wesnoth.map.find(filter)
-				local total_villages_left = #all_villages_left - 1
+				local total_villages_left = #all_villages_left
 
 
 				-- Remove first condition, add new ones below.
@@ -172,21 +167,14 @@ for d=enemy_distance,4,-1 do
 						local took_villages = {}
 
 						-- Safety check for random function.
-						if total_villages_left >= 0 then
-							local random_villa = mathx.random(0, total_villages_left)
-							local counter = 0
-
+						if total_villages_left >= 1 then
 							-- Spawn 1 village.
-							for i, villa in ipairs(all_villages_left) do
-								if random_villa == counter then
-									table.insert(took_villages, { x = villa.x, y = villa.y })
-									wml.variables.ce_spawn = { side = current_side, x = villa.x, y = villa.y }
-									wesnoth.game_events.fire('ce_spawn_1g_militia')
-									wml.variables.ce_spawn = nil
-									break
-								end
-								counter = counter + 1
-							end
+							local random_villa = mathx.random(1, total_villages_left)
+							local villa = all_villages_left[random_villa]
+							table.insert(took_villages, { x = villa.x, y = villa.y })
+							wml.variables.ce_spawn = { side = current_side, x = villa.x, y = villa.y }
+							wesnoth.game_events.fire('ce_spawn_1g_militia')
+							wml.variables.ce_spawn = nil
 
 							-- Next two villages next to current side.
 							all_friendly_villages = wesnoth.map.find(filter)
