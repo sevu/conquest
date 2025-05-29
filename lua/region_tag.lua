@@ -4,13 +4,19 @@
 -- Unused data is commented with --
 
 function wesnoth.wml_actions.region(cfg)
-	local t = wesnoth.textdomain 'wesnoth-Conquest_Vilas'
-	local village_list = cfg.village_list or wml.error '[region] expects a village_list= attribute.'
+	local t = wesnoth.textdomain(wml.variables.domain or 'wesnoth-Conquest_Vilas')
+	local village_list = tostring(cfg.village_list or wml.error '[region] expects a village_list= attribute.')
+	local region_bonus = tonumber(cfg.bonus) or wml.error '[region] expects a bonus= attribute.'
 	local region_name  = cfg.name or wml.error '[region] expects a name= attribute.'
-	local region_bonus = cfg.bonus or wml.error '[region] expects a bonus= attribute.'
 	local region_color = cfg.color or '200,200,200'
+	local region_codename = region_name
 
-	local region_codename = tostring(region_name)
+	if type(region_name) == 'string' then
+		region_name = t(region_name)
+	else
+		wml.error '[region] Do not add a translation sign, it is added internally.'
+	end
+
 	-- Replace some signs [ /-'’] to allow using it as name for a WML variable.
 	-- One can add here replacement of Polish letters to ascii characters to use them.
 	region_codename = string.gsub(region_codename, '[ /-]', '_')
@@ -61,7 +67,7 @@ function wesnoth.wml_actions.region(cfg)
 			local center_x = stringx.split(cfg.region_center)[1]
 			local center_y = stringx.split(cfg.region_center)[2]
 
-			wesnoth.map.add_label { text = string.upper(tostring(t(region_name))..' +'..region_bonus),
+			wesnoth.map.add_label { text = string.upper(tostring(region_name)..' +'..region_bonus),
 									color = region_color, x = center_x, y = center_y }
 		end
 
@@ -75,7 +81,7 @@ function wesnoth.wml_actions.region(cfg)
 			local bonus = region_bonus .. ' ' .. wesnoth.textdomain 'wesnoth' 'Gold'
 			local n, ne, se, s, sw, nw = wesnoth.map.get_adjacent_hexes(tab_x, tab_y)
 
-			wesnoth.map.add_label { text = t(region_name), color = region_color, x = tab_x, y = tab_y, visible_in_shroud = true }
+			wesnoth.map.add_label { text = region_name, color = region_color, x = tab_x, y = tab_y, visible_in_shroud = true }
 			wesnoth.map.add_label { text = bonus, color = region_color, x = se.x, y = se.y, visible_in_shroud = true }
 
 			-- Determine next coordinates.
@@ -108,7 +114,7 @@ function wesnoth.wml_actions.region(cfg)
 			end
 		else
 			previous = 'string'
-			village_name = eachword
+			village_name = t(eachword)
 		end
 
 
@@ -126,19 +132,19 @@ function wesnoth.wml_actions.region(cfg)
 
 
 			if not label_style then
-				village_text = t(village_name)..' ('..t(region_name)..' +'..region_bonus..')'
+				village_text = village_name..' ('..region_name..' +'..region_bonus..')'
 
 			elseif label_style == 'short' then
-				village_text = t(village_name)..' ('..t(region_name)..')'
+				village_text = village_name..' ('..region_name..')'
 
 			elseif label_style == 'bonus' then
-				village_text = t(village_name)..' ( +'..region_bonus..')'
+				village_text = village_name..' ( +'..region_bonus..')'
 
 			elseif label_style == 'region' then
-				village_text = t(region_name) ..' +'..region_bonus
+				village_text = region_name ..' +'..region_bonus
 
 			elseif label_style == 'simple' then
-				village_text = t(village_name)
+				village_text = village_name
 			end
 
 			wesnoth.map.add_label {
