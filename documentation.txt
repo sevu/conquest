@@ -136,11 +136,13 @@ Behaviour of this tag can be influrenced by setting global variables:
 
 # Used by Dative to not show the bonus as part of the village label.
 # Poland uses simple and shows instead the region name and bonus by setting region_center.
+# When labels are colored one does not need to show the region name (and town names are always optional).
 # no      Darnol (Sunny Hills +5)
 # short   Darnol (Sunny Hills)
 # bonus   Darnol ( +5)
 # region  Sunny Hills ( +5)
 # simple  Darnol
+# number  +5
 {VARIABLE CE_SYSTEM.label_style short}
 
 # Print additionally labels for a region table.

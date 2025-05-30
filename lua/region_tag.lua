@@ -145,6 +145,9 @@ function wesnoth.wml_actions.region(cfg)
 
 			elseif label_style == 'simple' then
 				village_text = village_name
+
+			else
+				village_text = '+'..region_bonus
 			end
 
 			wesnoth.map.add_label {
