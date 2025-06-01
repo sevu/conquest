@@ -41,13 +41,19 @@ function calculate_region_bonus(lua_current_side)
 	end
 
 	local initial_income = wesnoth.sides[lua_current_side].variables.initial_income or 2
-	local p = wesnoth.sync.evaluate_single( function() return { controller = wesnoth.sides[lua_current_side].controller } end )
+	local ai_extra_income = wml.variables['CE_SYSTEM.Experimental_AI_Extra_Gold_perturn'] or 0
 
-	if p.controller ~= 'ai' then
+	if ai_extra_income == 0 then
 		wesnoth.sides[lua_current_side].base_income = initial_income + income_bonus
 	else
-		local ai_extra_income = wml.variables['CE_SYSTEM.Experimental_AI_Extra_Gold_perturn'] or 0
-		wesnoth.sides[lua_current_side].base_income = initial_income + income_bonus + ai_extra_income
+
+		local p = wesnoth.sync.evaluate_single( function() return { controller = wesnoth.sides[lua_current_side].controller } end )
+
+		if p.controller == 'ai' then
+			wesnoth.sides[lua_current_side].base_income = initial_income + income_bonus + ai_extra_income
+		else
+			wesnoth.sides[lua_current_side].base_income = initial_income + income_bonus
+		end
 	end
 end
 
