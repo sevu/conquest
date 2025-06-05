@@ -32,8 +32,11 @@ for i, color in ipairs(all_colors) do
 		not (color == 'lightblue' and taken_colors['Rav_blue_light']) and
 		not (color == 'purple' and taken_colors['Rav_purple_light']) and
 		not (color == 'gold' and taken_colors['Rav_yellow']) and
+		not (color == 'gold' and taken_colors['yellow']) and
 		not (color == 'gold' and taken_colors['brightorange']) and
 		not (color == 'blue' and taken_colors['darkblue']) and
+		not (color == 'yellow' and taken_colors['Rav_yellow']) and
+		not (color == 'brightorange' and taken_colors['yellow']) and
 		not (color == 'brightorange' and taken_colors['Rav_yellow']) then
 			table.insert(free_colors, color)
 	end
