@@ -31,6 +31,8 @@ local function tunnel_distance_check(tunnel_exit, other_exit, distance_setting, 
 	return filter_addition, distance_reduced
 end
 
+-- Saftey check, in case map generation went wrong and there are no villages.
+if total_villages == 0 then return end
 
 -- Loop to retry with lower distance to other players.
 for d=enemy_distance,4,-1 do
