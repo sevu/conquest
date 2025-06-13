@@ -368,7 +368,7 @@ msgid "It would be great if you give feedback at r.wesnoth.org/t57848"
 msgstr "Gebt uns Feedback im Forum unter r.wesnoth.org/t57848"
 
 msgid "Gold per Village for human players is $gold|."
-msgstr "Spieler erhalten 2 Gold je Dorf."
+msgstr "Spieler erhalten $gold Gold je Dorf."
 
 #: Conquest_Asterisk/macros/neutrals_growth.cfg:23
 msgid "Option enabled: Neutrals grow stronger after every $no turns."
@@ -591,7 +591,7 @@ msgstr ""
 "Gegner erschaffen."
 
 msgid "This happens also for sides which became ai-controlled during the game. You need to use the command »:droid 3 <i>full</i>« instead of only »:droid« for this to work."
-msgstr "Dies gilt auch für Parteien, die erst während des Spiels zu KI-Parteien werden. Dafür müsst ihr den Befehl »:droid 3 <i>full</i>« statt nur »:droid« verwenden."
+msgstr "Dies gilt auch für Parteien, die erst während des Spiels zu KI-Parteien werden. Dafür müsst Ihr den Befehl »:droid 3 <i>full</i>« statt nur »:droid« verwenden."
 
 #. [slider]: id=CE_SYSTEM.Experimental_AI_Extra_Gold_start
 #. a setting which can be changed when creating the game
@@ -983,7 +983,7 @@ msgstr "+1 Gold je Runde in einer Stadt"
 #: Conquest_Asterisk/macros/unit_stats.cfg:101
 #: Conquest_Asterisk/macros/unit_stats.cfg:248
 msgid "Insufficient Funds…"
-msgstr "Zu wenige Gold…"
+msgstr "Zu wenig Gold…"
 
 #. [message]: speaker=narrator
 #: Conquest_Asterisk/macros/unit_stats.cfg:274
@@ -1107,7 +1107,7 @@ msgstr "Seeungeheuer"
 #. 10 gold unit
 #: Conquest_Asterisk/macros/unit_stats.cfg:855
 msgid "Heavy Cavalry"
-msgstr "Schere Kavallerie"
+msgstr "Schwere Kavallerie"
 
 #. [option]
 #. 20 gold unit
@@ -1125,6 +1125,40 @@ msgstr "Einheit rekrutieren"
 #: Conquest_Asterisk/macros/unit_stats.cfg:982
 msgid "No units can be recruited in this village."
 msgstr "In diesem Dorf können keine Einheiten rekrutiert werden."
+
+#. [multiplayer]: id=Conquest_Archipelago
+#: Conquest_Asterisk/scenarios/Archipelago.cfg:5
+msgid "Conquest Archipelago"
+msgstr "Conquest Archipel"
+
+#. [multiplayer]: id=Conquest_Archipelago
+#: Conquest_Asterisk/scenarios/Archipelago.cfg:6
+msgid ""
+"A naval map found in forums. Small isles are special.\n"
+"Regions on the biggest island are random."
+msgstr ""
+"Eine Karte aus den Tiefen des Forums. Kleine Inseln haben einen Bonus.\n"
+"Regionen auf der größten Insel sind zufallsgeneriert."
+
+#. [multiplayer]: id=Conquest_Archipelago
+#: Conquest_Asterisk/scenarios/Archipelago.cfg:11
+msgid "Map from https://r.wesnoth.org/p468490"
+msgstr "Karte von https://r.wesnoth.org/p468490"
+
+msgid "Label Style"
+msgstr "Anzeige des Regionsbonuses"
+
+msgid "Towns have no names yet. You can name them."
+msgstr "Städte haben noch keine Namen."
+
+msgid "Town (+Bonus)"
+msgstr "Stadt (+Bonus)"
+
+msgid "Region +Bonus"
+msgstr "Region +Bonus"
+
+msgid "Only Number"
+msgstr "Als Zahl"
 
 #. [multiplayer]: id=Conquest_Celestia
 #: Conquest_Asterisk/scenarios/Celestia.cfg:5
@@ -1224,7 +1258,8 @@ msgid ""
 "Players do not need to download this add-on."
 msgstr ""
 "Für 2-6 Spieler.\n"
-"Die Anderen brauchen diese Erweiterung nicht."
+"Andere Spieler müssen die Erweiterung nicht herunterladen."
+
 
 #. [multiplayer]: id=Conquest_Europe
 #: Conquest_Asterisk/scenarios/Europe.cfg:11
