@@ -1,0 +1,76 @@
+[region]
+	name=North-West
+	bonus=7
+	color=162,117,229
+	village_list=,21,11,,16,13,,11,17,,9,20,,21,15,,19,18,,14,20
+[/region]
+
+[region]
+	name=North-East
+	bonus=2
+	color=133,223,117
+	village_list=,38,15,,41,18
+[/region]
+
+[region]
+	name=Small Isle
+	bonus=2
+	color=240,109,223
+	village_list=,27,22,,33,22
+[/region]
+
+[region]
+	name=Upper West
+	bonus=7
+	color=229,184,121
+	village_list=,19,27,,22,28,,11,28,,14,30,,10,31,,12,35,,20,34
+[/region]
+
+[region]
+	name=Lower West
+	bonus=6
+	color=150,233,165
+	village_list=,17,41,,20,43,,22,38,,25,40,,26,43,,28,47
+[/region]
+
+[region]
+	name=Upper Part
+	bonus=6
+	color=109,162,243
+	village_list=,36,32,,41,29,,48,29,,41,36,,47,33,,53,35
+[/region]
+
+[region]
+	name=Single Hut
+	bonus=1
+	color=169,143,247
+	village_list=,51,39
+[/region]
+
+[region]
+	name=Volcanic
+	bonus=3
+	color=82,166,57
+	village_list=,61,40,,59,43,,63,45
+[/region]
+
+[region]
+	name=Single Camp
+	bonus=1
+	color=55,230,215
+	village_list=,59,54
+[/region]
+
+[region]
+	name=South-West
+	bonus=4
+	color=186,138,90
+	village_list=,47,57,,52,58,,50,61,,55,61
+[/region]
+
+[region]
+	name=South-East
+	bonus=2
+	color=211,103,104
+	village_list=,66,53,,68,56
+[/region]
