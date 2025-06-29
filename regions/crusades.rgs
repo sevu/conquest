@@ -1,7 +1,7 @@
 [region]
 	name=Byzantine
 	bonus=9
-	village_list=Mesembria,7,1,Adrianople,3,3,Gallipoli,2,7,Anchialus,7,4,Constantinople,8,6,Dorylaeum,10,8,Nicaea,8,10
+	village_list=Mesembria,7,1,Adrianople,3,3,Gallipoli,2,7,Constantinople,5,6,Chalcedon,7,7,Dorylaeum,10,8,Nicaea,8,10
 [/region]
 [region]
 	name=Jerusalem
