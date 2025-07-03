@@ -46,7 +46,11 @@ Events, ordered by execution time:
   select game length (not anymore, removed)
 
 - new turn
+
 - side turn
+  worker gold
+  ai bonus gold
+
 - side turn 1
 
 - turn refresh
@@ -61,8 +65,15 @@ Events, ordered by execution time:
 - turn 2
   place neutral units from selected theme [priority=1]
   neutrals growth [happens afterwards, allowing to check if neutrals exist]
+  insert event to check defeat condition [priority=-1]
 
 - side turn 2
+
+- die, capture
+  check if player lost all units and villages
+
+- capture
+  recalculate income / region bonus
 
 - time over
   custom time over event [priority=1]
@@ -319,6 +330,29 @@ As one common recuit menu is used, where to include the units?
 
 Maybe a pre-game boolean option would be added to disable/enable the unit.
 But as soon as it is possible to recruit such units, the scenario needs require_scenario=yes
+
+
+6.3) Overview over factions and their advantages
+
+Humans: default, 5g pike, firststrike on 10 / 20g
+Elves: forst bonus, quick 3g unit and also 5g / 9g unit, 20g with 60%
+Orcs: hill bonus, quick 3g unit and also 5g / 9g unit
+Dunefolk: sand bonus, good 3g unit and also 5g unit, +5% hills defense on all units
+Dwarves: 2g unit, mountain bonus, less mp, good 6g unit
+Undead: 2g unit, good 6g unit
+Drakes: 2g unit, can fly and cross rivers, good 6g unit
+Merfolk: 60% water defense, have 1g unit
+
+Feudals: default-like
+Tribals: dunefolk-like, strong heals
+Outlaws: looting, charge and other abilities
+Pirates: looting, backstab, charge
+Amazon: forest-bonus, regenerates, ambush
+Rift: regenerates, plague, poisons, petrifies, submerge
+Beastmaster: poison on 1g, leadership, water units
+Celts: marksman, leadership, heals/regenerates, ambush
+Romans: more hitpoints, formation, leadership
+Rashid: different dunefolk, 70% sand, 4g units
 
 
 7) If you know how to start programms from command line on your operating system,
