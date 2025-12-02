@@ -41,12 +41,13 @@ for d=enemy_distance,4,-1 do
 	-- When the currently used distance is high, it is fine do use a smaller distance on the next try.
 	-- If the distance is small, a retry with the same distance might be nice.
 	-- On very low distance, we use many retries, to handle randomly generated maps with very many villages on small space.
+	-- Using math.max to allow overriding number_of_attempts with higher numbers from scenario variable.
 	if d <= 5 then
-		number_of_attempts = 10
+		number_of_attempts = math.max(number_of_attempts, 10)
 	elseif d <= 6 then
-		number_of_attempts = 3
+		number_of_attempts = math.max(number_of_attempts, 3)
 	elseif d <= 10 then
-		number_of_attempts = 2
+		number_of_attempts = math.max(number_of_attempts, 2)
 	end
 
 	-- Loop to retry with same settings.
