@@ -1604,6 +1604,9 @@ msgstr "Surdmark Abschnitt"
 msgid "Surdmark-section with teleports"
 msgstr "Surdmark Abschnitt mit Teleportationstunneln"
 
+msgid "Surdmark-section with short teleports"
+msgstr "Surdmark Abschnitt mit nahen Teleportationstunneln"
+
 #. [then]
 #: Conquest_Asterisk/scenarios/Pasarganta.cfg:772
 msgid "Liquergue-section"
