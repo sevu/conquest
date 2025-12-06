@@ -745,6 +745,18 @@ msgstr "Team 6"
 msgid "Neutral"
 msgstr "Neutral"
 
+msgid "Extra-Player 1"
+msgstr "Extra-Spieler 1"
+
+msgid "Extra-Player 2"
+msgstr "Extra-Spieler 2"
+
+msgid "Extra-Slot 1"
+msgstr "Extra-Slot 1"
+
+msgid "Extra-Slot 2"
+msgstr "Extra-Slot 2"
+
 #. [set_menu_item]: id=aaa_board
 #. let a unit enter the ship
 #: Conquest_Asterisk/macros/transport_load_boats.cfg:14
