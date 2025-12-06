@@ -392,7 +392,7 @@ cache-v1.18.0-45b13290b2e7d7304875e44f88689881.gz
 One can see the size of the generated cache file.
 The command below will create the same as the cache file, but uncompressed.
 
-To compare how long the generation takes (happens when entrering the mp lobby),
+To compare how long the generation takes (happens when entering the mp lobby),
 one can preprocess the add-on on command-line, with:
 wesnoth --preprocess-defines=MULTIPLAYER -p Conquest_Asterisk /tmp/
 
