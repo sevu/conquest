@@ -1,5 +1,6 @@
 -- <<
 
+-- Creates the text displayed over the flag icon.
 function create_total_bonus_message()
 	local _ = wesnoth.textdomain 'wesnoth-Conquest'
 	-- po: visible when you move the mouse over the flag icon in the top bar of the game
@@ -15,6 +16,7 @@ function create_total_bonus_message()
 	wml.variables['CE_SYSTEM.total_bonus_message'] = lua_message
 end
 
+-- Helper function, calculates bonus for one side.
 function calculate_region_bonus(lua_current_side)
 	if lua_current_side == 0 then return end
 
@@ -55,6 +57,30 @@ function calculate_region_bonus(lua_current_side)
 			wesnoth.sides[lua_current_side].base_income = initial_income + income_bonus
 		end
 	end
+end
+
+function recalculate_bonus()
+	if wml.variables.owner_side or wml.get_child(wesnoth.current.event_context, 'data').owner_side then
+		-- Capture events set owner_side, Alliances Mod does provide it via event_context instead.
+		calculate_region_bonus(wml.variables['unit.side'])
+		calculate_region_bonus(wml.variables['owner_side'] or wml.get_child(wesnoth.current.event_context, 'data').owner_side)
+	else
+		if wesnoth.current.turn == 1 then
+			-- Initial calculation during turn 1.
+			calculate_region_bonus(wesnoth.current.side)
+		else
+			-- Fallback code for modifications which change village ownerhsip and also use
+			-- [fire_event]name=capture but do not set the newly added [fire_event][data]owner_side=
+			--
+			-- Because owner_side is not known, calculate for all.
+			-- But not yet in turn 1 to not prematurely reveal who started with a region.
+			for z,s in ipairs(wesnoth.sides) do
+				calculate_region_bonus(s.side)
+			end
+		end
+	end
+
+	create_total_bonus_message()
 end
 
 -- >>
