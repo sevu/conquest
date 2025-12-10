@@ -82,6 +82,7 @@ function convert_recruit_into_ship(price)
 	end
 end
 
+-- Arguments primary_x,primary_y are the village.
 function spawn_units(amount_of_gold, primary_x, primary_y, secondary_x, secondary_y)
 	if amount_of_gold <= 0 then return amount_of_gold end
 
@@ -91,7 +92,6 @@ function spawn_units(amount_of_gold, primary_x, primary_y, secondary_x, secondar
 	local gold_per_hex = mathx.round(amount_of_gold / 1.5)
 	local spawn_array = {}
 	---local goto_array = {}
-	local c = 0
 
 	-- Choose which unit to spawn.
 	for ff, pos in ipairs(free_spaces) do
@@ -191,33 +191,19 @@ function spawn_units(amount_of_gold, primary_x, primary_y, secondary_x, secondar
 
 					-- animate all players recruits (move all units to my system.. of events)
 
-					c = c + 1
-					-- wesnoth.interface.add_chat_message(c..','..pos.x..','..pos.y)
-					spawn_array[c] = {}
-					spawn_array[c][1] = spawn
-					spawn_array[c][2] = pos.x
-					spawn_array[c][3] = pos.y
-					spawn_array[c][4] = 'flat'
-					spawn_array[c][5] = spawn_cost
+					-- wesnoth.interface.add_chat_message(#spawn_array..','..pos.x..','..pos.y)
+					table.insert(spawn_array, {spawn, pos.x, pos.y, 'flat', spawn_cost})
 				end
-			else
+			elseif spawn_cost >= 3 then
 				if amount_of_gold >= spawn_cost then
-					if spawn_cost >= 3 then
-						amount_of_gold = amount_of_gold - spawn_cost
-						c = c + 1
-						spawn_array[c] = {}
-						spawn_array[c][1] = spawn
-						spawn_array[c][2] = pos.x
-						spawn_array[c][3] = pos.y
-						spawn_array[c][4] = 'water'
-						spawn_array[c][5] = spawn_cost
-					end
+					amount_of_gold = amount_of_gold - spawn_cost
+					table.insert(spawn_array, {spawn, pos.x, pos.y, 'water', spawn_cost})
 				end
 			end
 		end
 	end
 
-	for j=c,1,-1 do
+	for j=#spawn_array,1,-1 do
 		wml.variables.ce_spawn = { side = lua_side, x = primary_x, y = primary_y, animate = true }
 		if j>1 then
 			if spawn_array[j][4] == 'water' then
@@ -228,6 +214,7 @@ function spawn_units(amount_of_gold, primary_x, primary_y, secondary_x, secondar
 			move_unit({ x=primary_x, y=primary_y }, spawn_array[j][2], spawn_array[j][3])
 			attack_adjacent_enemies(spawn_array[j][2], spawn_array[j][3])
 		else
+			-- Last unit remains on village.
 			wesnoth.game_events.fire(spawn_array[j][1])
 			attack_adjacent_enemies(primary_x, primary_y)
 		end
@@ -259,6 +246,7 @@ function main_ai_code()
 	local min_random_villa_no_enemies_x = 0
 	local min_random_villa_no_enemies_y = 0
 	local region_counter = {}
+	local remaining_gold
 
 	if #side_villages > 1 then
 		mathx.shuffle(side_villages)
@@ -285,8 +273,7 @@ function main_ai_code()
 			-- priority recruit before turn 5-7 near bonus
 
 			-------------------------------------------------
-			local lua_unit = wesnoth.units.get(vil.x, vil.y)
-			if not lua_unit then
+			if not wesnoth.units.get(vil.x, vil.y) then
 				if max_random_villa_no_enemies_x == 0 then
 					max_random_villa_no_enemies_x = vil.x
 					max_random_villa_no_enemies_y = vil.y
@@ -337,28 +324,20 @@ function main_ai_code()
 		larger_gold = spawn_units(larger_gold, max_enemies_x, max_enemies_y, max_random_villa_no_enemies_x, max_random_villa_no_enemies_y)
 		third_of_gold = spawn_units(third_of_gold, min_enemies_x, min_enemies_y, min_random_villa_no_enemies_x, min_random_villa_no_enemies_y)
 
-		local remaining_gold = third_of_gold + larger_gold
-		for f, village in ipairs(side_villages) do
-			local lua_unit = wesnoth.units.get(village.x, village.y)
-			if not lua_unit then
-				remaining_gold = spawn_units(remaining_gold, village.x, village.y, 0, 0)
-			end
-		end
-		----------------------------------------------
-		wesnoth.sides[lua_side].gold = remaining_gold
-		-------------------------
+		remaining_gold = third_of_gold + larger_gold
 	else
-		local remaining_gold = side_gold
-		for f, village in ipairs(side_villages) do
-			local lua_unit = wesnoth.units.get(village.x, village.y)
-			if not lua_unit then
-				remaining_gold = spawn_units(remaining_gold, village.x, village.y, 0, 0)
-			end
-		end
-		----------------------------------------------
-		wesnoth.sides[lua_side].gold = remaining_gold
-		-------------------------
+		-- AI owns 0 or 1 village.
+		remaining_gold = side_gold
 	end
+
+	for f, village in ipairs(side_villages) do
+		if not wesnoth.units.get(village.x, village.y) then
+			remaining_gold = spawn_units(remaining_gold, village.x, village.y, 0, 0)
+		end
+	end
+	----------------------------------------------
+	wesnoth.sides[lua_side].gold = remaining_gold
+	-------------------------
 	-- wesnoth.interface.add_chat_message('AI side has '..side_gold..' gold and '..#side_villages..' villages with '..total_free_spaces..' free spaces.')
 	-- wesnoth.interface.add_chat_message('AI side has'..side_gold..'gold left')
 
