@@ -153,6 +153,9 @@ msgstr ""
 msgid "Please select GAME MODE"
 msgstr "Wählt den Spielmodus"
 
+msgid "game mode selection"
+msgstr "Auswahl des Spielmodus"
+
 #. [option]
 #. ideally title in one line and 2 more lines for the text.
 #: Conquest_Asterisk/macros/core_game_menu.cfg:28
