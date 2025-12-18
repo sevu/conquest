@@ -240,10 +240,11 @@ Spawning units in turn 5, giving extra gold when moving onto 15,24 …
 
 If the new map is created in another add-on, add to the top of the file:
 {~add-ons/Conquest_Asterisk/macros/sides.cfg}
-{~add-ons/Conquest_Asterisk/macros/unit_stats.cfg}
 {~add-ons/Conquest_Asterisk/macros/options.cfg}
 {~add-ons/Conquest_Asterisk/macros/map_regions_macros.cfg}
 
+{~add-ons/Conquest_Asterisk/macros/abilities.cfg}
+{~add-ons/Conquest_Asterisk/macros/unit_stats.cfg}
 
 6) Units and Recruits
 
