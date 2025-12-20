@@ -283,6 +283,13 @@ msgstr ""
 "<b>Rechts-klickt auf eine Stadt zum Rekrutieren</b> (es darf dort noch keine "
 "Einheit stehen)"
 
+msgid ""
+"<b>To recruit, right click your vilas</b> (make sure there is no unit on the "
+"vila when recruiting)."
+msgstr ""
+"<b>Rechts-klickt auf eine Stadt zum Rekrutieren</b> (es darf dort noch keine "
+"Einheit stehen)."
+
 #. [objectives]
 #: Conquest_Asterisk/macros/core_objectives.cfg:106
 msgid "Units can move 1 hex on their first turn, later they can move fully."
@@ -351,6 +358,9 @@ msgstr ""
 msgid ""
 "Combat is simplified. No Resistances, units are neutral and use berserk."
 msgstr "Keine Resistenzen, Einheiten sind neutral und immer im Kampfrausch."
+
+msgid "Terrain and expansion are important. And where to spend gold."
+msgstr "Terrain und Expansion sind wichtig. Und wo Ihr investiert."
 
 #. [objectives]
 #: Conquest_Asterisk/macros/core_objectives.cfg:116
@@ -553,6 +563,15 @@ msgid "If you disable this, then villages will not show labels in fog."
 msgstr ""
 "Wenn man es deaktiviert, sieht man die Städtenamen hinter dem Nebel des "
 "Krieges nicht."
+
+msgid "+1 Gold per Village"
+msgstr "+1 Gold je Dorf"
+
+msgid "AI Bonus:"
+msgstr "KI Bonus:"
+
+msgid "Neutral units:"
+msgstr "Neutrale Einheiten:"
 
 #. [checkbox]: id=CE_SYSTEM.Experimental_AI_Enabled
 #. a setting which can be changed when creating the game
@@ -1030,6 +1049,9 @@ msgstr "Arbeiter"
 msgid "Spider"
 msgstr "Spinne"
 
+msgid "Hurricane Cavalry"
+msgstr "Sturm-Kavallerie"
+
 #. [option]
 #. 25 gold unit
 #: Conquest_Asterisk/macros/unit_stats.cfg:444
@@ -1400,7 +1422,7 @@ msgid ""
 "standing <i>on the rune hex</i> at the other side, while the last method "
 "will harm <i>multiple</i> units.\n"
 "\n"
-"Ingame will not be shown which method is used!"
+"The method which is used will ingame not be shown on Liquergue and Surdmark!"
 msgstr ""
 
 #. [item]
@@ -1412,22 +1434,22 @@ msgstr "Keine"
 #. [item]
 #: Conquest_Asterisk/scenarios/Pasarganta.cfg:47
 msgid "Tunnels"
-msgstr "Teleportationstunnel"
+msgstr "Tunnel"
 
 #. [item]
 #: Conquest_Asterisk/scenarios/Pasarganta.cfg:51
 msgid "Tunnels + Teleports"
-msgstr "Teleportationstunnel + Teleportation"
+msgstr "Tunnel + Teleportation"
 
 #. [item]
 #: Conquest_Asterisk/scenarios/Pasarganta.cfg:55
 msgid "Tunnels + Damage"
-msgstr "Teleportationstunnel + Schaden"
+msgstr "Tunnel + Schaden"
 
 #. [item]
 #: Conquest_Asterisk/scenarios/Pasarganta.cfg:59
 msgid "Tunnels + Splash"
-msgstr "Teleportationstunnel + Flächenschaden"
+msgstr "Tunnel + Flächenschaden"
 
 #. [choice]: id=mapvariant, description=
 #: Conquest_Asterisk/scenarios/Pasarganta.cfg:65
@@ -1533,6 +1555,15 @@ msgstr "Komplette Karte"
 #: Conquest_Asterisk/scenarios/Pasarganta.cfg:717
 msgid "New map variant"
 msgstr "Neue Kartenvariante"
+
+msgid "Option"
+msgstr "Option"
+
+msgid "Teleports disabled"
+msgstr "Teleportationstunnel deaktiviert"
+
+msgid "With teleports"
+msgstr "Mit Teleportationstunneln"
 
 #. [else]
 #: Conquest_Asterisk/scenarios/Pasarganta.cfg:720
@@ -1857,9 +1888,6 @@ msgstr "Karte von NULL – angepasst von Mabuse, Gwledig, enclave, Shiki"
 
 #~ msgid "Surprise"
 #~ msgstr "Geheim"
-
-#~ msgid "Hurricane Cavalry"
-#~ msgstr "Sturm-Kavallerie"
 
 #~ msgid "Conquest* Burgoth"
 #~ msgstr "Conquest* Burgoth"
