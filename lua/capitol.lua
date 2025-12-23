@@ -202,7 +202,7 @@ for d=enemy_distance,4,-1 do
 								end
 
 								if sides_counter == #all_sides then
-									wesnoth.interface.add_chat_message('Conquest',_'All sides placed successfully')
+									-- All sides placed successfully.
 
 									local viewer, vision = wesnoth.interface.get_viewing_side()
 									local p = wesnoth.units.find_on_map{ side = viewer, canrecruit = false }
