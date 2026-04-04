@@ -725,6 +725,50 @@ msgstr "Teleportationstunnel"
 msgid "Adds [tunnel]s between some places on the map."
 msgstr "Auf der Karte werden zwischen manchen Stellen [tunnel] hinzugefügt."
 
+#. [set_menu_item]: id=aaw_restore
+#. heal unit
+#: Conquest_Asterisk/macros/restore_menu.cfg:19
+msgid "Restore"
+msgstr "Heilen"
+
+#. [message]: speaker=narrator
+#. waiting for healing from player 2
+#: Conquest_Asterisk/macros/restore_menu.cfg:107
+msgid "healing"
+msgstr "Heilung"
+
+#. [message]: speaker=narrator
+#: Conquest_Asterisk/macros/restore_menu.cfg:108
+msgid ""
+"Restoration of this $unit.name ($($unit.max_hitpoints-$unit.hitpoints) HP to "
+"restore) costs: \t  $restore_cost| gold\n"
+"\n"
+"Recruit of this unit type would cost $restore| gold.\n"
+"\n"
+"WARNING: A restored unit's moves will be reduced to 1."
+msgstr ""
+"Diese Einheit zu heilen ($($unit.max_hitpoints-$unit.hitpoints) LP zu heilen) kostet $restore_cost Gold.\n"
+"\n"
+"Eine neue Einheit auszubilden würde $restore Gold kosten.\n"
+"\n"
+"Achtung: die BP werden auf 1 reduziert."
+
+#. [option]
+#. It works in English grammar, but in other languages it might be better to exclude the variable.
+#: Conquest_Asterisk/macros/restore_menu.cfg:123
+msgid "Restore $unit.name"
+msgstr "Einheit heilen"
+
+#. [floating_text]
+#: Conquest_Asterisk/macros/restore_menu.cfg:149
+msgid "restored"
+msgstr "geheilt"
+
+#. [floating_text]
+#: Conquest_Asterisk/macros/restore_menu.cfg:149
+msgid "g"
+msgstr "G"
+
 #. [side]: type=Master at Arms
 #: Conquest_Asterisk/macros/sides.cfg:54
 #: Conquest_Asterisk/scenarios/AI_TEST_EUROPE.cfg:29
