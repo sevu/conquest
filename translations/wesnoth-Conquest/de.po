@@ -743,6 +743,16 @@ msgid ""
 "Restoration of this $unit.name ($($unit.max_hitpoints-$unit.hitpoints) HP to "
 "restore) costs: \t  $restore_cost| gold\n"
 "\n"
+"WARNING: A restored unit’s moves will be reduced to 1."
+msgstr ""
+"Diese Einheit zu heilen ($($unit.max_hitpoints-$unit.hitpoints) LP zu heilen) kostet $restore_cost Gold.\n"
+"\n"
+"Achtung: die BP werden auf 1 reduziert."
+
+msgid ""
+"Restoration of this $unit.name ($($unit.max_hitpoints-$unit.hitpoints) HP to "
+"restore) costs: \t  $restore_cost| gold\n"
+"\n"
 "Recruit of this unit type would cost $restore| gold.\n"
 "\n"
 "WARNING: A restored unit's moves will be reduced to 1."
@@ -886,6 +896,12 @@ msgstr "Boot"
 msgid "Outrigger"
 msgstr "Ausleger"
 
+msgid "Longboat"
+msgstr "Langboot"
+
+msgid "Ramboat"
+msgstr "Rammschiff"
+
 #. [option]
 #. [unit]: type=Boat
 #. 10 gold boat
@@ -902,6 +918,9 @@ msgstr "Karavelle"
 msgid "Galleon"
 msgstr "Galeone"
 
+msgid "Transport Ship"
+msgstr "Transportschiff"
+
 #. [option]
 #. [unit]: type=Pirate Galleon
 #. 15 gold assassination boat
@@ -909,6 +928,9 @@ msgstr "Galeone"
 #: Conquest_Asterisk/macros/unit_events.cfg:443
 msgid "Pirate Galleon"
 msgstr "Piratengaleone"
+
+msgid "Pirate Ship"
+msgstr "Piratenschiff"
 
 #. [option]
 #: Conquest_Asterisk/macros/unit_boats.cfg:108
@@ -1223,6 +1245,9 @@ msgstr ""
 
 #. [multiplayer]: id=Conquest_Archipelago
 #: Conquest_Asterisk/scenarios/Archipelago.cfg:11
+msgid "Map from r.wesnoth.org/p468490"
+msgstr "Karte von r.wesnoth.org/p468490"
+
 msgid "Map from https://r.wesnoth.org/p468490"
 msgstr "Karte von https://r.wesnoth.org/p468490"
 
