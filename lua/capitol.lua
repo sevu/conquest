@@ -189,7 +189,7 @@ for d=enemy_distance,4,-1 do
 						local took_villages = {}
 
 						-- Safety check for random function.
-						if #all_villages_left >= 1 then
+						if #all_villages_left >= 3 then
 							-- Spawn 1 village.
 							local random_villa = mathx.random(1, #all_villages_left)
 							local villa = all_villages_left[random_villa]
