@@ -182,32 +182,33 @@ for d=enemy_distance,4,-1 do
 				table.insert(filter, addition)
 
 				-- Loop with up to 5 tries.
-				for n=1,5,1 do
-					if break_random_villa_cycle == false then
+				if all_villages_left[3] then
+					local n = 0
+					while all_villages_left[1] and n < 5 do
+						n = n + 1
 
 						-- This variable is for tunnels and reset always.
 						local took_villages = {}
 
-						-- Safety check for random function.
-						if #all_villages_left >= 3 then
 							-- Spawn 1 village.
 							local random_villa = mathx.random(1, #all_villages_left)
-							local villa = all_villages_left[random_villa]
+							local villa = table.remove(all_villages_left, random_villa)
+
 							table.insert(took_villages, { x = villa.x, y = villa.y })
 							wml.variables.ce_spawn = { side = current_side, x = villa.x, y = villa.y }
 							wesnoth.game_events.fire('ce_spawn_1g_militia')
 							wml.variables.ce_spawn = nil
 
 							-- Next two villages next to current side.
-							local all_friendly_villages = wesnoth.map.find(filter)
+							local nearby_villages = wesnoth.map.find(filter)
 
 							-- Place next 2 villages for the same side.
-							if #all_friendly_villages > 1 then
+							if nearby_villages[2] then
 								break_random_villa_cycle = true
-								mathx.shuffle(all_friendly_villages)
-								local secondary_village_counter = 0
-								for f, villa in ipairs(all_friendly_villages) do
-									if secondary_village_counter < 2 then
+
+								mathx.shuffle(nearby_villages)
+								for f, villa in ipairs(nearby_villages) do
+									if f <= 2 then
 										table.insert(took_villages, { x = villa.x, y = villa.y })
 										wml.variables.ce_spawn = { side = current_side, x = villa.x, y = villa.y }
 										wesnoth.game_events.fire('ce_spawn_1g_militia')
@@ -215,7 +216,6 @@ for d=enemy_distance,4,-1 do
 									else
 										break
 									end
-									secondary_village_counter = secondary_village_counter + 1
 								end
 
 								if sides_counter == #all_sides then
@@ -243,11 +243,14 @@ for d=enemy_distance,4,-1 do
 								table.insert(taken_villages, took_villages[2])
 								table.insert(taken_villages, took_villages[3])
 
+								-- Found all three villages.
+								break
+
 							else
-								-- There are not 2 villages left fullfilling the two distance conditions.
-								if n < 5 then
+								-- There are not 2 villages left fulfilling the two distance conditions.
+								if all_villages_left[1] then
 									wesnoth.interface.delay(1)
-									wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Retrying side $n placement'..' ($x/5)',{n=current_side, x=n+1}))
+									wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Retrying side $n placement'..' ($x)', { n=current_side, x=n+1 }))
 								end
 
 								-- Remove the already placed 1st village. Re-enter the loop afterwards.
@@ -256,19 +259,11 @@ for d=enemy_distance,4,-1 do
 								first_unit:erase()
 							end
 
-						else
-							-- Did not find a first village. Re-enter the loop.
-							if n < 5 then
-								wesnoth.interface.delay(1)
-								wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Retrying side $n placement'..' ($x/5)',{n=current_side, x=n+1}))
-							end
-						end
-
 					end
 				end
 
 				if break_random_villa_cycle == false then
-					-- Failed all 5 tries to place this side. Abort.
+					-- Failed to place this side several times. Abort.
 					wesnoth.interface.delay(1)
 					wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Placing side $n failed', {n=current_side}))
 
@@ -277,6 +272,8 @@ for d=enemy_distance,4,-1 do
 						wesnoth.map.set_owner({ u.x, u.y }, 0)
 						u:erase()
 					end
+
+					-- Abort placing the next side, retry with new attempt.
 					break
 				end
 			end
