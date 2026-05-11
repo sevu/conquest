@@ -190,74 +190,74 @@ for d=enemy_distance,4,-1 do
 						-- This variable is for tunnels and reset always.
 						local took_villages = {}
 
-							-- Spawn 1 village.
-							local random_villa = mathx.random(1, #all_villages_left)
-							local villa = table.remove(all_villages_left, random_villa)
+						-- Spawn 1 village.
+						local random_villa = mathx.random(1, #all_villages_left)
+						local villa = table.remove(all_villages_left, random_villa)
 
-							table.insert(took_villages, { x = villa.x, y = villa.y })
-							wml.variables.ce_spawn = { side = current_side, x = villa.x, y = villa.y }
-							wesnoth.game_events.fire('ce_spawn_1g_militia')
-							wml.variables.ce_spawn = nil
+						table.insert(took_villages, { x = villa.x, y = villa.y })
+						wml.variables.ce_spawn = { side = current_side, x = villa.x, y = villa.y }
+						wesnoth.game_events.fire('ce_spawn_1g_militia')
+						wml.variables.ce_spawn = nil
 
-							-- Next two villages next to current side.
-							local nearby_villages = wesnoth.map.find(filter)
+						-- Next two villages next to current side.
+						local nearby_villages = wesnoth.map.find(filter)
 
-							-- Place next 2 villages for the same side.
-							if nearby_villages[2] then
-								break_random_villa_cycle = true
+						-- Place next 2 villages for the same side.
+						if nearby_villages[2] then
+							break_random_villa_cycle = true
 
-								mathx.shuffle(nearby_villages)
-								for f, villa in ipairs(nearby_villages) do
-									if f <= 2 then
-										table.insert(took_villages, { x = villa.x, y = villa.y })
-										wml.variables.ce_spawn = { side = current_side, x = villa.x, y = villa.y }
-										wesnoth.game_events.fire('ce_spawn_1g_militia')
-										wml.variables.ce_spawn = nil
-									else
-										break
-									end
+							mathx.shuffle(nearby_villages)
+							for f, villa in ipairs(nearby_villages) do
+								if f <= 2 then
+									table.insert(took_villages, { x = villa.x, y = villa.y })
+									wml.variables.ce_spawn = { side = current_side, x = villa.x, y = villa.y }
+									wesnoth.game_events.fire('ce_spawn_1g_militia')
+									wml.variables.ce_spawn = nil
+								else
+									break
 								end
-
-								if sides_counter == #all_sides then
-									-- All sides placed successfully.
-
-									local viewer, vision = wesnoth.interface.get_viewing_side()
-									local p = wesnoth.units.find_on_map{ side = viewer, canrecruit = false }
-
-									local bounding_box_x = (math.min(p[1].x, p[2].x, p[3].x) + math.max(p[1].x, p[2].x, p[3].x)) / 2
-									local bounding_box_y = (math.min(p[1].y, p[2].y, p[3].y) + math.max(p[1].y, p[2].y, p[3].y)) / 2
-
-									local viewer_x = math.ceil(bounding_box_x)
-									local viewer_y = math.ceil(bounding_box_y)
-
-									-- Updates vision of own units for side who didn't start their turn already now.
-									wesnoth.wml_actions.redraw{ clear_shroud = true }
-
-									-- Scroll to the units of the first side which you control.
-									wesnoth.interface.scroll_to_hex(viewer_x, viewer_y)
-
-									return
-								end
-
-								table.insert(taken_villages, took_villages[1])
-								table.insert(taken_villages, took_villages[2])
-								table.insert(taken_villages, took_villages[3])
-
-								-- Found all three villages.
-								break
-
-							else
-								-- There are not 2 villages left fulfilling the two distance conditions.
-								if all_villages_left[1] then
-									wesnoth.interface.delay(1)
-									wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Retrying side $n placement'..' ($x)', { n=current_side, x=n+1 }))
-								end
-
-								-- Remove the already placed 1st village. Re-enter the loop afterwards.
-								local first_unit = wesnoth.units.find_on_map{ side=current_side, canrecruit = false }[1]
-								wesnoth.map.set_owner({ first_unit.x, first_unit.y }, 0)
-								first_unit:erase()
 							end
+
+							if sides_counter == #all_sides then
+								-- All sides placed successfully.
+
+								local viewer, vision = wesnoth.interface.get_viewing_side()
+								local p = wesnoth.units.find_on_map{ side = viewer, canrecruit = false }
+
+								local bounding_box_x = (math.min(p[1].x, p[2].x, p[3].x) + math.max(p[1].x, p[2].x, p[3].x)) / 2
+								local bounding_box_y = (math.min(p[1].y, p[2].y, p[3].y) + math.max(p[1].y, p[2].y, p[3].y)) / 2
+
+								local viewer_x = math.ceil(bounding_box_x)
+								local viewer_y = math.ceil(bounding_box_y)
+
+								-- Updates vision of own units for side who didn't start their turn already now.
+								wesnoth.wml_actions.redraw{ clear_shroud = true }
+
+								-- Scroll to the units of the first side which you control.
+								wesnoth.interface.scroll_to_hex(viewer_x, viewer_y)
+
+								return
+							end
+
+							table.insert(taken_villages, took_villages[1])
+							table.insert(taken_villages, took_villages[2])
+							table.insert(taken_villages, took_villages[3])
+
+							-- Found all three villages.
+							break
+
+						else
+							-- There are not 2 villages left fulfiling the two distance conditions.
+							if all_villages_left[1] then
+								wesnoth.interface.delay(1)
+								wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Retrying side $n placement'..' ($x)', { n=current_side, x=n+1 }))
+							end
+
+							-- Remove the already placed 1st village. Re-enter the loop afterwards.
+							local first_unit = wesnoth.units.find_on_map{ side=current_side, canrecruit = false }[1]
+							wesnoth.map.set_owner({ first_unit.x, first_unit.y }, 0)
+							first_unit:erase()
+						end
 
 					end
 				end
