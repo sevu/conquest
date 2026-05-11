@@ -573,6 +573,9 @@ msgstr "KI Bonus:"
 msgid "Neutral units:"
 msgstr "Neutrale Einheiten:"
 
+msgid "Neutrals grow stronger in turn"
+msgstr "Neutrale Einheiten werden stärker in Runde"
+
 #. [checkbox]: id=CE_SYSTEM.Experimental_AI_Enabled
 #. a setting which can be changed when creating the game
 #: Conquest_Asterisk/macros/options.cfg:170
