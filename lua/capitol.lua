@@ -181,10 +181,14 @@ for d=enemy_distance,4,-1 do
 				}
 				table.insert(filter, addition)
 
+
+
 				-- Loop with up to 5 tries.
-				if all_villages_left[3] then
+				local players_left = #all_sides-sides_counter+1
+				if all_villages_left[3 * players_left] then
 					local n = 0
-					while all_villages_left[1] and n < 5 do
+					-- The condition for max n times can be removed.
+					while all_villages_left[1 * players_left] and n < 5 do
 						n = n + 1
 
 						-- This variable is for tunnels and reset always.
@@ -248,7 +252,7 @@ for d=enemy_distance,4,-1 do
 
 						else
 							-- There are not 2 villages left fulfiling the two distance conditions.
-							if all_villages_left[1] then
+							if all_villages_left[1 * players_left] then
 								wesnoth.interface.delay(1)
 								wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Retrying side $n placement'..' ($x)', { n=current_side, x=n+1 }))
 							end
