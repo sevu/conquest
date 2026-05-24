@@ -191,6 +191,11 @@ for d=enemy_distance,4,-1 do
 					while all_villages_left[1 * players_left] and n < 5 do
 						n = n + 1
 
+						if n > 1 then
+							wesnoth.interface.delay(1)
+							wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Retrying side $n placement'..' ($x)', { n=current_side, x=n }))
+						end
+
 						-- This variable is for tunnels and reset always.
 						local took_villages = {}
 
@@ -252,10 +257,6 @@ for d=enemy_distance,4,-1 do
 
 						else
 							-- There are not 2 villages left fulfiling the two distance conditions.
-							if all_villages_left[1 * players_left] then
-								wesnoth.interface.delay(1)
-								wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Retrying side $n placement'..' ($x)', { n=current_side, x=n+1 }))
-							end
 
 							-- Remove the already placed 1st village. Re-enter the loop afterwards.
 							local first_unit = wesnoth.units.find_on_map{ side=current_side, canrecruit = false }[1]
