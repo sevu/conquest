@@ -6,25 +6,26 @@ local friendly_distance = wml.variables['CE_SYSTEM.max_distance'] or 8
 local enemy_distance = wml.variables['CE_SYSTEM.min_distance'] or 12
 local number_of_attempts = wml.variables['CE_SYSTEM.number_of_attempts'] or 1
 
-local function tunnel_distance_check(tunnel_exit, other_exit, distance_setting, taken_vils)
+
+local function tunnel_distance_check(tunnel_exit, other_exit, taken_vils, distance_long, distance_start)
 	-- This function is used to take the teleport tunnels into account
-	-- for the minimum distance between two player spawns
+	-- for the minimum distance between two player spawns.
 	--
-	-- If a taken village is close to a tunnel, it returns a filter
-	-- to exclude fields near the other tunnel exit.
+	-- If one of the villages taken by other players is close to a tunnel,
+	-- it returns a filter to exclude fields near the other tunnel exit.
+	distance_start = distance_start or distance_long
+	local filter_addition = nil
+	local distance_reduced = distance_start
 
-	local filter_addition  = nil
-	local distance_reduced = distance_setting
-
-	for k,vil in ipairs(taken_vils) do
-		local distance_tunnel = wesnoth.map.distance_between(vil, tunnel_exit)
-		distance_reduced = math.min(distance_tunnel, distance_reduced)
+	for i,vil in ipairs(taken_vils) do
+		local distance_to_vil = wesnoth.map.distance_between(vil, tunnel_exit)
+		distance_reduced = math.min(distance_to_vil, distance_reduced)
 	end
 
 	-- If there is a player close to the tunnel, add an exlusion for the other tunnel exit.
 	-- (One for this side is not needed, as it is already excluded by the presence of that player.)
-	if distance_reduced < distance_setting then
-		filter_addition = { 'not', { x = other_exit.x, y = other_exit.y, radius = distance_setting - distance_reduced } }
+	if distance_reduced < distance_start then
+		filter_addition = wml.tag['not'] { x = other_exit.x, y = other_exit.y, radius = distance_long - distance_reduced }
 	end
 
 	return filter_addition, distance_reduced
@@ -139,17 +140,17 @@ for d=enemy_distance,4,-1 do
 				-- If option is activated and the Lua variable tunnels was defined by the scenario.
 				if wml.variables.teleports and rawget(_G, 'tunnels') then
 
-					for k,tunnel_end in ipairs(tunnels) do
+					for i,tunnel_end in ipairs(tunnels) do
 						local t
 
 						-- Look if a player is close to the tunnel.
-						addition, t = tunnel_distance_check( tunnel_end[1], tunnel_end[2], d, taken_villages)
+						addition, t = tunnel_distance_check( tunnel_end[1], tunnel_end[2], taken_villages, d)
 						if addition then
 							table.insert(filter, addition)
 						end
 
 						-- Same for the other exit, but with reduced distance.
-						addition, t = tunnel_distance_check( tunnel_end[2], tunnel_end[1], t, taken_villages)
+						addition, t = tunnel_distance_check( tunnel_end[2], tunnel_end[1], taken_villages, d, t)
 						if addition then
 							table.insert(filter, addition)
 						end
