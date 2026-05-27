@@ -824,6 +824,9 @@ msgstr "Team 6"
 msgid "Neutral"
 msgstr "Neutral"
 
+msgid "Extra-Player"
+msgstr "Extra-Spieler"
+
 msgid "Extra-Player 1"
 msgstr "Extra-Spieler 1"
 
@@ -1335,6 +1338,10 @@ msgstr ""
 #: Conquest_Asterisk/scenarios/Crusades.cfg:12
 msgid "Map by Mabuse – modified by enclave, ported by Shiki"
 msgstr "Karte von Mabuse – von enclave angepasst, von Shiki portiert"
+
+#. realm region
+msgid "ISLANDS"
+msgstr "INSELN"
 
 #. [multiplayer]: id=Conquest_Dative
 #: Conquest_Asterisk/scenarios/Dative.cfg:5
