@@ -62,8 +62,7 @@ for d=enemy_distance,4,-1 do
 
 		local all_sides = wesnoth.sides.find{ wml.tag.has_unit { canrecruit = true } }
 
-		-- Only tracking the taken villages to use this variables if this map has tunnels.
-		local taken_villages
+		local taken_villages = {}
 
 		for sides_counter,s in ipairs(all_sides) do
 			local break_random_villa_cycle = false
@@ -73,16 +72,11 @@ for d=enemy_distance,4,-1 do
 			--- for first side, spawn 1 militia in a random village on map
 			if sides_counter == 1 then
 
-				-- Initializing only for first player.
-				taken_villages = {}
-
 				-- Determine a random village.
 				local random_first_villa = mathx.random(1, #all_villages)
 				local villa = all_villages[random_first_villa]
 				table.insert(taken_villages, { x = villa.x, y = villa.y })
-				wml.variables.ce_spawn = { side = current_side, x = villa.x, y = villa.y }
-				wesnoth.game_events.fire('ce_spawn_1g_militia')
-				wml.variables.ce_spawn = nil
+				wesnoth.map.set_owner({ x = villa.x, y = villa.y }, current_side)
 
 				--- for first side store nearby villages in settings radius
 				--- and place 2 militia in randomly shuffled 2 of them
@@ -104,9 +98,7 @@ for d=enemy_distance,4,-1 do
 					for f, villa in ipairs(all_friendly_villages) do
 						if secondary_village_counter < 2 then
 							table.insert(taken_villages, { x = villa.x, y = villa.y })
-							wml.variables.ce_spawn = { side = current_side, x = villa.x, y = villa.y }
-							wesnoth.game_events.fire('ce_spawn_1g_militia')
-							wml.variables.ce_spawn = nil
+							wesnoth.map.set_owner({ x = villa.x, y = villa.y }, current_side)
 						else
 							break
 						end
@@ -115,9 +107,7 @@ for d=enemy_distance,4,-1 do
 
 				else
 					-- No other two villages are within max distance to first village. Abort.
-					local first_unit = wesnoth.units.find_on_map{ side=current_side, canrecruit = false }[1]
-					wesnoth.map.set_owner({ first_unit.x, first_unit.y }, 0)
-					first_unit:erase()
+					wesnoth.map.set_owner({ x = villa.x, y = villa.y }, 0)
 					break
 				end
 
@@ -205,9 +195,7 @@ for d=enemy_distance,4,-1 do
 						local villa = table.remove(all_villages_left, random_villa)
 
 						table.insert(took_villages, { x = villa.x, y = villa.y })
-						wml.variables.ce_spawn = { side = current_side, x = villa.x, y = villa.y }
-						wesnoth.game_events.fire('ce_spawn_1g_militia')
-						wml.variables.ce_spawn = nil
+						wesnoth.map.set_owner({ x = villa.x, y = villa.y }, current_side)
 
 						-- Next two villages next to current side.
 						local nearby_villages = wesnoth.map.find(filter)
@@ -220,16 +208,26 @@ for d=enemy_distance,4,-1 do
 							for f, villa in ipairs(nearby_villages) do
 								if f <= 2 then
 									table.insert(took_villages, { x = villa.x, y = villa.y })
-									wml.variables.ce_spawn = { side = current_side, x = villa.x, y = villa.y }
-									wesnoth.game_events.fire('ce_spawn_1g_militia')
-									wml.variables.ce_spawn = nil
+									wesnoth.map.set_owner({ x = villa.x, y = villa.y }, current_side)
 								else
 									break
 								end
 							end
 
+							table.insert(taken_villages, took_villages[1])
+							table.insert(taken_villages, took_villages[2])
+							table.insert(taken_villages, took_villages[3])
+
 							if sides_counter == #all_sides then
 								-- All sides placed successfully.
+
+								-- Place units
+								for i,loc in ipairs(taken_villages) do
+									local owner = wesnoth.map.get_owner(loc)
+									wml.variables.ce_spawn = { side = owner, x = loc.x, y = loc.y }
+									wesnoth.game_events.fire('ce_spawn_1g_militia')
+									wml.variables.ce_spawn = nil
+								end
 
 								local viewer, vision = wesnoth.interface.get_viewing_side()
 								local p = wesnoth.units.find_on_map{ side = viewer, canrecruit = false }
@@ -249,10 +247,6 @@ for d=enemy_distance,4,-1 do
 								return
 							end
 
-							table.insert(taken_villages, took_villages[1])
-							table.insert(taken_villages, took_villages[2])
-							table.insert(taken_villages, took_villages[3])
-
 							-- Found all three villages.
 							break
 
@@ -260,9 +254,7 @@ for d=enemy_distance,4,-1 do
 							-- There are not 2 villages left fulfiling the two distance conditions.
 
 							-- Remove the already placed 1st village. Re-enter the loop afterwards.
-							local first_unit = wesnoth.units.find_on_map{ side=current_side, canrecruit = false }[1]
-							wesnoth.map.set_owner({ first_unit.x, first_unit.y }, 0)
-							first_unit:erase()
+							wesnoth.map.set_owner({ x = villa.x, y = villa.y }, 0)
 						end
 
 					end
@@ -273,10 +265,9 @@ for d=enemy_distance,4,-1 do
 					wesnoth.interface.delay(1)
 					wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Placing side $n failed', {n=current_side}))
 
-					-- Remove all units and start from scratch.
-					for l, u in ipairs(wesnoth.units.find_on_map{ canrecruit = false }) do
-						wesnoth.map.set_owner({ u.x, u.y }, 0)
-						u:erase()
+					-- Reset all villages and start from scratch.
+					for l, v in ipairs( taken_villages ) do
+						wesnoth.map.set_owner({ x = v.x, y = v.y }, 0)
 					end
 
 					-- Abort placing the next side, retry with new attempt.
