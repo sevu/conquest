@@ -1,125 +1,126 @@
 -- << Magic marker. For Lua it's a comment, for the WML preprocessor an opening quotation sign.
 
-local _ = wesnoth.textdomain 'wesnoth-Conquest'
-local all_villages = wesnoth.map.find{ gives_income = true }
-local all_sides = wesnoth.sides.find{ wml.tag.has_unit { canrecruit = true } }
-local friendly_distance = wml.variables['CE_SYSTEM.max_distance'] or 8
-local enemy_distance = wml.variables['CE_SYSTEM.min_distance'] or 12
-local number_of_attempts = wml.variables['CE_SYSTEM.number_of_attempts'] or 1
+function capitol()
+	local _ = wesnoth.textdomain 'wesnoth-Conquest'
+	local all_villages = wesnoth.map.find{ gives_income = true }
+	local all_sides = wesnoth.sides.find{ wml.tag.has_unit { canrecruit = true } }
+	local friendly_distance = wml.variables['CE_SYSTEM.max_distance'] or 8
+	local enemy_distance = wml.variables['CE_SYSTEM.min_distance'] or 12
+	local number_of_attempts = wml.variables['CE_SYSTEM.number_of_attempts'] or 1
 
 
-local function tunnel_distance_check(tunnel_exit, other_exit, taken_vils, distance_long, distance_start)
-	-- This function is used to take the teleport tunnels into account
-	-- for the minimum distance between two player spawns.
-	--
-	-- If one of the villages taken by other players is close to a tunnel,
-	-- it returns a filter to exclude fields near the other tunnel exit.
-	distance_start = distance_start or distance_long
-	local filter_addition = nil
-	local distance_reduced = distance_start
+	local function tunnel_distance_check(tunnel_exit, other_exit, taken_vils, distance_long, distance_start)
+		-- This function is used to take the teleport tunnels into account
+		-- for the minimum distance between two player spawns.
+		--
+		-- If one of the villages taken by other players is close to a tunnel,
+		-- it returns a filter to exclude fields near the other tunnel exit.
+		distance_start = distance_start or distance_long
+		local filter_addition = nil
+		local distance_reduced = distance_start
 
-	for i,vil in ipairs(taken_vils) do
-		local distance_to_vil = wesnoth.map.distance_between(vil, tunnel_exit)
-		distance_reduced = math.min(distance_to_vil, distance_reduced)
-	end
-
-	-- If there is a player close to the tunnel, add an exlusion for the other tunnel exit.
-	-- (One for this side is not needed, as it is already excluded by the presence of that player.)
-	if distance_reduced < distance_start then
-		filter_addition = wml.tag['not'] { x = other_exit.x, y = other_exit.y, radius = distance_long - distance_reduced }
-	end
-
-	return filter_addition, distance_reduced
-end
-
-
--- Saftey check, in case map generation went wrong and there are no villages.
-if #all_villages == 0 then return end
-
--- Loop to retry with lower distance to other players.
-for d=enemy_distance,4,-1 do
-
-	-- Set number_of_attempts depending on current distance.
-	-- When the currently used distance is high, it is fine do use a smaller distance on the next try.
-	-- If the distance is small, a retry with the same distance might be nice.
-	-- On very low distance, we use many retries, to handle randomly generated maps with very many villages on small space.
-	-- Using math.max to allow overriding number_of_attempts with higher numbers from scenario variable.
-	if d <= 5 then
-		number_of_attempts = math.max(number_of_attempts, 10)
-	elseif d <= 6 then
-		number_of_attempts = math.max(number_of_attempts, 3)
-	elseif d <= 10 then
-		number_of_attempts = math.max(number_of_attempts, 2)
-	end
-
-	-- Loop to retry with same settings.
-	for attempt=1,number_of_attempts,1 do
-		wesnoth.interface.delay(1)
-		if attempt == 1 then
-			wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Distance $d', {d=d}))
-		else
-			wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Distance $d, Attempt $k', {d=d, k=attempt}))
+		for i,vil in ipairs(taken_vils) do
+			local distance_to_vil = wesnoth.map.distance_between(vil, tunnel_exit)
+			distance_reduced = math.min(distance_to_vil, distance_reduced)
 		end
 
-		local taken_villages = {}
+		-- If there is a player close to the tunnel, add an exlusion for the other tunnel exit.
+		-- (One for this side is not needed, as it is already excluded by the presence of that player.)
+		if distance_reduced < distance_start then
+			filter_addition = wml.tag['not'] { x = other_exit.x, y = other_exit.y, radius = distance_long - distance_reduced }
+		end
 
-		for sides_counter,s in ipairs(all_sides) do
-			local break_random_villa_cycle = false
-			local current_side = s.side
-			local all_villages_left, filter, addition
+		return filter_addition, distance_reduced
+	end
 
-			if sides_counter == 1 then
-				-- Already know the villages for first side.
-				all_villages_left = all_villages
-				filter = { gives_income = true, owner_side = 0 }
+
+	-- Saftey check, in case map generation went wrong and there are no villages.
+	if #all_villages == 0 then return end
+
+	-- Loop to retry with lower distance to other players.
+	for d=enemy_distance,4,-1 do
+
+		-- Set number_of_attempts depending on current distance.
+		-- When the currently used distance is high, it is fine do use a smaller distance on the next try.
+		-- If the distance is small, a retry with the same distance might be nice.
+		-- On very low distance, we use many retries, to handle randomly generated maps with very many villages on small space.
+		-- Using math.max to allow overriding number_of_attempts with higher numbers from scenario variable.
+		if d <= 5 then
+			number_of_attempts = math.max(number_of_attempts, 10)
+		elseif d <= 6 then
+			number_of_attempts = math.max(number_of_attempts, 3)
+		elseif d <= 10 then
+			number_of_attempts = math.max(number_of_attempts, 2)
+		end
+
+		-- Loop to retry with same settings.
+		for attempt=1,number_of_attempts,1 do
+			wesnoth.interface.delay(1)
+			if attempt == 1 then
+				wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Distance $d', {d=d}))
 			else
-				-- To get all_villages_left for other players, it uses a
-				-- filter to take distance and teleports into account.
-				-- And need to prepare a similar filter for the later villages too.
+				wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Distance $d, Attempt $k', {d=d, k=attempt}))
+			end
 
-				-- This filter gets all villages, except the ones being in a radius around player villages.
-				filter = {
-					gives_income = true,
-					owner_side = 0,
-					wml.tag['not'] {
+			local taken_villages = {}
+
+			for sides_counter,s in ipairs(all_sides) do
+				local break_random_villa_cycle = false
+				local current_side = s.side
+				local all_villages_left, filter, addition
+
+				if sides_counter == 1 then
+					-- Already know the villages for first side.
+					all_villages_left = all_villages
+					filter = { gives_income = true, owner_side = 0 }
+				else
+					-- To get all_villages_left for other players, it uses a
+					-- filter to take distance and teleports into account.
+					-- And need to prepare a similar filter for the later villages too.
+
+					-- This filter gets all villages, except the ones being in a radius around player villages.
+					filter = {
 						gives_income = true,
+						owner_side = 0,
+						wml.tag['not'] {
+							gives_income = true,
+							wml.tag['not'] { owner_side = 0 },
+							radius = d
+						}
+					}
+
+					-- If option is activated and the Lua variable tunnels was defined by the scenario.
+					if wml.variables.teleports and rawget(_G, 'tunnels') then
+
+						for i,tunnel_end in ipairs(tunnels) do
+							local t
+
+							-- Look if a player is close to the tunnel.
+							addition, t = tunnel_distance_check( tunnel_end[1], tunnel_end[2], taken_villages, d)
+							if addition then
+								table.insert(filter, addition)
+							end
+
+							-- Same for the other exit, but with reduced distance.
+							addition, t = tunnel_distance_check( tunnel_end[2], tunnel_end[1], taken_villages, d, t)
+							if addition then
+								table.insert(filter, addition)
+							end
+						end
+
+					end
+
+					-- Get the candidates for first village by using the filter.
+					all_villages_left = wesnoth.map.find(filter)
+
+					-- Replace first sub-tag with a similar condition, which ist not excluding current side.
+					filter[1] = wml.tag['not'] {
+						gives_income = true,
+						wml.tag['not'] { owner_side = current_side },
 						wml.tag['not'] { owner_side = 0 },
 						radius = d
 					}
-				}
-
-				-- If option is activated and the Lua variable tunnels was defined by the scenario.
-				if wml.variables.teleports and rawget(_G, 'tunnels') then
-
-					for i,tunnel_end in ipairs(tunnels) do
-						local t
-
-						-- Look if a player is close to the tunnel.
-						addition, t = tunnel_distance_check( tunnel_end[1], tunnel_end[2], taken_villages, d)
-						if addition then
-							table.insert(filter, addition)
-						end
-
-						-- Same for the other exit, but with reduced distance.
-						addition, t = tunnel_distance_check( tunnel_end[2], tunnel_end[1], taken_villages, d, t)
-						if addition then
-							table.insert(filter, addition)
-						end
-					end
-
 				end
-
-				-- Get the candidates for first village by using the filter.
-				all_villages_left = wesnoth.map.find(filter)
-
-				-- Replace first sub-tag with a similar condition, which ist not excluding current side.
-				filter[1] = wml.tag['not'] {
-					gives_income = true,
-					wml.tag['not'] { owner_side = current_side },
-					wml.tag['not'] { owner_side = 0 },
-					radius = d
-				}
-			end
 
 				-- Villages should be next to first one given to this side.
 				addition = wml.tag['and'] {
@@ -229,12 +230,12 @@ for d=enemy_distance,4,-1 do
 					break
 				end
 
+			end
+
 		end
-
 	end
+
+	wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Failed to alocate starting postions for all sides! Restart the game. For random maps, it helps to use a bigger map. Distance to own villages was set to $max|.', { max = friendly_distance } ))
 end
-
-
-wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Failed to alocate starting postions for all sides! Restart the game. For random maps, it helps to use a bigger map. Distance to own villages was set to $max|.', { max = friendly_distance } ))
 
 -- Magic marker. For Lua it's a comment, for the WML preprocessor a closing quotation sign. >>
