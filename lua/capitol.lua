@@ -2,6 +2,7 @@
 
 local _ = wesnoth.textdomain 'wesnoth-Conquest'
 local all_villages = wesnoth.map.find{ gives_income = true }
+local all_sides = wesnoth.sides.find{ wml.tag.has_unit { canrecruit = true } }
 local friendly_distance = wml.variables['CE_SYSTEM.max_distance'] or 8
 local enemy_distance = wml.variables['CE_SYSTEM.min_distance'] or 12
 local number_of_attempts = wml.variables['CE_SYSTEM.number_of_attempts'] or 1
@@ -31,6 +32,7 @@ local function tunnel_distance_check(tunnel_exit, other_exit, taken_vils, distan
 	return filter_addition, distance_reduced
 end
 
+
 -- Saftey check, in case map generation went wrong and there are no villages.
 if #all_villages == 0 then return end
 
@@ -59,65 +61,24 @@ for d=enemy_distance,4,-1 do
 			wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Distance $d, Attempt $k', {d=d, k=attempt}))
 		end
 
-
-		local all_sides = wesnoth.sides.find{ wml.tag.has_unit { canrecruit = true } }
-
 		local taken_villages = {}
 
 		for sides_counter,s in ipairs(all_sides) do
 			local break_random_villa_cycle = false
 			local current_side = s.side
+			local all_villages_left, filter, addition
 
-			-- Special handling for first side.
-			--- for first side, spawn 1 militia in a random village on map
 			if sides_counter == 1 then
-
-				-- Determine a random village.
-				local random_first_villa = mathx.random(1, #all_villages)
-				local villa = all_villages[random_first_villa]
-				table.insert(taken_villages, { x = villa.x, y = villa.y })
-				wesnoth.map.set_owner({ x = villa.x, y = villa.y }, current_side)
-
-				--- for first side store nearby villages in settings radius
-				--- and place 2 militia in randomly shuffled 2 of them
-				local all_friendly_villages = wesnoth.map.find{
-					gives_income = true,
-					owner_side = 0,
-					wml.tag['and'] {
-						gives_income = true,
-						owner_side=current_side,
-						radius=friendly_distance
-					}
-				}
-
-				-- Choose 2nd and 3rd village village.
-				if #all_friendly_villages > 1 then
-					mathx.shuffle(all_friendly_villages)
-					local secondary_village_counter = 0
-
-					for f, villa in ipairs(all_friendly_villages) do
-						if secondary_village_counter < 2 then
-							table.insert(taken_villages, { x = villa.x, y = villa.y })
-							wesnoth.map.set_owner({ x = villa.x, y = villa.y }, current_side)
-						else
-							break
-						end
-						secondary_village_counter = secondary_village_counter + 1
-					end
-
-				else
-					-- No other two villages are within max distance to first village. Abort.
-					wesnoth.map.set_owner({ x = villa.x, y = villa.y }, 0)
-					break
-				end
-
-			-- If it is not the first side. Same code in a loop, extra check for teleport maps.
+				-- Already know the villages for first side.
+				all_villages_left = all_villages
+				filter = { gives_income = true, owner_side = 0 }
 			else
-				---try if you can put next side with specified distances..
+				-- To get all_villages_left for other players, it uses a
+				-- filter to take distance and teleports into account.
+				-- And need to prepare a similar filter for the later villages too.
 
 				-- This filter gets all villages, except the ones being in a radius around player villages.
-				local addition
-				local filter = {
+				filter = {
 					gives_income = true,
 					owner_side = 0,
 					wml.tag['not'] {
@@ -149,20 +110,16 @@ for d=enemy_distance,4,-1 do
 				end
 
 				-- Get the candidates for first village by using the filter.
-				local all_villages_left = wesnoth.map.find(filter)
+				all_villages_left = wesnoth.map.find(filter)
 
-
-				-- Remove first condition, add new ones below.
-				table.remove(filter, 1)
-
-				-- Like the removed condition, but not excluding current side.
-				addition = wml.tag['not'] {
+				-- Replace first condition, with similar one which ist not excluding current side.
+				filter[1] = wml.tag['not'] {
 					gives_income = true,
 					wml.tag['not'] { owner_side = current_side },
 					wml.tag['not'] { owner_side = 0 },
 					radius = d
 				}
-				table.insert(filter, addition)
+			end
 
 				-- Villages should be next to first one given to this side.
 				addition = wml.tag['and'] {
@@ -273,7 +230,6 @@ for d=enemy_distance,4,-1 do
 					-- Abort placing the next side, retry with new attempt.
 					break
 				end
-			end
 
 		end
 
