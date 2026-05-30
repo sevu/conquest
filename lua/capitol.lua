@@ -112,7 +112,7 @@ for d=enemy_distance,4,-1 do
 				-- Get the candidates for first village by using the filter.
 				all_villages_left = wesnoth.map.find(filter)
 
-				-- Replace first condition, with similar one which ist not excluding current side.
+				-- Replace first sub-tag with a similar condition, which ist not excluding current side.
 				filter[1] = wml.tag['not'] {
 					gives_income = true,
 					wml.tag['not'] { owner_side = current_side },
@@ -135,23 +135,24 @@ for d=enemy_distance,4,-1 do
 				local players_left = #all_sides-sides_counter+1
 				if all_villages_left[3 * players_left] then
 					local n = 0
-					-- The condition for max n times can be removed.
+					-- The condition for max n times could be removed.
 					while all_villages_left[1 * players_left] and n < 5 do
 						n = n + 1
 
 						if n > 1 then
 							wesnoth.interface.delay(1)
-							wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Retrying side $n placement'..' ($x)', { n=current_side, x=n }))
+							wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Retrying side $n placement'..' – $x', { n=current_side, x=n }))
 						end
-
-						-- This variable is for tunnels and reset always.
-						local took_villages = {}
 
 						-- Spawn 1 village.
 						local random_villa = mathx.random(1, #all_villages_left)
-						local villa = table.remove(all_villages_left, random_villa)
-
-						table.insert(took_villages, { x = villa.x, y = villa.y })
+						local villa = all_villages_left[random_villa]
+						if sides_counter ~= 1 then
+							-- For the first side, this is pointing to the same object as all_villages.
+							-- And we want to reuse all_villages.
+							all_villages_left[random_villa] = all_villages_left[#all_villages_left]
+							all_villages_left[#all_villages_left] = nil
+						end
 						wesnoth.map.set_owner({ x = villa.x, y = villa.y }, current_side)
 
 						-- Next two villages next to current side.
@@ -159,26 +160,22 @@ for d=enemy_distance,4,-1 do
 
 						-- Place next 2 villages for the same side.
 						if nearby_villages[2] then
+							table.insert(taken_villages, { x = villa.x, y = villa.y })
 							break_random_villa_cycle = true
 
-							mathx.shuffle(nearby_villages)
-							for f, villa in ipairs(nearby_villages) do
-								if f <= 2 then
-									table.insert(took_villages, { x = villa.x, y = villa.y })
-									wesnoth.map.set_owner({ x = villa.x, y = villa.y }, current_side)
-								else
-									break
-								end
+							for f=1,2,1 do
+								random_villa = mathx.random(1, #nearby_villages)
+								villa = nearby_villages[random_villa]
+								nearby_villages[random_villa] = nearby_villages[#nearby_villages]
+								nearby_villages[#nearby_villages] = nil
+								wesnoth.map.set_owner({ x = villa.x, y = villa.y }, current_side)
+								table.insert(taken_villages, { x = villa.x, y = villa.y })
 							end
-
-							table.insert(taken_villages, took_villages[1])
-							table.insert(taken_villages, took_villages[2])
-							table.insert(taken_villages, took_villages[3])
 
 							if sides_counter == #all_sides then
 								-- All sides placed successfully.
 
-								-- Place units
+								-- Place units.
 								for i,loc in ipairs(taken_villages) do
 									local owner = wesnoth.map.get_owner(loc)
 									wml.variables.ce_spawn = { side = owner, x = loc.x, y = loc.y }
@@ -209,20 +206,21 @@ for d=enemy_distance,4,-1 do
 
 						else
 							-- There are not 2 villages left fulfiling the two distance conditions.
-
 							-- Remove the already placed 1st village. Re-enter the loop afterwards.
+							-- wesnoth.interface.add_chat_message('Conquest', _'Not enough nearby villages')
 							wesnoth.map.set_owner({ x = villa.x, y = villa.y }, 0)
 						end
-
 					end
+
+				-- else wesnoth.interface.add_chat_message('Conquest', _'Don’t even try')
 				end
 
-				if break_random_villa_cycle == false then
+				if not break_random_villa_cycle then
 					-- Failed to place this side several times. Abort.
 					wesnoth.interface.delay(1)
 					wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Placing side $n failed', {n=current_side}))
 
-					-- Reset all villages and start from scratch.
+					-- Reset villages of previous sides and start from scratch.
 					for l, v in ipairs( taken_villages ) do
 						wesnoth.map.set_owner({ x = v.x, y = v.y }, 0)
 					end
