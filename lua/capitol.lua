@@ -7,6 +7,7 @@ function capitol()
 	local friendly_distance = wml.variables['CE_SYSTEM.max_distance'] or 8
 	local enemy_distance = wml.variables['CE_SYSTEM.min_distance'] or 12
 	local number_of_attempts = wml.variables['CE_SYSTEM.number_of_attempts'] or 1
+	local castle_mode = wml.variables.castle_mode
 
 
 	local function tunnel_distance_check(tunnel_exit, other_exit, taken_vils, distance_long, distance_start)
@@ -154,50 +155,88 @@ function capitol()
 							all_villages_left[random_villa] = all_villages_left[#all_villages_left]
 							all_villages_left[#all_villages_left] = nil
 						end
-						wesnoth.map.set_owner({ x = villa.x, y = villa.y }, current_side)
+						wesnoth.map.set_owner(villa, current_side)
 
 						-- Next two villages next to current side.
 						local nearby_villages = wesnoth.map.find(filter)
 
 						-- Place next 2 villages for the same side.
 						if nearby_villages[2] then
-							table.insert(taken_villages, { x = villa.x, y = villa.y })
 							break_random_villa_cycle = true
+							table.insert(taken_villages, villa)
 
 							for f=1,2,1 do
 								random_villa = mathx.random(1, #nearby_villages)
 								villa = nearby_villages[random_villa]
 								nearby_villages[random_villa] = nearby_villages[#nearby_villages]
 								nearby_villages[#nearby_villages] = nil
-								wesnoth.map.set_owner({ x = villa.x, y = villa.y }, current_side)
-								table.insert(taken_villages, { x = villa.x, y = villa.y })
+								wesnoth.map.set_owner(villa, current_side)
+								table.insert(taken_villages, villa)
 							end
 
 							if sides_counter == #all_sides then
 								-- All sides placed successfully.
 
-								-- Place units.
+								local castle = {}
+								local bonus = 0
+
 								for i,loc in ipairs(taken_villages) do
 									local owner = wesnoth.map.get_owner(loc)
-									wml.variables.ce_spawn = { side = owner, x = loc.x, y = loc.y }
-									wesnoth.game_events.fire('ce_spawn_1g_militia')
-									wml.variables.ce_spawn = nil
+
+									-- Place units.
+									if not castle_mode then
+										wml.variables.ce_spawn = { side = owner, x = loc.x, y = loc.y }
+										wesnoth.game_events.fire('ce_spawn_1g_militia')
+										wml.variables.ce_spawn = nil
+
+									-- Place castle, leader, etc.
+									elseif not castle[owner] then
+										-- Only on first village.
+										castle[owner] = true
+										wesnoth.current.map.special_locations[owner] = loc
+
+										if rawget(_G, 'create_castle') then
+											create_castle(loc)
+										end
+
+										-- Move leader and remove leader object.
+										local u = wesnoth.units.find_on_map{ canrecruit = true, side = owner }[1]
+										u:remove_modifications()
+										u.status.petrified = nil
+										u.moves = 2
+										u:to_map(loc)
+
+										wesnoth.sides[owner].scroll_to_leader = true
+
+										-- Give higher starting gold than usual.
+										-- Each player a bit more.
+										-- 75, 80, 85, 90, 95, 100
+										-- Give a bonus if the player choose a lower level leader.
+										local l = (u.level < 3) and 10 or 0
+										wesnoth.sides[owner].gold = wesnoth.sides[owner].gold + 75 + bonus + l
+										bonus = bonus + 5
+									end
 								end
 
 								local viewer, vision = wesnoth.interface.get_viewing_side()
 								local p = wesnoth.units.find_on_map{ side = viewer, canrecruit = false }
-
-								local bounding_box_x = (math.min(p[1].x, p[2].x, p[3].x) + math.max(p[1].x, p[2].x, p[3].x)) / 2
-								local bounding_box_y = (math.min(p[1].y, p[2].y, p[3].y) + math.max(p[1].y, p[2].y, p[3].y)) / 2
-
-								local viewer_x = math.ceil(bounding_box_x)
-								local viewer_y = math.ceil(bounding_box_y)
+								local u = wesnoth.units.find_on_map{ side = viewer, canrecruit = true }[1]
 
 								-- Updates vision of own units for side who didn't start their turn already now.
 								wesnoth.wml_actions.redraw{ clear_shroud = true }
 
-								-- Scroll to the units of the first side which you control.
-								wesnoth.interface.scroll_to_hex(viewer_x, viewer_y)
+								if #p >= 3 then
+									local bounding_box_x = (math.min(p[1].x, p[2].x, p[3].x) + math.max(p[1].x, p[2].x, p[3].x)) / 2
+									local bounding_box_y = (math.min(p[1].y, p[2].y, p[3].y) + math.max(p[1].y, p[2].y, p[3].y)) / 2
+
+									local viewer_x = math.ceil(bounding_box_x)
+									local viewer_y = math.ceil(bounding_box_y)
+
+									-- Scroll to the units of the first side which you control.
+									wesnoth.interface.scroll_to_hex(viewer_x, viewer_y, false, false, true)
+								else
+									u:scroll_to(false, false, true)
+								end
 
 								return
 							end
@@ -209,7 +248,7 @@ function capitol()
 							-- There are not 2 villages left fulfiling the two distance conditions.
 							-- Remove the already placed 1st village. Re-enter the loop afterwards.
 							-- wesnoth.interface.add_chat_message('Conquest', _'Not enough nearby villages')
-							wesnoth.map.set_owner({ x = villa.x, y = villa.y }, 0)
+							wesnoth.map.set_owner(villa, 0)
 						end
 					end
 
@@ -222,8 +261,8 @@ function capitol()
 					wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Placing side $n failed', {n=current_side}))
 
 					-- Reset villages of previous sides and start from scratch.
-					for l, v in ipairs( taken_villages ) do
-						wesnoth.map.set_owner({ x = v.x, y = v.y }, 0)
+					for l, v in ipairs(taken_villages) do
+						wesnoth.map.set_owner(v, 0)
 					end
 
 					-- Abort placing the next side, retry with new attempt.
