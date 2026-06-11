@@ -8,6 +8,7 @@ function capitol()
 	local enemy_distance = wml.variables['CE_SYSTEM.min_distance'] or 12
 	local number_of_attempts = wml.variables['CE_SYSTEM.number_of_attempts'] or 1
 	local castle_mode = wml.variables.castle_mode
+	local existing_castles = wesnoth.scenario.id == 'Conquest_Wales'
 
 
 	local function tunnel_distance_check(tunnel_exit, other_exit, taken_vils, distance_long, distance_start)
@@ -37,6 +38,11 @@ function capitol()
 
 	-- Saftey check, in case map generation went wrong and there are no villages.
 	if #all_villages == 0 then return end
+
+	-- On this map, start on a village with keep.
+	if castle_mode and existing_castles then
+		all_villages = wesnoth.map.find{ terrain='K*^V*' }
+	end
 
 	-- Loop to retry with lower distance to other players.
 	for d=enemy_distance,4,-1 do
@@ -111,8 +117,18 @@ function capitol()
 
 					end
 
+					-- On this map, spawn onto the already available keeps.
+					if castle_mode and existing_castles then
+						filter.terrain = 'K*^V*'
+					end
+
 					-- Get the candidates for first village by using the filter.
 					all_villages_left = wesnoth.map.find(filter)
+
+					-- Only for the first village, the later don't have this condition.
+					if castle_mode and existing_castles then
+						filter.terrain = nil
+					end
 
 					-- Replace first sub-tag with a similar condition, which ist not excluding current side.
 					filter[1] = wml.tag['not'] {
@@ -135,16 +151,11 @@ function capitol()
 
 				-- Loop with up to 5 tries.
 				local players_left = #all_sides-sides_counter+1
-				if all_villages_left[3 * players_left] then
-					local n = 0
+				if all_villages_left[3 * players_left] or (castle_mode and existing_castles) then
+					local n = 1
 					-- The condition for max n times could be removed.
-					while all_villages_left[1 * players_left] and n < 5 do
+					while all_villages_left[1 * players_left] and n <= 5 do
 						n = n + 1
-
-						if n > 1 then
-							wesnoth.interface.delay(1)
-							wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Retrying side $n placement'..' – $x', { n=current_side, x=n }))
-						end
 
 						-- Spawn 1 village.
 						local random_villa = mathx.random(1, #all_villages_left)
@@ -182,6 +193,8 @@ function capitol()
 
 								for i,loc in ipairs(taken_villages) do
 									local owner = wesnoth.map.get_owner(loc)
+									local u = wesnoth.units.find_on_map{ canrecruit = true, side = owner }[1]
+									local icon = wml.tag.effect { apply_to = 'overlay', add = 'misc/leader-expendable.png' }
 
 									-- Place units.
 									if not castle_mode then
@@ -195,13 +208,13 @@ function capitol()
 										castle[owner] = true
 										wesnoth.current.map.special_locations[owner] = loc
 
-										if rawget(_G, 'create_castle') then
+										if not existing_castles then
 											create_castle(loc)
 										end
 
 										-- Move leader and remove leader object.
-										local u = wesnoth.units.find_on_map{ canrecruit = true, side = owner }[1]
 										u:remove_modifications()
+										u:add_modification('object', { icon })
 										u.status.petrified = nil
 										u.moves = 2
 										u:to_map(loc)
@@ -210,11 +223,20 @@ function capitol()
 
 										-- Give higher starting gold than usual.
 										-- Each player a bit more.
-										-- 75, 80, 85, 90, 95, 100
 										-- Give a bonus if the player choose a lower level leader.
 										local l = (u.level < 3) and 10 or 0
 										wesnoth.sides[owner].gold = wesnoth.sides[owner].gold + 75 + bonus + l
-										bonus = bonus + 5
+										bonus = bonus + 3
+
+									else
+										-- 2nd village in castle mode
+										local type = u.level < 3 and u.type or 'Duelist'
+										u = wesnoth.units.create{ type = type, random_gender = true, random_traits = false }
+										u:add_modification('object', { icon })
+										u.canrecruit = true
+										u.side = owner
+										u.moves = 2
+										u:to_map(loc)
 									end
 								end
 
