@@ -5,6 +5,7 @@ local spawns_theme = wml.variables['CE_SYSTEM.spawns_theme']
 if not spawns_theme and wml.variables.castle_mode then
 	-- Started from command line.
 	spawns_theme = 2
+	wml.variables['CE_SYSTEM.spawns_name'] = wesnoth.textdomain 'wesnoth-Conquest' 'None'
 elseif not spawns_theme or spawns_theme == 11 then
 	-- Randomly choosing a spawns theme.
 	if wml.variables['CE_SYSTEM.regions'] then
@@ -12,6 +13,9 @@ elseif not spawns_theme or spawns_theme == 11 then
 	else
 		spawns_theme = mathx.random_choice{ 1, 2, 7, 8, 9, 10 }
 	end
+elseif spawns_theme == 12 then
+	-- No spawns.
+	return
 end
 
 ---------------------------------------------------------------
