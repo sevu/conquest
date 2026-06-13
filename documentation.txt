@@ -31,9 +31,9 @@ Events, ordered by execution time:
 
 - prestart
   setting variable for enabling realm mode
-  lower gold by 25 down to 0 (in prestart so status table shows this changed value as initial value)
-  set_menu_item for recruit menus (previously in start)
-  set_menu_item for board/disembark boats (previously in prestart)
+  setting variable "spawns_name" to display spawns theme on objectives
+  lower gold by 5 down to 0 (in prestart so status table shows this changed value as initial value)
+  set_menu_item for board/disembark boats
   place village labels (previously in turn 1)
   adding objectives [priority=-1]
 
@@ -42,7 +42,6 @@ Events, ordered by execution time:
 
 - turn 1
   place village labels (on random maps)
-  droid menu (should be prestart)
   select game length (not anymore, removed)
 
 - new turn
@@ -55,12 +54,14 @@ Events, ordered by execution time:
 
 - turn refresh
   Ask player to select game mode
-  capitol mode / all village mode (if chosen)
+  capitol mode / all village mode / castle mode (if chosen)
   insert capture event (now after capitol mode won't trigger it) [priority=-1]
 
 - turn 1 refresh
   reveal leaders (for Alliances Mod)
   realm mode (if chosen); NEEDS to happen after the capture event was inserted
+  set_menu_item for restore menu
+  set_menu_item for recruit menus
 
 - turn 2
   place neutral units from selected theme [priority=1]
@@ -192,13 +193,19 @@ where the [label]color= key is not used. Instead one can set the color with Pang
 This macro from mainline sets only a label, but does not create the data structure.
 
 
-5) Realm Mode, Teleports and custom maps
+5) Realm Mode, Castle Mode, Teleports and custom maps
 
 Maps can have their own options, or they can set a variable in a prestart event.
 
 For Realm Mode:
 - Set the WML variable realmavailable to yes in a prestart event.
 - Add a scenario-specific turn 1 refresh event where you let players choose the region.
+
+For Castle Mode:
+- Set the WML variable castleavailable to yes in a prestart event.
+- Wales sets the variable existing_castles to yes, which avoids castle generation.
+- If you add an [event]name=destroy
+  It can be used to remove regions which are only reachable by ships.
 
 To use teleportation tunnels:
 - A scenario needs to create them with the [tunnel] tag.
