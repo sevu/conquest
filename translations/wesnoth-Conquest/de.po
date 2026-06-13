@@ -166,7 +166,7 @@ msgid ""
 msgstr ""
 " Herrscher-Modus\n"
 "Jeder Spieler wählt zu Beginn eine Region. In den\n"
-"verbleibende Städten spawnen neutrale Einheiten."
+"verbleibende Regionen spawnen neutrale Einheiten."
 
 #. [option]
 #. ideally title in one line and 2 more lines for the text.
@@ -189,6 +189,15 @@ msgid ""
 msgstr ""
 " Alle Städte Modus\n"
 "Alle Städte werden zufällig unter den Spieler aufgeteilt."
+
+#. [option]
+#: Conquest_Asterisk/macros/core_game_menu.cfg:98
+msgid ""
+" WESNOTH MODE\n"
+"Play with castle and leaders."
+msgstr ""
+" Wesnoth Gameplay\n"
+"Spielt mit Burg und Heerführern."
 
 #. Next 5 strings are for realm mode.
 #: Conquest_Asterisk/macros/core_game_menu.cfg:104
@@ -506,6 +515,12 @@ msgstr "Original (1G)"
 #: Conquest_Asterisk/macros/options.cfg:116
 msgid "Humans (random 1g,3g,5g)"
 msgstr "Menschen (zufällig 1G,3G,5G)"
+
+#. [item]
+#. none, disables this feature
+#: Conquest_Asterisk/macros/options.cfg:114
+msgid "None"
+msgstr "Keine"
 
 #. [item]
 #. one of the other options is chosen
