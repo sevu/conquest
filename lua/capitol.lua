@@ -62,12 +62,12 @@ function capitol()
 
 		-- Loop to retry with same settings.
 		for attempt=1,number_of_attempts,1 do
-			wesnoth.interface.delay(1)
-			if attempt == 1 then
-				wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Distance $d', {d=d}))
-			else
-				wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Distance $d, Attempt $k', {d=d, k=attempt}))
-			end
+			-- wesnoth.interface.delay(1)
+			-- if attempt == 1 then
+			-- wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Distance $d', {d=d}))
+			-- else
+			-- wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Distance $d, Attempt $k', {d=d, k=attempt}))
+			-- end
 
 			local taken_villages = {}
 
@@ -279,8 +279,8 @@ function capitol()
 
 				if not break_random_villa_cycle then
 					-- Failed to place this side several times. Abort.
-					wesnoth.interface.delay(1)
-					wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Placing side $n failed', {n=current_side}))
+					-- wesnoth.interface.delay(1)
+					-- wesnoth.interface.add_chat_message('Conquest',stringx.vformat(_'Placing side $n failed', {n=current_side}))
 
 					-- Reset villages of previous sides and start from scratch.
 					for l, v in ipairs(taken_villages) do
