@@ -8,7 +8,7 @@ function capitol()
 	local enemy_distance = wml.variables['CE_SYSTEM.min_distance'] or 12
 	local number_of_attempts = wml.variables['CE_SYSTEM.number_of_attempts'] or 1
 	local castle_mode = wml.variables.castle_mode
-	local existing_castles = wesnoth.scenario.id == 'Conquest_Wales'
+	local existing_castles = wml.variables.existing_castles
 
 
 	local function tunnel_distance_check(tunnel_exit, other_exit, taken_vils, distance_long, distance_start)
