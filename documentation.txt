@@ -30,7 +30,7 @@ Events, ordered by execution time:
   Various Lua things (have to be here)
 
 - prestart
-  setting variable for enabling realm mode
+  setting variables for enabling realm mode and castle mode
   setting variable "spawns_name" to display spawns theme on objectives
   lower gold by 5 down to 0 (in prestart so status table shows this changed value as initial value)
   set_menu_item for board/disembark boats
@@ -60,6 +60,7 @@ Events, ordered by execution time:
 - turn 1 refresh
   reveal leaders (for Alliances Mod)
   realm mode (if chosen); NEEDS to happen after the capture event was inserted
+  add micro ai to send everyone in radius 10 to empty villages (except if castle mode was chosen)
   set_menu_item for restore menu
   set_menu_item for recruit menus
 
