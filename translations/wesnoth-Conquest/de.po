@@ -199,6 +199,26 @@ msgstr ""
 " Wesnoth Gameplay\n"
 "Spielt mit Burg und Heerführern."
 
+#. [message]: speaker=narrator
+#: Conquest_Asterisk/macros/core_game_menu.cfg:106
+msgid "Spawns theme $CE_SYSTEM.spawns_name is too hard for this game mode."
+msgstr "$CE_SYSTEM.spawns_name ist zu schwer für diesen Spielmodus."
+
+#. [option]
+#: Conquest_Asterisk/macros/core_game_menu.cfg:113
+msgid "Play without neutrals."
+msgstr "Spielt ohne neutrale Einheiten."
+
+#. [option]
+#: Conquest_Asterisk/macros/core_game_menu.cfg:121
+msgid "Play with level 1 enemies."
+msgstr "Spielt mit Level 1 Gegnern."
+
+#. [option]
+#: Conquest_Asterisk/macros/core_game_menu.cfg:129
+msgid "Keep it anyway."
+msgstr "Behaltet die Schwierigkeitsstufe bei."
+
 #. Next 5 strings are for realm mode.
 #: Conquest_Asterisk/macros/core_game_menu.cfg:104
 msgid "Choose a Region"
